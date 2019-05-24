@@ -1,0 +1,16 @@
+SET_DMA_RESERVE_FFFFFF80081B6684[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv [32] ( 0b10010000000000000000000001100001 ) , addr:= 0xffffff80081b6684 }}
+    str_imm_gen_1       : Theory =    str_imm_gen       [ adrp_0.post              ]  {{Diag:= bv [32] ( 0b11111001000000101011010000100000 ) , addr:= 0xffffff80081b6688 }}
+    ret_2               : Theory =    ret               [ str_imm_gen_1.post       ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff80081b668c }}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END SET_DMA_RESERVE_FFFFFF80081B6684

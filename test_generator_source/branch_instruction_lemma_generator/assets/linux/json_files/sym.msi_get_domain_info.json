@@ -1,0 +1,69 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620796664, 
+                "ops": [
+                    {
+                        "bytes": "001040f9", 
+                        "disasm": "ldr x0, [x0, 0x20]", 
+                        "esil": "x0,32,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620796664, 
+                        "fcn_last": -549620796660, 
+                        "flags": [
+                            "sym.msi_get_domain_info"
+                        ], 
+                        "offset": -549620796664, 
+                        "opcode": "ldr x0, [x0, 0x20]", 
+                        "ptr": 32, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32, 
+                        "xrefs": [
+                            {
+                                "addr": -549620236504, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620229888, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549619776824, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620796664, 
+                        "fcn_last": -549620796660, 
+                        "offset": -549620796660, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.msi_get_domain_info", 
+        "nargs": 1, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549620796664, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

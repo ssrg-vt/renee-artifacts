@@ -1,0 +1,18 @@
+PCISTDCAPABILITY___PCISTDCAPABILITY_FFFFFFFF00015530[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv( 0b11111001010000000000010000000010 ) , addr:= 18446744055837066859}}
+    adrp_1              : Theory =    adrp              [ ldr_imm_gen_0.post       ]  {{Diag:= bv( 0b11010000000000000000011111000001 ) , addr:= 18446744055837066860}}
+    add_addsub_imm_2    : Theory =    add_addsub_imm    [ adrp_1.post              ]  {{Diag:= bv( 0b10010001000011111100000000100001 ) , addr:= 18446744055837066860}}
+    str_imm_gen_3       : Theory =    str_imm_gen       [ add_addsub_imm_2.post    ]  {{Diag:= bv( 0b11111001000000000000000000000001 ) , addr:= 18446744055837066860}}
+    cbz_4               : Theory =    cbz               [ str_imm_gen_3.post       ]  {{Diag:= bv( 0b10110100000000000000000010100010 ) , addr:= 18446744055837066861}}
+
+    B_post: s = cbz_4.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END PCISTDCAPABILITY___PCISTDCAPABILITY_FFFFFFFF00015530

@@ -1,0 +1,117 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620735464, 
+                "ops": [
+                    {
+                        "bytes": "21080090", 
+                        "disasm": "adrp x1, 0xffffff80081d6000", 
+                        "esil": "-549619671040,x1,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620735464, 
+                        "fcn_last": -549620735444, 
+                        "flags": [
+                            "loc._x_258", 
+                            "sym.jiffy_sched_clock_read"
+                        ], 
+                        "offset": -549620735464, 
+                        "opcode": "adrp x1, 0xffffff80081d6000", 
+                        "ptr": -549619671040, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "e0609b92", 
+                        "disasm": "movn x0, 0xdb07", 
+                        "esil": "56071,-1,^,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620735464, 
+                        "fcn_last": -549620735444, 
+                        "offset": -549620735460, 
+                        "opcode": "movn x0, 0xdb07", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9
+                    }, 
+                    {
+                        "bytes": "2000a0f2", 
+                        "disasm": "movk x0, 0x1, lsl 16", 
+                        "esil": "-4294901761,x0,&,65536,|,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620735464, 
+                        "fcn_last": -549620735444, 
+                        "offset": -549620735456, 
+                        "opcode": "movk x0, 0x1, lsl 16", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9
+                    }, 
+                    {
+                        "bytes": "214045f9", 
+                        "disasm": "ldr x1, [x1, 0xa80]", 
+                        "esil": "x1,2688,+,DUP,tmp,=,[8],x1,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620735464, 
+                        "fcn_last": -549620735444, 
+                        "offset": -549620735452, 
+                        "opcode": "ldr x1, [x1, 0xa80]", 
+                        "ptr": 2688, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "2000008b", 
+                        "disasm": "add x0, x1, x0", 
+                        "esil": "x0,x1,+,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620735464, 
+                        "fcn_last": -549620735444, 
+                        "offset": -549620735448, 
+                        "opcode": "add x0, x1, x0", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620735464, 
+                        "fcn_last": -549620735444, 
+                        "offset": -549620735444, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 24
+            }
+        ], 
+        "name": "sym.jiffy_sched_clock_read", 
+        "nargs": 1, 
+        "ninstr": 6, 
+        "nlocals": 0, 
+        "offset": -549620735464, 
+        "size": 24, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

@@ -1,0 +1,39 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620078072, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620078072, 
+                        "fcn_last": -549620078072, 
+                        "flags": [
+                            "sym.fprop_local_destroy_single"
+                        ], 
+                        "offset": -549620078072, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.fprop_local_destroy_single", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -549620078072, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

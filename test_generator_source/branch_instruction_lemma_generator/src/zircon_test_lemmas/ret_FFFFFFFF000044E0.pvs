@@ -1,0 +1,15 @@
+ret_FFFFFFFF000044E0      : THEORY
+    BEGIN
+    IMPORTING rsl@ret
+        X_sts : [ below(32) -> bvec[64] ]  = init`X ]
+
+        p    :  s = init with [`X:= X_sts]  with [ `PC := 18446744069414601952 ]
+
+    ret_0 : Theory = ret [ p ] {{Diag:= bv( 0b00000011110000001111101001101011 ) , addr:= 18446744069414601952}}
+
+%|- X_sts_TCC*      : PROOF
+%|- conc_test_1_TCC*: PROOF
+%|- test1_TCC1      : PROOF (eval-formula)
+%|- QED%|- test1 : PROOF ( ret ))
+%|- QED
+END ret_FFFFFFFF000044E0

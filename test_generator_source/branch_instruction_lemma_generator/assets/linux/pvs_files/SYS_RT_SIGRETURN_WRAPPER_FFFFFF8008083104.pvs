@@ -1,0 +1,15 @@
+SYS_RT_SIGRETURN_WRAPPER_FFFFFF8008083104[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    add_addsub_imm_0    : Theory =    add_addsub_imm    [ p0                       ]  {{Diag:= bv( 0b10010001000000000000001111100000 ) , addr:= 18446738260973561550}}
+    b_uncond_1          : Theory =    b_uncond          [ add_addsub_imm_0.post    ]  {{Diag:= bv( 0b00010100000000000000011010111010 ) , addr:= 18446738260973561550}}
+
+    B_post: s = b_uncond_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END SYS_RT_SIGRETURN_WRAPPER_FFFFFF8008083104

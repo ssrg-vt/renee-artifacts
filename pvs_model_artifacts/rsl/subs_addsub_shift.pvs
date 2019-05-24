@@ -1,0 +1,84 @@
+subs_addsub_shift[(IMPORTING arm_state) p : s]:THEORY
+
+	BEGIN
+	
+IMPORTING Basic_ASL_Types, Basic_ASL_Function
+
+        Diag: bvec[32]
+	addr: nat
+	IMPORTING bts[32], bt[32]
+
+	diag: Type+ = [# sf: bvec[1], op: bvec[1], S: bvec[1], Fixed1: bvec[5], shift: bvec[2], Fixed2: bvec[1], Rm: bvec[5], imm6: bvec[6], Rn: bvec[5], Rd: bvec[5] ,length: {n: nat|n = 32} #]
+	%D: diag
+	v: diag =  (# sf:= bt(Diag, 31 ) ,
+	op:= bt(Diag, 30 ) ,S:= bt(Diag, 29 ) ,Fixed1:= bts(Diag, 24, 28 ) ,shift:= bts(Diag, 22, 23 ) ,Fixed2:= bt(Diag, 21 ) ,Rm:= bts(Diag, 16, 20 ), imm6:= bts(Diag, 10, 15 ) ,Rn:= bts(Diag, 5, 9 ) ,Rd:= bts(Diag, 0, 4 ) , length:= 32 #)
+
+%|- diag_TCC* : PROOF (inst 1 "(# sf:= lambda(i:below(1)):false, op:= lambda(i:below(1)):false, S:= lambda(i:below(1)):false, Fixed1:= lambda(i:below(5)):false, shift:= lambda(i:below(2)):false, Fixed2:= lambda(i:below(1)):false, Rm:= lambda(i:below(5)):false, imm6:= lambda(i:below(6)):false, Rn:= lambda(i:below(5)):false, Rd:= lambda(i:below(5)):false, length:= 32 #)") QED
+
+
+IMPORTING UInt
+
+
+ d : int = UInt(5,v`Rd)
+ 
+ n : int = UInt(5 ,v`Rn)
+
+ m : below(32) = UInt(5,v`Rm)
+
+ datasize : int  =  64 % This can split according to v`sf but we only deal with A64 so we discard the other case. 
+
+ sub_op : bool = (v`op = bv( 0b01 ))
+
+ setflags : bool = ( v`S =  bv( 0b01 ) )
+
+
+%–
+
+p1 : s  =  if v`shift = bv( 0b11 ) then throw[s]("ReservedValue()") else  p  endif
+
+p2 : s  =  if v`sf = bv( 0b0) & v`imm6(5) = bv[1]( 0b1 )(0) then throw[s]("ReservedValue()") else p1 endif
+
+shift_type   : ShiftType = DecodeShift(v`shift)% must be added to the basic_func dic
+
+shift_amount : int = UInt(6 ,v`imm6)
+
+%—-
+%Operational
+
+
+ASL(po:s): type+ = [# result  : bvec[64],
+	   	      operand1: {bv : bvec[64]| bv = po`X(n)},
+		      operand2: bvec[64], %= ShiftReg(m,shift_type,shift_amount
+		      nzcv    : bvec[4],
+		      carry_in: bit
+	   	   #]
+		   
+sts1: ASL(p2)
+
+%init
+
+sts2: ASL(p2) = sts1 with [ operand2:= ShiftReg(64,p2`X(m), shift_type,shift_amount) ]
+
+
+
+sts3: ASL(p2) = if sub_op then sts2 with
+                    [operand2:= NOT sts2`operand2,
+		     carry_in:= true]
+                else sts2 with
+		    [carry_in:= false] endif
+
+
+IMPORTING AddWithCarry1
+
+sts4: ASL(p2) = sts3 with [ result:= AddWithCarry1(sts3`operand1, sts3`operand2, sts3`carry_in)`return,
+                            nzcv  := AddWithCarry1(sts3`operand1, sts3`operand2, sts3`carry_in)`nzcv ]
+
+
+p3: s = if setflags then p2 with
+      	    [`PSTATE`NZCV:= sts4`nzcv ]
+	else p2 endif
+
+
+post: s = p3 with [ `X(d):= sts4`result ]
+
+END subs_addsub_shift 

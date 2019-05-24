@@ -1,0 +1,71 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620193824, 
+                "ops": [
+                    {
+                        "bytes": "1f3400f9", 
+                        "disasm": "str xzr, [x0, 0x68]", 
+                        "esil": "xzr,0x68,x0,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620193824, 
+                        "fcn_last": -549620193816, 
+                        "flags": [
+                            "sym.null_lseek"
+                        ], 
+                        "offset": -549620193824, 
+                        "opcode": "str xzr, [x0, 0x68]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "000080d2", 
+                        "disasm": "movz x0, 0", 
+                        "esil": "0,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620193824, 
+                        "fcn_last": -549620193816, 
+                        "offset": -549620193820, 
+                        "opcode": "movz x0, 0", 
+                        "ptr": 0, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9, 
+                        "val": 0
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620193824, 
+                        "fcn_last": -549620193816, 
+                        "offset": -549620193816, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.null_lseek", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620193824, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

@@ -1,0 +1,18 @@
+isb[(IMPORTING arm_state) p: s]:THEORY
+
+	BEGIN
+
+	Diag: bvec[32]
+	addr: nat
+	IMPORTING bts[32], bt[32]
+
+	diag: Type+ = [# Fixed1: bvec[10], L: bvec[1], op0: bvec[2], op1: bvec[3], CRn: bvec[4], CRm: bvec[4], op2: bvec[3], Rt: bvec[5] ,length: {n: nat|n = 32} #]
+	D: diag
+	v: diag = D with [ Fixed1:= bts(Diag, 22, 31 ) ,L:= bt(Diag, 21 ) ,op0:= bts(Diag, 19, 20 ) ,op1:= bts(Diag, 16, 18 ) ,CRn:= bts(Diag, 12, 15 ) ,CRm:= bts(Diag, 8, 11 ) ,op2:= bts(Diag, 5, 7 ) ,Rt:= bts(Diag, 0, 4 ) , length:= 32 ]
+
+%|- diag_TCC* : PROOF (inst 1 "(# Fixed1:= lambda(i:below(10)):false, L:= lambda(i:below(1)):false, op0:= lambda(i:below(2)):false, op1:= lambda(i:below(3)):false, CRn:= lambda(i:below(4)):false, CRm:= lambda(i:below(4)):false, op2:= lambda(i:below(3)):false, Rt:= lambda(i:below(5)):false, length:= 32 #)") QED
+
+	%ASL constants declarations
+
+	  post: s = p
+END isb 

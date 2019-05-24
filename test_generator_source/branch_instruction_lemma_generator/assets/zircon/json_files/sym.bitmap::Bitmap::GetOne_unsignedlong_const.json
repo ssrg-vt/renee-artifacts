@@ -1,0 +1,105 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294949728, 
+                "ops": [
+                    {
+                        "bytes": "040040f9", 
+                        "disasm": "ldr x4, [x0]", 
+                        "esil": "x0,0,+,DUP,tmp,=,[8],x4,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294949728, 
+                        "fcn_last": -4294949712, 
+                        "flags": [
+                            "loc._x_61", 
+                            "sym.bitmap::Bitmap::GetOne_unsignedlong_const", 
+                            "method.bitmap::Bitmap.GetOne_unsignedlong_const"
+                        ], 
+                        "offset": -4294949728, 
+                        "opcode": "ldr x4, [x0]", 
+                        "ptr": 0, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "030080d2", 
+                        "disasm": "movz x3, 0", 
+                        "esil": "0,x3,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294949728, 
+                        "fcn_last": -4294949712, 
+                        "offset": -4294949724, 
+                        "opcode": "movz x3, 0", 
+                        "ptr": 0, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9, 
+                        "val": 0
+                    }, 
+                    {
+                        "bytes": "22040091", 
+                        "disasm": "add x2, x1, 1", 
+                        "esil": "1,x1,+,x2,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294949728, 
+                        "fcn_last": -4294949712, 
+                        "offset": -4294949720, 
+                        "opcode": "add x2, x1, 1", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "841040f9", 
+                        "disasm": "ldr x4, [x4, 0x20]", 
+                        "esil": "x4,32,+,DUP,tmp,=,[8],x4,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294949728, 
+                        "fcn_last": -4294949712, 
+                        "offset": -4294949716, 
+                        "opcode": "ldr x4, [x4, 0x20]", 
+                        "ptr": 32, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "80001fd6", 
+                        "disasm": "br x4", 
+                        "esil": "x4,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294949728, 
+                        "fcn_last": -4294949712, 
+                        "offset": -4294949712, 
+                        "opcode": "br x4", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ujmp", 
+                        "type2_num": 0, 
+                        "type_num": 2
+                    }
+                ], 
+                "size": 20
+            }
+        ], 
+        "name": "sym.bitmap::Bitmap::GetOne_unsignedlong_const", 
+        "nargs": 2, 
+        "ninstr": 5, 
+        "nlocals": 0, 
+        "offset": -4294949728, 
+        "size": 20, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

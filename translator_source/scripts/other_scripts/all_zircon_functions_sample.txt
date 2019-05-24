@@ -1,0 +1,19 @@
+0xffffffff00001000    1 108          sym.park_cpu_thread_void
+0xffffffff00001070    5 22240 -> 100  sym.platform_init_postvm_unsignedint
+0xffffffff00001080    3 140          sym.save_mexec_zbi_zbi_header_t
+0xffffffff00001110   34 632          sym.process_zbi_item_zbi_header_t__void__void
+0xffffffff00001390   16 204  -> 352  sym.platform_panic_start
+0xffffffff00001460    1 36           sym.platform_get_ramdisk
+0xffffffff00001490   14 364          sym.platform_halt_secondary_cpus
+0xffffffff00001600   16 600          sym.platform_early_init
+0xffffffff00001860    3 28   -> 44   sym.platform_dputs_thread
+0xffffffff00001880    3 24           sym.platform_dputs_irq
+0xffffffff000018a0    5 72           sym.platform_dgetc
+0xffffffff000018f0    3 24   -> 40   sym.platform_pputc
+0xffffffff00001910    5 64           sym.platform_pgetc
+0xffffffff00001950    1 8            sym.hw_rng_get_entropy
+0xffffffff00001960    1 8            sym.display_get_info
+0xffffffff00001970   14 236          sym.platform_halt
+0xffffffff00001a60    5 224          sym.platform_stow_crashlog
+0xffffffff00001b40   11 316          sym.platform_recover_crashlog
+0xffffffff00001c80    7 168          sym.platform_mexec_patch_zbi_unsignedchar__unsignedlong

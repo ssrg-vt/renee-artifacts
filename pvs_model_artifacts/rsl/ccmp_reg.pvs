@@ -1,0 +1,18 @@
+ccmp_reg [ ( IMPORTING arm_state ) p : s ] :THEORY
+
+	BEGIN
+
+	Diag: bvec[32]
+	addr: nat
+	IMPORTING bts[32], bt[32]
+
+	diag: Type+ = [# sf: bvec[1], op: bvec[1], S: bvec[1], Fixed1: bvec[8], Rm: bvec[5], cond_: bvec[4], Fixed2: bvec[1], o2: bvec[1], Rn: bvec[5], o3: bvec[1], nzcv: bvec[4] ,length: {n: nat|n = 32} #]
+	D: diag
+	v: diag = D with [ sf:= bt(Diag, 31 ) ,op:= bt(Diag, 30 ) ,S:= bt(Diag, 29 ) ,Fixed1:= bts(Diag, 21, 28 ) ,Rm:= bts(Diag, 16, 20 ) ,cond_:= bts(Diag, 12, 15 ) ,Fixed2:= bt(Diag, 11 ) ,o2:= bt(Diag, 10 ) ,Rn:= bts(Diag, 5, 9 ) ,o3:= bt(Diag, 4 ) ,nzcv:= bts(Diag, 0, 3 ) , length:= 32 ]
+
+%|- diag_TCC* : PROOF (inst 1 "(# sf:= lambda(i:below(1)):false, op:= lambda(i:below(1)):false, S:= lambda(i:below(1)):false, Fixed1:= lambda(i:below(8)):false, Rm:= lambda(i:below(5)):false, cond_:= lambda(i:below(4)):false, Fixed2:= lambda(i:below(1)):false, o2:= lambda(i:below(1)):false, Rn:= lambda(i:below(5)):false, o3:= lambda(i:below(1)):false, nzcv:= lambda(i:below(4)):false, length:= 32 #)") QED
+
+	%ASL constants declarations
+
+	  post: s = p
+END ccmp_reg 

@@ -1,0 +1,29 @@
+(ldr_imm_gen
+ (diag_TCC1 0
+  (diag_TCC1-1 nil 3744913258
+   (""
+    (inst 1
+     "(# size:= lambda(i:below(2)):false, Fixed1:= lambda(i:below(3)):false, V:= lambda(i:below(1)):false, Fixed2:= lambda(i:below(2)):false, opc:= lambda(i:below(2)):false, imm12:= lambda(i:below(12)):false, Rn:= lambda(i:below(5)):false, Rt:= lambda(i:below(5)):false, length:= 32 #)")
+    nil)
+   nil nil
+   (diag existence ""
+    "[# Fixed1: bv[3].bvec, Fixed2: bv[2].bvec, imm12: bv[12].bvec, length: {n: naturalnumbers.nat | n = 32}, opc: bv[2].bvec, Rn: bv[5].bvec, Rt: bv[5].bvec, size: bv[2].bvec, V: bv[1].bvec #]")))
+ (offset_TCC1 0
+  (offset_TCC1-1 nil 3755280580 ("" (grind) nil nil) nil nil
+   (offset subtype "ldr_imm_gen.scale" "subrange[0, 64]")))
+ (sts3_TCC1 0
+  (sts3_TCC1-1 nil 3766453061
+   ("" (subtype-tcc) (("" (grind) nil nil)) nil)
+   ((UInt const-decl "int" UInt nil)
+    (bts const-decl "bvec[n2 - n1 + 1]" bts nil))
+   nil (sts3 subtype "ldr_imm_gen.n" "naturalnumbers.below(32)")))
+ (u_TCC1 0
+  (u_TCC1-1 nil 3767439280 ("" (subtype-tcc) nil nil) nil nil
+   (u subtype "UInt.UInt(64, ldr_imm_gen.sts4`address)" "nat")))
+ (post_TCC1 0
+  (post_TCC1-1 nil 3766453061
+   ("" (subtype-tcc) (("" (grind) nil nil)) nil)
+   ((UInt const-decl "int" UInt nil)
+    (bts const-decl "bvec[n2 - n1 + 1]" bts nil))
+   nil (post subtype "ldr_imm_gen.t" "naturalnumbers.below(32)"))))
+

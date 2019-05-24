@@ -1,0 +1,14 @@
+SYS_SYSCALL_TEST_1_INT_FFFFFFFF0007C130[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ret_0               : Theory =    ret               [ p0                       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446744055837337336}}
+
+    B_post: s = ret_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END SYS_SYSCALL_TEST_1_INT_FFFFFFFF0007C130

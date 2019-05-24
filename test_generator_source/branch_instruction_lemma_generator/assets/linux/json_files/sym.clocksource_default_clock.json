@@ -1,0 +1,80 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549619802584, 
+                "ops": [
+                    {
+                        "bytes": "60010090", 
+                        "disasm": "adrp x0, 0xffffff80081e1000", 
+                        "esil": "-549619625984,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619802584, 
+                        "fcn_last": -549619802576, 
+                        "flags": [
+                            "sym.clocksource_default_clock"
+                        ], 
+                        "offset": -549619802584, 
+                        "opcode": "adrp x0, 0xffffff80081e1000", 
+                        "ptr": -549619625984, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33, 
+                        "xrefs": [
+                            {
+                                "addr": -549619803152, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549619802676, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "00401691", 
+                        "disasm": "add x0, x0, 0x590", 
+                        "esil": "1424,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619802584, 
+                        "fcn_last": -549619802576, 
+                        "offset": -549619802580, 
+                        "opcode": "add x0, x0, 0x590", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619802584, 
+                        "fcn_last": -549619802576, 
+                        "offset": -549619802576, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.clocksource_default_clock", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549619802584, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

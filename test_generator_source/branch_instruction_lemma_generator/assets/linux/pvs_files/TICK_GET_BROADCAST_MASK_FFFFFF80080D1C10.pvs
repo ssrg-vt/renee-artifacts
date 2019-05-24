@@ -1,0 +1,17 @@
+TICK_GET_BROADCAST_MASK_FFFFFF80080D1C10[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b10010000000000000000100100000000 ) , addr:= 18446738260974160128}}
+    add_addsub_imm_1    : Theory =    add_addsub_imm    [ adrp_0.post              ]  {{Diag:= bv( 0b10010001000000111010000000000000 ) , addr:= 18446738260974160128}}
+    add_addsub_imm_2    : Theory =    add_addsub_imm    [ add_addsub_imm_1.post    ]  {{Diag:= bv( 0b10010001000000000100000000000000 ) , addr:= 18446738260974160128}}
+    ret_3               : Theory =    ret               [ add_addsub_imm_2.post    ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974160231}}
+
+    B_post: s = ret_3.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END TICK_GET_BROADCAST_MASK_FFFFFF80080D1C10

@@ -1,0 +1,48 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "jump": -4294838080, 
+                "offset": -4294837760, 
+                "ops": [
+                    {
+                        "bytes": "b0ffff17", 
+                        "disasm": "b sym.arch_mp_cpu_unplug", 
+                        "esil": "-4294838080,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294837760, 
+                        "fcn_last": -4294837760, 
+                        "flags": [
+                            "loc._x_501", 
+                            "sym.platform_mp_cpu_unplug"
+                        ], 
+                        "jump": -4294838080, 
+                        "offset": -4294837760, 
+                        "opcode": "b 0xffffffff0001f8c0", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "jmp", 
+                        "type2_num": 0, 
+                        "type_num": 1, 
+                        "xrefs": [
+                            {
+                                "addr": -4294837424, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.platform_mp_cpu_unplug", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -4294837760, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

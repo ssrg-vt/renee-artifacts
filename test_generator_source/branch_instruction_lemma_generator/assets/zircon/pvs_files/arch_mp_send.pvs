@@ -1,0 +1,18 @@
+ARCH_MP_SEND_IPI_FFFFFFFF00007080[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    orr_log_shift_0     : Theory =    orr_log_shift     [ p0                       ]  {{Diag:= bv( 0b00101010000000010000001111100011 ) , addr:= 18446744069414613120}}
+    subs_addsub_imm_1   : Theory =    subs_addsub_imm   [ orr_log_shift_0.post     ]  {{Diag:= bv( 0b01110001000000000000010000011111 ) , addr:= 18446744069414613124}}
+    b_cond_2            : Theory =    b_cond            [ subs_addsub_imm_1.post   ]  {{Diag:= bv( 0b01010100000000000000000110100000 ) , addr:= 18446744069414613128}}
+
+    B_post: s = b_cond_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+ b_cond: lemma BranchTo_Address( target*** ) = fail// or// jump : bin(- 48888 ). 
+
+END ARCH_MP_SEND_IPI_FFFFFFFF00007080

@@ -1,0 +1,23 @@
+and_log_shift_test_manual  % [ parameters ]
+        : THEORY
+  BEGIN
+  IMPORTING arm_state
+      % prestate
+       X_sts : [ below(32) -> bvec[64] ]  = init`X  with [ (d):= bv(0b0101110100011010101100100000000000000000000000000000000000000000), % get 2 automatically
+                              (n):= bv(0b0000000000000000000000000000000000000000000000000000000000000000),% get n
+                              (m):= ] % get 1 autoamtically% m if m = n only choose one (e.g the m field should not be printed).
+                              
+                                                          
+      p    :  s = init with [`X:= X_sts] %PSTATE`NZVC:= bv(0b0011)]
+      
+      conc_test_1: Theory = and_log_shift[p]{{ Diag := bv(0b01000100000000001000000001010001) , addr:= 65536}} % we get diag automatically  
+                                                            
+      test1: lemma let X_post =  p`X with [ ( d ) := bv(0b0000000000000000000000000000000000000000000000000000000000000000)] in % 2 is d, here we have post Rd.
+                   let p2     =  p with [`X:= X_post] in %, PSTATE`NZVC:= bv(0b0010) ] in
+                                 conc_test_1.post`X(d) = p2`X(d) %and
+          % conc_test_1.post`NZVC =  p2`PSTATE`NZVC 
+%|- X_sts_TCC*: PROOF (eval-formula)
+%|-            QED
+%|- test1 : PROOF  ( and_log_shift )
+%|- QED
+  END and_log_shift_test_manual

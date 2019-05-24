@@ -1,0 +1,14 @@
+DRIVER_REMOVE_FILE_FFFFFF800815E378[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ret_0               : Theory =    ret               [ p0                       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974542489}}
+
+    B_post: s = ret_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END DRIVER_REMOVE_FILE_FFFFFF800815E378

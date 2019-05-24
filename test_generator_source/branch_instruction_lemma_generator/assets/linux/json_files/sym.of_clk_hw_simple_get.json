@@ -1,0 +1,54 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620207504, 
+                "ops": [
+                    {
+                        "bytes": "e00301aa", 
+                        "disasm": "mov x0, x1", 
+                        "esil": "x1,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620207504, 
+                        "fcn_last": -549620207500, 
+                        "flags": [
+                            "sym.of_clk_hw_simple_get"
+                        ], 
+                        "offset": -549620207504, 
+                        "opcode": "mov x0, x1", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620207504, 
+                        "fcn_last": -549620207500, 
+                        "offset": -549620207500, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.of_clk_hw_simple_get", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549620207504, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

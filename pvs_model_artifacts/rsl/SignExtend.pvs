@@ -1,0 +1,17 @@
+SignExtend  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+  %// SignExtend()
+  %//=====
+  IMPORTING Replicate, UInt, SInt
+  
+   SignExtend(M: posnat, N:{n: posnat| n >= M}, x : bvec[M]): bvec[N] = 
+
+     %assert N >= M;
+      (lambda(i:below(N - M)): x(M-1)) o x % // using Replicate(1, N - M, lambda(i:below(1)): x(M -1)) o x // x will be posted on the the left in pvsio.
+
+     % M: length of x,
+     % N: in many applications is 64 
+  END SignExtend

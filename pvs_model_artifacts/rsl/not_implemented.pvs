@@ -1,0 +1,11 @@
+not_implemented[(IMPORTING arm_state) p: s]:THEORY  % [ parameters ]
+	
+  BEGIN
+
+Diag:bvec[64]
+addr:nat % map the conversion in python to this
+ 
+	post: s = p
+  END not_implemented
+
+

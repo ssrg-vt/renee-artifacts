@@ -1,0 +1,94 @@
+str_imm_gen[ (IMPORTING arm_state) p : s ] : THEORY
+% unsigned offset
+
+	BEGIN
+
+
+	IMPORTING bts[32], bt[32], LSL, ZeroExtend, UInt, Basic_ASL_Types, Basic_ASL_Function, bitvectors@bv_adder, check_carry, SignExtend
+
+	diag : Type+ = [# size: bvec[2], Fixed1: bvec[3], V: bvec[1], Fixed2: bvec[2], opc: bvec[2], imm12: bvec[12], Rn: bvec[5], Rt: bvec[5] ,length: {n: nat|n = 32} #]
+
+        Diag :  bvec[32]  
+	addr : nat
+
+        D : diag
+	v : diag = D with [ size:= bts(Diag, 30, 31 ) ,Fixed1:= bts(Diag, 27, 29 ) ,V:= bt(Diag, 26 ) ,Fixed2:= bts(Diag, 24, 25 ) ,opc:= bts(Diag, 22, 23 ) ,imm12:= bts(Diag, 10, 21 ) ,Rn:= bts(Diag, 5, 9 ) ,Rt:= bts(Diag, 0, 4 ) , length:= 32 ]
+
+%|- diag_TCC* : PROOF (inst 1 "(# size:= lambda(i:below(2)):false, Fixed1:= lambda(i:below(3)):false, V:= lambda(i:below(1)):false, Fixed2:= lambda(i:below(2)):false, opc:= lambda(i:below(2)):false, imm12:= lambda(i:below(12)):false, Rn:= lambda(i:below(5)):false, Rt:= lambda(i:below(5)):false, length:= 32 #)") QED
+
+
+
+% ASL  declarations
+	
+% This is the third diag in this xml file.  
+
+ %wback     : bool  = FALSE % init at sts0
+ postindex : bool  = FALSE
+ scale     : int   = 3 %UInt(v`size) since it's 64 
+
+ offset : bvec[64] = LSL( 64, ZeroExtend(64,12,v`imm12), scale)
+
+ n           : int  = UInt(5 ,v`Rn)
+ t           : int  = UInt(5 ,v`Rt)
+ regsize     : int  = 64 % in our case.
+ acctype     : AccType = AccType_NORMAL
+ 
+ ASL(P0 : s ) : TYPE = [# memop  : MemOp,
+                          signed : bool,
+                          %regsize: { t : int | t = 64 }, % should be can beformalized as 64, as constant.
+			  wb_unknown : bool,
+			  rt_unknown : bool,
+			  wback : bool ,
+			  address : bvec[64],
+			  data : bvec[64]%%, bvec[datasize]
+			  %po : s % EndOfInstruction
+			#] % or 32, but in our case it's 64.
+
+sts  : ASL( p )
+
+sts0 : ASL( p ) = sts with [ wback:= false  ]    
+
+%Shared Decode
+
+sts1 : ASL(p) =  sts0 with [memop:= MemOp_STORE,  %% this instruction is store
+		            signed  := FALSE ]
+   
+datasize : int = 64 % 8 << 3 (scale is 3 in our case)
+
+% Operation 
+
+
+sts2 : ASL(p) = sts1 with [ wb_unknown := False,
+                            rt_unknown := False]
+			    %wback:= False ]
+  
+sts3 : ASL( p ) =
+ if  n = 31 %  check alignment assumed correct, we check align in python at extraction time from radare2 and Unicorn. 
+   then sts2 with [ address:= p`SP]
+ else sts2 with [ address:= p`X(n)]
+ endif     
+
+
+sts4 : ASL(p) =  sts3 with [ address :=  bv_adder[64](sts3`address, offset, check_carry?(64)(sts3`address, offset))]% may use int add. 
+
+%
+
+sts5 : ASL(p) = sts4 with [ data := p`X(t)] 
+
+
+u : nat = UInt(64, sts4`address)
+
+
+p1 : s =   p with [ `Mem( UInt(64, sts4`address)) := sts5`data ]% acctype, size are both set to 8, normal  for this instruction. 
+
+
+post : s  =   if  n = 31
+                   then p1 with [ `SP  := sts5`address  ] % review this. 
+	       else    p1 with [ `X(n):= sts5`address  ]
+               endif
+	     
+
+END str_imm_gen 
+
+
+

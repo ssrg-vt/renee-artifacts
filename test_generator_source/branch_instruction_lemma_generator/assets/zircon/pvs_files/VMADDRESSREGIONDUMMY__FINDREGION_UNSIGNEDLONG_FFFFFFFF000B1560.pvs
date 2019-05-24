@@ -1,0 +1,16 @@
+VMADDRESSREGIONDUMMY__FINDREGION_UNSIGNEDLONG_FFFFFFFF000B1560[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    orr_log_shift_0     : Theory =    orr_log_shift     [ p0                       ]  {{Diag:= bv( 0b10101010000010000000001111100000 ) , addr:= 18446744055837474670}}
+    str_imm_gen_1       : Theory =    str_imm_gen       [ orr_log_shift_0.post     ]  {{Diag:= bv( 0b11111001000000000000000100011111 ) , addr:= 18446744055837474670}}
+    ret_2               : Theory =    ret               [ str_imm_gen_1.post       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446744055837474670}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END VMADDRESSREGIONDUMMY__FINDREGION_UNSIGNEDLONG_FFFFFFFF000B1560

@@ -1,0 +1,70 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620805072, 
+                "ops": [
+                    {
+                        "bytes": "610900f0", 
+                        "disasm": "adrp x1, 0xffffff80081f0000", 
+                        "esil": "-549619564544,x1,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620805072, 
+                        "fcn_last": -549620805064, 
+                        "flags": [
+                            "sym.irq_set_default_host"
+                        ], 
+                        "offset": -549620805072, 
+                        "opcode": "adrp x1, 0xffffff80081f0000", 
+                        "ptr": -549619564544, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "200406f9", 
+                        "disasm": "str x0, [x1, 0xc08]", 
+                        "esil": "x0,0xc08,x1,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620805072, 
+                        "fcn_last": -549620805064, 
+                        "offset": -549620805068, 
+                        "opcode": "str x0, [x1, 0xc08]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620805072, 
+                        "fcn_last": -549620805064, 
+                        "offset": -549620805064, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.irq_set_default_host", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620805072, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

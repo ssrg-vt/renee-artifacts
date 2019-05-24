@@ -1,0 +1,15 @@
+TO_MNT_NS_FFFFFF8008127288[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    sub_addsub_imm_0    : Theory =    sub_addsub_imm    [ p0                       ]  {{Diag:= bv( 0b11010001000000000010000000000000 ) , addr:= 18446738260974401767}}
+    ret_1               : Theory =    ret               [ sub_addsub_imm_0.post    ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974401768}}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END TO_MNT_NS_FFFFFF8008127288

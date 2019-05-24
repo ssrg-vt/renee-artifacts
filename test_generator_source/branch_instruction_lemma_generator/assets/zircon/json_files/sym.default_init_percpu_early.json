@@ -1,0 +1,40 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294412208, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294412208, 
+                        "fcn_last": -4294412208, 
+                        "flags": [
+                            "loc._x_1769", 
+                            "sym.default_init_percpu_early"
+                        ], 
+                        "offset": -4294412208, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.default_init_percpu_early", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -4294412208, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

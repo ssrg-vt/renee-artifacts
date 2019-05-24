@@ -1,0 +1,14 @@
+F__CLK_GET_NAME_FFFFFF8008151978[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    cbz_0               : Theory =    cbz               [ p0                       ]  {{Diag:= bv [32] ( 0b10110100000000000000000010000000 ) , addr:= 0xffffff8008151978 ,next:= 0xffffff8008151988 ,fail:= 0xffffff800815197c }}
+
+    B_post: s = cbz_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END F__CLK_GET_NAME_FFFFFF8008151978

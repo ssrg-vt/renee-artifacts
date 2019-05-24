@@ -1,0 +1,88 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294949680, 
+                "ops": [
+                    {
+                        "bytes": "030040f9", 
+                        "disasm": "ldr x3, [x0]", 
+                        "esil": "x0,0,+,DUP,tmp,=,[8],x3,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294949680, 
+                        "fcn_last": -4294949668, 
+                        "flags": [
+                            "loc._x_63", 
+                            "sym.bitmap::Bitmap::ClearOne_unsignedlong", 
+                            "method.bitmap::Bitmap.ClearOne_unsignedlong"
+                        ], 
+                        "offset": -4294949680, 
+                        "opcode": "ldr x3, [x0]", 
+                        "ptr": 0, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "22040091", 
+                        "disasm": "add x2, x1, 1", 
+                        "esil": "1,x1,+,x2,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294949680, 
+                        "fcn_last": -4294949668, 
+                        "offset": -4294949676, 
+                        "opcode": "add x2, x1, 1", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "632040f9", 
+                        "disasm": "ldr x3, [x3, 0x40]", 
+                        "esil": "x3,64,+,DUP,tmp,=,[8],x3,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294949680, 
+                        "fcn_last": -4294949668, 
+                        "offset": -4294949672, 
+                        "opcode": "ldr x3, [x3, 0x40]", 
+                        "ptr": 64, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "60001fd6", 
+                        "disasm": "br x3", 
+                        "esil": "x3,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294949680, 
+                        "fcn_last": -4294949668, 
+                        "offset": -4294949668, 
+                        "opcode": "br x3", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ujmp", 
+                        "type2_num": 0, 
+                        "type_num": 2
+                    }
+                ], 
+                "size": 16
+            }
+        ], 
+        "name": "sym.bitmap::Bitmap::ClearOne_unsignedlong", 
+        "nargs": 2, 
+        "ninstr": 4, 
+        "nlocals": 0, 
+        "offset": -4294949680, 
+        "size": 16, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

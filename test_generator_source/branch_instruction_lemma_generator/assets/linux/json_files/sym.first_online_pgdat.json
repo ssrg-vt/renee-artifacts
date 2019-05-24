@@ -1,0 +1,169 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620640392, 
+                "ops": [
+                    {
+                        "bytes": "c00700f0", 
+                        "disasm": "adrp x0, 0xffffff80081e4000", 
+                        "esil": "-549619613696,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620640392, 
+                        "fcn_last": -549620640384, 
+                        "flags": [
+                            "loc._x_289", 
+                            "sym.first_online_pgdat"
+                        ], 
+                        "offset": -549620640392, 
+                        "opcode": "adrp x0, 0xffffff80081e4000", 
+                        "ptr": -549619613696, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33, 
+                        "xrefs": [
+                            {
+                                "addr": -549620702400, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620702252, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620700112, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620695312, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620686560, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620686296, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620686116, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620686032, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620685820, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620685124, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620685084, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620684560, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620639924, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620639468, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620639344, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620638884, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620638792, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620635488, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620635360, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620048780, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549619800792, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549619800556, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549619800512, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549619792620, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "00002a91", 
+                        "disasm": "add x0, x0, 0xa80", 
+                        "esil": "2688,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620640392, 
+                        "fcn_last": -549620640384, 
+                        "offset": -549620640388, 
+                        "opcode": "add x0, x0, 0xa80", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620640392, 
+                        "fcn_last": -549620640384, 
+                        "offset": -549620640384, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.first_online_pgdat", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620640392, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

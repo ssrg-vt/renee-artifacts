@@ -1,0 +1,56 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294905728, 
+                "ops": [
+                    {
+                        "bytes": "00a02791", 
+                        "disasm": "add x0, x0, 0x9e8", 
+                        "esil": "2536,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294905728, 
+                        "fcn_last": -4294905724, 
+                        "flags": [
+                            "loc._x_238", 
+                            "sym.PcieBridge::pf_mmio_regions", 
+                            "method.PcieBridge.pf_mmio_regions"
+                        ], 
+                        "offset": -4294905728, 
+                        "opcode": "add x0, x0, 0x9e8", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294905728, 
+                        "fcn_last": -4294905724, 
+                        "offset": -4294905724, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.PcieBridge::pf_mmio_regions", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -4294905728, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

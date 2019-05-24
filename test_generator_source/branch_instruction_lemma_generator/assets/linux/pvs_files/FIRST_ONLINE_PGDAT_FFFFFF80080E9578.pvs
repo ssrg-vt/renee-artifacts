@@ -1,0 +1,16 @@
+FIRST_ONLINE_PGDAT_FFFFFF80080E9578[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b11110000000000000000011111000000 ) , addr:= 18446738260974223303}}
+    add_addsub_imm_1    : Theory =    add_addsub_imm    [ adrp_0.post              ]  {{Diag:= bv( 0b10010001001010100000000000000000 ) , addr:= 18446738260974223304}}
+    ret_2               : Theory =    ret               [ add_addsub_imm_1.post    ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974223304}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END FIRST_ONLINE_PGDAT_FFFFFF80080E9578

@@ -1,0 +1,17 @@
+TASK_USER_REGSET_VIEW_FFFFFF80080842C0[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv [32] ( 0b10010000000000000000100001100000 ) , addr:= 0xffffff80080842c0 }}
+    add_addsub_imm_1    : Theory =    add_addsub_imm    [ adrp_0.post              ]  {{Diag:= bv [32] ( 0b10010001000001010000000000000000 ) , addr:= 0xffffff80080842c4 }}
+    add_addsub_imm_2    : Theory =    add_addsub_imm    [ add_addsub_imm_1.post    ]  {{Diag:= bv [32] ( 0b10010001000010010000000000000000 ) , addr:= 0xffffff80080842c8 }}
+    ret_3               : Theory =    ret               [ add_addsub_imm_2.post    ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff80080842cc }}
+
+    B_post: s = ret_3.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END TASK_USER_REGSET_VIEW_FFFFFF80080842C0

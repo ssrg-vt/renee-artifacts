@@ -1,0 +1,18 @@
+TEST_SUBS_ADDSUD_SHIFT      : THEORY
+      BEGIN
+      IMPORTING arm_state
+      X_sts : [ below(32) -> bvec[64] ]  = init`X  with [(2):=bv(0b0100000000000000000000000000000000000000000000000000000000000000),
+							 (5):=bv(0b0000000000000000000000000000000000000000000000000000000000000000)]
+
+      p1    :  s = init with [`X:= X_sts, `NZVC:=bv( 0b0000 ),`PC:=65536]
+      importing concrete_test_subsaddsubshift[p1]{{Diag:=bv(0b01000010000000001010000011010111), addr:=65536}}
+
+      test1: lemma let X_post =  p1`X with [ (2):=bv(0b0100000000000000000000000000000000000000000000000000000000000000)] in
+
+          let p2     =  p1 with [`X:= X_post, `NZVC:= bv( 0b0010) , `PC:= 65540  ] in
+
+          concrete_test_subsaddsubshift[p1].post`X(2) = p2`X(2)
+
+%|- test1 : PROOF  (test-subs-addsub-shift 2)  
+%|- QED
+END TEST_SUBS_ADDSUD_SHIFT

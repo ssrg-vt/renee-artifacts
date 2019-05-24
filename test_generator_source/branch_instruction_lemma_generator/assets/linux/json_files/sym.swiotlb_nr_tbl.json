@@ -1,0 +1,72 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620259568, 
+                "ops": [
+                    {
+                        "bytes": "600500f0", 
+                        "disasm": "adrp x0, 0xffffff80081f5000", 
+                        "esil": "-549619544064,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620259568, 
+                        "fcn_last": -549620259560, 
+                        "flags": [
+                            "loc._x_453", 
+                            "sym.swiotlb_nr_tbl"
+                        ], 
+                        "offset": -549620259568, 
+                        "opcode": "adrp x0, 0xffffff80081f5000", 
+                        "ptr": -549619544064, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "005444f9", 
+                        "disasm": "ldr x0, [x0, 0x8a8]", 
+                        "esil": "x0,2216,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620259568, 
+                        "fcn_last": -549620259560, 
+                        "offset": -549620259564, 
+                        "opcode": "ldr x0, [x0, 0x8a8]", 
+                        "ptr": 2216, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620259568, 
+                        "fcn_last": -549620259560, 
+                        "offset": -549620259560, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.swiotlb_nr_tbl", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620259568, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

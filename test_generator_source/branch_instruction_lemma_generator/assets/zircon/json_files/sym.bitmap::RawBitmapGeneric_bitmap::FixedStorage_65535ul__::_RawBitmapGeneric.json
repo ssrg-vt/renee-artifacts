@@ -1,0 +1,40 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294949664, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294949664, 
+                        "fcn_last": -4294949664, 
+                        "flags": [
+                            "loc._x_64", 
+                            "sym.bitmap::RawBitmapGeneric_bitmap::FixedStorage_65535ul__::_RawBitmapGeneric"
+                        ], 
+                        "offset": -4294949664, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.bitmap::RawBitmapGeneric_bitmap::FixedStorage_65535ul__::_RawBitmapGeneric", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -4294949664, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

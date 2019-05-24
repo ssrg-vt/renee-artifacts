@@ -1,0 +1,64 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549619786732, 
+                "ops": [
+                    {
+                        "bytes": "e00302aa", 
+                        "disasm": "mov x0, x2", 
+                        "esil": "x2,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619786732, 
+                        "fcn_last": -549619786728, 
+                        "flags": [
+                            "sym.early_memremap_pgprot_adjust"
+                        ], 
+                        "offset": -549619786732, 
+                        "opcode": "mov x0, x2", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9, 
+                        "xrefs": [
+                            {
+                                "addr": -549619786308, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549619786248, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619786732, 
+                        "fcn_last": -549619786728, 
+                        "offset": -549619786728, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.early_memremap_pgprot_adjust", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549619786732, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

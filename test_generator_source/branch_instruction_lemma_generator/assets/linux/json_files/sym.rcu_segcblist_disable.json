@@ -1,0 +1,70 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620771072, 
+                "ops": [
+                    {
+                        "bytes": "012440f9", 
+                        "disasm": "ldr x1, [x0, 0x48]", 
+                        "esil": "x0,72,+,DUP,tmp,=,[8],x1,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620771072, 
+                        "fcn_last": -549620771064, 
+                        "flags": [
+                            "sym.rcu_segcblist_disable"
+                        ], 
+                        "offset": -549620771072, 
+                        "opcode": "ldr x1, [x0, 0x48]", 
+                        "ptr": 72, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "1f1000f9", 
+                        "disasm": "str xzr, [x0, 0x20]", 
+                        "esil": "xzr,0x20,x0,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620771072, 
+                        "fcn_last": -549620771064, 
+                        "offset": -549620771068, 
+                        "opcode": "str xzr, [x0, 0x20]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620771072, 
+                        "fcn_last": -549620771064, 
+                        "offset": -549620771064, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.rcu_segcblist_disable", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620771072, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

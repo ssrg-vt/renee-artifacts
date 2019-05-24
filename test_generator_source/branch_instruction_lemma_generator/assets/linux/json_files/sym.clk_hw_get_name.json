@@ -1,0 +1,71 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620213360, 
+                "ops": [
+                    {
+                        "bytes": "000040f9", 
+                        "disasm": "ldr x0, [x0]", 
+                        "esil": "x0,0,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620213360, 
+                        "fcn_last": -549620213352, 
+                        "flags": [
+                            "sym.clk_hw_get_name"
+                        ], 
+                        "offset": -549620213360, 
+                        "opcode": "ldr x0, [x0]", 
+                        "ptr": 0, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "000040f9", 
+                        "disasm": "ldr x0, [x0]", 
+                        "esil": "x0,0,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620213360, 
+                        "fcn_last": -549620213352, 
+                        "offset": -549620213356, 
+                        "opcode": "ldr x0, [x0]", 
+                        "ptr": 0, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620213360, 
+                        "fcn_last": -549620213352, 
+                        "offset": -549620213352, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.clk_hw_get_name", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620213360, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

@@ -1,0 +1,15 @@
+DUMMYIOMMU__ASPACE_SIZE_UNSIGNEDLONG_FFFFFFFF0000B880[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    movn_0              : Theory =    movn              [ p0                       ]  {{Diag:= bv( 0b10010010100000000000000000000000 ) , addr:= 18446744055837024250}}
+    ret_1               : Theory =    ret               [ movn_0.post              ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446744055837024250}}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END DUMMYIOMMU__ASPACE_SIZE_UNSIGNEDLONG_FFFFFFFF0000B880

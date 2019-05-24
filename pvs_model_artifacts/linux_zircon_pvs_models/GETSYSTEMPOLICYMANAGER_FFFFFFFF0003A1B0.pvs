@@ -1,0 +1,16 @@
+GETSYSTEMPOLICYMANAGER_FFFFFFFF0003A1B0[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv [32] ( 0b11110000000000000000100110100000 ) , addr:= 0xffffffff0003a1b0 }}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ adrp_0.post              ]  {{Diag:= bv [32] ( 0b11111001010001011111000000000000 ) , addr:= 0xffffffff0003a1b4 }}
+    ret_2               : Theory =    ret               [ ldr_imm_gen_1.post       ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffffff0003a1b8 }}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END GETSYSTEMPOLICYMANAGER_FFFFFFFF0003A1B0

@@ -1,0 +1,82 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294729296, 
+                "ops": [
+                    {
+                        "bytes": "a00900f0", 
+                        "disasm": "adrp x0, 0xffffffff00171000", 
+                        "esil": "-4293455872,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294729296, 
+                        "fcn_last": -4294729288, 
+                        "flags": [
+                            "loc._x_888", 
+                            "sym.GetSystemPolicyManager"
+                        ], 
+                        "offset": -4294729296, 
+                        "opcode": "adrp x0, 0xffffffff00171000", 
+                        "ptr": -4293455872, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33, 
+                        "xrefs": [
+                            {
+                                "addr": -4294715072, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294667516, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "00f045f9", 
+                        "disasm": "ldr x0, [x0, 0xbe0]", 
+                        "esil": "x0,3040,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294729296, 
+                        "fcn_last": -4294729288, 
+                        "offset": -4294729292, 
+                        "opcode": "ldr x0, [x0, 0xbe0]", 
+                        "ptr": 3040, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294729296, 
+                        "fcn_last": -4294729288, 
+                        "offset": -4294729288, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.GetSystemPolicyManager", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -4294729296, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

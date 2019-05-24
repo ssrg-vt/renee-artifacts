@@ -1,0 +1,16 @@
+EL2_HVC_SYSREG_FFFFFFFF000D1004[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adr_0               : Theory =    adr               [ p0                       ]  {{Diag:= bv( 0b00010000000000000000000001101001 ) , addr:= 18446744055837552350}}
+    add_addsub_shift_1  : Theory =    add_addsub_shift  [ adr_0.post               ]  {{Diag:= bv( 0b10001011000000110000110100101001 ) , addr:= 18446744055837552350}}
+    br_2                : Theory =    br                [ add_addsub_shift_1.post  ]  {{Diag:= bv( 0b11010110000111110000000100100000 ) , addr:= 18446744055837552350}}
+
+    B_post: s = br_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END EL2_HVC_SYSREG_FFFFFFFF000D1004

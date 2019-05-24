@@ -1,0 +1,35 @@
+concrete_test_subsaddsubshift [(IMPORTING arm_state) p: s ]
+		: THEORY
+
+  BEGIN
+
+  %subs_addsub_shift[(IMPORTING arm_state) p: s]:THEORY
+
+%^	BEGIN
+
+	Diag: bvec[32]
+	addr: nat
+	IMPORTING bts[32], bt[32]
+
+	diag: Type+ = [# sf: bvec[1], op: bvec[1], S: bvec[1], Fixed1: bvec[5], shift: bvec[2], Fixed2: bvec[1], Rm: bvec[5], imm6: bvec[6], Rn: bvec[5], Rd: bvec[5] ,length: {n: nat|n = 32} #]
+	%D: diag
+	v: diag = (# sf:= bv( 0b1 ) ,op:= bv( 0b1 ) ,S:= bv( 0b1 ) ,Fixed1:= bv( 0b11010 ) ,shift:= bv( 0b00 ) ,Fixed2:= bv( 0b0 ) ,Rm:= bv( 0b10100 ) ,imm6:= bv( 0b000000 ) ,Rn:= bv( 0b01000 ) ,Rd:= bv( 0b01000 ) , length:= 32 #)
+
+%|- diag_TCC* : PROOF (inst 1 "(# sf:= lambda(i:below(1)):false, op:= lambda(i:below(1)):false, S:= lambda(i:below(1)):false, Fixed1:= lambda(i:below(5)):false, shift:= lambda(i:below(2)):false, Fixed2:= lambda(i:below(1)):false, Rm:= lambda(i:below(5)):false, imm6:= lambda(i:below(6)):false, Rn:= lambda(i:below(5)):false, Rd:= lambda(i:below(5)):false, length:= 32 #)") QED
+
+	%ASL constants declarations
+IMPORTING UInt
+
+	d : int = UInt(5,v`Rd)% in python convert the value of Rd into integer and put it here 
+	n : int = UInt(5,v`Rn)
+	m : int = UInt(5,v`Rm)
+	datasize : int  = 64
+
+        sub_op : bool   = ( v`op = bv ( 0b1 ) )
+	setflags : bool = ( v`
+	S = bv ( 0b1 ) )
+
+ post: s = p
+%END subs_addsub_shift 
+
+  END concrete_test_subsaddsubshift

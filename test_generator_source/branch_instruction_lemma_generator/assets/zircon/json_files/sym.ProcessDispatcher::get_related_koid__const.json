@@ -1,0 +1,73 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294675472, 
+                "ops": [
+                    {
+                        "bytes": "003040f9", 
+                        "disasm": "ldr x0, [x0, 0x60]", 
+                        "esil": "x0,96,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294675472, 
+                        "fcn_last": -4294675464, 
+                        "flags": [
+                            "loc._x_1061", 
+                            "sym.ProcessDispatcher::get_related_koid__const", 
+                            "method.ProcessDispatcher.get_related_koid__const"
+                        ], 
+                        "offset": -4294675472, 
+                        "opcode": "ldr x0, [x0, 0x60]", 
+                        "ptr": 96, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "000840f9", 
+                        "disasm": "ldr x0, [x0, 0x10]", 
+                        "esil": "x0,16,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294675472, 
+                        "fcn_last": -4294675464, 
+                        "offset": -4294675468, 
+                        "opcode": "ldr x0, [x0, 0x10]", 
+                        "ptr": 16, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294675472, 
+                        "fcn_last": -4294675464, 
+                        "offset": -4294675464, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.ProcessDispatcher::get_related_koid__const", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -4294675472, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

@@ -1,0 +1,56 @@
+(lp0
+S'% not implemented::accessor: bits(size*8) Mem[bits(64) address, integer size, AccType acctype]\n'
+p1
+aS'CheckFPAdvSIMDEnabled64()\n'
+p2
+aS'UnallocatedEncoding()\n'
+p3
+aS'% not implemented::accessor: bits(width) X[integer n]\n'
+p4
+aS'UInt (x : bvec [N]) : [int]\n'
+p5
+aS'Prefetch (address : bvec [64] , prfop : bvec [5]) : []\n'
+p6
+aS'SignExtend (x : bvec [M] , N : int) : [bvec [N]]\n'
+p7
+aS'% not implemented::accessor: bits(width) SP[]\n'
+p8
+aS'LSL (x : bvec [N] , shift : int) : [bvec [N]]\n'
+p9
+aS'ConstrainUnpredictable (which : Unpredictable) : [Constraint]\n'
+p10
+aS'% not implemented::accessor: X[integer n] = bits(width) value\n'
+p11
+aS'% not implemented::accessor: V[integer n] = bits(width) value\n'
+p12
+aS'EndOfInstruction()\n'
+p13
+aS'ZeroExtend (x : bvec [M] , N : int) : [bvec [N]]\n'
+p14
+aS'% not implemented::accessor: Mem[bits(64) address, integer size, AccType acctype] = bits(size*8) value\n'
+p15
+aS'% not implemented::accessor: SP[] = bits(width) value\n'
+p16
+aS'CheckSPAlignment()\n'
+p17
+aS'% not implemented::accessor: bits(width) V[integer n]\n'
+p18
+aS'% not implemented::accessor: bits(64) PC[]\n'
+p19
+aS'BranchTo (target : bvec [N] , branch_type : BranchType) : []\n'
+p20
+aS'ConditionHolds (cond_ : bvec [4]) : [bool]\n'
+p21
+aS'DecodeShift (op : bvec [2]) : [ShiftType]\n'
+p22
+aS'AddWithCarry (x : bvec [N] , y : bvec [N] , carry_in : bool) : [bvec [N] , bvec [4]]\n'
+p23
+aS'NOT (x : bvec [N]) : [bvec [N]]\n'
+p24
+aS'ShiftReg (reg : int , type_ : ShiftType , amount : int) : [bvec [N]]\n'
+p25
+aS'ReservedValue()\n'
+p26
+aS'Zeros (N : int) : [bvec [N]]\n'
+p27
+a.

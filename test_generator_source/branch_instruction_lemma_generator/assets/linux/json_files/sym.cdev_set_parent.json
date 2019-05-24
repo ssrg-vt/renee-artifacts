@@ -1,0 +1,54 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620493536, 
+                "ops": [
+                    {
+                        "bytes": "010c00f9", 
+                        "disasm": "str x1, [x0, 0x18]", 
+                        "esil": "x1,0x18,x0,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620493536, 
+                        "fcn_last": -549620493532, 
+                        "flags": [
+                            "sym.cdev_set_parent"
+                        ], 
+                        "offset": -549620493536, 
+                        "opcode": "str x1, [x0, 0x18]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620493536, 
+                        "fcn_last": -549620493532, 
+                        "offset": -549620493532, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.cdev_set_parent", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549620493536, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

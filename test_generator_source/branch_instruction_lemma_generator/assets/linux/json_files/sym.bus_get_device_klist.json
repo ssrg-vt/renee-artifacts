@@ -1,0 +1,70 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620166648, 
+                "ops": [
+                    {
+                        "bytes": "004840f9", 
+                        "disasm": "ldr x0, [x0, 0x90]", 
+                        "esil": "x0,144,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620166648, 
+                        "fcn_last": -549620166640, 
+                        "flags": [
+                            "sym.bus_get_device_klist"
+                        ], 
+                        "offset": -549620166648, 
+                        "opcode": "ldr x0, [x0, 0x90]", 
+                        "ptr": 144, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "00800291", 
+                        "disasm": "add x0, x0, 0xa0", 
+                        "esil": "160,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620166648, 
+                        "fcn_last": -549620166640, 
+                        "offset": -549620166644, 
+                        "opcode": "add x0, x0, 0xa0", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620166648, 
+                        "fcn_last": -549620166640, 
+                        "offset": -549620166640, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.bus_get_device_klist", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620166648, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

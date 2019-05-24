@@ -1,0 +1,80 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549619817592, 
+                "ops": [
+                    {
+                        "bytes": "c1010090", 
+                        "disasm": "adrp x1, obj.reset_devices", 
+                        "esil": "-549619589120,x1,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619817592, 
+                        "fcn_last": -549619817584, 
+                        "flags": [
+                            "sym.set_smp_cross_call"
+                        ], 
+                        "offset": -549619817592, 
+                        "opcode": "adrp x1, 0xffffff80081ea000", 
+                        "ptr": -549619589120, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33, 
+                        "xrefs": [
+                            {
+                                "addr": -549619782320, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549619779604, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "202c02f9", 
+                        "disasm": "str x0, [x1, 0x458]", 
+                        "esil": "x0,0x458,x1,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619817592, 
+                        "fcn_last": -549619817584, 
+                        "offset": -549619817588, 
+                        "opcode": "str x0, [x1, 0x458]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619817592, 
+                        "fcn_last": -549619817584, 
+                        "offset": -549619817584, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.set_smp_cross_call", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549619817592, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

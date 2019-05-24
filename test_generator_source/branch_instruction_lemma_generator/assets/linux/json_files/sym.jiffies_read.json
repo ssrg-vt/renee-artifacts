@@ -1,0 +1,72 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620746768, 
+                "ops": [
+                    {
+                        "bytes": "200800f0", 
+                        "disasm": "adrp x0, 0xffffff80081d6000", 
+                        "esil": "-549619671040,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620746768, 
+                        "fcn_last": -549620746760, 
+                        "flags": [
+                            "loc._x_244", 
+                            "sym.jiffies_read"
+                        ], 
+                        "offset": -549620746768, 
+                        "opcode": "adrp x0, 0xffffff80081d6000", 
+                        "ptr": -549619671040, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "004045f9", 
+                        "disasm": "ldr x0, [x0, 0xa80]", 
+                        "esil": "x0,2688,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620746768, 
+                        "fcn_last": -549620746760, 
+                        "offset": -549620746764, 
+                        "opcode": "ldr x0, [x0, 0xa80]", 
+                        "ptr": 2688, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620746768, 
+                        "fcn_last": -549620746760, 
+                        "offset": -549620746760, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.jiffies_read", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620746768, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

@@ -1,0 +1,18 @@
+UInt %[N : nat ]
+		: THEORY
+
+  BEGIN
+
+%IMPORTING structures @ for_iterate
+
+ UInt(N : nat, x : bvec[N] ): int = bv2nat[N](x)
+
+
+% allows direct use of lemma bv2nat_rec_bound < exp2, useful to discharge many tccs.  
+% Another def could be for(0 , N - 1 , 0 , lambda(i:below(N), result: nat):
+%                                f x(i) = true then  result + exp2(i)  else  0 * exp2(i) + result endif)% used to be 2^i
+
+% use the bv2nat_bound lemma for UInt < 2^n
+
+
+  END UInt

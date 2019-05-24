@@ -1,0 +1,16 @@
+CPU_CPU_MASK_FFFFFF80080B7068[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b10110000000000000000100100000000 ) , addr:= 18446738260974090680}}
+    add_addsub_imm_1    : Theory =    add_addsub_imm    [ adrp_0.post              ]  {{Diag:= bv( 0b10010001000111100110000000000000 ) , addr:= 18446738260974090680}}
+    ret_2               : Theory =    ret               [ add_addsub_imm_1.post    ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974090680}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END CPU_CPU_MASK_FFFFFF80080B7068

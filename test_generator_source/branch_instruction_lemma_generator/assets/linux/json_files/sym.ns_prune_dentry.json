@@ -1,0 +1,120 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "fail": -549620331624, 
+                "jump": -549620331616, 
+                "offset": -549620331632, 
+                "ops": [
+                    {
+                        "bytes": "001840f9", 
+                        "disasm": "ldr x0, [x0, 0x30]", 
+                        "esil": "x0,48,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620331632, 
+                        "fcn_last": -549620331616, 
+                        "flags": [
+                            "sym.ns_prune_dentry"
+                        ], 
+                        "offset": -549620331632, 
+                        "opcode": "ldr x0, [x0, 0x30]", 
+                        "ptr": 48, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "600000b4", 
+                        "disasm": "cbz x0, 0xffffff8008134ba0", 
+                        "esil": "x0,!,?{,-549620331616,pc,=,}", 
+                        "fail": -549620331624, 
+                        "family": "cpu", 
+                        "fcn_addr": -549620331632, 
+                        "fcn_last": -549620331616, 
+                        "jump": -549620331616, 
+                        "offset": -549620331628, 
+                        "opcode": "cbz x0, 0xffffff8008134ba0", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "cjmp", 
+                        "type2_num": 0, 
+                        "type_num": 2147483649
+                    }
+                ], 
+                "size": 8
+            }, 
+            {
+                "colorize": 0, 
+                "jump": -549620331616, 
+                "offset": -549620331624, 
+                "ops": [
+                    {
+                        "bytes": "000c41f9", 
+                        "disasm": "ldr x0, [x0, 0x218]", 
+                        "esil": "x0,536,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620331632, 
+                        "fcn_last": -549620331616, 
+                        "offset": -549620331624, 
+                        "opcode": "ldr x0, [x0, 0x218]", 
+                        "ptr": 536, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "1f0000f9", 
+                        "disasm": "str xzr, [x0]", 
+                        "esil": "xzr,0x0,x0,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620331632, 
+                        "fcn_last": -549620331616, 
+                        "offset": -549620331620, 
+                        "opcode": "str xzr, [x0]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }
+                ], 
+                "size": 8
+            }, 
+            {
+                "colorize": 0, 
+                "offset": -549620331616, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620331632, 
+                        "fcn_last": -549620331616, 
+                        "offset": -549620331616, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.ns_prune_dentry", 
+        "nargs": 1, 
+        "ninstr": 5, 
+        "nlocals": 0, 
+        "offset": -549620331632, 
+        "size": 20, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

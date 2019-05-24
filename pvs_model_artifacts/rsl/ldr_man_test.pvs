@@ -1,0 +1,25 @@
+ldr_man_test : THEORY
+
+  BEGIN
+
+      IMPORTING ldrb_imm, bitvectors@bv_arith_nat
+
+      X_sts : [ below(32) -> bvec[64] ] = init`X with [( 8 ) := bv[64](0b0001111001101010001011000100100000000000000000000000000000000000),
+                                                       ( 29 ):= bv[64](0b0001000000000000100000000000000000000000000000000000000000000000)] 
+      Mem_sts : [nat -> bvec[64] ] = init`Mem with [( 69456 ):= bv[64](0b0100000000000000000000000000000000000000000000000000000000000000) ]
+
+      p : s = init with [ `X:= X_sts ,`Mem:= Mem_sts ]
+
+      ldr_1 : Theory = ldrb_imm[p]{{ Diag:= bv[32](0b00010101111001011110001000011111) }}
+
+      test_1 : lemma ldr_1.post`X( 8 ) = bv[64](0b0100000000000000000000000000000000000000000000000000000000000000)
+
+%|- X_sts_TCC* : PROOF
+%|- Mem_sts_TCC1     : PROOF
+%|- ldr_1_TCC* : PROOF (eval-formula)
+%|- QED
+
+%|- test_1 : PROOF ( ldr_imm_gen )
+%|- QED
+
+END ldr_man_test

@@ -1,0 +1,16 @@
+SWIOTLB_NR_TBL_FFFFFF8008146510[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv [32] ( 0b11110000000000000000010101100000 ) , addr:= 0xffffff8008146510 }}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ adrp_0.post              ]  {{Diag:= bv [32] ( 0b11111001010001000101010000000000 ) , addr:= 0xffffff8008146514 }}
+    ret_2               : Theory =    ret               [ ldr_imm_gen_1.post       ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff8008146518 }}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END SWIOTLB_NR_TBL_FFFFFF8008146510

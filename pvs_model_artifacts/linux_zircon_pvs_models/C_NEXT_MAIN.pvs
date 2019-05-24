@@ -1,0 +1,11 @@
+C_NEXT_MAIN [ ( IMPORTING arm_state ) p : s ] : THEORY
+
+    BEGIN
+
+      IMPORTING C_NEXT_FFFFFF8008087FE8
+
+       C_NEXT_post0 : s = C_NEXT_FFFFFF8008087FE8[p].B_post
+				    
+
+
+    END C_NEXT_MAIN

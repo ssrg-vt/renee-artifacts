@@ -1,0 +1,16 @@
+BUS_GET_DEVICE_KLIST_FFFFFF800815D008[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv( 0b11111001010000000100100000000000 ) , addr:= 18446738260974541212}}
+    add_addsub_imm_1    : Theory =    add_addsub_imm    [ ldr_imm_gen_0.post       ]  {{Diag:= bv( 0b10010001000000101000000000000000 ) , addr:= 18446738260974541212}}
+    ret_2               : Theory =    ret               [ add_addsub_imm_1.post    ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974541212}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END BUS_GET_DEVICE_KLIST_FFFFFF800815D008

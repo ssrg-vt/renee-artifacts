@@ -1,0 +1,17 @@
+(STR_IMM_GEN_F92241C5
+ (X_sts_TCC1 0
+  (X_sts_TCC1-1 nil 3766519121 ("" (eval-formula) nil) nil nil
+   (X_sts subtype
+    "0b1000000000000100000000000000000000000000000000000000000000000"
+    "naturalnumbers.below(exp2.exp2(64))")))
+ (X_sts_TCC2 0
+  (X_sts_TCC2-1 nil 3766519121 ("" (eval-formula) nil) nil nil
+   (X_sts subtype
+    "0b1111001101010001011000100100000000000000000000000000000000000"
+    "naturalnumbers.below(exp2.exp2(64))")))
+ (conc_test_1_TCC1 0
+  (conc_test_1_TCC1-1 nil 3766519121 ("" (eval-formula) nil) nil nil
+   (conc_test_1 subtype "0b10100011100000100100010010011111"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (test1 0 (test1-1 nil 3766519133 ("" (str-imm-gen) nil) nil shostak)))
+

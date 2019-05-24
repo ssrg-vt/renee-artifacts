@@ -1,0 +1,16 @@
+MEMBLOCK_SET_CURRENT_LIMIT_FFFFFF8008103418[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv [32] ( 0b11110000000000000000011011100001 ) , addr:= 0xffffff8008103418 }}
+    str_imm_gen_1       : Theory =    str_imm_gen       [ adrp_0.post              ]  {{Diag:= bv [32] ( 0b11111001000000011100010000100000 ) , addr:= 0xffffff800810341c }}
+    ret_2               : Theory =    ret               [ str_imm_gen_1.post       ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff8008103420 }}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END MEMBLOCK_SET_CURRENT_LIMIT_FFFFFF8008103418

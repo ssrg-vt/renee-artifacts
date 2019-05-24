@@ -1,0 +1,16 @@
+SET_SMP_CROSS_CALL_FFFFFF80081B2388[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b10010000000000000000000111000001 ) , addr:= 18446738260981442727}}
+    str_imm_gen_1       : Theory =    str_imm_gen       [ adrp_0.post              ]  {{Diag:= bv( 0b11111001000000100010110000100000 ) , addr:= 18446738260981442728}}
+    ret_2               : Theory =    ret               [ str_imm_gen_1.post       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260981442728}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END SET_SMP_CROSS_CALL_FFFFFF80081B2388

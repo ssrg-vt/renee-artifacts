@@ -1,0 +1,11 @@
+(PERIPH_PADDR_TO_VADDR_FFFFFFFF00006774
+ (subs_addsub_shift_0_TCC1 0
+  (subs_addsub_shift_0_TCC1-1 nil 3765757223 ("" (eval-formula) nil)
+   nil nil
+   (subs_addsub_shift_0 subtype "0b11101011000001000000000001111111"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (b_cond_1_TCC1 0
+  (b_cond_1_TCC1-1 nil 3765757223 ("" (eval-formula) nil) nil nil
+   (b_cond_1 subtype "0b1010100000000000000000011001000"
+    "naturalnumbers.below(exp2.exp2(32))"))))
+

@@ -1,0 +1,40 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620284568, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620284568, 
+                        "fcn_last": -549620284568, 
+                        "flags": [
+                            "loc._x_433", 
+                            "sym.percpu_ref_noop_confirm_switch"
+                        ], 
+                        "offset": -549620284568, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.percpu_ref_noop_confirm_switch", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -549620284568, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

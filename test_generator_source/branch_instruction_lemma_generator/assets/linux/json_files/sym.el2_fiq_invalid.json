@@ -1,0 +1,47 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "jump": -549621045172, 
+                "offset": -549621045172, 
+                "ops": [
+                    {
+                        "bytes": "00000014", 
+                        "disasm": "b sym.el2_fiq_invalid", 
+                        "esil": "-549621045172,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621045172, 
+                        "fcn_last": -549621045172, 
+                        "flags": [
+                            "sym.el2_fiq_invalid"
+                        ], 
+                        "jump": -549621045172, 
+                        "offset": -549621045172, 
+                        "opcode": "b 0xffffff800808684c", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "jmp", 
+                        "type2_num": 0, 
+                        "type_num": 1, 
+                        "xrefs": [
+                            {
+                                "addr": -549621045172, 
+                                "type": "CODE"
+                            }
+                        ]
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.el2_fiq_invalid", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -549621045172, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

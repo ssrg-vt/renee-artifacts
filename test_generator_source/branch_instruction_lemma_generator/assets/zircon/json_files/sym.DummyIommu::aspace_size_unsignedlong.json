@@ -1,0 +1,56 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294920064, 
+                "ops": [
+                    {
+                        "bytes": "00008092", 
+                        "disasm": "movn x0, 0", 
+                        "esil": "0,-1,^,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294920064, 
+                        "fcn_last": -4294920060, 
+                        "flags": [
+                            "loc._x_200", 
+                            "sym.DummyIommu::aspace_size_unsignedlong", 
+                            "method.DummyIommu.aspace_size_unsignedlong"
+                        ], 
+                        "offset": -4294920064, 
+                        "opcode": "movn x0, 0", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294920064, 
+                        "fcn_last": -4294920060, 
+                        "offset": -4294920060, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.DummyIommu::aspace_size_unsignedlong", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -4294920064, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

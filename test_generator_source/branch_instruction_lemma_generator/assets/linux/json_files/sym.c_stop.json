@@ -1,0 +1,73 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549621039104, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621039104, 
+                        "fcn_last": -549621039104, 
+                        "flags": [
+                            "sym.c_stop"
+                        ], 
+                        "offset": -549621039104, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5, 
+                        "xrefs": [
+                            {
+                                "addr": -549621037668, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -549621037016, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -549621036928, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -549621036604, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -549621034564, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -549619819964, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -549619819960, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -549619819780, 
+                                "type": "DATA"
+                            }
+                        ]
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.c_stop", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -549621039104, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

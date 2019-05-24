@@ -1,0 +1,94 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294927232, 
+                "ops": [
+                    {
+                        "bytes": "210a00f0", 
+                        "disasm": "adrp x1, obj.secondary_idle_thread_count", 
+                        "esil": "-4293591040,x1,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294927232, 
+                        "fcn_last": -4294927220, 
+                        "flags": [
+                            "loc._x_145", 
+                            "sym.gic_get_lr_from_vector_unsignedint"
+                        ], 
+                        "offset": -4294927232, 
+                        "opcode": "adrp x1, 0xffffffff00150000", 
+                        "ptr": -4293591040, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33, 
+                        "xrefs": [
+                            {
+                                "addr": -4294125924, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "211040f9", 
+                        "disasm": "ldr x1, [x1, 0x20]", 
+                        "esil": "x1,32,+,DUP,tmp,=,[8],x1,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294927232, 
+                        "fcn_last": -4294927220, 
+                        "offset": -4294927228, 
+                        "opcode": "ldr x1, [x1, 0x20]", 
+                        "ptr": 32, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "212c40f9", 
+                        "disasm": "ldr x1, [x1, 0x58]", 
+                        "esil": "x1,88,+,DUP,tmp,=,[8],x1,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294927232, 
+                        "fcn_last": -4294927220, 
+                        "offset": -4294927224, 
+                        "opcode": "ldr x1, [x1, 0x58]", 
+                        "ptr": 88, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "20001fd6", 
+                        "disasm": "br x1", 
+                        "esil": "x1,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294927232, 
+                        "fcn_last": -4294927220, 
+                        "offset": -4294927220, 
+                        "opcode": "br x1", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ujmp", 
+                        "type2_num": 0, 
+                        "type_num": 2
+                    }
+                ], 
+                "size": 16
+            }
+        ], 
+        "name": "sym.gic_get_lr_from_vector_unsignedint", 
+        "nargs": 1, 
+        "ninstr": 4, 
+        "nlocals": 0, 
+        "offset": -4294927232, 
+        "size": 16, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

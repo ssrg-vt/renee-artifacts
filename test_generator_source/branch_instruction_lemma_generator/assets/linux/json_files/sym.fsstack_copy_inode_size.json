@@ -1,0 +1,102 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620335056, 
+                "ops": [
+                    {
+                        "bytes": "221c40f9", 
+                        "disasm": "ldr x2, [x1, 0x38]", 
+                        "esil": "x1,56,+,DUP,tmp,=,[8],x2,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620335056, 
+                        "fcn_last": -549620335040, 
+                        "flags": [
+                            "loc._x_390", 
+                            "sym.fsstack_copy_inode_size"
+                        ], 
+                        "offset": -549620335056, 
+                        "opcode": "ldr x2, [x1, 0x38]", 
+                        "ptr": 56, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "214040f9", 
+                        "disasm": "ldr x1, [x1, 0x80]", 
+                        "esil": "x1,128,+,DUP,tmp,=,[8],x1,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620335056, 
+                        "fcn_last": -549620335040, 
+                        "offset": -549620335052, 
+                        "opcode": "ldr x1, [x1, 0x80]", 
+                        "ptr": 128, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "021c00f9", 
+                        "disasm": "str x2, [x0, 0x38]", 
+                        "esil": "x2,0x38,x0,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620335056, 
+                        "fcn_last": -549620335040, 
+                        "offset": -549620335048, 
+                        "opcode": "str x2, [x0, 0x38]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "014000f9", 
+                        "disasm": "str x1, [x0, 0x80]", 
+                        "esil": "x1,0x80,x0,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620335056, 
+                        "fcn_last": -549620335040, 
+                        "offset": -549620335044, 
+                        "opcode": "str x1, [x0, 0x80]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620335056, 
+                        "fcn_last": -549620335040, 
+                        "offset": -549620335040, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 20
+            }
+        ], 
+        "name": "sym.fsstack_copy_inode_size", 
+        "nargs": 1, 
+        "ninstr": 5, 
+        "nlocals": 0, 
+        "offset": -549620335056, 
+        "size": 20, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

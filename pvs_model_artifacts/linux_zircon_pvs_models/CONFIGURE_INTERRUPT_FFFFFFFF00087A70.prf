@@ -1,0 +1,18 @@
+(CONFIGURE_INTERRUPT_FFFFFFFF00087A70
+ (adrp_0_TCC1 0
+  (adrp_0_TCC1-1 nil 3765754407 ("" (eval-formula) nil) nil nil
+   (adrp_0 subtype "0b11110000000000000000010010000011"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (ldr_imm_gen_1_TCC1 0
+  (ldr_imm_gen_1_TCC1-1 nil 3765754407 ("" (eval-formula) nil) nil nil
+   (ldr_imm_gen_1 subtype "0b11111001010000001000000001100011"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (ldr_imm_gen_2_TCC1 0
+  (ldr_imm_gen_2_TCC1-1 nil 3765754407 ("" (eval-formula) nil) nil nil
+   (ldr_imm_gen_2 subtype "0b11111001010000000000100001100011"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (br_3_TCC1 0
+  (br_3_TCC1-1 nil 3765754407 ("" (eval-formula) nil) nil nil
+   (br_3 subtype "0b11010110000111110000000001100000"
+    "naturalnumbers.below(exp2.exp2(32))"))))
+

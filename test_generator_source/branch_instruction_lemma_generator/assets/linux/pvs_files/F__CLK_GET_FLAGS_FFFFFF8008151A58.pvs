@@ -1,0 +1,14 @@
+F__CLK_GET_FLAGS_FFFFFF8008151A58[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    cbz_0               : Theory =    cbz               [ p0                       ]  {{Diag:= bv( 0b10110100000000000000000010000000 ) , addr:= 18446738260974497002}}
+
+    B_post: s = cbz_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END F__CLK_GET_FLAGS_FFFFFF8008151A58

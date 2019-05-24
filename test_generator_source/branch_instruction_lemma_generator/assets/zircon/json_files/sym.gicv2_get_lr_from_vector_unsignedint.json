@@ -1,0 +1,70 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294122288, 
+                "ops": [
+                    {
+                        "bytes": "00244092", 
+                        "disasm": "and x0, x0, 0x3ff", 
+                        "esil": "1023,x0,&=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294122288, 
+                        "fcn_last": -4294122280, 
+                        "flags": [
+                            "loc._x_2402", 
+                            "sym.gicv2_get_lr_from_vector_unsignedint"
+                        ], 
+                        "offset": -4294122288, 
+                        "opcode": "and x0, x0, 0x3ff", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "and", 
+                        "type2_num": 0, 
+                        "type_num": 27
+                    }, 
+                    {
+                        "bytes": "000064b2", 
+                        "disasm": "orr x0, x0, 0x10000000", 
+                        "esil": "268435456,x0,|=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294122288, 
+                        "fcn_last": -4294122280, 
+                        "offset": -4294122284, 
+                        "opcode": "orr x0, x0, 0x10000000", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "or", 
+                        "type2_num": 0, 
+                        "type_num": 26
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294122288, 
+                        "fcn_last": -4294122280, 
+                        "offset": -4294122280, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.gicv2_get_lr_from_vector_unsignedint", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -4294122288, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

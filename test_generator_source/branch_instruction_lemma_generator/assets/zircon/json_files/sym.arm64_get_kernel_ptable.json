@@ -1,0 +1,77 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294947872, 
+                "ops": [
+                    {
+                        "bytes": "a0090090", 
+                        "disasm": "adrp x0, obj.arm64_kernel_translation_table", 
+                        "esil": "-4293689344,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294948832, 
+                        "fcn_last": -4294947864, 
+                        "flags": [
+                            "loc._x_73", 
+                            "sym.arm64_get_kernel_ptable"
+                        ], 
+                        "offset": -4294947872, 
+                        "opcode": "adrp x0, 0xffffffff00138000", 
+                        "ptr": -4293689344, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33, 
+                        "xrefs": [
+                            {
+                                "addr": -4294957408, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "00000091", 
+                        "disasm": "add x0, x0, 0", 
+                        "esil": "0,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294948832, 
+                        "fcn_last": -4294947864, 
+                        "offset": -4294947868, 
+                        "opcode": "add x0, x0, 0", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294948832, 
+                        "fcn_last": -4294947864, 
+                        "offset": -4294947864, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.arm64_get_kernel_ptable", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -4294947872, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

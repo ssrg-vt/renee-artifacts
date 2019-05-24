@@ -1,0 +1,21 @@
+GET_PIPE_INFO_FFFFFF80081119D8[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv [32] ( 0b11010000000000000000010000100001 ) , addr:= 0xffffff80081119d8 }}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ adrp_0.post              ]  {{Diag:= bv [32] ( 0b11111001010000000001010000000010 ) , addr:= 0xffffff80081119dc }}
+    add_addsub_imm_2    : Theory =    add_addsub_imm    [ ldr_imm_gen_1.post       ]  {{Diag:= bv [32] ( 0b10010001000101000000000000100001 ) , addr:= 0xffffff80081119e0 }}
+    add_addsub_imm_3    : Theory =    add_addsub_imm    [ add_addsub_imm_2.post    ]  {{Diag:= bv [32] ( 0b10010001000001100000000000100001 ) , addr:= 0xffffff80081119e4 }}
+    subs_addsub_shift_4 : Theory =    subs_addsub_shift [ add_addsub_imm_3.post    ]  {{Diag:= bv [32] ( 0b11101011000000010000000001011111 ) , addr:= 0xffffff80081119e8 }}
+    b_cond_5            : Theory =    b_cond            [ subs_addsub_shift_4.post ]  {{Diag:= bv [32] ( 0b01010100000000000000000001100001 ) , addr:= 0xffffff80081119ec ,
+                                                                                                                                                 next:= 0xffffff80081119f8 ,
+																		 fail:= 0xffffff80081119f0 }}
+
+    B_post: s = b_cond_5.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END GET_PIPE_INFO_FFFFFF80081119D8

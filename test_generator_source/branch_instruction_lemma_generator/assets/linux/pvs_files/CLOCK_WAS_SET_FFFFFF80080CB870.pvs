@@ -1,0 +1,14 @@
+CLOCK_WAS_SET_FFFFFF80080CB870[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ret_0               : Theory =    ret               [ p0                       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974149039}}
+
+    B_post: s = ret_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END CLOCK_WAS_SET_FFFFFF80080CB870

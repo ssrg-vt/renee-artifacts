@@ -1,0 +1,16 @@
+RCU_BATCHES_COMPLETED_BH_FFFFFF80080C8350[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b10110000000000000000100011000000 ) , addr:= 18446738260974143983}}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ adrp_0.post              ]  {{Diag:= bv( 0b11111001010000000000100000000000 ) , addr:= 18446738260974143984}}
+    ret_2               : Theory =    ret               [ ldr_imm_gen_1.post       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974143984}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END RCU_BATCHES_COMPLETED_BH_FFFFFF80080C8350

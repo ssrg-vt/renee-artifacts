@@ -1,0 +1,16 @@
+GET_SECONDS_FFFFFF80080CE158[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b11010000000000000000100100000000 ) , addr:= 18446738260974153212}}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ adrp_0.post              ]  {{Diag:= bv( 0b11111001010001110011110000000000 ) , addr:= 18446738260974153213}}
+    ret_2               : Theory =    ret               [ ldr_imm_gen_1.post       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974153213}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END GET_SECONDS_FFFFFF80080CE158

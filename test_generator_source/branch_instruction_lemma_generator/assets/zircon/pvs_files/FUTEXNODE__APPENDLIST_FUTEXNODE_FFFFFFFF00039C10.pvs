@@ -1,0 +1,20 @@
+FUTEXNODE__APPENDLIST_FUTEXNODE_FFFFFFFF00039C10[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv( 0b11111001010000000001010000000011 ) , addr:= 18446744055837151117}}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ ldr_imm_gen_0.post       ]  {{Diag:= bv( 0b11111001010000000001010000100010 ) , addr:= 18446744055837151117}}
+    str_imm_gen_2       : Theory =    str_imm_gen       [ ldr_imm_gen_1.post       ]  {{Diag:= bv( 0b11111001000000000001100001100001 ) , addr:= 18446744055837151118}}
+    str_imm_gen_3       : Theory =    str_imm_gen       [ str_imm_gen_2.post       ]  {{Diag:= bv( 0b11111001000000000001010000100011 ) , addr:= 18446744055837151118}}
+    str_imm_gen_4       : Theory =    str_imm_gen       [ str_imm_gen_3.post       ]  {{Diag:= bv( 0b11111001000000000001100001000000 ) , addr:= 18446744055837151118}}
+    str_imm_gen_5       : Theory =    str_imm_gen       [ str_imm_gen_4.post       ]  {{Diag:= bv( 0b11111001000000000001010000000010 ) , addr:= 18446744055837151119}}
+    ret_6               : Theory =    ret               [ str_imm_gen_5.post       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446744055837151119}}
+
+    B_post: s = ret_6.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END FUTEXNODE__APPENDLIST_FUTEXNODE_FFFFFFFF00039C10

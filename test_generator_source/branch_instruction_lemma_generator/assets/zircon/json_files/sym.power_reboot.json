@@ -1,0 +1,106 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294853408, 
+                "ops": [
+                    {
+                        "bytes": "e10700d0", 
+                        "disasm": "adrp x1, 0xffffffff00119000", 
+                        "esil": "-4293816320,x1,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294853408, 
+                        "fcn_last": -4294853396, 
+                        "flags": [
+                            "loc._x_395", 
+                            "sym.power_reboot"
+                        ], 
+                        "offset": -4294853408, 
+                        "opcode": "adrp x1, 0xffffffff00119000", 
+                        "ptr": -4293816320, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33, 
+                        "xrefs": [
+                            {
+                                "addr": -4294960688, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294960628, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294960608, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294960580, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "219c42f9", 
+                        "disasm": "ldr x1, [x1, 0x538]", 
+                        "esil": "x1,1336,+,DUP,tmp,=,[8],x1,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294853408, 
+                        "fcn_last": -4294853396, 
+                        "offset": -4294853404, 
+                        "opcode": "ldr x1, [x1, 0x538]", 
+                        "ptr": 1336, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "210040f9", 
+                        "disasm": "ldr x1, [x1]", 
+                        "esil": "x1,0,+,DUP,tmp,=,[8],x1,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294853408, 
+                        "fcn_last": -4294853396, 
+                        "offset": -4294853400, 
+                        "opcode": "ldr x1, [x1]", 
+                        "ptr": 0, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "20001fd6", 
+                        "disasm": "br x1", 
+                        "esil": "x1,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294853408, 
+                        "fcn_last": -4294853396, 
+                        "offset": -4294853396, 
+                        "opcode": "br x1", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ujmp", 
+                        "type2_num": 0, 
+                        "type_num": 2
+                    }
+                ], 
+                "size": 16
+            }
+        ], 
+        "name": "sym.power_reboot", 
+        "nargs": 1, 
+        "ninstr": 4, 
+        "nlocals": 0, 
+        "offset": -4294853408, 
+        "size": 16, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

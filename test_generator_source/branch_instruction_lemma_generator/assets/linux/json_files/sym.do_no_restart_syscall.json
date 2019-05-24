@@ -1,0 +1,54 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620969776, 
+                "ops": [
+                    {
+                        "bytes": "60008092", 
+                        "disasm": "movn x0, 0x3", 
+                        "esil": "3,-1,^,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620969776, 
+                        "fcn_last": -549620969772, 
+                        "flags": [
+                            "sym.do_no_restart_syscall"
+                        ], 
+                        "offset": -549620969776, 
+                        "opcode": "movn x0, 0x3", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620969776, 
+                        "fcn_last": -549620969772, 
+                        "offset": -549620969772, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.do_no_restart_syscall", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549620969776, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

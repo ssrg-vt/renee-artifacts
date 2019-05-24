@@ -1,0 +1,15 @@
+SIMPLE_ALIGN_RESOURCE_FFFFFF8008092F90[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv [32] ( 0b11111001010000000000000000100000 ) , addr:= 0xffffff8008092f90 }}
+    ret_1               : Theory =    ret               [ ldr_imm_gen_0.post       ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff8008092f94 }}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END SIMPLE_ALIGN_RESOURCE_FFFFFF8008092F90

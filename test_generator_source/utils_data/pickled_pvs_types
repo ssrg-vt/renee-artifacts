@@ -1,0 +1,14 @@
+(lp0
+S'Constraint: Type+ = {\nConstraint_NONE,\nConstraint_UNKNOWN,\nConstraint_UNDEF,\nConstraint_UNDEFEL0,\nConstraint_NOP,\nConstraint_TRUE,\nConstraint_FALSE,\nConstraint_DISABLED,\nConstraint_UNCOND,\nConstraint_COND,\nConstraint_ADDITIONAL_DECODE,\nConstraint_WBSUPPRESS,\nConstraint_FAULT,\nConstraint_FORCE,\nConstraint_FORCENOSLCHECK}\n\n'
+p1
+aS'MemOp: Type+ = {MemOp_LOAD,MemOp_STORE,MemOp_PREFETCH}\n'
+p2
+aS'Unpredictable: Type+ = {\nUnpredictable_WBOVERLAPLD,\nUnpredictable_WBOVERLAPST,\nUnpredictable_LDPOVERLAP,\nUnpredictable_BASEOVERLAP,\nUnpredictable_DATAOVERLAP,\nUnpredictable_DEVPAGE2,\nUnpredictable_INSTRDEVICE,\nUnpredictable_RESCPACR,\nUnpredictable_RESMAIR,\nUnpredictable_RESTEXCB,\nUnpredictable_RESPRRR,\nUnpredictable_RESDACR,\nUnpredictable_RESVTCRS,\nUnpredictable_RESTnSZ,\nUnpredictable_OORTnSZ,\nUnpredictable_LARGEIPA,\nUnpredictable_ESRCONDPASS,\nUnpredictable_ILZEROIT,\nUnpredictable_ILZEROT,\nUnpredictable_BPVECTORCATCHPRI,\nUnpredictable_VCMATCHHALF,\nUnpredictable_VCMATCHDAPA,\nUnpredictable_WPMASKANDBAS,\nUnpredictable_WPBASCONTIGUOUS,\nUnpredictable_RESWPMASK,\nUnpredictable_WPMASKEDBITS,\nUnpredictable_RESBPWPCTRL,\nUnpredictable_BPNOTIMPL,\nUnpredictable_RESBPTYPE,\nUnpredictable_BPNOTCTXCMP,\nUnpredictable_BPMATCHHALF,\nUnpredictable_BPMISMATCHHALF,\nUnpredictable_RESTARTALIGNPC,\nUnpredictable_RESTARTZEROUPPERPC,\nUnpredictable_ZEROUPPER,\nUnpredictable_ERETZEROUPPERPC,\nUnpredictable_A32FORCEALIGNPC,\nUnpredictable_SMD,\nUnpredictable_AFUPDATE,\nUnpredictable_IESBinDebug,\nUnpredictable_ZEROPMSEVFR,\nUnpredictable_NOOPTYPES,\nUnpredictable_ZEROMINLATENCY,\nUnpredictable_CLEARERRITEZERO}\n\n'
+p3
+aS'AccType: Type+ = {AccType_NORMAL,\nAccType_VEC,\nAccType_STREAM,\nAccType_VECSTREAM,\nAccType_ATOMIC,\nAccType_ATOMICRW,\nAccType_ORDERED,\nAccType_ORDEREDRW,\nAccType_LIMITEDORDERED,\nAccType_UNPRIV,\nAccType_IFETCH,\nAccType_PTW,\nAccType_DC,\nAccType_IC,\nAccType_DCZVA,\nAccType_AT}\n\n'
+p4
+aS'BranchType: Type+ = {BranchType_CALL,BranchType_ERET,BranchType_DBGEXIT,BranchType_RET,BranchType_JMP,BranchType_EXCEPTION,BranchType_UNKNOWN}\n'
+p5
+aS'ShiftType: Type+ = {ShiftType_LSL,ShiftType_LSR,ShiftType_ASR,ShiftType_ROR}\n'
+p6
+a.

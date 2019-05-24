@@ -1,0 +1,4 @@
+function: bits(N) SignExtend(bits(M) x, integer N)
+accessor: bits(64) PC[]
+function: BranchTo(bits(N) target, BranchType branch_type)
+function: boolean ConditionHolds(bits(4) cond)

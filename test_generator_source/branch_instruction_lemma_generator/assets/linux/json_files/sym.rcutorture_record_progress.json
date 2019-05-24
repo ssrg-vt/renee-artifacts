@@ -1,0 +1,116 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620775832, 
+                "ops": [
+                    {
+                        "bytes": "40090090", 
+                        "disasm": "adrp x0, 0xffffff80081f0000", 
+                        "esil": "-549619564544,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620775832, 
+                        "fcn_last": -549620775812, 
+                        "flags": [
+                            "sym.rcutorture_record_progress"
+                        ], 
+                        "offset": -549620775832, 
+                        "opcode": "adrp x0, 0xffffff80081f0000", 
+                        "ptr": -549619564544, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "00603091", 
+                        "disasm": "add x0, x0, 0xc18", 
+                        "esil": "3096,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620775832, 
+                        "fcn_last": -549620775812, 
+                        "offset": -549620775828, 
+                        "opcode": "add x0, x0, 0xc18", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "011040f9", 
+                        "disasm": "ldr x1, [x0, 0x20]", 
+                        "esil": "x0,32,+,DUP,tmp,=,[8],x1,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620775832, 
+                        "fcn_last": -549620775812, 
+                        "offset": -549620775824, 
+                        "opcode": "ldr x1, [x0, 0x20]", 
+                        "ptr": 32, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "21040091", 
+                        "disasm": "add x1, x1, 1", 
+                        "esil": "1,x1,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620775832, 
+                        "fcn_last": -549620775812, 
+                        "offset": -549620775820, 
+                        "opcode": "add x1, x1, 1", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "011000f9", 
+                        "disasm": "str x1, [x0, 0x20]", 
+                        "esil": "x1,0x20,x0,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620775832, 
+                        "fcn_last": -549620775812, 
+                        "offset": -549620775816, 
+                        "opcode": "str x1, [x0, 0x20]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620775832, 
+                        "fcn_last": -549620775812, 
+                        "offset": -549620775812, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 24
+            }
+        ], 
+        "name": "sym.rcutorture_record_progress", 
+        "nargs": 1, 
+        "ninstr": 6, 
+        "nlocals": 0, 
+        "offset": -549620775832, 
+        "size": 24, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

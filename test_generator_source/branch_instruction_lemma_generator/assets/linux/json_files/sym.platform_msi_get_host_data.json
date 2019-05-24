@@ -1,0 +1,71 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620131472, 
+                "ops": [
+                    {
+                        "bytes": "001040f9", 
+                        "disasm": "ldr x0, [x0, 0x20]", 
+                        "esil": "x0,32,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620131472, 
+                        "fcn_last": -549620131464, 
+                        "flags": [
+                            "sym.platform_msi_get_host_data"
+                        ], 
+                        "offset": -549620131472, 
+                        "opcode": "ldr x0, [x0, 0x20]", 
+                        "ptr": 32, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "000440f9", 
+                        "disasm": "ldr x0, [x0, 8]", 
+                        "esil": "x0,8,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620131472, 
+                        "fcn_last": -549620131464, 
+                        "offset": -549620131468, 
+                        "opcode": "ldr x0, [x0, 8]", 
+                        "ptr": 8, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620131472, 
+                        "fcn_last": -549620131464, 
+                        "offset": -549620131464, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.platform_msi_get_host_data", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620131472, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

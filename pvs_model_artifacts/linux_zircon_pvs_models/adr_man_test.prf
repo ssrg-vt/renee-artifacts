@@ -1,0 +1,25 @@
+(adr_man_test
+ (X_sts_TCC1 0
+  (X_sts_TCC1-1 nil 3760713298 ("" (eval-formula) nil) nil nil
+   (X_sts subtype
+    "0b110111011011101110111100000000000000000000000000000000000000000"
+    "naturalnumbers.below(exp2.exp2(64))")))
+ (p_TCC1 0
+  (p_TCC1-1 nil 3760713298 ("" (eval-formula) nil) nil nil
+   (p subtype "0b100000000000000000000000000000000000000000000000"
+    "naturalnumbers.below(exp2.exp2(64))")))
+ (adr_1_TCC1 0
+  (adr_1_TCC1-1 nil 3760713298 ("" (eval-formula) nil) nil nil
+   (adr_1 subtype "0b11100010111010110111001100001100"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (test1_TCC1 0
+  (test1_TCC1-1 nil 3760713298 ("" (eval-formula) nil) nil nil
+   (test1 subtype
+    "0b1001011101011011010111111111111111111111111111111111111111111111"
+    "naturalnumbers.below(exp2.exp2(64))")))
+ (test1 0
+  (test1-1 nil 3760713400 ("" (pc-related-addr) nil)
+   ((bt const-decl "bvec[1]" bt nil)
+    (init const-decl "s" arm_state nil))
+   shostak)))
+

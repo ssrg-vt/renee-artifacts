@@ -1,0 +1,16 @@
+GICV2_GET_LR_FROM_VECTOR_UNSIGNEDINT_FFFFFFFF000CE4D0[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    and_log_imm_0       : Theory =    and_log_imm       [ p0                       ]  {{Diag:= bv( 0b10010010010000000010010000000000 ) , addr:= 18446744055837547992}}
+    orr_log_imm_1       : Theory =    orr_log_imm       [ and_log_imm_0.post       ]  {{Diag:= bv( 0b10110010011001000000000000000000 ) , addr:= 18446744055837547992}}
+    ret_2               : Theory =    ret               [ orr_log_imm_1.post       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446744055837547992}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END GICV2_GET_LR_FROM_VECTOR_UNSIGNEDINT_FFFFFFFF000CE4D0

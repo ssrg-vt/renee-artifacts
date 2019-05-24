@@ -1,0 +1,45 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294632640, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294632640, 
+                        "fcn_last": -4294632640, 
+                        "flags": [
+                            "loc._x_1226", 
+                            "sym.VirtualInterruptDispatcher::UnmaskInterrupt", 
+                            "sym.VirtualInterruptDispatcher::MaskInterrupt", 
+                            "sym.VirtualInterruptDispatcher::UnregisterInterruptHandler", 
+                            "method.VirtualInterruptDispatcher.UnmaskInterrupt", 
+                            "method.VirtualInterruptDispatcher.MaskInterrupt", 
+                            "method.VirtualInterruptDispatcher.UnregisterInterruptHandler"
+                        ], 
+                        "offset": -4294632640, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.VirtualInterruptDispatcher::UnmaskInterrupt", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -4294632640, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

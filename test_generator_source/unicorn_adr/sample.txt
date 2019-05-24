@@ -1,0 +1,10 @@
+integer d = UInt(Rd); 
+integer n = UInt(Rn); 
+integer datasize = if sf == '1' then 64 else 32; 
+boolean sub_op = (op == '1'); 
+boolean setflags = (S == '1'); 
+bits(datasize) imm; 
+case shift of 
+when '00' imm = ZeroExtend(imm12, datasize); 
+when '01' imm = ZeroExtend(imm12 : Zeros(12), datasize); 
+when '1x' ReservedValue();

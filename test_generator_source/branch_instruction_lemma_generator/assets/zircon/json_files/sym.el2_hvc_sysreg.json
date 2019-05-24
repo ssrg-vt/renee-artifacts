@@ -1,0 +1,162 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "fail": -4294111228, 
+                "offset": -4294111232, 
+                "ops": [
+                    {
+                        "bytes": "e20100b5", 
+                        "disasm": "cbnz x2, 0xffffffff000d103c", 
+                        "esil": "x2,?{,-4294111172,pc,=,}", 
+                        "fail": -4294111228, 
+                        "family": "cpu", 
+                        "fcn_addr": -4294111232, 
+                        "fcn_last": -4294111220, 
+                        "flags": [
+                            "loc._x_2424", 
+                            "sym.el2_hvc_sysreg"
+                        ], 
+                        "jump": -4294111172, 
+                        "offset": -4294111232, 
+                        "opcode": "cbnz x2, 0xffffffff000d103c", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "cjmp", 
+                        "type2_num": 0, 
+                        "type_num": 2147483649, 
+                        "xrefs": [
+                            {
+                                "addr": -4294106672, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106664, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106656, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106644, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106556, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106548, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106540, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106532, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106524, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106456, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106440, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106420, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106412, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106404, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106396, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -4294106388, 
+                                "type": "DATA"
+                            }
+                        ]
+                    }
+                ], 
+                "size": 4
+            }, 
+            {
+                "colorize": 0, 
+                "offset": -4294111228, 
+                "ops": [
+                    {
+                        "bytes": "69000010", 
+                        "disasm": "adr x9, 0xffffffff000d1010", 
+                        "esil": "-4294111216,x9,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294111232, 
+                        "fcn_last": -4294111220, 
+                        "offset": -4294111228, 
+                        "opcode": "adr x9, 0xffffffff000d1010", 
+                        "ptr": -4294111216, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "290d038b", 
+                        "disasm": "add x9, x9, x3, lsl 3", 
+                        "esil": "3,x3,<<,x9,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294111232, 
+                        "fcn_last": -4294111220, 
+                        "offset": -4294111224, 
+                        "opcode": "add x9, x9, x3, lsl 3", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "20011fd6", 
+                        "disasm": "br x9", 
+                        "esil": "x9,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294111232, 
+                        "fcn_last": -4294111220, 
+                        "offset": -4294111220, 
+                        "opcode": "br x9", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ujmp", 
+                        "type2_num": 0, 
+                        "type_num": 2
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.el2_hvc_sysreg", 
+        "nargs": 0, 
+        "ninstr": 7, 
+        "nlocals": 0, 
+        "offset": -4294111232, 
+        "size": 16, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

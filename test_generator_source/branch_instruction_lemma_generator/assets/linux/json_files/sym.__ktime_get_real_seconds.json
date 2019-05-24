@@ -1,0 +1,89 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620756784, 
+                "ops": [
+                    {
+                        "bytes": "20090090", 
+                        "disasm": "adrp x0, 0xffffff80081f0000", 
+                        "esil": "-549619564544,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620756784, 
+                        "fcn_last": -549620756776, 
+                        "flags": [
+                            "sym.__ktime_get_real_seconds"
+                        ], 
+                        "offset": -549620756784, 
+                        "opcode": "adrp x0, 0xffffff80081f0000", 
+                        "ptr": -549619564544, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33, 
+                        "xrefs": [
+                            {
+                                "addr": -549620748876, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620748856, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620748580, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620748492, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "003c47f9", 
+                        "disasm": "ldr x0, [x0, 0xe78]", 
+                        "esil": "x0,3704,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620756784, 
+                        "fcn_last": -549620756776, 
+                        "offset": -549620756780, 
+                        "opcode": "ldr x0, [x0, 0xe78]", 
+                        "ptr": 3704, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620756784, 
+                        "fcn_last": -549620756776, 
+                        "offset": -549620756776, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.__ktime_get_real_seconds", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620756784, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

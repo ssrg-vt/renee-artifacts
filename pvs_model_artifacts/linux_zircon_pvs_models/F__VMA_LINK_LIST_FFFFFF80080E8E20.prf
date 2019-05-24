@@ -1,0 +1,18 @@
+(F__VMA_LINK_LIST_FFFFFF80080E8E20
+ (str_imm_gen_0_TCC1 0
+  (str_imm_gen_0_TCC1-1 nil 3765746757 ("" (eval-formula) nil) nil nil
+   (str_imm_gen_0 subtype "0b11111001000000000000110000100010"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (cbz_1_TCC1 0
+  (cbz_1_TCC1-1 nil 3765746757 ("" (eval-formula) nil) nil nil
+   (cbz_1 subtype "0b10110100000000000000000100100010"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (cbz_1_TCC2 0
+  (cbz_1_TCC2-1 nil 3767006297 ("" (eval-formula) nil) nil nil
+   (cbz_1 subtype "0xffffff80080e8e48"
+    "naturalnumbers.below(exp2.exp2(64))")))
+ (cbz_1_TCC3 0
+  (cbz_1_TCC3-1 nil 3767006297 ("" (eval-formula) nil) nil nil
+   (cbz_1 subtype "0xffffff80080e8e28"
+    "naturalnumbers.below(exp2.exp2(64))"))))
+

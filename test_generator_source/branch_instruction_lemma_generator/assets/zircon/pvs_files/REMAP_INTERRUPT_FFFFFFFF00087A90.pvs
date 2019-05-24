@@ -1,0 +1,17 @@
+REMAP_INTERRUPT_FFFFFFFF00087A90[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b11110000000000000000010010000001 ) , addr:= 18446744055837355677}}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ adrp_0.post              ]  {{Diag:= bv( 0b11111001010000001000000000100001 ) , addr:= 18446744055837355678}}
+    ldr_imm_gen_2       : Theory =    ldr_imm_gen       [ ldr_imm_gen_1.post       ]  {{Diag:= bv( 0b11111001010000000001010000100001 ) , addr:= 18446744055837355678}}
+    br_3                : Theory =    br                [ ldr_imm_gen_2.post       ]  {{Diag:= bv( 0b11010110000111110000000000100000 ) , addr:= 18446744055837355678}}
+
+    B_post: s = br_3.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END REMAP_INTERRUPT_FFFFFFFF00087A90

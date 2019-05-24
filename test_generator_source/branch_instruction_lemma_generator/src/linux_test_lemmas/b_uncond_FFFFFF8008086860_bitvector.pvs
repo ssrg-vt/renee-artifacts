@@ -1,0 +1,21 @@
+b_uncond_FFFFFF8008086860_bitvector      : THEORY
+    BEGIN
+    IMPORTING rsl@arm_state, rsl@b_uncond
+
+        X_sts : [ below(32) -> bvec[64] ]  = init`X 
+
+        p    :  s = init with [`X:= X_sts]  with [ `PC`b := 0xfffffab69defbaeb ]
+
+    b_uncond_0 : Theory = b_uncond [ p ] {{ Diag:= bv[32] ( 0b00010100000000000000000000000000 ) , addr:= 0xfffffab69defbaeb , next:= 0xffffff8008086860 }}
+
+    test1 : lemma b_uncond_0.post`PC`b = 0xffffff8008086860
+
+%|- p_TCC1         : PROOF
+%|- b_uncond_0_TCC*: PROOF
+%|- test1_TCC1      : PROOF (eval-formula)
+%|- QED
+
+%|- test1 : PROOF (then ( b_uncond )(eval-formula))
+%|- QED
+
+END b_uncond_FFFFFF8008086860_bitvector

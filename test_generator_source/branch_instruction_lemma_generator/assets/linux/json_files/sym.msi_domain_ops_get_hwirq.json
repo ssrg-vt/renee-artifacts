@@ -1,0 +1,56 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620799392, 
+                "ops": [
+                    {
+                        "bytes": "200440f9", 
+                        "disasm": "ldr x0, [x1, 8]", 
+                        "esil": "x1,8,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620799392, 
+                        "fcn_last": -549620799388, 
+                        "flags": [
+                            "loc._x_220", 
+                            "sym.msi_domain_ops_get_hwirq"
+                        ], 
+                        "offset": -549620799392, 
+                        "opcode": "ldr x0, [x1, 8]", 
+                        "ptr": 8, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620799392, 
+                        "fcn_last": -549620799388, 
+                        "offset": -549620799388, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.msi_domain_ops_get_hwirq", 
+        "nargs": 1, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549620799392, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

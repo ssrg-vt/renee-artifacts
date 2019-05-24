@@ -1,0 +1,8 @@
+accessor: bits(width) X[integer n]
+function: integer UInt(bits(N) x)
+function: ShiftType DecodeShift(bits(2) op)
+function: (bits(N), bits(4)) AddWithCarry(bits(N) x, bits(N) y, bit carry_in)
+accessor: X[integer n] = bits(width) value
+function: bits(N) NOT(bits(N) x)
+function: bits(N) ShiftReg(integer reg, ShiftType type, integer amount)
+function: ReservedValue()

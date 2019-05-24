@@ -1,0 +1,22 @@
+integer n = UInt(Rn);
+integer t = UInt(Rt);
+AccType acctype = AccType_NORMAL; 
+MemOp memop; boolean signed; 
+integer regsize; 
+
+if opc<1> == '0' then 
+	// store or zero-extending load 
+	memop = if opc<0> == '1' then MemOp_LOAD else MemOp_STORE;
+	regsize = if size == '11' then 64 else 32; 
+	signed = FALSE; 
+else 
+	if size == '11' then 
+		UnallocatedEncoding(); 
+	else 
+		// sign-extending load 
+		memop = MemOp_LOAD; 
+		if size == '10' && opc<0> == '1' then UnallocatedEncoding(); 
+		regsize = if opc<0> == '1' then 32 else 64; 
+		signed = TRUE; 
+
+integer datasize = 8 << scale;

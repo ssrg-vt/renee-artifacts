@@ -1,0 +1,55 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620397104, 
+                "ops": [
+                    {
+                        "bytes": "001840f9", 
+                        "disasm": "ldr x0, [x0, 0x30]", 
+                        "esil": "x0,48,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620397104, 
+                        "fcn_last": -549620397100, 
+                        "flags": [
+                            "sym.mntns_owner"
+                        ], 
+                        "offset": -549620397104, 
+                        "opcode": "ldr x0, [x0, 0x30]", 
+                        "ptr": 48, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620397104, 
+                        "fcn_last": -549620397100, 
+                        "offset": -549620397100, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.mntns_owner", 
+        "nargs": 1, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549620397104, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

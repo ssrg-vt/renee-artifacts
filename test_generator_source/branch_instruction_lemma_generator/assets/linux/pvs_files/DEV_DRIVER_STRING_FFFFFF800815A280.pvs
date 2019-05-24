@@ -1,0 +1,16 @@
+DEV_DRIVER_STRING_FFFFFF800815A280[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b10010000000000000000001001000000 ) , addr:= 18446738260974536656}}
+    add_addsub_imm_1    : Theory =    add_addsub_imm    [ adrp_0.post              ]  {{Diag:= bv( 0b10010001000010010000000000000000 ) , addr:= 18446738260974536656}}
+    ret_2               : Theory =    ret               [ add_addsub_imm_1.post    ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974536663}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END DEV_DRIVER_STRING_FFFFFF800815A280

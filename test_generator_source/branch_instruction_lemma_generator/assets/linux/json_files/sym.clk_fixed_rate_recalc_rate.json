@@ -1,0 +1,56 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620201456, 
+                "ops": [
+                    {
+                        "bytes": "000c40f9", 
+                        "disasm": "ldr x0, [x0, 0x18]", 
+                        "esil": "x0,24,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620201456, 
+                        "fcn_last": -549620201452, 
+                        "flags": [
+                            "loc._x_488", 
+                            "sym.clk_fixed_rate_recalc_rate"
+                        ], 
+                        "offset": -549620201456, 
+                        "opcode": "ldr x0, [x0, 0x18]", 
+                        "ptr": 24, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620201456, 
+                        "fcn_last": -549620201452, 
+                        "offset": -549620201452, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.clk_fixed_rate_recalc_rate", 
+        "nargs": 1, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549620201456, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

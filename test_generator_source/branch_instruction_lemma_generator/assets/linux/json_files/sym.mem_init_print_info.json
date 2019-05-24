@@ -1,0 +1,77 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549619800456, 
+                "ops": [
+                    {
+                        "bytes": "000100d0", 
+                        "disasm": "adrp x0, 0xffffff80081d8000", 
+                        "esil": "-549619662848,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619800456, 
+                        "fcn_last": -549619800448, 
+                        "flags": [
+                            "sym.mem_init_print_info"
+                        ], 
+                        "offset": -549619800456, 
+                        "opcode": "adrp x0, 0xffffff80081d8000", 
+                        "ptr": -549619662848, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33, 
+                        "xrefs": [
+                            {
+                                "addr": -549619814288, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "000042f9", 
+                        "disasm": "ldr x0, [x0, 0x400]", 
+                        "esil": "x0,1024,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619800456, 
+                        "fcn_last": -549619800448, 
+                        "offset": -549619800452, 
+                        "opcode": "ldr x0, [x0, 0x400]", 
+                        "ptr": 1024, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619800456, 
+                        "fcn_last": -549619800448, 
+                        "offset": -549619800448, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.mem_init_print_info", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549619800456, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

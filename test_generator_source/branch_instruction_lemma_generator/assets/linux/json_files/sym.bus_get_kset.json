@@ -1,0 +1,73 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620166656, 
+                "ops": [
+                    {
+                        "bytes": "004840f9", 
+                        "disasm": "ldr x0, [x0, 0x90]", 
+                        "esil": "x0,144,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620166656, 
+                        "fcn_last": -549620166652, 
+                        "flags": [
+                            "sym.bus_get_kset"
+                        ], 
+                        "offset": -549620166656, 
+                        "opcode": "ldr x0, [x0, 0x90]", 
+                        "ptr": 144, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32, 
+                        "xrefs": [
+                            {
+                                "addr": -549620165284, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -549620163312, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -549620163240, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -549620162888, 
+                                "type": "DATA"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620166656, 
+                        "fcn_last": -549620166652, 
+                        "offset": -549620166652, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.bus_get_kset", 
+        "nargs": 1, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549620166656, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

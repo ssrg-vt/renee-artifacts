@@ -1,0 +1,83 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "jump": -4294275424, 
+                "offset": -4294280544, 
+                "ops": [
+                    {
+                        "bytes": "000700f0", 
+                        "disasm": "adrp x0, obj.__dso_handle", 
+                        "esil": "-4293353472,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294280544, 
+                        "fcn_last": -4294280536, 
+                        "flags": [
+                            "loc._x_2087", 
+                            "sym.pmm_count_total_bytes"
+                        ], 
+                        "offset": -4294280544, 
+                        "opcode": "adrp x0, 0xffffffff0018a000", 
+                        "ptr": -4293353472, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33, 
+                        "xrefs": [
+                            {
+                                "addr": -4294335772, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294285772, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "00800591", 
+                        "disasm": "add x0, x0, 0x160", 
+                        "esil": "352,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294280544, 
+                        "fcn_last": -4294280536, 
+                        "offset": -4294280540, 
+                        "opcode": "add x0, x0, 0x160", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "fe040014", 
+                        "disasm": "b sym.PmmNode::CountTotalBytes__const", 
+                        "esil": "-4294275424,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294280544, 
+                        "fcn_last": -4294280536, 
+                        "jump": -4294275424, 
+                        "offset": -4294280536, 
+                        "opcode": "b 0xffffffff000a8ea0", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "jmp", 
+                        "type2_num": 0, 
+                        "type_num": 1
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.pmm_count_total_bytes", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -4294280544, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

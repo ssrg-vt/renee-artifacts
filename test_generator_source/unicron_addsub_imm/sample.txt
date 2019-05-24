@@ -1,0 +1,6 @@
+integer d = UInt(Rd); 
+integer n = UInt(Rn); 
+integer m = UInt(Rm); 
+integer datasize = if sf == '1' then 64 else 32; 
+boolean sub_op = (op == '1'); 
+boolean setflags = (S == '1');

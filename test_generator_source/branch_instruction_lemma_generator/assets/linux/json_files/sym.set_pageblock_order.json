@@ -1,0 +1,45 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549619762080, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619762080, 
+                        "fcn_last": -549619762080, 
+                        "flags": [
+                            "sym.set_pageblock_order"
+                        ], 
+                        "offset": -549619762080, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5, 
+                        "xrefs": [
+                            {
+                                "addr": -549619788568, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.set_pageblock_order", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -549619762080, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

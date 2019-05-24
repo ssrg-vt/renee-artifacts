@@ -1,0 +1,16 @@
+PROCESSDISPATCHER__GET_RELATED_KOID__CONST_FFFFFFFF000473F0[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv( 0b11111001010000000011000000000000 ) , addr:= 18446744055837199033}}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ ldr_imm_gen_0.post       ]  {{Diag:= bv( 0b11111001010000000000100000000000 ) , addr:= 18446744055837199034}}
+    ret_2               : Theory =    ret               [ ldr_imm_gen_1.post       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446744055837199034}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END PROCESSDISPATCHER__GET_RELATED_KOID__CONST_FFFFFFFF000473F0

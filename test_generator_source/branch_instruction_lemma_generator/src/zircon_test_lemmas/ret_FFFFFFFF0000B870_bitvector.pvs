@@ -1,0 +1,20 @@
+ret_FFFFFFFF0000B870_bitvector      : THEORY
+    BEGIN
+    IMPORTING rsl@arm_state, rsl@ret
+        X_sts : [ below(32) -> bvec[64] ]  = init`X 
+
+        p    :  s = init with [`X:= X_sts]  with [ `PC`b := bv[64] (0b1001111111111011011011010110101111011111111111111111111111111111) ]
+
+    ret_1 : Theory = ret [ p ] {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= UInt(64, bv[64](0b1001111111111011011011010110101111011111111111111111111111111111) }}
+
+%|- p_TCC1         : PROOF
+
+%|- ret_0_TCC*: PROOF
+%|- conc_test_1_TCC*: PROOF
+%|- test1_TCC1      : PROOF (eval-formula)
+%|- QED
+
+%|- test1 : PROOF ( ret )
+%|- QED
+
+END ret_FFFFFFFF0000B870_bitvector

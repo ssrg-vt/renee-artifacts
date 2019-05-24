@@ -1,0 +1,54 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620404240, 
+                "ops": [
+                    {
+                        "bytes": "80008092", 
+                        "disasm": "movn x0, 0x4", 
+                        "esil": "4,-1,^,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620404240, 
+                        "fcn_last": -549620404236, 
+                        "flags": [
+                            "sym.bad_inode_get_link"
+                        ], 
+                        "offset": -549620404240, 
+                        "opcode": "movn x0, 0x4", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620404240, 
+                        "fcn_last": -549620404236, 
+                        "offset": -549620404236, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.bad_inode_get_link", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549620404240, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

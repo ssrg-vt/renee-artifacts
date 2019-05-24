@@ -1,0 +1,71 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620161368, 
+                "ops": [
+                    {
+                        "bytes": "00bc40f9", 
+                        "disasm": "ldr x0, [x0, 0x178]", 
+                        "esil": "x0,376,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620161368, 
+                        "fcn_last": -549620161360, 
+                        "flags": [
+                            "sym.class_child_ns_type"
+                        ], 
+                        "offset": -549620161368, 
+                        "opcode": "ldr x0, [x0, 0x178]", 
+                        "ptr": 376, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "002840f9", 
+                        "disasm": "ldr x0, [x0, 0x50]", 
+                        "esil": "x0,80,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620161368, 
+                        "fcn_last": -549620161360, 
+                        "offset": -549620161364, 
+                        "opcode": "ldr x0, [x0, 0x50]", 
+                        "ptr": 80, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620161368, 
+                        "fcn_last": -549620161360, 
+                        "offset": -549620161360, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.class_child_ns_type", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620161368, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

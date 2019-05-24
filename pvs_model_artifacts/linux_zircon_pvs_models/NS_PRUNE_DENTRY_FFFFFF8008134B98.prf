@@ -1,0 +1,10 @@
+(NS_PRUNE_DENTRY_FFFFFF8008134B98
+ (ldr_imm_gen_0_TCC1 0
+  (ldr_imm_gen_0_TCC1-1 nil 3765746774 ("" (eval-formula) nil) nil nil
+   (ldr_imm_gen_0 subtype "0b11111001010000010000110000000000"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (str_imm_gen_1_TCC1 0
+  (str_imm_gen_1_TCC1-1 nil 3765746774 ("" (eval-formula) nil) nil nil
+   (str_imm_gen_1 subtype "0b11111001000000000000000000011111"
+    "naturalnumbers.below(exp2.exp2(32))"))))
+

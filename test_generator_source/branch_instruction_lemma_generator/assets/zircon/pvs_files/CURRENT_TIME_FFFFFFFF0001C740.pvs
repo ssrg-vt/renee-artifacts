@@ -1,0 +1,25 @@
+CURRENT_TIME_FFFFFFFF0001C740[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    stp_gen_0           : Theory =    stp_gen           [ p0                       ]  {{Diag:= bv( 0b10111111110111101111110110010101 ) , addr:= 18446744069414700864}}
+    add_addsub_imm_1    : Theory =    add_addsub_imm    [ stp_gen_0.post           ]  {{Diag:= bv( 0b10111111110000000000000010001001 ) , addr:= 18446744069414700868}}
+    adrp_2              : Theory =    adrp              [ add_addsub_imm_1.post    ]  {{Diag:= bv( 0b00000111111000000000000000001101 ) , addr:= 18446744069414700872}}
+    ldr_imm_gen_3       : Theory =    ldr_imm_gen       [ adrp_2.post              ]  {{Diag:= bv( 0b00000000001001010100001010011111 ) , addr:= 18446744069414700876}}
+    ldr_imm_gen_4       : Theory =    ldr_imm_gen       [ ldr_imm_gen_3.post       ]  {{Diag:= bv( 0b00000000001100000000001010011111 ) , addr:= 18446744069414700880}}
+    blr_5               : Theory =    blr               [ ldr_imm_gen_4.post       ]  {{Diag:= bv( 0b00000000000000001111110001101011 ) , addr:= 18446744069414700884}}
+    adrp_6              : Theory =    adrp              [ blr_5.post               ]  {{Diag:= bv( 0b10000101100100000000000000001001 ) , addr:= 18446744069414700888}}
+    add_addsub_imm_7    : Theory =    add_addsub_imm    [ adrp_6.post              ]  {{Diag:= bv( 0b01000100000001010001000010001001 ) , addr:= 18446744069414700892}}
+    ldp_gen_8           : Theory =    ldp_gen           [ add_addsub_imm_7.post    ]  {{Diag:= bv( 0b10111111110111101000001100010101 ) , addr:= 18446744069414700896}}
+    ldr_imm_gen_9       : Theory =    ldr_imm_gen       [ ldp_gen_8.post           ]  {{Diag:= bv( 0b10000100001010001000001010011111 ) , addr:= 18446744069414700900}}
+    ldr_imm_gen_10      : Theory =    ldr_imm_gen       [ ldr_imm_gen_9.post       ]  {{Diag:= bv( 0b01000010000100000000001010011101 ) , addr:= 18446744069414700904}}
+    b_uncond_11         : Theory =    b_uncond          [ ldr_imm_gen_10.post      ]  {{Diag:= bv( 0b10100110011111111111111111101000 ) , addr:= 18446744069414700908}}
+
+    B_post: s = b_uncond_11.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END CURRENT_TIME_FFFFFFFF0001C740

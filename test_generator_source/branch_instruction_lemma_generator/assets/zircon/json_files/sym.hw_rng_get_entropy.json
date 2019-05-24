@@ -1,0 +1,71 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294960816, 
+                "ops": [
+                    {
+                        "bytes": "000080d2", 
+                        "disasm": "movz x0, 0", 
+                        "esil": "0,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294960816, 
+                        "fcn_last": -4294960812, 
+                        "flags": [
+                            "loc._x_13", 
+                            "sym.hw_rng_get_entropy"
+                        ], 
+                        "offset": -4294960816, 
+                        "opcode": "movz x0, 0", 
+                        "ptr": 0, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9, 
+                        "val": 0, 
+                        "xrefs": [
+                            {
+                                "addr": -4294393556, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294110644, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294110356, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294960816, 
+                        "fcn_last": -4294960812, 
+                        "offset": -4294960812, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.hw_rng_get_entropy", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -4294960816, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

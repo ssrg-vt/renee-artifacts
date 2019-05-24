@@ -1,0 +1,77 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294905680, 
+                "ops": [
+                    {
+                        "bytes": "00c02291", 
+                        "disasm": "add x0, x0, 0x8b0", 
+                        "esil": "2224,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294905680, 
+                        "fcn_last": -4294905676, 
+                        "flags": [
+                            "sym.non_virtualthunktoPcieBridge::mmio_lo_regions", 
+                            "method.non_virtualthunktoPcieBridge.mmio_lo_regions"
+                        ], 
+                        "offset": -4294905680, 
+                        "opcode": "add x0, x0, 0x8b0", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17, 
+                        "xrefs": [
+                            {
+                                "addr": -4294901400, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294901144, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294870720, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294870652, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294870484, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294905680, 
+                        "fcn_last": -4294905676, 
+                        "offset": -4294905676, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.non_virtualthunktoPcieBridge::mmio_lo_regions", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -4294905680, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

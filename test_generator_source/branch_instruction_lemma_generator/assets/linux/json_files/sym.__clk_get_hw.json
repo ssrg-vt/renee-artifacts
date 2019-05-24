@@ -1,0 +1,186 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "fail": -549620213340, 
+                "jump": -549620213328, 
+                "offset": -549620213344, 
+                "ops": [
+                    {
+                        "bytes": "800000b4", 
+                        "disasm": "cbz x0, 0xffffff80081519b0", 
+                        "esil": "x0,!,?{,-549620213328,pc,=,}", 
+                        "fail": -549620213340, 
+                        "family": "cpu", 
+                        "fcn_addr": -549620213344, 
+                        "fcn_last": -549620213324, 
+                        "flags": [
+                            "sym.__clk_get_hw"
+                        ], 
+                        "jump": -549620213328, 
+                        "offset": -549620213344, 
+                        "opcode": "cbz x0, 0xffffff80081519b0", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "cjmp", 
+                        "type2_num": 0, 
+                        "type_num": 2147483649, 
+                        "xrefs": [
+                            {
+                                "addr": -549620221580, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620221484, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620221280, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620220848, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620220800, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620202416, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620201568, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620200816, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620200064, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620198344, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620196328, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549620023872, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }
+                ], 
+                "size": 4
+            }, 
+            {
+                "colorize": 0, 
+                "offset": -549620213340, 
+                "ops": [
+                    {
+                        "bytes": "000040f9", 
+                        "disasm": "ldr x0, [x0]", 
+                        "esil": "x0,0,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620213344, 
+                        "fcn_last": -549620213324, 
+                        "offset": -549620213340, 
+                        "opcode": "ldr x0, [x0]", 
+                        "ptr": 0, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "000840f9", 
+                        "disasm": "ldr x0, [x0, 0x10]", 
+                        "esil": "x0,16,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620213344, 
+                        "fcn_last": -549620213324, 
+                        "offset": -549620213336, 
+                        "opcode": "ldr x0, [x0, 0x10]", 
+                        "ptr": 16, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620213344, 
+                        "fcn_last": -549620213324, 
+                        "offset": -549620213332, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }, 
+            {
+                "colorize": 0, 
+                "offset": -549620213328, 
+                "ops": [
+                    {
+                        "bytes": "000080d2", 
+                        "disasm": "movz x0, 0", 
+                        "esil": "0,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620213344, 
+                        "fcn_last": -549620213324, 
+                        "offset": -549620213328, 
+                        "opcode": "movz x0, 0", 
+                        "ptr": 0, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9, 
+                        "val": 0
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620213344, 
+                        "fcn_last": -549620213324, 
+                        "offset": -549620213324, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.__clk_get_hw", 
+        "nargs": 1, 
+        "ninstr": 6, 
+        "nlocals": 0, 
+        "offset": -549620213344, 
+        "size": 24, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

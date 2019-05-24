@@ -1,0 +1,52 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "jump": -549621045180, 
+                "offset": -549621047296, 
+                "ops": [
+                    {
+                        "bytes": "11020014", 
+                        "disasm": "b sym.el2_sync_invalid", 
+                        "esil": "-549621045180,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621047296, 
+                        "fcn_last": -549621047296, 
+                        "flags": [
+                            "loc._x_59", 
+                            "sym.__hyp_stub_vectors"
+                        ], 
+                        "jump": -549621045180, 
+                        "offset": -549621047296, 
+                        "opcode": "b 0xffffff8008086844", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "jmp", 
+                        "type2_num": 0, 
+                        "type_num": 1, 
+                        "xrefs": [
+                            {
+                                "addr": -549621042992, 
+                                "type": "DATA"
+                            }, 
+                            {
+                                "addr": -549620006588, 
+                                "type": "DATA"
+                            }
+                        ]
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.__hyp_stub_vectors", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -549621047296, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

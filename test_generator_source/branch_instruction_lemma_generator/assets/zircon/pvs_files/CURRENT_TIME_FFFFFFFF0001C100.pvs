@@ -1,0 +1,39 @@
+CURRENT_TIME_FFFFFFFF0001C100[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    sub_addsub_imm_0    : Theory =    sub_addsub_imm    [ p0                       ]  {{Diag:= bv( 0b11111111110000100000000010001011 ) , addr:= (18446744069414699264)}}
+    and_log_imm_1       : Theory =    and_log_imm       [ sub_addsub_imm_0.post    ]  {{Diag:= bv( 0b11100000001111100000001001001001 ) , addr:= (18446744069414699268)}}
+    orr_log_shift_2     : Theory =    orr_log_shift     [ and_log_imm_1.post       ]  {{Diag:= bv( 0b01000111110000000100000001010100 ) , addr:= (18446744069414699272)}}
+    ubfm_3              : Theory =    ubfm              [ orr_log_shift_2.post     ]  {{Diag:= bv( 0b00000000001111110000011011001011 ) , addr:= (18446744069414699276)}}
+    orr_log_shift_4     : Theory =    orr_log_shift     [ ubfm_3.post              ]  {{Diag:= bv( 0b11000111110000001000000001010100 ) , addr:= (18446744069414699280)}}
+    str_imm_gen_5       : Theory =    str_imm_gen       [ orr_log_shift_4.post     ]  {{Diag:= bv( 0b10000111110000000000000010011111 ) , addr:= (18446744069414699284)}}
+    madd_6              : Theory =    madd              [ str_imm_gen_5.post       ]  {{Diag:= bv( 0b00100010001111101110000011011001 ) , addr:= (18446744069414699288)}}
+    ldr_imm_gen_7       : Theory =    ldr_imm_gen       [ madd_6.post              ]  {{Diag:= bv( 0b00010111111000000000001010011101 ) , addr:= (18446744069414699292)}}
+    madd_8              : Theory =    madd              [ ldr_imm_gen_7.post       ]  {{Diag:= bv( 0b01000000001111100100000011011001 ) , addr:= (18446744069414699296)}}
+    madd_9              : Theory =    madd              [ madd_8.post              ]  {{Diag:= bv( 0b10000000001111101100000011011001 ) , addr:= (18446744069414699300)}}
+    madd_10             : Theory =    madd              [ madd_9.post              ]  {{Diag:= bv( 0b11000110001111101110000011011001 ) , addr:= (18446744069414699304)}}
+    add_addsub_imm_11   : Theory =    add_addsub_imm    [ madd_10.post             ]  {{Diag:= bv( 0b11111111110000100000000010001001 ) , addr:= (18446744069414699308)}}
+    madd_12             : Theory =    madd              [ add_addsub_imm_11.post   ]  {{Diag:= bv( 0b10100000101111101110000011011001 ) , addr:= (18446744069414699312)}}
+    madd_13             : Theory =    madd              [ madd_12.post             ]  {{Diag:= bv( 0b00000000001100000001000011011001 ) , addr:= (18446744069414699316)}}
+    and_log_imm_14      : Theory =    and_log_imm       [ madd_13.post             ]  {{Diag:= bv( 0b01100101001111100000001001001001 ) , addr:= (18446744069414699320)}}
+    add_addsub_ext_15   : Theory =    add_addsub_ext    [ and_log_imm_14.post      ]  {{Diag:= bv( 0b01100011000000100100010011010001 ) , addr:= (18446744069414699324)}}
+    ubfm_16             : Theory =    ubfm              [ add_addsub_ext_15.post   ]  {{Diag:= bv( 0b10100101001111110000011011001011 ) , addr:= (18446744069414699328)}}
+    add_addsub_shift_17 : Theory =    add_addsub_shift  [ ubfm_16.post             ]  {{Diag:= bv( 0b11000011000000010010001011010001 ) , addr:= (18446744069414699332)}}
+    add_addsub_shift_18 : Theory =    add_addsub_shift  [ add_addsub_shift_17.post ]  {{Diag:= bv( 0b10000101000000011000000011010001 ) , addr:= (18446744069414699336)}}
+    add_addsub_shift_19 : Theory =    add_addsub_shift  [ add_addsub_shift_18.post ]  {{Diag:= bv( 0b00000100000000000000000011010001 ) , addr:= (18446744069414699340)}}
+    ubfm_20             : Theory =    ubfm              [ add_addsub_shift_19.post ]  {{Diag:= bv( 0b10000110001111110000011011001011 ) , addr:= (18446744069414699344)}}
+    ubfm_21             : Theory =    ubfm              [ ubfm_20.post             ]  {{Diag:= bv( 0b11000110001111101111100011001010 ) , addr:= (18446744069414699348)}}
+    add_addsub_shift_22 : Theory =    add_addsub_shift  [ ubfm_21.post             ]  {{Diag:= bv( 0b01000100000000010100001011010001 ) , addr:= (18446744069414699352)}}
+    add_addsub_shift_23 : Theory =    add_addsub_shift  [ add_addsub_shift_22.post ]  {{Diag:= bv( 0b00000000000000000100000011010001 ) , addr:= (18446744069414699356)}}
+    add_addsub_shift_24 : Theory =    add_addsub_shift  [ add_addsub_shift_23.post ]  {{Diag:= bv( 0b00000110000000000000000011010001 ) , addr:= (18446744069414699360)}}
+    ret_25              : Theory =    ret               [ add_addsub_shift_24.post ]  {{Diag:= bv( 0b00000011110000001111101001101011 ) , addr:= (18446744069414699364)}}
+
+    B_post: s = ret_25.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END CURRENT_TIME_FFFFFFFF0001C100

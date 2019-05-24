@@ -1,0 +1,41 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294760144, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294760144, 
+                        "fcn_last": -4294760144, 
+                        "flags": [
+                            "loc._x_793", 
+                            "sym.StateObserver::OnRemoved", 
+                            "method.StateObserver.OnRemoved"
+                        ], 
+                        "offset": -4294760144, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.StateObserver::OnRemoved", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -4294760144, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

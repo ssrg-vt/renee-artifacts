@@ -1,0 +1,14 @@
+F__PGD_ERROR_FFFFFF80080859F8[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ret_0               : Theory =    ret               [ p0                       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260973565820}}
+
+    B_post: s = ret_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END F__PGD_ERROR_FFFFFF80080859F8

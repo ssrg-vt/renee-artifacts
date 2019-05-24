@@ -1,0 +1,14 @@
+EL2_HVC_SYSREG_FFFFFFFF000D1000[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    cbnz_0              : Theory =    cbnz              [ p0                       ]  {{Diag:= bv [32] ( 0b10110101000000000000000111100010 ) , addr:= 0xffffffff000d1000 ,next:= 0xffffffff000d103c ,fail:= 0xffffffff000d1004 }}
+
+    B_post: s = cbnz_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END EL2_HVC_SYSREG_FFFFFFFF000D1000

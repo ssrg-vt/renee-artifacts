@@ -1,0 +1,14 @@
+ZeroExtend : THEORY
+
+  BEGIN
+
+ % ZeroExtend() 
+
+%bits(N) ZeroExtend(bits(M) x, integer N) assert N >= M; return Zeros(N-M) : x 
+%IMPORTING UInt
+
+ ZeroExtend(N: nat,
+            M: {m:nat | N >= m},
+            x: bvec[M]): bvec[N] = (lambda(i: below(N - M)): false) o x
+ 
+END ZeroExtend

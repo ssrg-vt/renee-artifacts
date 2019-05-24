@@ -1,0 +1,82 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294108224, 
+                "ops": [
+                    {
+                        "bytes": "042440f9", 
+                        "disasm": "ldr x4, [x0, 0x48]", 
+                        "esil": "x0,72,+,DUP,tmp,=,[8],x4,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294108224, 
+                        "fcn_last": -4294108220, 
+                        "flags": [
+                            "loc._x_2443", 
+                            "sym.gfx_putpixel.part.0"
+                        ], 
+                        "offset": -4294108224, 
+                        "opcode": "ldr x4, [x0, 0x48]", 
+                        "ptr": 72, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32, 
+                        "xrefs": [
+                            {
+                                "addr": -4294107976, 
+                                "type": "CODE"
+                            }, 
+                            {
+                                "addr": -4294105856, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294105572, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294105388, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294105308, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294105236, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "80001fd6", 
+                        "disasm": "br x4", 
+                        "esil": "x4,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294108224, 
+                        "fcn_last": -4294108220, 
+                        "offset": -4294108220, 
+                        "opcode": "br x4", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ujmp", 
+                        "type2_num": 0, 
+                        "type_num": 2
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.gfx_putpixel.part.0", 
+        "nargs": 1, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -4294108224, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

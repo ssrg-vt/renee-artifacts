@@ -1,0 +1,70 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294110828, 
+                "ops": [
+                    {
+                        "bytes": "69000010", 
+                        "disasm": "adr x9, 0xffffffff000d11a0", 
+                        "esil": "-4294110816,x9,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294110828, 
+                        "fcn_last": -4294110820, 
+                        "flags": [
+                            "sym.el2_gicv3_write_lr"
+                        ], 
+                        "offset": -4294110828, 
+                        "opcode": "adr x9, 0xffffffff000d11a0", 
+                        "ptr": -4294110816, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "290d018b", 
+                        "disasm": "add x9, x9, x1, lsl 3", 
+                        "esil": "3,x1,<<,x9,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294110828, 
+                        "fcn_last": -4294110820, 
+                        "offset": -4294110824, 
+                        "opcode": "add x9, x9, x1, lsl 3", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "20011fd6", 
+                        "disasm": "br x9", 
+                        "esil": "x9,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294110828, 
+                        "fcn_last": -4294110820, 
+                        "offset": -4294110820, 
+                        "opcode": "br x9", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ujmp", 
+                        "type2_num": 0, 
+                        "type_num": 2
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.el2_gicv3_write_lr", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -4294110828, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

@@ -1,0 +1,71 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620504056, 
+                "ops": [
+                    {
+                        "bytes": "c0060090", 
+                        "disasm": "adrp x0, 0xffffff80081e2000", 
+                        "esil": "-549619621888,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620504056, 
+                        "fcn_last": -549620504048, 
+                        "flags": [
+                            "sym.get_max_files"
+                        ], 
+                        "offset": -549620504056, 
+                        "opcode": "adrp x0, 0xffffff80081e2000", 
+                        "ptr": -549619621888, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "002c42f9", 
+                        "disasm": "ldr x0, [x0, 0x458]", 
+                        "esil": "x0,1112,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620504056, 
+                        "fcn_last": -549620504048, 
+                        "offset": -549620504052, 
+                        "opcode": "ldr x0, [x0, 0x458]", 
+                        "ptr": 1112, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620504056, 
+                        "fcn_last": -549620504048, 
+                        "offset": -549620504048, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.get_max_files", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620504056, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

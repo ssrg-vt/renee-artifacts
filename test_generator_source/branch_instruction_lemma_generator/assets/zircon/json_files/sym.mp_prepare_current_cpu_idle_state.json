@@ -1,0 +1,48 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "jump": -4294938528, 
+                "offset": -4294840048, 
+                "ops": [
+                    {
+                        "bytes": "d49fff17", 
+                        "disasm": "b sym.arch_prepare_current_cpu_idle_state", 
+                        "esil": "-4294938528,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294840048, 
+                        "fcn_last": -4294840048, 
+                        "flags": [
+                            "loc._x_486", 
+                            "sym.mp_prepare_current_cpu_idle_state"
+                        ], 
+                        "jump": -4294938528, 
+                        "offset": -4294840048, 
+                        "opcode": "b 0xffffffff00007060", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "jmp", 
+                        "type2_num": 0, 
+                        "type_num": 1, 
+                        "xrefs": [
+                            {
+                                "addr": -4294830116, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.mp_prepare_current_cpu_idle_state", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -4294840048, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

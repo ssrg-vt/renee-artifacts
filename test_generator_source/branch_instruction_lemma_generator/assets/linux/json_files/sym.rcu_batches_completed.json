@@ -1,0 +1,71 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620776144, 
+                "ops": [
+                    {
+                        "bytes": "c0080090", 
+                        "disasm": "adrp x0, 0xffffff80081e0000", 
+                        "esil": "-549619630080,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620776144, 
+                        "fcn_last": -549620776136, 
+                        "flags": [
+                            "sym.rcu_batches_completed"
+                        ], 
+                        "offset": -549620776144, 
+                        "opcode": "adrp x0, 0xffffff80081e0000", 
+                        "ptr": -549619630080, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "00c841f9", 
+                        "disasm": "ldr x0, [x0, 0x390]", 
+                        "esil": "x0,912,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620776144, 
+                        "fcn_last": -549620776136, 
+                        "offset": -549620776140, 
+                        "opcode": "ldr x0, [x0, 0x390]", 
+                        "ptr": 912, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620776144, 
+                        "fcn_last": -549620776136, 
+                        "offset": -549620776136, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.rcu_batches_completed", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620776144, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

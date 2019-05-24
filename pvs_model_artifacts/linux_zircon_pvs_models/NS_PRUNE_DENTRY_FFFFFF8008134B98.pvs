@@ -1,0 +1,15 @@
+NS_PRUNE_DENTRY_FFFFFF8008134B98[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv [32] ( 0b11111001010000010000110000000000 ) , addr:= 0xffffff8008134b98 }}
+    str_imm_gen_1       : Theory =    str_imm_gen       [ ldr_imm_gen_0.post       ]  {{Diag:= bv [32] ( 0b11111001000000000000000000011111 ) , addr:= 0xffffff8008134b9c }}
+
+    B_post: s = str_imm_gen_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END NS_PRUNE_DENTRY_FFFFFF8008134B98

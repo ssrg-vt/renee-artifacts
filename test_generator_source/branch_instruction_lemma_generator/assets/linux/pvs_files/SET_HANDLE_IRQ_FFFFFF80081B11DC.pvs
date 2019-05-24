@@ -1,0 +1,14 @@
+SET_HANDLE_IRQ_FFFFFF80081B11DC[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    str_imm_gen_0       : Theory =    str_imm_gen       [ p0                       ]  {{Diag:= bv( 0b11111001000000000000010000100000 ) , addr:= 18446738260981439983}}
+
+    B_post: s = str_imm_gen_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END SET_HANDLE_IRQ_FFFFFF80081B11DC

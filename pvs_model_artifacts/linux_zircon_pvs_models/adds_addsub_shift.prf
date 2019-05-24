@@ -1,0 +1,62 @@
+(adds_addsub_shift
+ (diag_TCC1 0
+  (diag_TCC1-1 nil 3767267341
+   (""
+    (inst 1
+     "(# sf:= lambda(i:below(1)):false, op:= lambda(i:below(1)):false, S:= lambda(i:below(1)):false, Fixed1:= lambda(i:below(5)):false, shift:= lambda(i:below(2)):false, Fixed2:= lambda(i:below(1)):false, Rm:= lambda(i:below(5)):false, imm6:= lambda(i:below(6)):false, Rn:= lambda(i:below(5)):false, Rd:= lambda(i:below(5)):false, length:= 32 #)")
+    nil)
+   nil nil
+   (diag existence ""
+    "[# Fixed1: bv[5].bvec, Fixed2: bv[1].bvec, imm6: bv[6].bvec, length: {n: naturalnumbers.nat | n = 32}, op: bv[1].bvec, Rd: bv[5].bvec, Rm: bv[5].bvec, Rn: bv[5].bvec, S: bv[1].bvec, sf: bv[1].bvec, shift: bv[2].bvec #]")))
+ (m_TCC1 0
+  (m_TCC1-1 nil 3767267341 ("" (grind) nil nil)
+   ((bts const-decl "bvec[n2 - n1 + 1]" bts nil)
+    (UInt const-decl "int" UInt nil))
+   nil
+   (m subtype "UInt.UInt(5, adds_addsub_shift.v`Rm)"
+    "naturalnumbers.below(32)")))
+ (sub_op_TCC1 0
+  (sub_op_TCC1-1 nil 3767267341 ("" (grind) nil nil) nil nil
+   (sub_op subtype "0b1" "naturalnumbers.below(exp2.exp2(1))")))
+ (p1_TCC1 0
+  (p1_TCC1-1 nil 3767267341 ("" (grind) nil nil) nil nil
+   (p1 subtype "0b11" "naturalnumbers.below(exp2.exp2(2))")))
+ (p2_TCC1 0
+  (p2_TCC1-1 nil 3767267341 ("" (grind) nil nil) nil nil
+   (p2 subtype "0b0" "naturalnumbers.below(exp2.exp2(1))")))
+ (ASL_TCC1 0
+  (ASL_TCC1-1 nil 3767267341 ("" (grind) nil nil)
+   ((bts const-decl "bvec[n2 - n1 + 1]" bts nil)
+    (UInt const-decl "int" UInt nil))
+   nil (ASL subtype "adds_addsub_shift.n" "naturalnumbers.below(32)")))
+ (ASL_TCC2 0
+  (ASL_TCC2-1 nil 3767267341
+   ("" (grind)
+    ((""
+      (inst 1 "(# carry_in:= false,
+                   nzcv:= bv[4](0b0000),
+                   operand1:=  po!1`X(n),
+                   operand2:= lambda(i: below(64)): false,
+                   result:= lambda(i: below(64)): false #)")
+      (("" (grind) nil nil)) nil))
+    nil)
+   ((s type-eq-decl nil arm_state nil)
+    (ProcState type-eq-decl nil arm_state nil)
+    (bts const-decl "bvec[n2 - n1 + 1]" bts nil)
+    (UInt const-decl "int" UInt nil))
+   nil
+   (ASL existence ""
+    "[# carry_in: bit.bit, nzcv: bv[4].bvec, operand1: {bv: bv[64].bvec | bv = adds_addsub_shift.po`X(adds_addsub_shift.n)}, operand2: bv[64].bvec, result: bv[64].bvec #]")))
+ (sts2_TCC1 0
+  (sts2_TCC1-1 nil 3767267341 ("" (grind) nil nil)
+   ((bts const-decl "bvec[n2 - n1 + 1]" bts nil)
+    (UInt const-decl "int" UInt nil))
+   nil
+   (sts2 subtype "adds_addsub_shift.shift_amount" "subrange[0, 63]")))
+ (post_TCC1 0
+  (post_TCC1-1 nil 3767267341 ("" (grind) nil nil)
+   ((bts const-decl "bvec[n2 - n1 + 1]" bts nil)
+    (UInt const-decl "int" UInt nil))
+   nil
+   (post subtype "adds_addsub_shift.d" "naturalnumbers.below(32)"))))
+

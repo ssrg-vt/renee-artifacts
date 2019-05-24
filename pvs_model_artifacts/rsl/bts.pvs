@@ -1,0 +1,9 @@
+bts[ N: {n: nat | n = 64 or n = 32} ]
+		: THEORY
+
+  BEGIN
+
+bts(bv: bvec[N], n1: below(N), n2: {n:below(N)| n1 < n}): bvec[ n2 - n1 + 1] = lambda(i: below(n2 - n1 + 1)): bv(n1 + i) 
+
+
+  END bts

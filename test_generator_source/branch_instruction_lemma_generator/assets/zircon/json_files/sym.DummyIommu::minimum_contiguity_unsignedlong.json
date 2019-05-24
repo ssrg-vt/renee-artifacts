@@ -1,0 +1,58 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294920080, 
+                "ops": [
+                    {
+                        "bytes": "000082d2", 
+                        "disasm": "movz x0, 0x1000", 
+                        "esil": "4096,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294920080, 
+                        "fcn_last": -4294920076, 
+                        "flags": [
+                            "loc._x_199", 
+                            "sym.DummyIommu::minimum_contiguity_unsignedlong", 
+                            "method.DummyIommu.minimum_contiguity_unsignedlong"
+                        ], 
+                        "offset": -4294920080, 
+                        "opcode": "movz x0, 0x1000", 
+                        "ptr": 0, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9, 
+                        "val": 4096
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294920080, 
+                        "fcn_last": -4294920076, 
+                        "offset": -4294920076, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.DummyIommu::minimum_contiguity_unsignedlong", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -4294920080, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

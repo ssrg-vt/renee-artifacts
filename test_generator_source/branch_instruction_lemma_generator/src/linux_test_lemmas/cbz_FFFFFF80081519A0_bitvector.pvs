@@ -1,0 +1,24 @@
+cbz_FFFFFF80081519A0_bitvector      : THEORY
+
+    BEGIN
+
+    IMPORTING rsl@arm_state, rsl@cbz
+
+        X_sts : [ below(32) -> bvec[64] ]  = init`X 
+
+        p    :  s = init with [`X:= X_sts]  with [ `PC`b := 0xfffffab69dfdeccc ]
+
+        cbz_0 : Theory = cbz [ p ] {{Diag:= bv[32] ( 0b00000001000000000000000000101101 ) , next:= 0xffffff80081519b0 , fail:= 0xffffff80081519a4 }}
+
+    test1 : lemma cbz_0.post`PC`b = 0xffffff80081519b0 or 
+                  cbz_0.post`PC`b = 0xffffff80081519a4
+
+
+%|- p_TCC1         : PROOF
+%|- cbz_0_TCC*: PROOF (eval-formula)
+%|- QED
+
+%|- test* : PROOF ( cbz )
+%|- QED
+
+END cbz_FFFFFF80081519A0_bitvector

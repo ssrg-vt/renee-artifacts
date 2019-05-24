@@ -1,0 +1,59 @@
+(addsub_imm
+ (diag_TCC1 0
+  (diag_TCC1-1 nil 3764970368
+   (""
+    (inst 1
+     "(# sf:= lambda(i:below(1)):false, op:= lambda(i:below(1)):false, S:= lambda(i:below(1)):false, Fixed1:= lambda(i:below(5)):false, shift:= lambda(i:below(2)):false, imm12:= lambda(i:below(12)):false, Rn:= lambda(i:below(5)):false, Rd:= lambda(i:below(5)):false, length:= 32 #)")
+    nil)
+   nil nil
+   (diag existence ""
+    "[# Fixed1: bv[5].bvec, imm12: bv[12].bvec, length: {n: naturalnumbers.nat | n = 32}, op: bv[1].bvec, Rd: bv[5].bvec, Rn: bv[5].bvec, S: bv[1].bvec, sf: bv[1].bvec, shift: bv[2].bvec #]")))
+ (sub_op_TCC1 0
+  (sub_op_TCC1-1 nil 3764970368 ("" (subtype-tcc) nil nil) nil nil
+   (sub_op subtype "0b1" "naturalnumbers.below(exp2.exp2(1))")))
+ (imm_TCC1 0
+  (imm_TCC1-1 nil 3764970368 ("" (subtype-tcc) nil nil) nil nil
+   (imm subtype "addsub_imm.datasize" "nat")))
+ (imm_TCC2 0
+  (imm_TCC2-1 nil 3764970368 ("" (subtype-tcc) nil nil) nil nil
+   (imm subtype "0b0" "naturalnumbers.below(exp2.exp2(2))")))
+ (imm_TCC3 0
+  (imm_TCC3-1 nil 3764970368 ("" (subtype-tcc) nil nil)
+   ((ZeroExtend const-decl "bvec[N]" ZeroExtend nil)) nil
+   (imm subtype "ZeroExtend.ZeroExtend(64, 12, addsub_imm.v`imm12)"
+    "bvec[datasize]")))
+ (imm_TCC4 0
+  (imm_TCC4-1 nil 3764970368 ("" (subtype-tcc) nil nil) nil nil
+   (imm subtype "0b10" "naturalnumbers.below(exp2.exp2(2))")))
+ (imm_TCC5 0
+  (imm_TCC5-1 nil 3764970368 ("" (subtype-tcc) nil nil)
+   ((ZeroExtend const-decl "bvec[N]" ZeroExtend nil)) nil
+   (imm subtype
+    "ZeroExtend.ZeroExtend(64, 24, bv_concat_def[12, 12].o(addsub_imm.v`imm12, Zeros.Zeros(12)))"
+    "bvec[datasize]")))
+ (imm_TCC6 0
+  (imm_TCC6-1 nil 3764970368
+   ("" (cond-disjoint-tcc)
+    (("" (claim " bv[2](0b00) /= bv[2](0b10)")
+      (("1" (grind) nil nil) ("2" (eval-formula 1) nil nil)) nil))
+    nil)
+   nil nil
+   (imm disjointness
+    "COND addsub_imm.v`shift = bv[2](0b00) -> ZeroExtend.ZeroExtend(64, 12, addsub_imm.v`imm12), addsub_imm.v`shift = bv[2](0b10) -> ZeroExtend.ZeroExtend(64, 24, bv_concat_def[12, 12].o(addsub_imm.v`imm12, Zeros.Zeros(12))), ELSE -> stdcatch[bvec[datasize], booleans.boolean].throw(\"ReservedValue()_AArch64.UndefinedFault()\", stdexc[booleans.boolean].make_exc(\"ReservedValue()_AArch64.UndefinedFault()\", stdlang.fail)) ENDCOND"
+    "nil")))
+ (sts2_TCC1 0
+  (sts2_TCC1-1 nil 3764979359
+   ("" (subtype-tcc) (("" (grind) nil nil)) nil)
+   ((UInt const-decl "int" UInt nil)
+    (bts const-decl "bvec[n2 - n1 + 1]" bts nil))
+   nil (sts2 subtype "addsub_imm.n" "naturalnumbers.below(32)")))
+ (sts2_TCC2 0
+  (sts2_TCC1-1 nil 3764970368 ("" (subtype-tcc) nil nil) nil nil
+   (sts2 subtype "addsub_imm.imm" "bvec[64]")))
+ (post_TCC1 0
+  (post_TCC1-1 nil 3764970368
+   ("" (subtype-tcc) (("1" (grind) nil nil) ("2" (grind) nil nil)) nil)
+   ((bts const-decl "bvec[n2 - n1 + 1]" bts nil)
+    (UInt const-decl "int" UInt nil))
+   nil (post subtype "addsub_imm.d" "naturalnumbers.below(32)"))))
+

@@ -1,0 +1,45 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549619824896, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619824896, 
+                        "fcn_last": -549619824896, 
+                        "flags": [
+                            "sym.arch_post_acpi_subsys_init"
+                        ], 
+                        "offset": -549619824896, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5, 
+                        "xrefs": [
+                            {
+                                "addr": -549619824224, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.arch_post_acpi_subsys_init", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -549619824896, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

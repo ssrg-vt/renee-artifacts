@@ -1,0 +1,20 @@
+BOOT_ALLOC_INIT_FFFFFFFF000A6AC0[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv [32] ( 0b10010000000000000000011100100010 ) , addr:= 0xffffffff000a6ac0 }}
+    adrp_1              : Theory =    adrp              [ adrp_0.post              ]  {{Diag:= bv [32] ( 0b10010000000000000000011100100001 ) , addr:= 0xffffffff000a6ac4 }}
+    adrp_2              : Theory =    adrp              [ adrp_1.post              ]  {{Diag:= bv [32] ( 0b10110000000000000000011100100000 ) , addr:= 0xffffffff000a6ac8 }}
+    add_addsub_imm_3    : Theory =    add_addsub_imm    [ adrp_2.post              ]  {{Diag:= bv [32] ( 0b10010001000000000000000000000000 ) , addr:= 0xffffffff000a6acc }}
+    str_imm_gen_4       : Theory =    str_imm_gen       [ add_addsub_imm_3.post    ]  {{Diag:= bv [32] ( 0b11111001000000000010100001000000 ) , addr:= 0xffffffff000a6ad0 }}
+    str_imm_gen_5       : Theory =    str_imm_gen       [ str_imm_gen_4.post       ]  {{Diag:= bv [32] ( 0b11111001000000000010010000100000 ) , addr:= 0xffffffff000a6ad4 }}
+    ret_6               : Theory =    ret               [ str_imm_gen_5.post       ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffffff000a6ad8 }}
+
+    B_post: s = ret_6.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END BOOT_ALLOC_INIT_FFFFFFFF000A6AC0

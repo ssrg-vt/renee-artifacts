@@ -1,0 +1,14 @@
+PLATFORM_MP_CPU_UNPLUG_FFFFFFFF0001FA00[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    b_uncond_0          : Theory =    b_uncond          [ p0                       ]  {{Diag:= bv( 0b00010111111111111111111110110000 ) , addr:= 18446744055837083786}}
+
+    B_post: s = b_uncond_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END PLATFORM_MP_CPU_UNPLUG_FFFFFFFF0001FA00

@@ -1,0 +1,71 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294240928, 
+                "ops": [
+                    {
+                        "bytes": "e00308aa", 
+                        "disasm": "mov x0, x8", 
+                        "esil": "x8,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294240928, 
+                        "fcn_last": -4294240920, 
+                        "flags": [
+                            "loc._x_2165", 
+                            "sym.VmAddressRegionDummy::FindRegion_unsignedlong", 
+                            "method.VmAddressRegionDummy.FindRegion_unsignedlong"
+                        ], 
+                        "offset": -4294240928, 
+                        "opcode": "mov x0, x8", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9
+                    }, 
+                    {
+                        "bytes": "1f0100f9", 
+                        "disasm": "str xzr, [x8]", 
+                        "esil": "xzr,0x0,x8,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294240928, 
+                        "fcn_last": -4294240920, 
+                        "offset": -4294240924, 
+                        "opcode": "str xzr, [x8]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294240928, 
+                        "fcn_last": -4294240920, 
+                        "offset": -4294240920, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.VmAddressRegionDummy::FindRegion_unsignedlong", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -4294240928, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

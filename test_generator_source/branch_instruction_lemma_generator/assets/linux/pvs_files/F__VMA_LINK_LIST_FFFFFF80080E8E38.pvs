@@ -1,0 +1,15 @@
+F__VMA_LINK_LIST_FFFFFF80080E8E38[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    str_imm_gen_0       : Theory =    str_imm_gen       [ p0                       ]  {{Diag:= bv( 0b11111001000000000000110001100001 ) , addr:= 18446738260974222812}}
+    ret_1               : Theory =    ret               [ str_imm_gen_0.post       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974222812}}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END F__VMA_LINK_LIST_FFFFFF80080E8E38

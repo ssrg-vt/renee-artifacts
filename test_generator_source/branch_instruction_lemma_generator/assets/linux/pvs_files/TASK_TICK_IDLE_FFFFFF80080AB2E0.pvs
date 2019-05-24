@@ -1,0 +1,14 @@
+TASK_TICK_IDLE_FFFFFF80080AB2E0[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ret_0               : Theory =    ret               [ p0                       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974070528}}
+
+    B_post: s = ret_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END TASK_TICK_IDLE_FFFFFF80080AB2E0

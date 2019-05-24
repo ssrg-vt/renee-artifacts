@@ -1,0 +1,85 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620123824, 
+                "ops": [
+                    {
+                        "bytes": "600400d0", 
+                        "disasm": "adrp x0, 0xffffff80081f5000", 
+                        "esil": "-549619544064,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620123824, 
+                        "fcn_last": -549620123812, 
+                        "flags": [
+                            "sym.arch_timer_get_kvm_info"
+                        ], 
+                        "offset": -549620123824, 
+                        "opcode": "adrp x0, 0xffffff80081f5000", 
+                        "ptr": -549619544064, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "00e03c91", 
+                        "disasm": "add x0, x0, 0xf38", 
+                        "esil": "3896,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620123824, 
+                        "fcn_last": -549620123812, 
+                        "offset": -549620123820, 
+                        "opcode": "add x0, x0, 0xf38", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "00000191", 
+                        "disasm": "add x0, x0, 0x40", 
+                        "esil": "64,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620123824, 
+                        "fcn_last": -549620123812, 
+                        "offset": -549620123816, 
+                        "opcode": "add x0, x0, 0x40", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620123824, 
+                        "fcn_last": -549620123812, 
+                        "offset": -549620123812, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 16
+            }
+        ], 
+        "name": "sym.arch_timer_get_kvm_info", 
+        "nargs": 0, 
+        "ninstr": 4, 
+        "nlocals": 0, 
+        "offset": -549620123824, 
+        "size": 16, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

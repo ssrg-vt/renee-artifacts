@@ -1,0 +1,94 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294927264, 
+                "ops": [
+                    {
+                        "bytes": "220a00f0", 
+                        "disasm": "adrp x2, obj.secondary_idle_thread_count", 
+                        "esil": "-4293591040,x2,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294927264, 
+                        "fcn_last": -4294927252, 
+                        "flags": [
+                            "loc._x_143", 
+                            "sym.gic_write_gich_lr_unsignedint_unsignedlong"
+                        ], 
+                        "offset": -4294927264, 
+                        "opcode": "adrp x2, 0xffffffff00150000", 
+                        "ptr": -4293591040, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33, 
+                        "xrefs": [
+                            {
+                                "addr": -4294127976, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "421040f9", 
+                        "disasm": "ldr x2, [x2, 0x20]", 
+                        "esil": "x2,32,+,DUP,tmp,=,[8],x2,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294927264, 
+                        "fcn_last": -4294927252, 
+                        "offset": -4294927260, 
+                        "opcode": "ldr x2, [x2, 0x20]", 
+                        "ptr": 32, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "422440f9", 
+                        "disasm": "ldr x2, [x2, 0x48]", 
+                        "esil": "x2,72,+,DUP,tmp,=,[8],x2,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294927264, 
+                        "fcn_last": -4294927252, 
+                        "offset": -4294927256, 
+                        "opcode": "ldr x2, [x2, 0x48]", 
+                        "ptr": 72, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "40001fd6", 
+                        "disasm": "br x2", 
+                        "esil": "x2,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294927264, 
+                        "fcn_last": -4294927252, 
+                        "offset": -4294927252, 
+                        "opcode": "br x2", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ujmp", 
+                        "type2_num": 0, 
+                        "type_num": 2
+                    }
+                ], 
+                "size": 16
+            }
+        ], 
+        "name": "sym.gic_write_gich_lr_unsignedint_unsignedlong", 
+        "nargs": 1, 
+        "ninstr": 4, 
+        "nlocals": 0, 
+        "offset": -4294927264, 
+        "size": 16, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

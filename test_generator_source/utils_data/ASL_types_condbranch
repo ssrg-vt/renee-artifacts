@@ -1,0 +1,1 @@
+enumeration BranchType {BranchType_CALL, BranchType_ERET, BranchType_DBGEXIT, BranchType_RET, BranchType_JMP, BranchType_EXCEPTION, BranchType_UNKNOWN}

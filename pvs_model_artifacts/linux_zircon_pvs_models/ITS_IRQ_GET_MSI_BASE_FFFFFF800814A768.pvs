@@ -1,0 +1,18 @@
+ITS_IRQ_GET_MSI_BASE_FFFFFF800814A768[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv [32] ( 0b11111001010000000000100000000000 ) , addr:= 0xffffff800814a768 }}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ ldr_imm_gen_0.post       ]  {{Diag:= bv [32] ( 0b11111001010000000001000000000000 ) , addr:= 0xffffff800814a76c }}
+    add_addsub_imm_2    : Theory =    add_addsub_imm    [ ldr_imm_gen_1.post       ]  {{Diag:= bv [32] ( 0b10010001010000000100000000000000 ) , addr:= 0xffffff800814a770 }}
+    add_addsub_imm_3    : Theory =    add_addsub_imm    [ add_addsub_imm_2.post    ]  {{Diag:= bv [32] ( 0b10010001000000010000000000000000 ) , addr:= 0xffffff800814a774 }}
+    ret_4               : Theory =    ret               [ add_addsub_imm_3.post    ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff800814a778 }}
+
+    B_post: s = ret_4.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END ITS_IRQ_GET_MSI_BASE_FFFFFF800814A768

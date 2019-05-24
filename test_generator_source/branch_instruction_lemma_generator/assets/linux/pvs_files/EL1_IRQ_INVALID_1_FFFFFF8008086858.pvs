@@ -1,0 +1,14 @@
+EL1_IRQ_INVALID_1_FFFFFF8008086858[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    b_uncond_0          : Theory =    b_uncond          [ p0                       ]  {{Diag:= bv( 0b00010100000000000000000000000000 ) , addr:= 18446738260973566698}}
+
+    B_post: s = b_uncond_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END EL1_IRQ_INVALID_1_FFFFFF8008086858

@@ -1,0 +1,86 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549621003864, 
+                "ops": [
+                    {
+                        "bytes": "410a0090", 
+                        "disasm": "adrp x1, 0xffffff80081d8000", 
+                        "esil": "-549619662848,x1,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621003864, 
+                        "fcn_last": -549621003852, 
+                        "flags": [
+                            "sym.init_cpu_present"
+                        ], 
+                        "offset": -549621003864, 
+                        "opcode": "adrp x1, 0xffffff80081d8000", 
+                        "ptr": -549619662848, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "000040f9", 
+                        "disasm": "ldr x0, [x0]", 
+                        "esil": "x0,0,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621003864, 
+                        "fcn_last": -549621003852, 
+                        "offset": -549621003860, 
+                        "opcode": "ldr x0, [x0]", 
+                        "ptr": 0, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "20d003f9", 
+                        "disasm": "str x0, [x1, 0x7a0]", 
+                        "esil": "x0,0x7a0,x1,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621003864, 
+                        "fcn_last": -549621003852, 
+                        "offset": -549621003856, 
+                        "opcode": "str x0, [x1, 0x7a0]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621003864, 
+                        "fcn_last": -549621003852, 
+                        "offset": -549621003852, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 16
+            }
+        ], 
+        "name": "sym.init_cpu_present", 
+        "nargs": 1, 
+        "ninstr": 4, 
+        "nlocals": 0, 
+        "offset": -549621003864, 
+        "size": 16, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

@@ -1,0 +1,15 @@
+JOBDISPATCHER__GET_RELATED_KOID__CONST_FFFFFFFF0003C8B8[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv( 0b11111001010000000000100000000000 ) , addr:= 18446744055837157072}}
+    ret_1               : Theory =    ret               [ ldr_imm_gen_0.post       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446744055837157072}}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END JOBDISPATCHER__GET_RELATED_KOID__CONST_FFFFFFFF0003C8B8

@@ -1,0 +1,57 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "jump": -549621052432, 
+                "offset": -549621059324, 
+                "ops": [
+                    {
+                        "bytes": "e0030091", 
+                        "disasm": "mov x0, sp", 
+                        "esil": "sp,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621059324, 
+                        "fcn_last": -549621059320, 
+                        "flags": [
+                            "loc._x_26", 
+                            "sym.sys_rt_sigreturn_wrapper"
+                        ], 
+                        "offset": -549621059324, 
+                        "opcode": "mov x0, sp", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9
+                    }, 
+                    {
+                        "bytes": "ba060014", 
+                        "disasm": "b sym.sys_rt_sigreturn", 
+                        "esil": "-549621052432,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621059324, 
+                        "fcn_last": -549621059320, 
+                        "jump": -549621052432, 
+                        "offset": -549621059320, 
+                        "opcode": "b 0xffffff8008084bf0", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "jmp", 
+                        "type2_num": 0, 
+                        "type_num": 1
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.sys_rt_sigreturn_wrapper", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549621059324, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

@@ -1,0 +1,15 @@
+VMOBJECTDISPATCHER__GET_COOKIE_JAR_FFFFFFFF00052B80[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    add_addsub_imm_0    : Theory =    add_addsub_imm    [ p0                       ]  {{Diag:= bv [32] ( 0b10010001000000011100000000000000 ) , addr:= 0xffffffff00052b80 }}
+    ret_1               : Theory =    ret               [ add_addsub_imm_0.post    ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffffff00052b84 }}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END VMOBJECTDISPATCHER__GET_COOKIE_JAR_FFFFFFFF00052B80

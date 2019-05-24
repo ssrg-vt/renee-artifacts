@@ -1,0 +1,65 @@
+arm_state: THEORY
+
+  BEGIN
+
+AccType : TYPE = {AccType_NORMAL, AccType_VEC,        %// Normal loads and stores
+                  AccType_STREAM, AccType_VECSTREAM,  %// Streaming loads and stores
+		  AccType_ATOMIC, AccType_ATOMICRW,   %// Atomic loads and stores
+		  AccType_ORDERED, AccType_ORDEREDRW, %// Load-Acquire and Store-Release
+		  AccType_LIMITEDORDERED,             %// Load-LOAcquire and Store-LORelease
+		  AccType_UNPRIV, %// Load and store unprivileged
+		  AccType_IFETCH, %// Instruction fetch
+		  AccType_PTW,    %// Page table walk
+		  %// Other operations
+		  AccType_DC,     %// Data cache maintenance
+		  AccType_IC,     %// Instruction cache maintenance
+		  AccType_DCZVA,  %// DC ZVA instructions
+		  AccType_AT}     % // Address translation
+
+
+ProcState : TYPE =
+ [#
+     NZCV : bvec[4],        %% convenient way to refer to following flags
+     %N   : bvec[1],       % Negative condition flag
+     %Z   : bvec[1],       % Zero condition flag
+     %C   : bvec[1],       % Carry condition flag
+     %V   : bvec[1],       % oVerflow condition flag
+     D   : bvec[1],        % Debug mask bit                     [AArch64 only]
+     A   : bvec[1],        % SError interrupt mask bit
+     I   : bvec[1],        % IRQ mask bit
+     F   : bvec[1],        % FIQ mask bit
+     PAN : bvec[1],        % Privileged Access Never Bit        [v8.1]
+     UAO : bvec[1],        % User Access Override               [v8.2]
+     SS  : bvec[1],        % Software step bit
+     IL  : bvec[1],        % Illegal Execution state bit
+     EL  : bvec[2],        % Exception Level
+     nRW : bvec[1],        % not Register Width: 0=64, 1=32
+     SP  : bvec[1]         % Stack pointer select: 0=SP0, 1=SPx [AArch64 only]
+    % Q   : bvec[1],       % Cumulative saturation flag         [AArch32 only]
+    % GE  : bvec[1],       % Greater than or Equal flags        [AArch32 only]
+    % IT  : bvec[8],       % If-then bits, RES0 in CPSR         [AArch32 only]
+    % J   : bvec[1],       % J bit, RES0                        [AArch32 only, RES0 in SPSR and CPSR]
+    % T   : bvec[1],       % T32 bit, RES0 in CPSR              [AArch32 only]
+    % E   : bvec[1],       % Endianness bit                     [AArch32 only]
+    % M   : bvec[5]        % Mode field                         [AArch32 only]
+#]
+
+%pstate: ProcState
+
+init_PSTATE : ProcState =  (#   NZCV:= bv[4](0b0000), D := bv[1](0b0), A := bv[1](0b0), I := bv[1](0b0), F:= bv[1](0b0),
+                                PAN := bv[1](0b0), UAO := bv[1](0b0), SS := bv[1](0b0), IL := bv[1](0b0), EL := bv[2](0b00), nRW := bv[1](0b0), SP := bv[1](0b0) #)
+
+s : Type = [# SP: bvec[64], X: [below(32) -> bvec[64]], PC: [# b: bvec[64], i: int #], PSTATE : ProcState , Mem: [ nat ->  bvec[64] ],% normal-acctype, size 8 (assumed). 
+               except: string  #]
+
+
+init: s = (#  X := lambda(i:below(32)):(lambda(i:below(64)):false),
+             SP:= lambda(i:below(64)): false,
+	     PC:= (# b:= lambda(i:below(64)): false, i:= 0 #), 
+             %NZVC:= lambda(i:below(4)):false,%  sent to ProcState
+	     PSTATE:= init_PSTATE,
+	     Mem := lambda (i : nat ) : (lambda(i:below(64)): false),
+	     except:= "" #)   
+
+
+END arm_state

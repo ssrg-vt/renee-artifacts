@@ -1,0 +1,56 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294659504, 
+                "ops": [
+                    {
+                        "bytes": "00000291", 
+                        "disasm": "add x0, x0, 0x80", 
+                        "esil": "128,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294659504, 
+                        "fcn_last": -4294659500, 
+                        "flags": [
+                            "loc._x_1122", 
+                            "sym.ResourceDispatcher::get_cookie_jar", 
+                            "method.ResourceDispatcher.get_cookie_jar"
+                        ], 
+                        "offset": -4294659504, 
+                        "opcode": "add x0, x0, 0x80", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294659504, 
+                        "fcn_last": -4294659500, 
+                        "offset": -4294659500, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.ResourceDispatcher::get_cookie_jar", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -4294659504, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

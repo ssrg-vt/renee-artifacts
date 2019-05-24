@@ -1,0 +1,42 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "jump": -4294336832, 
+                "offset": -4294427504, 
+                "ops": [
+                    {
+                        "bytes": "8c580014", 
+                        "disasm": "b sym.memcpy", 
+                        "esil": "-4294336832,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294427504, 
+                        "fcn_last": -4294427504, 
+                        "flags": [
+                            "loc._x_1721", 
+                            "sym.mymemcpy_void__voidconst__unsignedlong"
+                        ], 
+                        "jump": -4294336832, 
+                        "offset": -4294427504, 
+                        "opcode": "b 0xffffffff00099ec0", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "jmp", 
+                        "type2_num": 0, 
+                        "type_num": 1
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.mymemcpy_void__voidconst__unsignedlong", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -4294427504, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

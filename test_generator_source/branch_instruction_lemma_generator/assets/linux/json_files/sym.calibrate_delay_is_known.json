@@ -1,0 +1,63 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549621061488, 
+                "ops": [
+                    {
+                        "bytes": "000080d2", 
+                        "disasm": "movz x0, 0", 
+                        "esil": "0,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621061488, 
+                        "fcn_last": -549621061484, 
+                        "flags": [
+                            "loc._x_34", 
+                            "sym.calibrate_delay_is_known"
+                        ], 
+                        "offset": -549621061488, 
+                        "opcode": "movz x0, 0", 
+                        "ptr": 0, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9, 
+                        "val": 0, 
+                        "xrefs": [
+                            {
+                                "addr": -549621061292, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621061488, 
+                        "fcn_last": -549621061484, 
+                        "offset": -549621061484, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.calibrate_delay_is_known", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549621061488, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

@@ -1,0 +1,15 @@
+GFX_PUTPIXEL_PART_0_FFFFFFFF000D1BC0[ ( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv [32] ( 0b11111001010000000010010000000100 ) , addr:= 0xffffffff000d1bc0 }}
+    br_1                : Theory =    br                [ ldr_imm_gen_0.post       ]  {{Diag:= bv [32] ( 0b11010110000111110000000010000000 ) , addr:= 0xffffffff000d1bc4 }}
+
+    B_post: s = br_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END GFX_PUTPIXEL_PART_0_FFFFFFFF000D1BC0 % change the file name as well not only the theory name. 

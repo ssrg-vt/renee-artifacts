@@ -1,0 +1,17 @@
+CURRENT_TICKS_FFFFFFFF0001C7A0[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv [32] ( 0b10110000000000000000011111100000 ) , addr:= 0xffffffff0001c7a0 }}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ adrp_0.post              ]  {{Diag:= bv [32] ( 0b11111001010000101010010000000000 ) , addr:= 0xffffffff0001c7a4 }}
+    ldr_imm_gen_2       : Theory =    ldr_imm_gen       [ ldr_imm_gen_1.post       ]  {{Diag:= bv [32] ( 0b11111001010000000000110000000000 ) , addr:= 0xffffffff0001c7a8 }}
+    br_3                : Theory =    br                [ ldr_imm_gen_2.post       ]  {{Diag:= bv [32] ( 0b11010110000111110000000000000000 ) , addr:= 0xffffffff0001c7ac }}
+
+    B_post: s = br_3.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END CURRENT_TICKS_FFFFFFFF0001C7A0

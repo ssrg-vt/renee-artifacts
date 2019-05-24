@@ -1,0 +1,70 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620534248, 
+                "ops": [
+                    {
+                        "bytes": "e10600f0", 
+                        "disasm": "adrp x1, 0xffffff80081e2000", 
+                        "esil": "-549619621888,x1,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620534248, 
+                        "fcn_last": -549620534240, 
+                        "flags": [
+                            "sym.memblock_set_current_limit"
+                        ], 
+                        "offset": -549620534248, 
+                        "opcode": "adrp x1, 0xffffff80081e2000", 
+                        "ptr": -549619621888, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "20c401f9", 
+                        "disasm": "str x0, [x1, 0x388]", 
+                        "esil": "x0,0x388,x1,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620534248, 
+                        "fcn_last": -549620534240, 
+                        "offset": -549620534244, 
+                        "opcode": "str x0, [x1, 0x388]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620534248, 
+                        "fcn_last": -549620534240, 
+                        "offset": -549620534240, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.memblock_set_current_limit", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620534248, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

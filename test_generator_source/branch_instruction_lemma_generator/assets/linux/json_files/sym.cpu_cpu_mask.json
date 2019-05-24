@@ -1,0 +1,71 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620846488, 
+                "ops": [
+                    {
+                        "bytes": "000900b0", 
+                        "disasm": "adrp x0, 0xffffff80081d8000", 
+                        "esil": "-549619662848,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620846488, 
+                        "fcn_last": -549620846480, 
+                        "flags": [
+                            "loc._x_185", 
+                            "sym.cpu_cpu_mask"
+                        ], 
+                        "offset": -549620846488, 
+                        "opcode": "adrp x0, 0xffffff80081d8000", 
+                        "ptr": -549619662848, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "00601e91", 
+                        "disasm": "add x0, x0, 0x798", 
+                        "esil": "1944,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620846488, 
+                        "fcn_last": -549620846480, 
+                        "offset": -549620846484, 
+                        "opcode": "add x0, x0, 0x798", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620846488, 
+                        "fcn_last": -549620846480, 
+                        "offset": -549620846480, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.cpu_cpu_mask", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620846488, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

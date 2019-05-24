@@ -1,0 +1,49 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620732528, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620732528, 
+                        "fcn_last": -549620732528, 
+                        "flags": [
+                            "sym.arch_disable_smp_support"
+                        ], 
+                        "offset": -549620732528, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5, 
+                        "xrefs": [
+                            {
+                                "addr": -549619801436, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -549619801376, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.arch_disable_smp_support", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -549620732528, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

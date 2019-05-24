@@ -1,0 +1,16 @@
+PORTDISPATCHER__DEFAULTPORTALLOCATOR_FFFFFFFF00045150[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b10010000000000000000100101100000 ) , addr:= 18446744055837195213}}
+    add_addsub_imm_1    : Theory =    add_addsub_imm    [ adrp_0.post              ]  {{Diag:= bv( 0b10010001001100111110000000000000 ) , addr:= 18446744055837195213}}
+    ret_2               : Theory =    ret               [ add_addsub_imm_1.post    ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446744055837195214}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END PORTDISPATCHER__DEFAULTPORTALLOCATOR_FFFFFFFF00045150

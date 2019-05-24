@@ -1,0 +1,118 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294411696, 
+                "ops": [
+                    {
+                        "bytes": "810400f0", 
+                        "disasm": "adrp x1, 0xffffffff0011a000", 
+                        "esil": "-4293812224,x1,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294411696, 
+                        "fcn_last": -4294411684, 
+                        "flags": [
+                            "loc._x_1779", 
+                            "sym.mask_interrupt"
+                        ], 
+                        "offset": -4294411696, 
+                        "opcode": "adrp x1, 0xffffffff0011a000", 
+                        "ptr": -4293812224, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33, 
+                        "xrefs": [
+                            {
+                                "addr": -4294923388, 
+                                "type": "CODE"
+                            }, 
+                            {
+                                "addr": -4294868240, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294867800, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294866848, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294866012, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294721964, 
+                                "type": "CODE"
+                            }, 
+                            {
+                                "addr": -4294721908, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "218040f9", 
+                        "disasm": "ldr x1, [x1, 0x100]", 
+                        "esil": "x1,256,+,DUP,tmp,=,[8],x1,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294411696, 
+                        "fcn_last": -4294411684, 
+                        "offset": -4294411692, 
+                        "opcode": "ldr x1, [x1, 0x100]", 
+                        "ptr": 256, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "210040f9", 
+                        "disasm": "ldr x1, [x1]", 
+                        "esil": "x1,0,+,DUP,tmp,=,[8],x1,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294411696, 
+                        "fcn_last": -4294411684, 
+                        "offset": -4294411688, 
+                        "opcode": "ldr x1, [x1]", 
+                        "ptr": 0, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "20001fd6", 
+                        "disasm": "br x1", 
+                        "esil": "x1,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294411696, 
+                        "fcn_last": -4294411684, 
+                        "offset": -4294411684, 
+                        "opcode": "br x1", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ujmp", 
+                        "type2_num": 0, 
+                        "type_num": 2
+                    }
+                ], 
+                "size": 16
+            }
+        ], 
+        "name": "sym.mask_interrupt", 
+        "nargs": 1, 
+        "ninstr": 4, 
+        "nlocals": 0, 
+        "offset": -4294411696, 
+        "size": 16, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

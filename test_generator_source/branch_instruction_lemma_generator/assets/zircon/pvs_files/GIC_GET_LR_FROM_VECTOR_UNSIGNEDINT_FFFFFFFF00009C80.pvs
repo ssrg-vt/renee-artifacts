@@ -1,0 +1,17 @@
+GIC_GET_LR_FROM_VECTOR_UNSIGNEDINT_FFFFFFFF00009C80[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b11110000000000000000101000100001 ) , addr:= 18446744055837022429}}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ adrp_0.post              ]  {{Diag:= bv( 0b11111001010000000001000000100001 ) , addr:= 18446744055837022430}}
+    ldr_imm_gen_2       : Theory =    ldr_imm_gen       [ ldr_imm_gen_1.post       ]  {{Diag:= bv( 0b11111001010000000010110000100001 ) , addr:= 18446744055837022430}}
+    br_3                : Theory =    br                [ ldr_imm_gen_2.post       ]  {{Diag:= bv( 0b11010110000111110000000000100000 ) , addr:= 18446744055837022430}}
+
+    B_post: s = br_3.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END GIC_GET_LR_FROM_VECTOR_UNSIGNEDINT_FFFFFFFF00009C80

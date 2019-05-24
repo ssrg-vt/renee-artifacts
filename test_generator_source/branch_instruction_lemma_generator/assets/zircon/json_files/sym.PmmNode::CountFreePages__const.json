@@ -1,0 +1,63 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294275440, 
+                "ops": [
+                    {
+                        "bytes": "001c40f9", 
+                        "disasm": "ldr x0, [x0, 0x38]", 
+                        "esil": "x0,56,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294275440, 
+                        "fcn_last": -4294275436, 
+                        "flags": [
+                            "loc._x_2104", 
+                            "sym.PmmNode::CountFreePages__const", 
+                            "method.PmmNode.CountFreePages__const"
+                        ], 
+                        "offset": -4294275440, 
+                        "opcode": "ldr x0, [x0, 0x38]", 
+                        "ptr": 56, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32, 
+                        "xrefs": [
+                            {
+                                "addr": -4294280552, 
+                                "type": "CODE"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294275440, 
+                        "fcn_last": -4294275436, 
+                        "offset": -4294275436, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.PmmNode::CountFreePages__const", 
+        "nargs": 1, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -4294275440, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

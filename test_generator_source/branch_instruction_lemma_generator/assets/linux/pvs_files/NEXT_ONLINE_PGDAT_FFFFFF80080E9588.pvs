@@ -1,0 +1,15 @@
+NEXT_ONLINE_PGDAT_FFFFFF80080E9588[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    movz_0              : Theory =    movz              [ p0                       ]  {{Diag:= bv( 0b11010010100000000000000000000000 ) , addr:= 18446738260974223305}}
+    ret_1               : Theory =    ret               [ movz_0.post              ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974223305}}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END NEXT_ONLINE_PGDAT_FFFFFF80080E9588

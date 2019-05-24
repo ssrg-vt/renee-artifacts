@@ -1,0 +1,18 @@
+MMINIT_VALIDATE_MEMMODEL_LIMITS_FFFFFF80081BFFFC [ ( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv [32] ( 0b11111001010000000000000000100000 ) , addr:= 0xffffff80081bfffc }}
+    subs_addsub_shift_1 : Theory =    subs_addsub_shift [ ldr_imm_gen_0.post       ]  {{Diag:= bv [32] ( 0b11101011000000100000000000011111 ) , addr:= 0xffffff80081c0000 }}
+    b_cond_2            : Theory =    b_cond            [ subs_addsub_shift_1.post ]  {{Diag:= bv [32] ( 0b01010100000000000000000001001001 ) , addr:= 0xffffff80081c0004 ,
+                                                                                                                                                next:= 0xffffff80081c000c ,
+																		fail:= 0xffffff80081c0008 }}
+
+    B_post: s = b_cond_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END MMINIT_VALIDATE_MEMMODEL_LIMITS_FFFFFF80081BFFFC

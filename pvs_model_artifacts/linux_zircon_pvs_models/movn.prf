@@ -1,0 +1,50 @@
+(movn
+ (diag_TCC1 0
+  (diag_TCC1-1 nil 3765983011
+   (""
+    (inst 1
+     "(# sf:= lambda(i:below(1)):false, opc:= lambda(i:below(2)):false, Fixed1:= lambda(i:below(6)):false, hw:= lambda(i:below(2)):false, imm16:= lambda(i:below(16)):false, Rd:= lambda(i:below(5)):false, length:= 32 #)")
+    nil)
+   nil nil
+   (diag existence ""
+    "[# Fixed1: bv[6].bvec, hw: bv[2].bvec, imm16: bv[16].bvec, length: {n: naturalnumbers.nat | n = 32}, opc: bv[2].bvec, Rd: bv[5].bvec, sf: bv[1].bvec #]")))
+ (v_TCC1 0
+  (v_TCC1-1 nil 3765983011 ("" (eval-formula) nil) nil nil
+   (v subtype "0b101001" "naturalnumbers.below(exp2.exp2(6))")))
+ (opcode_TCC1 0
+  (opcode_TCC1-1 nil 3765983011 ("" (subtype-tcc) nil nil) nil nil
+   (opcode subtype "0b0" "naturalnumbers.below(exp2.exp2(2))")))
+ (opcode_TCC2 0
+  (opcode_TCC2-1 nil 3765983011 ("" (subtype-tcc) nil nil) nil nil
+   (opcode subtype "0b1" "naturalnumbers.below(exp2.exp2(2))")))
+ (opcode_TCC3 0
+  (opcode_TCC3-1 nil 3765983011 ("" (eval-formula) nil) nil nil
+   (opcode subtype "0b11" "naturalnumbers.below(exp2.exp2(2))")))
+ (opcode_TCC4 0
+  (opcode_TCC4-1 nil 3765983011 ("" (undo) (("" (opcode_TCC2) nil)))
+   nil nil
+   (opcode disjointness
+    "COND movn.v`opc = bv[2](0b00) -> Basic_ASL_Types.MoveWideOp_N, movn.v`opc = bv[2](0b01) -> Basic_ASL_Types.MoveWideOp_Z, movn.v`opc = bv[2](0b11) -> Basic_ASL_Types.MoveWideOp_K, ELSE -> stdcatch[Basic_ASL_Types.MoveWideOp, booleans.boolean].throw(\"UnallocatedEncoding()\", stdexc[booleans.boolean].make_exc(\"UnallocatedEncoding()\", stdlang.fail)) ENDCOND"
+    "nil")))
+ (pos_TCC1 0
+  (pos_TCC1-1 nil 3765983011 ("" (subtype-tcc) nil nil) nil nil
+   (pos subtype "0b0" "naturalnumbers.below(exp2.exp2(4))")))
+ (sts2_TCC1 0
+  (sts2_TCC1-1 nil 3765983011 ("" (grind) nil)
+   ((UInt const-decl "int" UInt nil)
+    (bts const-decl "bvec[n2 - n1 + 1]" bts nil))
+   nil (sts2 subtype "movn.d" "naturalnumbers.below(32)")))
+ (update_field_TCC1 0
+  (update_field_TCC1-1 nil 3765983011 ("" (subtype-tcc) nil nil) nil
+   nil
+   (update_field subtype "(number_fields.-)(movn.i, movn.Pos)"
+    "naturalnumbers.below(16)")))
+ (sts3_TCC1 0
+  (sts3_TCC1-1 nil 3765983011 ("" (grind) nil)
+   ((bts const-decl "bvec[n2 - n1 + 1]" bts nil)
+    (UInt const-decl "int" UInt nil))
+   nil (sts3 subtype "movn.d" "naturalnumbers.below(32)")))
+ (sts3_TCC2 0
+  (sts3_TCC2-1 nil 3765983011 ("" (grind) nil) nil nil
+   (sts3 subtype "movn.pos" "naturalnumbers.upto(48)"))))
+

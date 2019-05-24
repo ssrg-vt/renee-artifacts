@@ -1,0 +1,10 @@
+accessor: SP[] = bits(width) value
+accessor: bits(width) X[integer n]
+function: ReservedValue()
+function: (bits(N), bits(4)) AddWithCarry(bits(N) x, bits(N) y, bit carry_in)
+accessor: bits(width) SP[]
+function: bits(N) Zeros(integer N)
+accessor: X[integer n] = bits(width) value
+function: bits(N) ZeroExtend(bits(M) x, integer N)
+function: bits(N) NOT(bits(N) x)
+function: integer UInt(bits(N) x)

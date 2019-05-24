@@ -1,0 +1,139 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294730736, 
+                "ops": [
+                    {
+                        "bytes": "031440f9", 
+                        "disasm": "ldr x3, [x0, 0x28]", 
+                        "esil": "x0,40,+,DUP,tmp,=,[8],x3,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294730832, 
+                        "fcn_last": -4294730712, 
+                        "flags": [
+                            "loc._x_879", 
+                            "sym.FutexNode::AppendList_FutexNode", 
+                            "method.FutexNode.AppendList_FutexNode"
+                        ], 
+                        "offset": -4294730736, 
+                        "opcode": "ldr x3, [x0, 0x28]", 
+                        "ptr": 40, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32, 
+                        "xrefs": [
+                            {
+                                "addr": -4294733840, 
+                                "type": "CODE"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "221440f9", 
+                        "disasm": "ldr x2, [x1, 0x28]", 
+                        "esil": "x1,40,+,DUP,tmp,=,[8],x2,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294730832, 
+                        "fcn_last": -4294730712, 
+                        "offset": -4294730732, 
+                        "opcode": "ldr x2, [x1, 0x28]", 
+                        "ptr": 40, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "611800f9", 
+                        "disasm": "str x1, [x3, 0x30]", 
+                        "esil": "x1,0x30,x3,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294730832, 
+                        "fcn_last": -4294730712, 
+                        "offset": -4294730728, 
+                        "opcode": "str x1, [x3, 0x30]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "231400f9", 
+                        "disasm": "str x3, [x1, 0x28]", 
+                        "esil": "x3,0x28,x1,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294730832, 
+                        "fcn_last": -4294730712, 
+                        "offset": -4294730724, 
+                        "opcode": "str x3, [x1, 0x28]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "401800f9", 
+                        "disasm": "str x0, [x2, 0x30]", 
+                        "esil": "x0,0x30,x2,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294730832, 
+                        "fcn_last": -4294730712, 
+                        "offset": -4294730720, 
+                        "opcode": "str x0, [x2, 0x30]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "021400f9", 
+                        "disasm": "str x2, [x0, 0x28]", 
+                        "esil": "x2,0x28,x0,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294730832, 
+                        "fcn_last": -4294730712, 
+                        "offset": -4294730716, 
+                        "opcode": "str x2, [x0, 0x28]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294730832, 
+                        "fcn_last": -4294730712, 
+                        "offset": -4294730712, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 28
+            }
+        ], 
+        "name": "sym.FutexNode::AppendList_FutexNode", 
+        "nargs": 2, 
+        "ninstr": 7, 
+        "nlocals": 0, 
+        "offset": -4294730736, 
+        "size": 28, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

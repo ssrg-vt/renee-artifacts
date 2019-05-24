@@ -1,0 +1,341 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294284704, 
+                "ops": [
+                    {
+                        "bytes": "e00301aa", 
+                        "disasm": "mov x0, x1", 
+                        "esil": "x1,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294284704, 
+                        "fcn_last": -4294284700, 
+                        "flags": [
+                            "loc._x_2059", 
+                            "sym.operatornew_unsignedlong_void"
+                        ], 
+                        "offset": -4294284704, 
+                        "opcode": "mov x0, x1", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9, 
+                        "xrefs": [
+                            {
+                                "addr": -4294725916, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294725520, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294698752, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294698256, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294698168, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294697976, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294697852, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294697116, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294697028, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294696868, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294696736, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294684656, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294623864, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294623412, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294623048, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294622892, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294620076, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294619840, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294619684, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294619464, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294619084, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294618896, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294618760, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294618640, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294618300, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294618156, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294617932, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294617800, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294617592, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294617452, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294617224, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294617092, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294539344, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294472720, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294403572, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294391788, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294378136, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294377300, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294355004, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294354716, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294330252, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294330176, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294322504, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294322476, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294316064, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294316032, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294308796, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294308228, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294308192, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294307948, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294307916, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294307448, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294307408, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294307264, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294306380, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294306344, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294306144, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294306112, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294303252, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294303064, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294302236, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294302136, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294301756, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294301652, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294301564, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294301168, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294300272, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294300160, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294300128, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294299648, 
+                                "type": "CALL"
+                            }, 
+                            {
+                                "addr": -4294278652, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294284704, 
+                        "fcn_last": -4294284700, 
+                        "offset": -4294284700, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.operatornew_unsignedlong_void", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -4294284704, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

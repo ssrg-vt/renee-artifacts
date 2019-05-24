@@ -1,0 +1,46 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294938528, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294938528, 
+                        "fcn_last": -4294938528, 
+                        "flags": [
+                            "loc._x_110", 
+                            "sym.arch_prepare_current_cpu_idle_state"
+                        ], 
+                        "offset": -4294938528, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5, 
+                        "xrefs": [
+                            {
+                                "addr": -4294840048, 
+                                "type": "CODE"
+                            }
+                        ]
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.arch_prepare_current_cpu_idle_state", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -4294938528, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

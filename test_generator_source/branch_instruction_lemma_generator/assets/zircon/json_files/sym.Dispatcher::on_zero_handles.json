@@ -1,0 +1,41 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294760128, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294760128, 
+                        "fcn_last": -4294760128, 
+                        "flags": [
+                            "loc._x_794", 
+                            "sym.Dispatcher::on_zero_handles", 
+                            "method.Dispatcher.on_zero_handles"
+                        ], 
+                        "offset": -4294760128, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.Dispatcher::on_zero_handles", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -4294760128, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

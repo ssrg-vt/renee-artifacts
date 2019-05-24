@@ -1,0 +1,69 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620531656, 
+                "ops": [
+                    {
+                        "bytes": "00f07d92", 
+                        "disasm": "and x0, x0, 0xfffffffffffffff8", 
+                        "esil": "-8,x0,&=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620531656, 
+                        "fcn_last": -549620531648, 
+                        "flags": [
+                            "sym.sparse_decode_mem_map"
+                        ], 
+                        "offset": -549620531656, 
+                        "opcode": "and x0, x0, 0xfffffffffffffff8", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "and", 
+                        "type2_num": 0, 
+                        "type_num": 27
+                    }, 
+                    {
+                        "bytes": "0060018b", 
+                        "disasm": "add x0, x0, x1, lsl 24", 
+                        "esil": "24,x1,<<,x0,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620531656, 
+                        "fcn_last": -549620531648, 
+                        "offset": -549620531652, 
+                        "opcode": "add x0, x0, x1, lsl 24", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620531656, 
+                        "fcn_last": -549620531648, 
+                        "offset": -549620531648, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.sparse_decode_mem_map", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620531656, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

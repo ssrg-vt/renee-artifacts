@@ -1,0 +1,15 @@
+DEV_FWNODE_FFFFFF80081623B8[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv( 0b11111001010000001011000000000001 ) , addr:= 18446738260974549726}}
+    cbz_1               : Theory =    cbz               [ ldr_imm_gen_0.post       ]  {{Diag:= bv( 0b10110100000000000000000001100001 ) , addr:= 18446738260974549726}}
+
+    B_post: s = cbz_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END DEV_FWNODE_FFFFFF80081623B8

@@ -1,0 +1,57 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549621030384, 
+                "ops": [
+                    {
+                        "bytes": "000080d2", 
+                        "disasm": "movz x0, 0", 
+                        "esil": "0,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621030384, 
+                        "fcn_last": -549621030380, 
+                        "flags": [
+                            "loc._x_80", 
+                            "sym.__dummy_alloc"
+                        ], 
+                        "offset": -549621030384, 
+                        "opcode": "movz x0, 0", 
+                        "ptr": 0, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9, 
+                        "val": 0
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621030384, 
+                        "fcn_last": -549621030380, 
+                        "offset": -549621030380, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 8
+            }
+        ], 
+        "name": "sym.__dummy_alloc", 
+        "nargs": 0, 
+        "ninstr": 2, 
+        "nlocals": 0, 
+        "offset": -549621030384, 
+        "size": 8, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

@@ -1,0 +1,17 @@
+INIT_CPU_PRESENT_FFFFFF80080909A8[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b10010000000000000000101001000001 ) , addr:= 18446738260973583482}}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ adrp_0.post              ]  {{Diag:= bv( 0b11111001010000000000000000000000 ) , addr:= 18446738260973583482}}
+    str_imm_gen_2       : Theory =    str_imm_gen       [ ldr_imm_gen_1.post       ]  {{Diag:= bv( 0b11111001000000111101000000100000 ) , addr:= 18446738260973583483}}
+    ret_3               : Theory =    ret               [ str_imm_gen_2.post       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260973583483}}
+
+    B_post: s = ret_3.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END INIT_CPU_PRESENT_FFFFFF80080909A8

@@ -1,0 +1,42 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "jump": -4294336448, 
+                "offset": -4294427488, 
+                "ops": [
+                    {
+                        "bytes": "e8580014", 
+                        "disasm": "b sym.memset", 
+                        "esil": "-4294336448,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294427488, 
+                        "fcn_last": -4294427488, 
+                        "flags": [
+                            "loc._x_1722", 
+                            "sym.mymemset_void__int_unsignedlong"
+                        ], 
+                        "jump": -4294336448, 
+                        "offset": -4294427488, 
+                        "opcode": "b 0xffffffff0009a040", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "jmp", 
+                        "type2_num": 0, 
+                        "type_num": 1
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.mymemset_void__int_unsignedlong", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -4294427488, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

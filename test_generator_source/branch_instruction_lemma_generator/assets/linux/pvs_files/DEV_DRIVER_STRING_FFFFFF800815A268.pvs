@@ -1,0 +1,15 @@
+DEV_DRIVER_STRING_FFFFFF800815A268[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv( 0b11111001010000000100000000000001 ) , addr:= 18446738260974536654}}
+    cbnz_1              : Theory =    cbnz              [ ldr_imm_gen_0.post       ]  {{Diag:= bv( 0b10110101111111111111111110100001 ) , addr:= 18446738260974536654}}
+
+    B_post: s = cbnz_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END DEV_DRIVER_STRING_FFFFFF800815A268

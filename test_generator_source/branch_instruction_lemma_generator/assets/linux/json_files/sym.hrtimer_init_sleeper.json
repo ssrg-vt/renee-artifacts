@@ -1,0 +1,100 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620761112, 
+                "ops": [
+                    {
+                        "bytes": "02000090", 
+                        "disasm": "adrp x2, 0xffffff80080cb000", 
+                        "esil": "-549620764672,x2,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620761112, 
+                        "fcn_last": -549620761096, 
+                        "flags": [
+                            "sym.hrtimer_init_sleeper"
+                        ], 
+                        "offset": -549620761112, 
+                        "opcode": "adrp x2, 0xffffff80080cb000", 
+                        "ptr": -549620764672, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "012000f9", 
+                        "disasm": "str x1, [x0, 0x40]", 
+                        "esil": "x1,0x40,x0,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620761112, 
+                        "fcn_last": -549620761096, 
+                        "offset": -549620761108, 
+                        "opcode": "str x1, [x0, 0x40]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "42001d91", 
+                        "disasm": "add x2, x2, 0x740", 
+                        "esil": "1856,x2,+=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620761112, 
+                        "fcn_last": -549620761096, 
+                        "offset": -549620761104, 
+                        "opcode": "add x2, x2, 0x740", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "add", 
+                        "type2_num": 0, 
+                        "type_num": 17
+                    }, 
+                    {
+                        "bytes": "021400f9", 
+                        "disasm": "str x2, [x0, 0x28]", 
+                        "esil": "x2,0x28,x0,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620761112, 
+                        "fcn_last": -549620761096, 
+                        "offset": -549620761100, 
+                        "opcode": "str x2, [x0, 0x28]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620761112, 
+                        "fcn_last": -549620761096, 
+                        "offset": -549620761096, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 20
+            }
+        ], 
+        "name": "sym.hrtimer_init_sleeper", 
+        "nargs": 0, 
+        "ninstr": 5, 
+        "nlocals": 0, 
+        "offset": -549620761112, 
+        "size": 20, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

@@ -1,0 +1,71 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620756816, 
+                "ops": [
+                    {
+                        "bytes": "20090090", 
+                        "disasm": "adrp x0, 0xffffff80081f0000", 
+                        "esil": "-549619564544,x0,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620756816, 
+                        "fcn_last": -549620756808, 
+                        "flags": [
+                            "sym.ktime_get_seconds"
+                        ], 
+                        "offset": -549620756816, 
+                        "opcode": "adrp x0, 0xffffff80081f0000", 
+                        "ptr": -549619564544, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "004047f9", 
+                        "disasm": "ldr x0, [x0, 0xe80]", 
+                        "esil": "x0,3712,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620756816, 
+                        "fcn_last": -549620756808, 
+                        "offset": -549620756812, 
+                        "opcode": "ldr x0, [x0, 0xe80]", 
+                        "ptr": 3712, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620756816, 
+                        "fcn_last": -549620756808, 
+                        "offset": -549620756808, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.ktime_get_seconds", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620756816, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

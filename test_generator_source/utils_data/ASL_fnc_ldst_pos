@@ -1,0 +1,18 @@
+accessor: bits(size*8) Mem[bits(64) address, integer size, AccType acctype]
+function: CheckFPAdvSIMDEnabled64()
+function: UnallocatedEncoding()
+accessor: bits(width) X[integer n]
+function: integer UInt(bits(N) x)
+function: Prefetch(bits(64) address, bits(5) prfop)
+function: bits(N) SignExtend(bits(M) x, integer N)
+accessor: bits(width) SP[]
+function: bits(N) LSL(bits(N) x, integer shift)
+function: Constraint ConstrainUnpredictable(Unpredictable which)
+accessor: X[integer n] = bits(width) value
+accessor: V[integer n] = bits(width) value
+function: EndOfInstruction()
+function: bits(N) ZeroExtend(bits(M) x, integer N)
+accessor: Mem[bits(64) address, integer size, AccType acctype] = bits(size*8) value
+accessor: SP[] = bits(width) value
+function: CheckSPAlignment()
+accessor: bits(width) V[integer n]

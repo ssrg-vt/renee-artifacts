@@ -1,0 +1,78 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -4294938960, 
+                "ops": [
+                    {
+                        "bytes": "006c40f9", 
+                        "disasm": "ldr x0, [x0, 0xd8]", 
+                        "esil": "x0,216,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294938960, 
+                        "fcn_last": -4294938952, 
+                        "flags": [
+                            "loc._x_106", 
+                            "sym.arch_thread_get_blocked_fp"
+                        ], 
+                        "offset": -4294938960, 
+                        "opcode": "ldr x0, [x0, 0xd8]", 
+                        "ptr": 216, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32, 
+                        "xrefs": [
+                            {
+                                "addr": -4294814944, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "003040f9", 
+                        "disasm": "ldr x0, [x0, 0x60]", 
+                        "esil": "x0,96,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294938960, 
+                        "fcn_last": -4294938952, 
+                        "offset": -4294938956, 
+                        "opcode": "ldr x0, [x0, 0x60]", 
+                        "ptr": 96, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -4294938960, 
+                        "fcn_last": -4294938952, 
+                        "offset": -4294938952, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.arch_thread_get_blocked_fp", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -4294938960, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

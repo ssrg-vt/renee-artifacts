@@ -1,0 +1,16 @@
+CLASS_CHILD_NS_TYPE_FFFFFF800815E4A8[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv( 0b11111001010000001011110000000000 ) , addr:= 18446738260974542538}}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ ldr_imm_gen_0.post       ]  {{Diag:= bv( 0b11111001010000000010100000000000 ) , addr:= 18446738260974542538}}
+    ret_2               : Theory =    ret               [ ldr_imm_gen_1.post       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974542538}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END CLASS_CHILD_NS_TYPE_FFFFFF800815E4A8

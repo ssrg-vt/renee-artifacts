@@ -1,0 +1,8 @@
+bt[N: {n: nat | n = 64 or n = 32} ]
+		: THEORY
+
+  BEGIN
+
+bt(bv: bvec[N], n1: below(N)): bvec[1]= lambda(i: below(1)): bv(n1)
+
+  END bt

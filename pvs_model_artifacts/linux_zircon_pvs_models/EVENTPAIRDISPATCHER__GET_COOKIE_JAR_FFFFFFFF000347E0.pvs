@@ -1,0 +1,15 @@
+EVENTPAIRDISPATCHER__GET_COOKIE_JAR_FFFFFFFF000347E0[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    add_addsub_imm_0    : Theory =    add_addsub_imm    [ p0                       ]  {{Diag:= bv [32] ( 0b10010001000000010010000000000000 ) , addr:= 0xffffffff000347e0 }}
+    ret_1               : Theory =    ret               [ add_addsub_imm_0.post    ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffffff000347e4 }}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END EVENTPAIRDISPATCHER__GET_COOKIE_JAR_FFFFFFFF000347E0

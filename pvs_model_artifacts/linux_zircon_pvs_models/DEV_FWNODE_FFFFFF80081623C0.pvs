@@ -1,0 +1,15 @@
+DEV_FWNODE_FFFFFF80081623C0[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    add_addsub_imm_0    : Theory =    add_addsub_imm    [ p0                       ]  {{Diag:= bv [32] ( 0b10010001000000001000000000100000 ) , addr:= 0xffffff80081623c0 }}
+    ret_1               : Theory =    ret               [ add_addsub_imm_0.post    ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff80081623c4 }}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END DEV_FWNODE_FFFFFF80081623C0

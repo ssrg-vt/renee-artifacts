@@ -1,0 +1,22 @@
+test_concrete_subs_addsub_shift  % for now creat a dirc with the instruction name. In which every file is has the test_idx_instruction_name. 
+		: THEORY
+
+  BEGIN
+
+  IMPORTING arm_state
+
+
+X_sts : [ below(32) -> bvec[64] ]  = init`X  with [(2):= bv(0b0100000000000000000000000000000000000000000000000000000000000000) , %  2, 5, and the bitvectors all parameters taken from the test input generation code.
+                                                   (5):= bv(0b0000000000000000000000000000000000000000000000000000000000000000) ]
+    p1    :  s = init with [`X:= X_sts, `NZVC:= bv( 0b0000 ), `PC:= 65536   ] % inputs as well unicorn  
+  
+ importing concrete_test_subsaddsubshift[p1]{{Diag:= bv(0b01000010000000001010000011010111), addr:= 65536 }} % Diag is taken Random input gen code, PC is from Unicorn
+       
+	                   
+         test1: lemma let X_post =  p1`X with [ (2):= bv(0b0100000000000000000000000000000000000000000000000000000000000000) ] in % all bvs are from the Unicorn output
+	              let p2     =  p1 with [`X:= X_post, `NZVC:= bv( 0b0010) , `PC:= 65540  ] in  % only the bv and PC are taken from Unicorn out put state. The rest is a string. 
+		       concrete_test_subsaddsubshift[p1].post`X(2) = p2`X(2)
+ 
+  
+% concrete_test_subsaddsubshift, 
+  END test_concrete_subs_addsub_shift

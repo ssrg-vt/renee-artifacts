@@ -1,0 +1,108 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549621018336, 
+                "ops": [
+                    {
+                        "bytes": "004040f9", 
+                        "disasm": "ldr x0, [x0, 0x80]", 
+                        "esil": "x0,128,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621018336, 
+                        "fcn_last": -549621018320, 
+                        "flags": [
+                            "sym.set_task_stack_end_magic"
+                        ], 
+                        "offset": -549621018336, 
+                        "opcode": "ldr x0, [x0, 0x80]", 
+                        "ptr": 128, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32, 
+                        "xrefs": [
+                            {
+                                "addr": -549619824852, 
+                                "type": "CALL"
+                            }
+                        ]
+                    }, 
+                    {
+                        "bytes": "a1d38dd2", 
+                        "disasm": "movz x1, 0x6e9d", 
+                        "esil": "28317,x1,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621018336, 
+                        "fcn_last": -549621018320, 
+                        "offset": -549621018332, 
+                        "opcode": "movz x1, 0x6e9d", 
+                        "ptr": 0, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9, 
+                        "val": 28317
+                    }, 
+                    {
+                        "bytes": "81f5aaf2", 
+                        "disasm": "movk x1, 0x57ac, lsl 16", 
+                        "esil": "-4294901761,x1,&,1470889984,|,x1,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621018336, 
+                        "fcn_last": -549621018320, 
+                        "offset": -549621018328, 
+                        "opcode": "movk x1, 0x57ac, lsl 16", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "mov", 
+                        "type2_num": 0, 
+                        "type_num": 9
+                    }, 
+                    {
+                        "bytes": "010000f9", 
+                        "disasm": "str x1, [x0]", 
+                        "esil": "x1,0x0,x0,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621018336, 
+                        "fcn_last": -549621018320, 
+                        "offset": -549621018324, 
+                        "opcode": "str x1, [x0]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549621018336, 
+                        "fcn_last": -549621018320, 
+                        "offset": -549621018320, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 20
+            }
+        ], 
+        "name": "sym.set_task_stack_end_magic", 
+        "nargs": 1, 
+        "ninstr": 5, 
+        "nlocals": 0, 
+        "offset": -549621018336, 
+        "size": 20, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

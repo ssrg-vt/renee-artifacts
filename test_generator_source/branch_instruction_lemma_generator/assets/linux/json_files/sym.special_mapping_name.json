@@ -1,0 +1,71 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620583064, 
+                "ops": [
+                    {
+                        "bytes": "005440f9", 
+                        "disasm": "ldr x0, [x0, 0xa8]", 
+                        "esil": "x0,168,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620583064, 
+                        "fcn_last": -549620583056, 
+                        "flags": [
+                            "sym.special_mapping_name"
+                        ], 
+                        "offset": -549620583064, 
+                        "opcode": "ldr x0, [x0, 0xa8]", 
+                        "ptr": 168, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "000040f9", 
+                        "disasm": "ldr x0, [x0]", 
+                        "esil": "x0,0,+,DUP,tmp,=,[8],x0,=,", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620583064, 
+                        "fcn_last": -549620583056, 
+                        "offset": -549620583060, 
+                        "opcode": "ldr x0, [x0]", 
+                        "ptr": 0, 
+                        "refptr": true, 
+                        "size": 4, 
+                        "type": "load", 
+                        "type2_num": 0, 
+                        "type_num": 32
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620583064, 
+                        "fcn_last": -549620583056, 
+                        "offset": -549620583056, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.special_mapping_name", 
+        "nargs": 1, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620583064, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

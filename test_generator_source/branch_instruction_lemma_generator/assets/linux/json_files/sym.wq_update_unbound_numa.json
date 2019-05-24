@@ -1,0 +1,39 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549620942192, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620942192, 
+                        "fcn_last": -549620942192, 
+                        "flags": [
+                            "sym.wq_update_unbound_numa"
+                        ], 
+                        "offset": -549620942192, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.wq_update_unbound_numa", 
+        "nargs": 0, 
+        "ninstr": 1, 
+        "nlocals": 0, 
+        "offset": -549620942192, 
+        "size": 4, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

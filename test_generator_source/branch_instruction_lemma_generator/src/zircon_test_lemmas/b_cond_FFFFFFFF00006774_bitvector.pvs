@@ -1,0 +1,30 @@
+b_cond_FFFFFFFF00006774_bitvector      : THEORY
+    BEGIN
+    IMPORTING rsl@arm_state, rsl@b_cond
+
+        X_sts : [ below(32) -> bvec[64] ]  = init`X 
+
+        p    :  s = init with [`X:= X_sts]  with [ `PC`b := 0xfffffffbd6b6bf80 ]
+
+    b_cond_1 : Theory = b_cond [ p ] {{Diag:= bv[32] ( 0b01010100000000000000000011001000 ) , next:= 0xffffffff00006790, fail:= 0xffffffff0000677c }}
+
+    test1 : lemma b_cond_1.post`PC`b = 0xffffffff00006790 or 
+                  b_cond_1.post`PC`b = 0xffffffff0000677c
+
+
+    test2: lemma ConditionHolds[p](b_cond_1.condition) => b_cond_1.post`PC`b = 0xffffffff00006790
+
+    test3: lemma NOT ConditionHolds[p](b_cond_1.condition) => b_cond_1.post`PC`b = 0xffffffff0000677c
+
+%|- p_TCC1         : PROOF
+%|- b_cond_1_TCC*: PROOF
+%|- test1_TCC1      : PROOF (eval-formula)
+%|- QED
+
+%|- test1_TCC2 :PROOF
+%|- test3_TCC1 :PROOF (eval-formula 2) QED
+
+%|- test* : PROOF ( b_cond )
+%|- QED
+
+END b_cond_FFFFFFFF00006774_bitvector

@@ -1,0 +1,15 @@
+BAD_INODE_LISTXATTR_FFFFFF8008122FE8[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    movn_0              : Theory =    movn              [ p0                       ]  {{Diag:= bv [32] ( 0b10010010100000000000000010000000 ) , addr:= 0xffffff8008122fe8 }}
+    ret_1               : Theory =    ret               [ movn_0.post              ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff8008122fec }}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END BAD_INODE_LISTXATTR_FFFFFF8008122FE8

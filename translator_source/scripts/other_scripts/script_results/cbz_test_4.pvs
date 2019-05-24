@@ -1,0 +1,29 @@
+cbz_test_4 : THEORY
+	BEGIN
+
+	IMPORTING rsl@arm_state, rsl@cbz
+
+		X_sts : [ below(32) -> bvec[64] ]  = init`X
+
+		p    :  s = init with  [ `X(31) := 0xfffffffffcbbeb6f
+   ]
+
+		cbz_1 : Theory = cbz [ p ] {{ Diag:= bv[32](0b11111100001101101010100000101101),
+					      next:=  0xfffffffffff3e3de
+ ,
+					      fail:= 0xffffffffff4ffb72
+}}
+
+	test1 : lemma  cbz_1.post`PC`b = 0xfffffffffff3e3de
+  or 
+	               cbz_1.post`PC`b = 0xffffffffff4ffb72
+  
+
+%|- p_TCC1         : PROOF
+%|- cbz_1_TCC*     : PROOF (eval-formula)
+%|- QED
+
+%|- test* : PROOF ( cbz )
+%|- QED
+
+End cbz_test_4

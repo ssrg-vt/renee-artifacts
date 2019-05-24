@@ -1,0 +1,16 @@
+(PERIPH_PADDR_TO_VADDR_FFFFFFFF00006750
+ (adrp_0_TCC1 0
+  (adrp_0_TCC1-1 nil 3765757214 ("" (eval-formula) nil) nil nil
+   (adrp_0 subtype "0b11110000000000000000100110000001"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (add_addsub_imm_1_TCC1 0
+  (add_addsub_imm_1_TCC1-1 nil 3765757214 ("" (eval-formula) nil) nil
+   nil
+   (add_addsub_imm_1 subtype "0b10010001000000000000000000100001"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (add_addsub_imm_2_TCC1 0
+  (add_addsub_imm_2_TCC1-1 nil 3765757214 ("" (eval-formula) nil) nil
+   nil
+   (add_addsub_imm_2 subtype "0b10010001000000011000000000100101"
+    "naturalnumbers.below(exp2.exp2(32))"))))
+

@@ -1,0 +1,16 @@
+ARM64_GET_KERNEL_PTABLE_FFFFFFFF00004BE0[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b10010000000000000000100110100000 ) , addr:= 18446744055837014137}}
+    add_addsub_imm_1    : Theory =    add_addsub_imm    [ adrp_0.post              ]  {{Diag:= bv( 0b10010001000000000000000000000000 ) , addr:= 18446744055837014138}}
+    ret_2               : Theory =    ret               [ add_addsub_imm_1.post    ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446744055837014138}}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END ARM64_GET_KERNEL_PTABLE_FFFFFFFF00004BE0

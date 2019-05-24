@@ -1,0 +1,89 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "fail": -549620134732, 
+                "jump": -549620134728, 
+                "offset": -549620134736, 
+                "ops": [
+                    {
+                        "bytes": "410000b4", 
+                        "disasm": "cbz x1, 0xffffff8008164cb8", 
+                        "esil": "x1,!,?{,-549620134728,pc,=,}", 
+                        "fail": -549620134732, 
+                        "family": "cpu", 
+                        "fcn_addr": -549620134736, 
+                        "fcn_last": -549620134728, 
+                        "flags": [
+                            "loc._x_538", 
+                            "sym.rmem_dma_device_release"
+                        ], 
+                        "jump": -549620134728, 
+                        "offset": -549620134736, 
+                        "opcode": "cbz x1, 0xffffff8008164cb8", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "cjmp", 
+                        "type2_num": 0, 
+                        "type_num": 2147483649
+                    }
+                ], 
+                "size": 4
+            }, 
+            {
+                "colorize": 0, 
+                "jump": -549620134728, 
+                "offset": -549620134732, 
+                "ops": [
+                    {
+                        "bytes": "3fa800f9", 
+                        "disasm": "str xzr, [x1, 0x150]", 
+                        "esil": "xzr,0x150,x1,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620134736, 
+                        "fcn_last": -549620134728, 
+                        "offset": -549620134732, 
+                        "opcode": "str xzr, [x1, 0x150]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }
+                ], 
+                "size": 4
+            }, 
+            {
+                "colorize": 0, 
+                "offset": -549620134728, 
+                "ops": [
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549620134736, 
+                        "fcn_last": -549620134728, 
+                        "offset": -549620134728, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 4
+            }
+        ], 
+        "name": "sym.rmem_dma_device_release", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549620134736, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

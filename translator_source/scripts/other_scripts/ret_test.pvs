@@ -1,0 +1,20 @@
+ret_      : THEORY
+	BEGIN
+
+	IMPORTING rsl@arm_state, rsl@ret
+
+		X_sts : [ below(32) -> bvec[64] ]  = init`X
+
+		p    :  s = init with  [ `X(6) := bv[64]( 0b0101011111100100100100111001100110010110000100011101010110101111 )  ]
+
+		ret_1 : Theory = ret [ p ] {{ Diag:= bv[32](0b00000011000000001111101001101011) }}
+
+	test1 : lemma  ret_1.post`PC`b = bv[64](0b0101011111100100100100111001100110010110000100011101010110101111 ) % this is the same as `X() above.
+
+%|- p_TCC1         : PROOF
+%|- ret_1_TCC*     : PROOF
+%|- test1_TCC1     : PROOF (eval-formula)
+%|- QED
+
+%|- test1 : PROOF ( ret )
+%|- QED

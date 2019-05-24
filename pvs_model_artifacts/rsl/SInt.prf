@@ -1,0 +1,72 @@
+(SInt (SInt_TCC1 0
+       (SInt_TCC1-1 nil 3742751273 ("" (subtype-tcc) nil nil)
+        ((bv2nat const-decl "below(exp2(N))" bv_nat nil)) nil
+        (SInt subtype "(number_fields.-)(SInt.n, 1)"
+              "naturalnumbers.below(SInt.n)")))
+      (Sint_test3_TCC1 0
+       (Sint_test3_TCC1-1 nil 3742752350
+        ("" (subtype-tcc) (("" (eval-formula) nil nil)) nil)
+        ((boolean nonempty-type-decl nil booleans nil)
+         (bool nonempty-type-eq-decl nil booleans nil)
+         (bijective? const-decl "bool" functions nil)
+         (id const-decl "(bijective?[T, T])" identity nil)
+         (TRUE const-decl "bool" booleans nil)
+         (nil application-judgement "above(n)" exp2 nil)
+         (real_lt_is_strict_total_order name-judgement
+          "(strict_total_order?[real])" real_props nil))
+        nil
+        (Sint_test3 subtype "0b1000"
+         "naturalnumbers.below(exp2.exp2(4))")))
+      (Sint_test3 0
+       (Sint_test3-1 nil 3742752355 ("" (eval-formula) nil nil)
+        ((TRUE const-decl "bool" booleans nil)
+         (id const-decl "(bijective?[T, T])" identity nil)
+         (bijective? const-decl "bool" functions nil)
+         (bool nonempty-type-eq-decl nil booleans nil)
+         (boolean nonempty-type-decl nil booleans nil))
+        shostak))
+      (Sint_test4_TCC1 0
+       (Sint_test4_TCC1-1 nil 3742752666
+        ("" (subtype-tcc) (("" (eval-formula) nil nil)) nil)
+        ((boolean nonempty-type-decl nil booleans nil)
+         (bool nonempty-type-eq-decl nil booleans nil)
+         (bijective? const-decl "bool" functions nil)
+         (id const-decl "(bijective?[T, T])" identity nil)
+         (TRUE const-decl "bool" booleans nil)
+         (nil application-judgement "above(n)" exp2 nil)
+         (real_lt_is_strict_total_order name-judgement
+          "(strict_total_order?[real])" real_props nil))
+        nil
+        (Sint_test4 subtype "0b1101"
+         "naturalnumbers.below(exp2.exp2(4))")))
+      (Sint_test4 0
+       (Sint_test4-1 nil 3742752667 ("" (eval-formula) nil nil)
+        ((TRUE const-decl "bool" booleans nil)
+         (id const-decl "(bijective?[T, T])" identity nil)
+         (bijective? const-decl "bool" functions nil)
+         (bool nonempty-type-eq-decl nil booleans nil)
+         (boolean nonempty-type-decl nil booleans nil))
+        shostak))
+      (Sint_test5_TCC1 0
+       (Sint_test5_TCC1-1 nil 3753125323
+        ("" (subtype-tcc) (("" (eval-formula) nil nil)) nil)
+        ((real_lt_is_strict_total_order name-judgement
+          "(strict_total_order?[real])" real_props nil)
+         (nil application-judgement "above(n)" exp2 nil)
+         (TRUE const-decl "bool" booleans nil)
+         (id const-decl "(bijective?[T, T])" identity nil)
+         (bijective? const-decl "bool" functions nil)
+         (bool nonempty-type-eq-decl nil booleans nil)
+         (boolean nonempty-type-decl nil booleans nil))
+        nil
+        (Sint_test5 subtype "0b1111"
+         "naturalnumbers.below(exp2.exp2(4))")))
+      (Sint_test5 0
+       (Sint_test5-1 nil 3753125324 ("" (eval-formula) nil nil)
+        ((TRUE const-decl "bool" booleans nil)
+         (id const-decl "(bijective?[T, T])" identity nil)
+         (bijective? const-decl "bool" functions nil)
+         (bool nonempty-type-eq-decl nil booleans nil)
+         (boolean nonempty-type-decl nil booleans nil))
+        shostak)))
+

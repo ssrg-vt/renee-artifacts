@@ -1,0 +1,70 @@
+[
+    {
+        "blocks": [
+            {
+                "colorize": 0, 
+                "offset": -549619800444, 
+                "ops": [
+                    {
+                        "bytes": "61000090", 
+                        "disasm": "adrp x1, 0xffffff80081c2000", 
+                        "esil": "-549619752960,x1,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619800444, 
+                        "fcn_last": -549619800436, 
+                        "flags": [
+                            "sym.set_dma_reserve"
+                        ], 
+                        "offset": -549619800444, 
+                        "opcode": "adrp x1, 0xffffff80081c2000", 
+                        "ptr": -549619752960, 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "lea", 
+                        "type2_num": 0, 
+                        "type_num": 33
+                    }, 
+                    {
+                        "bytes": "20b402f9", 
+                        "disasm": "str x0, [x1, 0x568]", 
+                        "esil": "x0,0x568,x1,+,=[8]", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619800444, 
+                        "fcn_last": -549619800436, 
+                        "offset": -549619800440, 
+                        "opcode": "str x0, [x1, 0x568]", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "store", 
+                        "type2_num": 0, 
+                        "type_num": 31
+                    }, 
+                    {
+                        "bytes": "c0035fd6", 
+                        "disasm": "ret", 
+                        "esil": "lr,pc,=", 
+                        "family": "cpu", 
+                        "fcn_addr": -549619800444, 
+                        "fcn_last": -549619800436, 
+                        "offset": -549619800436, 
+                        "opcode": "ret", 
+                        "refptr": false, 
+                        "size": 4, 
+                        "type": "ret", 
+                        "type2_num": 0, 
+                        "type_num": 5
+                    }
+                ], 
+                "size": 12
+            }
+        ], 
+        "name": "sym.set_dma_reserve", 
+        "nargs": 0, 
+        "ninstr": 3, 
+        "nlocals": 0, 
+        "offset": -549619800444, 
+        "size": 12, 
+        "stack": 0, 
+        "type": "sym"
+    }
+]

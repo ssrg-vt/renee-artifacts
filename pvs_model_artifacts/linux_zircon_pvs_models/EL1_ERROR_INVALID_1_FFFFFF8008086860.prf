@@ -1,0 +1,10 @@
+(EL1_ERROR_INVALID_1_FFFFFF8008086860
+ (b_uncond_0_TCC1 0
+  (b_uncond_0_TCC1-1 nil 3765746752 ("" (eval-formula) nil) nil nil
+   (b_uncond_0 subtype "0b10100000000000000000000000000"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (b_uncond_0_TCC2 0
+  (b_uncond_0_TCC2-1 nil 3767006076 ("" (eval-formula) nil) nil nil
+   (b_uncond_0 subtype "0xffffff8008086860"
+    "naturalnumbers.below(exp2.exp2(64))"))))
+

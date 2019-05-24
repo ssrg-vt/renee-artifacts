@@ -1,0 +1,17 @@
+SET_CURR_TASK_STOP_FFFFFF80080B8888[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv( 0b11111001010001001001010000000001 ) , addr:= 18446738260974092239}}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ ldr_imm_gen_0.post       ]  {{Diag:= bv( 0b11111001010001001010100000000000 ) , addr:= 18446738260974092240}}
+    str_imm_gen_2       : Theory =    str_imm_gen       [ ldr_imm_gen_1.post       ]  {{Diag:= bv( 0b11111001000000001010010000100000 ) , addr:= 18446738260974092240}}
+    ret_3               : Theory =    ret               [ str_imm_gen_2.post       ]  {{Diag:= bv( 0b11010110010111110000001111000000 ) , addr:= 18446738260974092240}}
+
+    B_post: s = ret_3.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END SET_CURR_TASK_STOP_FFFFFF80080B8888
