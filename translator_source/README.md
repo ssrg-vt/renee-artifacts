@@ -1,4 +1,4 @@
-% 14 May 2019, @Amer Tahat @Sarang Joshi @Pronnoy Gawsami   
+% 14 May 2019, @Amer Tahat @Pronnoy Gawsami @Sarang Joshi    
  
 # Renee
 
