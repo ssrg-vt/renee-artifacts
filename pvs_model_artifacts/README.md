@@ -1,6 +1,6 @@
 ## pvs-model-artifacts
 
-`14 May 2019, @Amer Tahat @Pronnoy Gawsami @Sarang Joshi @Dr. Binoy Ravindran`
+`14 May 2019, @Amer Tahat @Pronnoy Goswami @Sarang Joshi @Dr. Binoy Ravindran`
 
 This directory includes all artifacts:
 
