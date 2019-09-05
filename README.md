@@ -7,7 +7,7 @@ Test generation for ARM v8 functions for verification using PVS.
 
 1. Clone the repository
 
-         https://github.com/AmerNTahat/Renee.git
+         https://github.com/ssrg-vt/renee-artifacts.git
   
 2. Install Unicron Engine on your machine and setup using the python binding. Follow point 3 mentioned in the [Documentation](http://www.unicorn-engine.org/docs/)
 
