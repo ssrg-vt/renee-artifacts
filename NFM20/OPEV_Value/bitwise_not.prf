@@ -1,0 +1,4 @@
+(bitwise_not
+ (not_op_eq 0
+  (not_op_eq-1 nil 3726333305 ("" (grind) nil nil) nil shostak)))
+

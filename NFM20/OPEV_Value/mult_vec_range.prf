@@ -1,0 +1,65 @@
+(mult_vec_range
+ (mult_vec_range_op_eq 0
+  (mult_vec_range_op_eq-1 nil 3728426079 ("" (grind) nil nil)
+   ((bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (unsigned const-decl "nat" unsigned nil)
+    (mod const-decl "{k | abs(k) < abs(j)}" mod nil)
+    (^ const-decl "bit" bv nil) (b2n const-decl "nbit" bit nil)
+    (bv2nat_rec def-decl "nat" bv_nat nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (to_vec_inc const-decl "bvec[len]" to_vec_inc nil)
+    (even_minus_even_is_even application-judgement "even_int" integers
+     nil)
+    (int_plus_int_is_int application-judgement "int" integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   shostak))
+ (mult_range_vec_op_eq 0
+  (mult_range_vec_op_eq-1 nil 3728426085 ("" (grind) nil nil)
+   ((bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (unsigned const-decl "nat" unsigned nil)
+    (mod const-decl "{k | abs(k) < abs(j)}" mod nil)
+    (^ const-decl "bit" bv nil) (b2n const-decl "nbit" bit nil)
+    (bv2nat_rec def-decl "nat" bv_nat nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (to_vec_inc const-decl "bvec[len]" to_vec_inc nil)
+    (even_minus_even_is_even application-judgement "even_int" integers
+     nil)
+    (int_plus_int_is_int application-judgement "int" integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   shostak))
+ (mult_range_vec_range_rel 0
+  (mult_range_vec_range_rel-1 nil 3728426090 ("" (grind) nil nil)
+   ((bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (unsigned const-decl "nat" unsigned nil)
+    (mod const-decl "{k | abs(k) < abs(j)}" mod nil)
+    (^ const-decl "bit" bv nil) (b2n const-decl "nbit" bit nil)
+    (bv2nat_rec def-decl "nat" bv_nat nil)
+    (exp2 def-decl "posnat" exp2 nil)
+    (to_vec_inc const-decl "bvec[len]" to_vec_inc nil)
+    (even_minus_even_is_even application-judgement "even_int" integers
+     nil)
+    (int_plus_int_is_int application-judgement "int" integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   shostak)))
+

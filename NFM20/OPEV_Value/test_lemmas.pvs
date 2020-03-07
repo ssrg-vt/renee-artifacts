@@ -1,0 +1,636 @@
+test_lemmas: THEORY
+
+BEGIN
+
+%testbv1: CFA8
+testbv1:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | TRUE  | TRUE  | FALSE | FALSE | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+%testbv2: 4FA8
+testbv2:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | TRUE  | FALSE | FALSE | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+%testbv3: 96E4
+testbv3:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | TRUE  | FALSE | FALSE | TRUE  | FALSE | TRUE  | TRUE  | FALSE | TRUE  | TRUE  | TRUE  | FALSE | FALSE | TRUE  | FALSE | FALSE ||
+      ENDTABLE
+
+%testbv4: 16E4
+testbv4:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | FALSE | FALSE | TRUE  | FALSE | TRUE  | TRUE  | FALSE | TRUE  | TRUE  | TRUE  | FALSE | FALSE | TRUE  | FALSE | FALSE ||
+      ENDTABLE
+
+IMPORTING bitwise_not[16]
+
+%not_testbv1: 3057
+not_testbv1:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | FALSE | TRUE  | TRUE  | FALSE | FALSE | FALSE | FALSE | FALSE | TRUE  | FALSE | TRUE  | FALSE | TRUE  | TRUE  | TRUE  ||
+      ENDTABLE
+                             
+bitwise_not_bit_test1: LEMMA bitwise_not_bit(FALSE) = TRUE
+bitwise_not_bit_test2: LEMMA bitwise_not_bit(TRUE) = FALSE
+bitwise_not_bit_test3: LEMMA (~FALSE) = TRUE
+bitwise_not_bit_test4: LEMMA (~TRUE) = FALSE
+
+bitwise_not_test: LEMMA bitwise_not(testbv1) = not_testbv1
+bitwise_not_test1: LEMMA (~testbv1) = not_testbv1
+
+
+IMPORTING bitwise_and[16, 16]
+
+%and_testbv23: 06A0
+and_testbv23:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | FALSE | FALSE | FALSE | FALSE | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+bitwise_and_bit_test1: LEMMA bitwise_and_bit(FALSE, FALSE) = FALSE
+bitwise_and_bit_test2: LEMMA bitwise_and_bit(FALSE, TRUE) = FALSE
+bitwise_and_bit_test3: LEMMA bitwise_and_bit(TRUE, FALSE) = FALSE
+bitwise_and_bit_test4: LEMMA bitwise_and_bit(TRUE, TRUE) = TRUE
+bitwise_and_bit_test5: LEMMA (FALSE&FALSE) = FALSE
+bitwise_and_bit_test6: LEMMA (FALSE&TRUE) = FALSE
+bitwise_and_bit_test7: LEMMA (TRUE&FALSE) = FALSE
+bitwise_and_bit_test8: LEMMA (TRUE&TRUE) = TRUE
+
+bitwise_and_test1: LEMMA bitwise_and(testbv2, testbv3) = and_testbv23
+bitwise_and_test2: LEMMA (testbv2&testbv3) = and_testbv23
+
+
+IMPORTING bitwise_or[16, 16]
+
+%or_testbv13: DFEC
+or_testbv13:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | TRUE  | TRUE  | FALSE | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | TRUE  | FALSE | FALSE ||
+      ENDTABLE
+
+bitwise_or_bit_test1: LEMMA bitwise_or_bit(TRUE, TRUE) = TRUE
+bitwise_or_bit_test2: LEMMA bitwise_or_bit(TRUE, FALSE) = TRUE
+bitwise_or_bit_test3: LEMMA bitwise_or_bit(FALSE, TRUE) = TRUE
+bitwise_or_bit_test4: LEMMA bitwise_or_bit(FALSE, FALSE) = FALSE
+
+bitwise_or_test: LEMMA bitwise_or(testbv1, testbv3) = or_testbv13
+
+IMPORTING bitwise_xor[16, 16]
+
+%xor_testbv14: D94C
+xor_testbv14:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | TRUE  | TRUE  | FALSE | TRUE  | TRUE  | FALSE | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | TRUE  | TRUE  | FALSE | FALSE ||
+      ENDTABLE
+
+bitwise_xor_bit_test1: LEMMA bitwise_xor_bit(FALSE, FALSE) = FALSE
+bitwise_xor_bit_test2: LEMMA bitwise_xor_bit(FALSE, TRUE) = TRUE
+bitwise_xor_bit_test3: LEMMA bitwise_xor_bit(TRUE, FALSE) = TRUE
+bitwise_xor_bit_test4: LEMMA bitwise_xor_bit(TRUE, TRUE) = FALSE
+bitwise_xor_bit_test5: LEMMA (FALSE^FALSE) = FALSE
+bitwise_xor_bit_test6: LEMMA (TRUE^FALSE) = TRUE
+bitwise_xor_bit_test7: LEMMA (FALSE^TRUE) = TRUE
+bitwise_xor_bit_test8: LEMMA (TRUE^TRUE) = FALSE
+
+bitwise_xor_test1: LEMMA bitwise_xor(testbv1, testbv4) = xor_testbv14
+bitwise_xor_test2: LEMMA (testbv1^testbv4) = xor_testbv14
+
+IMPORTING bitwise_shift[16]
+
+%leftshift6_testbv3: B900
+leftshift6_testbv3:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | TRUE  | FALSE | TRUE  | TRUE  | TRUE  | FALSE | FALSE | TRUE  | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+shift16_testbv3:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+%rightshift_testbv3: 025B
+rightshift6_testbv3:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | TRUE  | FALSE | FALSE | TRUE  | FALSE | TRUE  | TRUE  | FALSE | TRUE  | TRUE  ||
+      ENDTABLE
+      
+bitwise_leftshift_test1: LEMMA bitwise_leftshift(testbv3, 6) = leftshift6_testbv3
+bitwise_leftshift_test2: LEMMA bitwise_leftshift(testbv3, 0) = testbv3
+bitwise_leftshift_test3: LEMMA bitwise_leftshift(testbv3, 16) = shift16_testbv3
+bitwise_leftshift_test4: LEMMA (testbv3 << 6) = leftshift6_testbv3
+
+bitwise_rightshift_test1: LEMMA bitwise_rightshift(testbv3, 6) = rightshift6_testbv3
+bitwise_rightshift_test2: LEMMA bitwise_rightshift(testbv3, 0) = testbv3
+bitwise_rightshift_test3: LEMMA bitwise_rightshift(testbv3, 16) = shift16_testbv3
+bitwise_rightshift_test4: LEMMA (testbv3 >> 6) = rightshift6_testbv3
+
+IMPORTING bitwise_rotate[16]
+
+rotate7_testbv3:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | TRUE  | TRUE  | TRUE  | FALSE | FALSE | TRUE  | FALSE | FALSE | TRUE  | FALSE | FALSE | TRUE  | FALSE | TRUE  | TRUE  ||
+      ENDTABLE
+
+rotate20_testbv3:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | TRUE  | TRUE  | FALSE | TRUE  | TRUE  | TRUE  | FALSE | FALSE | TRUE  | FALSE | FALSE | TRUE  | FALSE | FALSE | TRUE  ||
+      ENDTABLE
+
+bitwise_rotate_test1: LEMMA bitwise_rotate(testbv3, 7) = rotate7_testbv3
+bitwise_rotate_test2: LEMMA bitwise_rotate(testbv3, 0) = testbv3
+bitwise_rotate_test3: LEMMA bitwise_rotate(testbv3, 20) = rotate20_testbv3
+
+IMPORTING duplicate[16]
+
+duplicate3_testbv2:MACRO bvec[48] = LAMBDA (i:below(48)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   |  16   |  17   |  18   |  19   |  20   |  21   |  22   |  23   |  24   |  25   |  26   |  27   |  28   |  29   |  30   |  31   |  32   |  33   |  34   |  35   |  36   |  37   |  38   |  39   |  40   |  41   |  42   |  43   |  44   |  45   |  46   |  47   ]|
+       | FALSE | TRUE  | FALSE | FALSE | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE | FALSE | TRUE  | FALSE | FALSE | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE | FALSE | TRUE  | FALSE | FALSE | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE ||
+      ENDTABLE
+      
+duplicate_test1: LEMMA duplicate(TRUE, 10) = fill[10](TRUE)
+duplicate_test2: LEMMA (TRUE^^10) = fill[10](TRUE)
+
+duplicate_bits_test1: LEMMA duplicate_bits(testbv2, 3) = duplicate3_testbv2
+duplicate_bits_test2: LEMMA duplicate_bits(testbv2, 0) = empty_bv
+duplicate_bits_test3: LEMMA (testbv2^^3) = duplicate3_testbv2
+
+IMPORTING extz[16]
+
+extz20_testbv1:MACRO bvec[20] = LAMBDA (i:below(20)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   |  16   |  17   |  18   |  19   ]|
+       | FALSE | FALSE | FALSE | FALSE | TRUE  | TRUE  | FALSE | FALSE | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+ext10_testbv1:MACRO bvec[10] = LAMBDA (i:below(10)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   ]|
+       | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+extz_test1: LEMMA extz(20, testbv1) = extz20_testbv1
+extz_test2: LEMMA extz(16, testbv1) = testbv1
+extz_test3: LEMMA extz(10, testbv1) = ext10_testbv1
+extz_test4: LEMMA extz(0, testbv1) = empty_bv
+
+IMPORTING exts[16]
+
+exts20_testbv1:MACRO bvec[20] = LAMBDA (i:below(20)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   |  16   |  17   |  18   |  19   ]|
+       | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | FALSE | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+exts_test1: LEMMA exts(20, testbv1) = exts20_testbv1
+exts_test2: LEMMA exts(16, testbv1) = testbv1
+exts_test3: LEMMA exts(10, testbv1) = ext10_testbv1
+exts_test4: LEMMA exts(0, testbv1) = empty_bv
+
+IMPORTING most_significant[16]
+
+most_significant_test1: LEMMA most_significant(testbv1) = TRUE
+most_significant_test2: LEMMA most_significant(testbv4) = FALSE
+
+IMPORTING additional_arithmetic
+
+power_test1: LEMMA power(3, 2) = 9
+power_test2: LEMMA power(-4, 2) = 16
+power_test3: LEMMA power(3, 0) = 1
+power_test4: LEMMA (3**3) = 27
+
+abs_test1: LEMMA abs(10) = 10
+abs_test2: LEMMA abs(-5) = 5
+
+max_test: LEMMA max(15, -3) = 15
+min_test: LEMMA min(15, -3) = -3
+
+IMPORTING length[16]
+
+length_test: LEMMA length(testbv1) = 16
+
+IMPORTING is_one
+
+is_one_test1: LEMMA is_one(1) = TRUE
+is_one_test2: LEMMA is_one(0) = FALSE
+
+IMPORTING ignore[nat]
+
+ignore_test: LEMMA ignore(3) = unit
+
+IMPORTING mask[16]
+
+mask4_testbv4:MACRO bvec[4] = LAMBDA (i:below(4)): TABLE,
+    i |[   0   |   1   |   2   |   3   ]|
+       | FALSE | TRUE  | FALSE | FALSE ||
+      ENDTABLE
+
+mask_test: LEMMA mask(4, testbv4) = mask4_testbv4
+
+IMPORTING slice_raw[16]
+
+slice_raw6_testbv4:MACRO bvec[6] = LAMBDA (i:below(6)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   ]|
+       | FALSE | TRUE  | TRUE  | FALSE | TRUE  | TRUE  ||
+      ENDTABLE
+
+slice_raw_test: LEMMA slice_raw(testbv4, 4, 9) = slice_raw6_testbv4
+
+IMPORTING unsigned
+
+unsigned_test1: LEMMA unsigned[16](testbv1) = 53160
+unsigned_test2: LEMMA unsigned[16](testbv2) = 20392
+unsigned_test3: LEMMA unsigned[16](testbv3) = 38628
+unsigned_test4: LEMMA unsigned[16](testbv4) = 5860
+
+IMPORTING signed
+
+signed_test1: LEMMA signed[16](testbv1) = -12376
+signed_test2: LEMMA signed[16](testbv2) = 20392
+signed_test3: LEMMA signed[16](testbv3) = -26908
+signed_test4: LEMMA signed[16](testbv4) = 5860
+
+IMPORTING to_vec_inc
+
+neg_testbv:MACRO bvec[3] = LAMBDA (i:below(3)): TABLE,
+    i |[   0   |   1   |   2   ]|
+       | TRUE  | TRUE  | FALSE ||
+      ENDTABLE
+
+to_vec_inc_test1: LEMMA to_vec_inc(16, 53160) = testbv1
+to_vec_inc_test2: LEMMA to_vec_inc(16, -12376) = testbv1
+to_vec_inc_test3: LEMMA to_vec_inc(3, 8) = bvec0[3]
+to_vec_inc_test4: LEMMA to_vec_inc(3, -2) = neg_testbv
+to_vec_inc_test5: LEMMA to_vec_inc(1, -15) = bvec1[1]
+
+IMPORTING eq_vec[16, 16]
+IMPORTING eq_vec_unsigned[16, 16]
+
+eq_vec_test1: LEMMA eq_vec(testbv2, testbv2)
+eq_vec_test2: LEMMA NOT eq_vec(testbv2, testbv3)
+eq_vec_test3: LEMMA (testbv2 == testbv2)
+
+eq_range_vec_test1: LEMMA eq_range_vec(53160, testbv1)
+eq_range_vec_test2: LEMMA NOT eq_range_vec(-12376, testbv1)
+eq_range_vec_test3: LEMMA (20392 == testbv2)
+
+eq_vec_range_test1: LEMMA eq_vec_range(testbv3, 38628)
+eq_vec_range_test2: LEMMA NOT eq_vec_range(testbv3, -26908)
+eq_vec_range_test3: LEMMA (testbv4 == 5860)
+
+eq_range_test1: LEMMA eq_range(12345, 12345)
+eq_range_test2: LEMMA NOT (12345 == 12335)
+
+eq_bit_test1: LEMMA eq_bit(FALSE, FALSE)
+eq_bit_test2: LEMMA NOT eq_bit(FALSE, TRUE)
+eq_bit_test3: LEMMA NOT eq_bit(TRUE, FALSE)
+eq_bit_test4: LEMMA eq_bit(TRUE, TRUE)
+eq_bit_test5: LEMMA (FALSE == FALSE)
+eq_bit_test6: LEMMA NOT (TRUE == FALSE)
+eq_bit_test7: LEMMA NOT (FALSE == TRUE)
+eq_bit_test8: LEMMA (TRUE == TRUE)
+
+IMPORTING neq_vec[16, 16]
+IMPORTING neq_vec_unsigned[16, 16]
+
+neq_vec_test1: LEMMA neq_vec(testbv1, testbv2)
+neq_vec_test2: LEMMA NOT neq_vec(testbv3, testbv3)
+
+neq_range_vec_test1: LEMMA neq_range_vec(12345, testbv2)
+neq_range_vec_test2: LEMMA NOT neq_range_vec(20392, testbv2)
+
+neq_vec_range_test1: LEMMA neq_vec_range(testbv3, 12345)
+neq_vec_range_test2: LEMMA NOT neq_vec_range(testbv3, 38628)
+
+neq_range_test1: LEMMA neq_range(12345, 10000)
+neq_range_test2: LEMMA NOT neq_range(12345, 12345)
+
+neq_bit_test1: LEMMA NOT neq_bit(FALSE, FALSE)
+neq_bit_test2: LEMMA neq_bit(FALSE, TRUE)
+neq_bit_test3: LEMMA neq_bit(TRUE, FALSE)
+neq_bit_test4: LEMMA NOT neq_bit(TRUE, TRUE)
+
+IMPORTING lt_vec[16, 16]
+IMPORTING lt_vec_unsigned[16, 16]
+
+lt_vec_test1: LEMMA lt_vec(testbv1, testbv2)
+lt_vec_test2: LEMMA NOT (testbv4 < testbv3)
+
+lt_vec_signed_test: LEMMA lt_vec_signed(testbv1, testbv2)
+lt_vec_unsigned_test: LEMMA lt_vec_unsigned(testbv2, testbv1)
+
+lt_range_vec_test1: LEMMA lt_range_vec(12345,testbv2)
+lt_range_vec_test2: LEMMA NOT (0 < testbv1)
+
+lt_vec_range_test1: LEMMA lt_vec_range(testbv1, 0)
+lt_vec_range_test2: LEMMA NOT (testbv2 < 0)
+
+lt_test: LEMMA lt(12345, 12346)
+
+IMPORTING gt_vec[16, 16]
+IMPORTING gt_vec_unsigned[16, 16]
+
+gt_vec_test1: LEMMA NOT gt_vec(testbv1, testbv2)
+gt_vec_test2: LEMMA (testbv4 > testbv3)
+
+gt_vec_signed_test: LEMMA gt_vec_signed(testbv2, testbv1)
+gt_vec_unsigned_test: LEMMA gt_vec_unsigned(testbv1, testbv2)
+
+gt_range_vec_test1: LEMMA NOT gt_range_vec(12345,testbv2)
+gt_range_vec_test2: LEMMA (0 > testbv1)
+
+gt_vec_range_test1: LEMMA NOT gt_vec_range(testbv1, 0)
+gt_vec_range_test2: LEMMA (testbv2 > 0)
+
+gt_test: LEMMA NOT gt(12345, 12346)
+
+IMPORTING lteq_vec[16, 16]
+IMPORTING lteq_vec_unsigned[16, 16]
+
+lteq_vec_test1: LEMMA lteq_vec(testbv1, testbv2)
+lteq_vec_test2: LEMMA NOT (testbv4 <= testbv3)
+lteq_vec_test3: LEMMA lteq_vec(testbv4, testbv4)
+
+lteq_vec_signed_test: LEMMA lteq_vec_signed(testbv1, testbv2)
+lteq_vec_unsigned_test: LEMMA lteq_vec_unsigned(testbv2, testbv1)
+
+lteq_range_vec_test1: LEMMA lteq_range_vec(12345,testbv2)
+lteq_range_vec_test2: LEMMA NOT (0 <= testbv1)
+lteq_range_vec_test3: LEMMA lteq_range_vec(20392,testbv2)
+
+lteq_vec_range_test1: LEMMA lteq_vec_range(testbv1, 0)
+lteq_vec_range_test2: LEMMA NOT (testbv2 <= 0)
+lteq_vec_range_test3: LEMMA lteq_vec_range(testbv4, 5860)
+
+lteq_test: LEMMA lteq(12345, 12345)
+
+IMPORTING gteq_vec[16, 16]
+IMPORTING gteq_vec_unsigned[16, 16]
+
+gteq_vec_test1: LEMMA NOT gteq_vec(testbv1, testbv2)
+gteq_vec_test2: LEMMA (testbv4 >= testbv3)
+gteq_vec_test3: LEMMA gteq_vec(testbv4, testbv4)
+
+gteq_vec_signed_test: LEMMA NOT gteq_vec_signed(testbv1, testbv2)
+gteq_vec_unsigned_test: LEMMA NOT gteq_vec_unsigned(testbv2, testbv1)
+
+gteq_range_vec_test1: LEMMA NOT gteq_range_vec(12345,testbv2)
+gteq_range_vec_test2: LEMMA (0 >= testbv1)
+gteq_range_vec_test3: LEMMA gteq_range_vec(20392,testbv2)
+
+gteq_vec_range_test1: LEMMA NOT gteq_vec_range(testbv1, 0)
+gteq_vec_range_test2: LEMMA (testbv2 >= 0)
+gteq_vec_range_test3: LEMMA gteq_vec_range(testbv4, 5860)
+
+gteq_test: LEMMA gteq(12345, 12345)
+
+IMPORTING add[16, 16]
+
+add_testbv12:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | FALSE | FALSE | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+add_testbv14:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | TRUE  | TRUE  | TRUE  | FALSE | FALSE | TRUE  | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE | TRUE  | TRUE  | FALSE | FALSE ||
+      ENDTABLE
+
+add_test: LEMMA add(123, 123) = 246
+
+add_vec_test1: LEMMA add_vec(testbv1, testbv2) = add_testbv12
+add_vec_test2: LEMMA (testbv1 + testbv4) = add_testbv14
+
+add_vec_vec_range_test1: LEMMA add_vec_vec_range(testbv1, testbv2) = 73552
+add_vec_vec_range_test2: LEMMA add_vec_vec_range(testbv1, testbv4) = 59020
+
+add_vec_range_tes1: LEMMA add_vec_range(testbv1, 20392) = add_testbv12
+add_vec_range_tes2: LEMMA (testbv1 + 5860) = add_testbv14
+
+add_overflow_vec_test1: LEMMA add_overflow_vec(testbv1, testbv2) = (add_testbv12, TRUE, TRUE)
+add_overflow_vec_test2: LEMMA add_overflow_vec(testbv1, testbv4) = (add_testbv14, FALSE, FALSE)
+
+add_vec_range_range_test1: LEMMA add_vec_range_range(testbv1, 20392) = 73552
+add_vec_range_range_test2: LEMMA add_vec_range_range(testbv1, 5860) = 59020
+
+add_range_vec_test1: LEMMA add_range_vec(20392, testbv1) = add_testbv12
+add_range_vec_test2: LEMMA (5860 + testbv1) = add_testbv14
+
+add_range_vec_range_test1: LEMMA add_range_vec_range(20392, testbv1) = 73552
+add_range_vec_range_test2: LEMMA add_range_vec_range(5860, testbv1) = 59020
+
+
+IMPORTING add_signed[16, 16]
+
+%testbv3: 96E4
+add_bit_testbv3:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | TRUE  | FALSE | FALSE | TRUE  | FALSE | TRUE  | TRUE  | FALSE | TRUE  | TRUE  | TRUE  | FALSE | FALSE | TRUE  | FALSE | TRUE  ||
+      ENDTABLE
+      
+add_signed_test: LEMMA add_signed(123, -123) = 0
+
+add_vec_signed_test1: LEMMA add_vec_signed(testbv1, testbv2) = add_testbv12
+add_vec_signed_test2: LEMMA add_vec_signed(testbv1, testbv4) = add_testbv14
+
+add_vec_vec_range_signed_test1: LEMMA add_vec_vec_range_signed(testbv1, testbv2) = 8016
+add_vec_vec_range_signed_test2: LEMMA add_vec_vec_range_signed(testbv1, testbv4) = -6516
+
+add_vec_range_signed_tes1: LEMMA add_vec_range_signed(testbv1, 20392) = add_testbv12
+add_vec_range_signed_tes2: LEMMA add_vec_range_signed(testbv1, 5860) = add_testbv14
+
+add_overflow_vec_signed_test1: LEMMA add_overflow_vec_signed(testbv1, testbv2) = (add_testbv12, FALSE, TRUE)
+add_overflow_vec_signed_test2: LEMMA add_overflow_vec_signed(testbv1, testbv4) = (add_testbv14, FALSE, FALSE)
+
+add_vec_range_range_signed_test1: LEMMA add_vec_range_range_signed(testbv1, 20392) = 8016
+add_vec_range_range_signed_test2: LEMMA add_vec_range_range_signed(testbv1, 5860) = -6516
+
+add_range_vec_signed_test1: LEMMA add_range_vec_signed(20392, testbv1) = add_testbv12
+add_range_vec_signed_test2: LEMMA add_range_vec_signed(5860, testbv1) = add_testbv14
+
+add_range_vec_range_signed_test1: LEMMA add_range_vec_range_signed(20392, testbv1) = 8016
+add_range_vec_range_signed_test2: LEMMA add_range_vec_range_signed(5860, testbv1) = -6516
+
+add_vec_bit_signed_test1: LEMMA add_vec_bit_signed(testbv3, FALSE) = testbv3
+add_vec_bit_signed_test2: LEMMA add_vec_bit_signed(testbv3, TRUE) = add_bit_testbv3
+
+add_overflow_vec_bit_signed_test1: LEMMA add_overflow_vec_bit_signed(testbv3, TRUE) = (add_bit_testbv3, FALSE, FALSE)
+add_overflow_vec_bit_signed_test2: LEMMA add_overflow_vec_bit_signed(fill[16](TRUE), TRUE) = (fill[16](FALSE), FALSE, TRUE)
+
+
+IMPORTING minus[16, 16]
+IMPORTING minus_signed[16, 16]
+
+minus_testbv23:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | TRUE  | FALSE | TRUE  | TRUE  | TRUE  | FALSE | FALSE | FALSE | TRUE  | TRUE  | FALSE | FALSE | FALSE | TRUE  | FALSE | FALSE ||
+      ENDTABLE
+
+minus_testbv24:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | FALSE | TRUE  | TRUE  | TRUE  | FALSE | FALSE | FALSE | TRUE  | TRUE  | FALSE | FALSE | FALSE | TRUE  | FALSE | FALSE ||
+      ENDTABLE
+
+minus_bit_testbv2:MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | TRUE  | FALSE | FALSE | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | FALSE | TRUE  | TRUE  | TRUE  ||
+      ENDTABLE
+
+minus_test: LEMMA minus(123, 246) = -123
+
+minus_vec_test1: LEMMA minus_vec(testbv2, testbv3) = minus_testbv23
+minus_vec_test2: LEMMA (testbv2 - testbv4) = minus_testbv24
+
+minus_vec_range_tes1: LEMMA minus_vec_range(testbv2, 38628) = minus_testbv23
+minus_vec_range_tes2: LEMMA (testbv2 - 5860) = minus_testbv24
+
+minus_vec_range_range_test1: LEMMA minus_vec_range_range(testbv2, 38628) = -18236
+minus_vec_range_range_test2: LEMMA minus_vec_range_range(testbv2, 5860) = 14532
+
+minus_range_vec_test1: LEMMA minus_range_vec(20392, testbv3) = minus_testbv23
+minus_range_vec_test2: LEMMA (20392 - testbv4) = minus_testbv24
+
+minus_range_vec_range_test1: LEMMA minus_range_vec_range(20392, testbv3) = -18236
+minus_range_vec_range_test2: LEMMA minus_range_vec_range(20392, testbv4) = 14532
+
+minus_overflow_vec_test1: LEMMA minus_overflow_vec(testbv2, testbv3) = (minus_testbv23, TRUE, TRUE)
+minus_overflow_vec_test2: LEMMA minus_overflow_vec(testbv2, testbv4) = (minus_testbv24, FALSE, FALSE)
+
+minus_overflow_vec_signed_test1: LEMMA minus_overflow_vec_signed(testbv2, testbv3) = (minus_testbv23, TRUE, TRUE)
+minus_overflow_vec_signed_test2: LEMMA minus_overflow_vec_signed(testbv2, testbv4) = (minus_testbv24, FALSE, FALSE)
+
+minus_vec_bit_test1: LEMMA minus_vec_bit(testbv2, FALSE) = testbv2
+minus_vec_bit_test2: LEMMA minus_vec_bit(testbv2, TRUE) = minus_bit_testbv2
+
+minus_overflow_vec_bit_test1: LEMMA minus_overflow_vec_bit(testbv2, TRUE) = (minus_bit_testbv2, FALSE, FALSE)
+minus_overflow_vec_bit_test2: LEMMA minus_overflow_vec_bit(fill[16](FALSE), TRUE) = (fill[16](TRUE), TRUE, TRUE)
+
+minus_overflow_vec_bit_signed_test1: LEMMA minus_overflow_vec_bit_signed(testbv2, TRUE) = (minus_bit_testbv2, FALSE, FALSE)
+minus_overflow_vec_bit_signed_test2: LEMMA minus_overflow_vec_bit_signed(fill[16](FALSE), TRUE) = (fill[16](TRUE), FALSE, TRUE)
+
+
+IMPORTING multiply[16, 16]
+
+multiply_testbv13:MACRO bvec[32] = LAMBDA (i:below(32)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   |  16   |  17   |  18   |  19   |  20   |  21   |  22   |  23   |  24   |  25   |  26   |  27   |  28   |  29   |  30   |  31   ]|
+       | FALSE | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | FALSE | TRUE  | TRUE  | FALSE | FALSE | TRUE  | FALSE | TRUE  | FALSE | TRUE  | TRUE  | FALSE | FALSE | FALSE | FALSE | TRUE  | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+multiply_testbv14:MACRO bvec[32] = LAMBDA (i:below(32)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   |  16   |  17   |  18   |  19   |  20   |  21   |  22   |  23   |  24   |  25   |  26   |  27   |  28   |  29   |  30   |  31   ]|
+       | FALSE | FALSE | FALSE | TRUE  | FALSE | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | TRUE  | FALSE | FALSE | FALSE | TRUE  | FALSE | TRUE  | TRUE  | FALSE | FALSE | FALSE | FALSE | TRUE  | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+multiply_test: LEMMA multiply(123, 123) = 15129
+
+multiply_vec_test1: LEMMA multiply_vec(testbv1, testbv3) = multiply_testbv13
+multiply_vec_test2: LEMMA (testbv1 * testbv4) = multiply_testbv14
+
+multiply_vec_range_tes1: LEMMA mult_vec_range(testbv1, 38628) = multiply_testbv13
+multiply_vec_range_tes2: LEMMA (testbv1 * 5860) = multiply_testbv14
+
+multiply_range_vec_test1: LEMMA mult_range_vec(38628, testbv1) = multiply_testbv13
+multiply_range_vec_test2: LEMMA (5860 * testbv1) = multiply_testbv14
+
+multiply_overflow_vec_test1: LEMMA mult_overflow_vec(testbv1, testbv3) = (multiply_testbv13, TRUE, FALSE)
+multiply_overflow_vec_test2: LEMMA mult_overflow_vec(testbv1, testbv4) = (multiply_testbv14, TRUE, FALSE)
+
+IMPORTING multiply_signed[16, 16]
+
+multiply_signed_testbv13:MACRO bvec[32] = LAMBDA (i:below(32)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   |  16   |  17   |  18   |  19   |  20   |  21   |  22   |  23   |  24   |  25   |  26   |  27   |  28   |  29   |  30   |  31   ]|
+       | FALSE | FALSE | FALSE | TRUE  | FALSE | FALSE | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | TRUE  | FALSE | FALSE | TRUE  | FALSE | TRUE  | TRUE  | FALSE | FALSE | FALSE | FALSE | TRUE  | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+multiply_signed_testbv14:MACRO bvec[32] = LAMBDA (i:below(32)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   |  16   |  17   |  18   |  19   |  20   |  21   |  22   |  23   |  24   |  25   |  26   |  27   |  28   |  29   |  30   |  31   ]|
+       | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | TRUE  | FALSE | FALSE | FALSE | FALSE | TRUE  | TRUE  | FALSE | TRUE  | FALSE | FALSE | FALSE | FALSE | FALSE  ||
+      ENDTABLE
+      
+multiply_vec_signed_test1: LEMMA multiply_vec_signed(testbv1, testbv3) = multiply_signed_testbv13
+multiply_vec_signed_test2: LEMMA multiply_vec_signed(testbv1, testbv4) = multiply_signed_testbv14
+
+multiply_vec_range_signed_tes1: LEMMA mult_vec_range_signed(testbv1, -26908) = multiply_signed_testbv13
+multiply_vec_range_signed_tes2: LEMMA mult_vec_range_signed(testbv1, 5860) = multiply_signed_testbv14
+
+multiply_range_vec_signed_test1: LEMMA mult_range_vec_signed(-26908, testbv1) = multiply_signed_testbv13
+multiply_range_vec_signed_test2: LEMMA mult_range_vec_signed(5860, testbv1) = multiply_signed_testbv14
+
+multiply_overflow_vec_signed_test1: LEMMA mult_overflow_vec_signed(testbv1, testbv3) = (multiply_signed_testbv13, TRUE, FALSE)
+multiply_overflow_vec_signed_test2: LEMMA mult_overflow_vec_signed(testbv1, testbv4) = (multiply_signed_testbv14, TRUE, FALSE)
+
+
+IMPORTING modulo[16, 16]
+
+mod_testbv14: MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | TRUE  | TRUE  | FALSE | TRUE  | FALSE | FALSE | TRUE  | FALSE | FALSE  ||
+      ENDTABLE
+
+mod_testbv13: MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | FALSE | TRUE  | TRUE  | TRUE  | FALSE | FALSE | FALSE | TRUE  | TRUE  | FALSE | FALSE | FALSE | TRUE  | FALSE | FALSE ||
+      ENDTABLE
+      
+modulo_test1: LEMMA modulo(10, 3) = 1
+modulo_test2: LEMMA modulo(10, -3) = 1
+modulo_test3: LEMMA modulo(-10, 3) = -1
+modulo_test4: LEMMA modulo(-10, -3) = -1
+
+mod_vec_test1: LEMMA mod_vec(testbv1, testbv4) = mod_testbv14
+mod_vec_test2: LEMMA mod_vec(testbv1, testbv3) = mod_testbv13
+
+mod_vec_range_test1: LEMMA mod_vec_range(testbv1, 5860) = mod_testbv14
+mod_vec_range_test2: LEMMA mod_vec_range(testbv1, -26908) = mod_testbv13
+
+IMPORTING quot[16, 8]
+IMPORTING quot_signed[16, 8]
+
+testbv3_1: MACRO bvec[8] = LAMBDA (i:below(8)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   ]|
+       | FALSE | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | TRUE  ||
+      ENDTABLE
+
+testbv3_2: MACRO bvec[8] = LAMBDA (i:below(8)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   ]|
+       | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | FALSE | TRUE  ||
+      ENDTABLE
+
+quot_testbv3_1: MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | TRUE  | TRUE  | FALSE ||
+      ENDTABLE
+
+quot_testbv3_2: MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | FALSE | TRUE  | FALSE | TRUE  | FALSE | FALSE | TRUE  | FALSE | TRUE  ||
+      ENDTABLE
+
+quot_signed_testbv3_1: MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | TRUE  | FALSE | TRUE  | FALSE | TRUE  | TRUE  | TRUE  | FALSE | FALSE | FALSE | FALSE ||
+      ENDTABLE
+
+quot_signed_testbv3_2: MACRO bvec[16] = LAMBDA (i:below(16)): TABLE,
+    i |[   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  11   |  12   |  13   |  14   |  15   ]|
+       | FALSE | FALSE | FALSE | FALSE | FALSE | TRUE  | FALSE | FALSE | TRUE  | FALSE | FALSE | TRUE  | FALSE | FALSE | FALSE | TRUE  ||
+      ENDTABLE
+
+quot_test1: LEMMA quot(40, 7) = 5
+quot_test2: LEMMA quot(40, -7) = -5
+quot_test3: LEMMA quot(-40, 7) = -5
+quot_test4: LEMMA quot(-40, -7) = 5
+
+quot_vec_test1: LEMMA quot_vec(testbv3, testbv3_1) = quot_testbv3_1
+quot_vec_test2: LEMMA quot_vec(testbv3, testbv3_2) = quot_testbv3_2
+
+quot_vec_signed_test1: LEMMA quot_vec_signed(testbv3, testbv3_1) = quot_signed_testbv3_1
+quot_vec_signed_test2: LEMMA quot_vec_signed(testbv3, testbv3_2) = quot_signed_testbv3_2
+
+quot_overflow_vec_test1: LEMMA quot_overflow_vec(testbv3, testbv3_1) = (quot_testbv3_1, TRUE, FALSE)
+quot_overflow_vec_test2: LEMMA quot_overflow_vec(testbv3, testbv3_2) = (quot_testbv3_2, FALSE, FALSE)
+
+quot_overflow_vec_signed_test1: LEMMA quot_overflow_vec_signed(testbv3, testbv3_1) = (quot_signed_testbv3_1, TRUE, FALSE)
+quot_overflow_vec_signed_test2: LEMMA quot_overflow_vec_signed(testbv3, testbv3_2) = (quot_signed_testbv3_2, TRUE, FALSE)
+
+END test_lemmas

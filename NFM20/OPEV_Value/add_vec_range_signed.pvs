@@ -1,0 +1,38 @@
+add_vec_range_signed[N:posnat] : THEORY
+BEGIN
+
+IMPORTING signed
+IMPORTING to_vec_inc
+
+bv: VAR bvec[N]
+
+m: VAR int
+
+b: VAR bit
+
+add_vec_range_signed(bv, m) : MACRO bvec[N] = to_vec_inc(N, signed(bv) + m)
+
+add_range_vec_signed(m, bv) : MACRO bvec[N] = add_vec_range_signed(bv, m)
+
+add_vec_range_range_signed(bv, m) : MACRO int = signed(bv) + m
+
+add_range_vec_range_signed(m, bv) : MACRO int = signed(bv) + m
+
+add_vec_bit_signed(bv, b) : MACRO bvec[N] = add_vec_range_signed(bv, (IF b THEN 1 ELSE 0 ENDIF))
+
+add_overflow_vec_bit_signed(bv, b) : MACRO [bvec[N], bit, bit] =
+    IF NOT b
+    THEN (bv, FALSE, FALSE)
+    ELSE
+        LET add_result = signed(bv) + 1 IN
+        LET overflow = add_result > maxint[N] OR add_result < minint[N],
+            c_out = (mod(floor((unsigned[N](bv) + 1)/exp2(N)), 2) /= 0) IN
+        (to_vec_inc(N, add_result), overflow , c_out)
+    ENDIF
+ 
+
+%=================== Properties between unsigned addition and signed addition ===================
+
+add_vec_range_vec_range_signed_eq: LEMMA add_range_vec_range_signed(m, bv) = add_vec_range_range_signed(bv, m)
+
+END add_vec_range_signed

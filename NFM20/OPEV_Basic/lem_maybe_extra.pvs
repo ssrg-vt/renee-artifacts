@@ -1,0 +1,32 @@
+lem_maybe_extra: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_maybe
+
+IMPORTING lem_assert_extra
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+fromJust[A : TYPE]( op : option[A]) : A = 
+CASES  op OF
+  Some( v):  v,
+  None: failwith("fromJust of Nothing") 
+ENDCASES
+
+
+
+
+END lem_maybe_extra

@@ -1,0 +1,6 @@
+slice_raw[N:posnat] : THEORY
+BEGIN
+
+slice_raw(bv: bvec[N], i: below[N], j: {j: below[N] | j - i + 1 >= 0}) : bvec[j - i + 1] = LAMBDA (s: below[j-i+1]): bv(i + s)
+
+END slice_raw

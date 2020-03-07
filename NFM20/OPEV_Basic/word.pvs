@@ -1,0 +1,90 @@
+word[N : posnat]: THEORY
+BEGIN
+
+IMPORTING lib_extra
+
+word : TYPE = {i: nat | i < exp2(N)}
+
+MAX_WORD : word = exp2(N) - 1
+MIN_WORD : word = 0
+
+w, w1, w2: VAR word
+
+
+of_nat(n: nat): word = mod(n, exp2(N))
+
+of_int(i: int) : word = mod(i, exp2(N))
+
+to_nat(w) : nat = w
+
+to_int(w) : MACRO int = IF w > exp2(N - 1) - 1
+                        THEN w - exp2(N)
+                        ELSE w
+                        ENDIF
+
+
+word_add(w1)(w2) : word = of_nat(w1 + w2)
+
+word_minus(w1)(w2) : word = of_int(w1 - w2)
+
+word_neg(w): word = of_int(- (to_int(w)))
+
+word_mult(w1)(w2) : word = of_nat(w1 * w2)
+
+word_div(w1)(w2) : word = IF w2 = 0 THEN failwith("word_div: div by 0") ELSE of_int(floor(to_int(w1)/to_int(w2))) ENDIF
+
+word_mod(w1)(w2) : word = IF w2 = 0 THEN failwith("word_mod: mod by 0") ELSE of_nat(mod(w1, w2)) ENDIF
+
+word_pow(w)(n: nat) : word = of_nat(w ^ n)
+
+
+
+word_lt(w1)(w2) : bool = to_nat(w1) < to_nat(w2)
+
+word_le(w1)(w2) : bool = to_nat(w1) <= to_nat(w2)
+
+word_gt(w1)(w2) : bool = to_nat(w1) > to_nat(w2)
+
+word_ge(w1)(w2) : bool = to_nat(w1) >= to_nat(w2)
+
+
+word_slt(w1)(w2) : bool = to_int(w1) < to_int(w2)
+
+word_sle(w1)(w2) : bool = to_int(w1) <= to_int(w2)
+
+word_sgt(w1)(w2) : bool = to_int(w1) > to_int(w2)
+
+word_sge(w1)(w2) : bool = to_int(w1) >= to_int(w2)
+
+
+word_min(w1)(w2) : word = min(w1, w2)
+
+word_max(w1)(w2) : word = max(w1, w2)
+
+
+word_smin(w1)(w2) : word = of_int(min(to_int(w1), to_int(w2)))
+
+word_smax(w1)(w2) : word = of_int(max(to_int(w1), to_int(w2)))
+
+
+word_not(w) : word = exp2(N) - 1 - w
+
+word_and(w1)(w2) : word = bv2nat[N](nat2bv[N](w1) AND nat2bv[N](w2))
+
+word_or(w1)(w2) : word = bv2nat[N](nat2bv[N](w1) OR nat2bv[N](w2))
+
+word_xor(w1)(w2) : word = bv2nat[N](nat2bv[N](w1) XOR nat2bv[N](w2))
+
+word_lsl(w)(n: nat) : word = of_nat(exp2(n) * w)
+
+word_lsr(w)(n: nat) : word = of_nat(div(w, exp2(n)))
+
+word_asr(w)(n: nat) : word = of_int(div(to_int(w), exp2(n)))
+
+
+
+word_int_inv: LEMMA of_int(to_int(w)) = w
+
+
+
+END word

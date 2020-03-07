@@ -1,0 +1,16 @@
+neq_vec[N:posnat, M:posnat] : THEORY
+BEGIN
+
+IMPORTING eq_vec
+
+bv1: VAR bvec[N]
+
+bv2: VAR bvec[M]
+
+neq_vec(bv1, bv2) : MACRO bit = NOT eq_vec(bv1, bv2)
+
+%=================== Properties of neq_vec and unsigned operations ===================
+
+neq_vec_def: LEMMA neq_vec(bv1, bv2) IMPLIES (signed(bv1) /= signed(bv2))
+
+END neq_vec

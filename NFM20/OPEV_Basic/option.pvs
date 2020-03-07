@@ -1,0 +1,5 @@
+option[T:TYPE] : DATATYPE
+BEGIN
+    Some(t:T): Some?
+    None: None?
+END option

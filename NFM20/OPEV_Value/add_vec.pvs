@@ -1,0 +1,26 @@
+add_vec[N:nat, M:nat] : THEORY
+BEGIN
+
+IMPORTING to_vec_inc
+
+bv1: VAR bvec[N]
+
+bv2: VAR bvec[M]
+
+add_vec(bv1, bv2) : MACRO bvec[N] = to_vec_inc(N, unsigned[N](bv1) + unsigned[M](bv2));
+
++(bv1, bv2) : MACRO bvec[N] = add_vec(bv1, bv2);
+
+add_overflow_vec(bv1, bv2) : MACRO [bvec[N], bit, bit] =
+    LET add_result = unsigned[N](bv1) + unsigned[M](bv2) IN
+    LET overflow = add_result > exp2(N),
+        c_out = (mod(floor(add_result/exp2(N)), 2) /= 0) IN
+    (to_vec_inc(N, add_result), overflow, c_out)
+
+add_vec_vec_range(bv1, bv2) : MACRO nat = unsigned[N](bv1) + unsigned[M](bv2)
+
+%=================== Properties of add operations ===================
+
+add_vec_op_eq: LEMMA (bv1 + bv2) = add_vec(bv1, bv2)
+
+END add_vec

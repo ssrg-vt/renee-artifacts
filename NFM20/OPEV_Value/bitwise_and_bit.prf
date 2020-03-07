@@ -1,0 +1,8 @@
+(bitwise_and_bit
+ (bit_and_commutativity 0
+  (bit_and_commutativity-1 nil 3728414544 ("" (grind) nil nil) nil
+   shostak))
+ (bit_and_associativity 0
+  (bit_and_associativity-1 nil 3728414550 ("" (grind) nil nil) nil
+   shostak)))
+

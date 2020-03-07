@@ -1,0 +1,18 @@
+bitwise_xor[N:nat, M:upfrom(N)] : THEORY
+BEGIN
+
+bv1: VAR bvec[N]
+
+bv2: VAR bvec[M]
+
+bitwise_xor(bv1, bv2) : MACRO bvec[N] = LAMBDA (i:below(N)): XOR(bv1(i), bv2(i))
+
+;^(bv1, bv2) : MACRO bvec[N] = LAMBDA (i:below(N)): XOR(bv1(i), bv2(i))
+
+%=================== Properties of bitwise xor operations ===================
+
+xor_inv: LEMMA (bv1 ^ (bvec0[N])) = bv1
+
+xor_op_eq: LEMMA (bv1 ^ bv2) = bitwise_xor(bv1, bv2)
+
+END bitwise_xor

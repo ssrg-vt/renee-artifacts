@@ -1,0 +1,398 @@
+(lem_map_aux
+ (insert_equal_singleton 0
+  (insert_equal_singleton-1 nil 3743437880 ("" (grind) nil nil)
+   ((fempty const-decl "fmap" fmap nil)
+    (fadd const-decl "fmap" fmap nil)
+    (fdom const-decl "set[K]" fmap nil)
+    (member const-decl "bool" sets nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (fequal_by const-decl "bool" fmap nil))
+   shostak))
+ (commutative_insert_1 0
+  (commutative_insert_1-1 nil 3743437888
+   ("" (grind)
+    (("" (expand "fadd")
+      (("" (decompose-equality) (("" (grind) nil nil)) nil)) nil))
+    nil)
+   ((FALSE const-decl "bool" booleans nil)
+    (TRUE const-decl "bool" booleans nil)
+    (fmap type-eq-decl nil fmap nil)
+    (option type-decl nil option_adt nil)
+    (union const-decl "set" sets nil) (set type-eq-decl nil sets nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (fempty const-decl "fmap" fmap nil)
+    (fadd const-decl "fmap" fmap nil)
+    (fdom const-decl "set[K]" fmap nil)
+    (member const-decl "bool" sets nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (fequal_by const-decl "bool" fmap nil))
+   shostak))
+ (commutative_insert_2 0
+  (commutative_insert_2-1 nil 3743437908
+   ("" (grind)
+    (("" (expand "fadd")
+      (("" (decompose-equality)
+        (("" (grind) (("" (grind) (("" (postpone) nil nil)) nil)) nil))
+        nil))
+      nil))
+    nil)
+   ((number nonempty-type-decl nil numbers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (set type-eq-decl nil sets nil)
+    (option type-decl nil option_adt nil)
+    (fmap type-eq-decl nil fmap nil)
+    (TRUE const-decl "bool" booleans nil)
+    (FALSE const-decl "bool" booleans nil)
+    (fempty const-decl "fmap" fmap nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (fequal_by const-decl "bool" fmap nil)
+    (union const-decl "set" sets nil)
+    (member const-decl "bool" sets nil)
+    (fdom const-decl "set[K]" fmap nil)
+    (fadd const-decl "fmap" fmap nil))
+   shostak))
+ (empty_null_TCC1 0
+  (empty_null_TCC1-1 nil 3744128435 ("" (existence-tcc) nil nil) nil
+   nil (empty_null existence "" "lem_map_aux.V")))
+ (empty_null 0
+  (empty_null-1 nil 3744128793 ("" (grind) nil nil)
+   ((fempty const-decl "fmap" fmap nil)
+    (fdom const-decl "set[K]" fmap nil)
+    (member const-decl "bool" sets nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (fequal_by const-decl "bool" fmap nil))
+   shostak))
+ (lookup_insert_1 0
+  (lookup_insert_1-1 nil 3744128801 ("" (grind) nil nil)
+   ((fadd const-decl "fmap" fmap nil)
+    (flookup const-decl "option[V]" fmap nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (lookup_insert_2 0
+  (lookup_insert_2-1 nil 3744128807 ("" (grind) nil nil)
+   ((fadd const-decl "fmap" fmap nil)
+    (flookup const-decl "option[V]" fmap nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (lookup_insert_3 0
+  (lookup_insert_3-1 nil 3744128811 ("" (grind) nil nil)
+   ((fadd const-decl "fmap" fmap nil)
+    (flookup const-decl "option[V]" fmap nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (lookup_empty_0 0
+  (lookup_empty_0-1 nil 3744128815 ("" (grind) nil nil)
+   ((fempty const-decl "fmap" fmap nil)
+    (flookup const-decl "option[V]" fmap nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (find_insert_0 0
+  (find_insert_0-1 nil 3744128819 ("" (grind) nil nil)
+   ((fadd const-decl "fmap" fmap nil)
+    (flookup const-decl "option[V]" fmap nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (lookup_empty_TCC1 0
+  (lookup_empty_TCC1-1 nil 3744140442 ("" (existence-tcc) nil nil) nil
+   nil (lookup_empty existence "" "lem_map_aux.A")))
+ (lookup_empty_TCC2 0
+  (lookup_empty_TCC2-1 nil 3744140442 ("" (existence-tcc) nil nil) nil
+   nil (lookup_empty existence "" "lem_map_aux.A")))
+ (lookup_empty_TCC3 0
+  (lookup_empty_TCC3-1 nil 3744140442 ("" (existence-tcc) nil nil) nil
+   nil (lookup_empty existence "" "lem_map_aux.A")))
+ (lookup_insert_TCC1 0
+  (lookup_insert_TCC1-1 nil 3743437791 ("" (existence-tcc) nil nil)
+   ((B decl-formal-type nil lem_map_aux nil)) nil
+   (lookup_insert existence "" "lem_map_aux.B")))
+ (lookup_insert_TCC2 0
+  (lookup_insert_TCC2-1 nil 3743437791 ("" (existence-tcc) nil nil)
+   ((B decl-formal-type nil lem_map_aux nil)) nil
+   (lookup_insert existence "" "lem_map_aux.B")))
+ (lookup_insert_TCC3 0
+  (lookup_insert_TCC3-1 nil 3743437791 ("" (existence-tcc) nil nil)
+   ((B decl-formal-type nil lem_map_aux nil)) nil
+   (lookup_insert existence "" "lem_map_aux.B")))
+ (lookup_insert_TCC4 0
+  (lookup_insert_TCC4-1 nil 3743437791 ("" (existence-tcc) nil nil)
+   ((B decl-formal-type nil lem_map_aux nil)) nil
+   (lookup_insert existence "" "lem_map_aux.B")))
+ (lookup_insert_TCC5 0
+  (lookup_insert_TCC5-1 nil 3743437791 ("" (existence-tcc) nil nil)
+   ((B decl-formal-type nil lem_map_aux nil)) nil
+   (lookup_insert existence "" "lem_map_aux.B")))
+ (fromList_0 0
+  (fromList_0-1 nil 3744128961 ("" (grind) nil nil)
+   ((TRUE const-decl "bool" booleans nil)
+    (FALSE const-decl "bool" booleans nil)
+    (fmap type-eq-decl nil fmap nil)
+    (option type-decl nil option_adt nil)
+    (union const-decl "set" sets nil) (set type-eq-decl nil sets nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (foldl def-decl "A" list_extra nil)
+    (fromList const-decl "fmap[K, V]" lem_map nil)
+    (fempty const-decl "fmap" fmap nil)
+    (fadd const-decl "fmap" fmap nil)
+    (fdom const-decl "set[K]" fmap nil)
+    (member const-decl "bool" sets nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (fequal_by const-decl "bool" fmap nil))
+   shostak))
+ (fromList_1 0
+  (fromList_1-1 nil 3744128969 ("" (grind) nil nil)
+   ((TRUE const-decl "bool" booleans nil)
+    (FALSE const-decl "bool" booleans nil)
+    (fmap type-eq-decl nil fmap nil)
+    (option type-decl nil option_adt nil)
+    (union const-decl "set" sets nil) (set type-eq-decl nil sets nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (foldl def-decl "A" list_extra nil)
+    (fromList const-decl "fmap[K, V]" lem_map nil)
+    (fempty const-decl "fmap" fmap nil)
+    (fadd const-decl "fmap" fmap nil)
+    (fdom const-decl "set[K]" fmap nil)
+    (member const-decl "bool" sets nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (fequal_by const-decl "bool" fmap nil))
+   shostak))
+ (toSet_0 0
+  (toSet_0-1 nil 3744128974
+   ("" (grind)
+    (("" (expand "fmap_to_set")
+      (("" (expand "emptyset")
+        (("" (expand "fempty") (("" (propax) nil nil)) nil)) nil))
+      nil))
+    nil)
+   ((fmap_to_set const-decl "set[[K, V]]" fmap nil)
+    (fempty const-decl "fmap" fmap nil)
+    (emptyset const-decl "set" sets nil)
+    (finite_emptyset name-judgement "finite_set[T]" set_as_list
+     "structures/")
+    (finite_emptyset name-judgement "finite_set" finite_sets nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (toSet_1 0
+  (toSet_1-1 nil 3744129002
+   ("" (grind)
+    (("" (expand "fmap_to_set")
+      (("" (decompose-equality)
+        (("" (grind)
+          (("1" (decompose-equality) nil nil)
+           ("2" (decompose-equality) nil nil)
+           ("3" (decompose-equality) nil nil))
+          nil))
+        nil))
+      nil))
+    nil)
+   ((fmap_to_set const-decl "set[[K, V]]" fmap nil)
+    (t adt-accessor-decl "[(Some?) -> T]" option_adt nil)
+    (number nonempty-type-decl nil numbers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (extend const-decl "R" extend nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (Some adt-constructor-decl "[T -> (Some?)]" option_adt nil)
+    (Some? adt-recognizer-decl "[option -> boolean]" option_adt nil)
+    (fempty const-decl "fmap" fmap nil)
+    (TRUE const-decl "bool" booleans nil)
+    (FALSE const-decl "bool" booleans nil)
+    (fadd const-decl "fmap" fmap nil) (fmap type-eq-decl nil fmap nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (option type-decl nil option_adt nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (fromList const-decl "fmap[K, V]" lem_map nil)
+    (foldl def-decl "A" list_extra nil))
+   shostak))
+ (toSet_2 0
+  (toSet_2-1 nil 3744129040
+   ("" (grind)
+    (("" (expand "fmap_to_set")
+      (("" (decompose-equality)
+        (("" (grind)
+          (("1" (decompose-equality) nil nil)
+           ("2" (decompose-equality) nil nil)
+           ("3" (decompose-equality) nil nil))
+          nil))
+        nil))
+      nil))
+    nil)
+   ((fmap_to_set const-decl "set[[K, V]]" fmap nil)
+    (t adt-accessor-decl "[(Some?) -> T]" option_adt nil)
+    (number nonempty-type-decl nil numbers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (extend const-decl "R" extend nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (Some adt-constructor-decl "[T -> (Some?)]" option_adt nil)
+    (Some? adt-recognizer-decl "[option -> boolean]" option_adt nil)
+    (fempty const-decl "fmap" fmap nil)
+    (TRUE const-decl "bool" booleans nil)
+    (FALSE const-decl "bool" booleans nil)
+    (fadd const-decl "fmap" fmap nil) (fmap type-eq-decl nil fmap nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (option type-decl nil option_adt nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (fromList const-decl "fmap[K, V]" lem_map nil)
+    (foldl def-decl "A" list_extra nil))
+   shostak))
+ (member_empty_TCC1 0
+  (member_empty_TCC1-1 nil 3743437791 ("" (existence-tcc) nil nil) nil
+   nil (member_empty existence "" "lem_map_aux.A")))
+ (member_empty_TCC2 0
+  (member_empty_TCC2-1 nil 3743437791 ("" (existence-tcc) nil nil) nil
+   nil (member_empty existence "" "lem_map_aux.A")))
+ (member_empty_TCC3 0
+  (member_empty_TCC3-1 nil 3743437791 ("" (existence-tcc) nil nil) nil
+   nil (member_empty existence "" "lem_map_aux.A")))
+ (member_insert_TCC1 0
+  (member_insert_TCC1-1 nil 3743437791 ("" (existence-tcc) nil nil)
+   ((B decl-formal-type nil lem_map_aux nil)) nil
+   (member_insert existence "" "lem_map_aux.B")))
+ (member_insert_TCC2 0
+  (member_insert_TCC2-1 nil 3743437791 ("" (existence-tcc) nil nil)
+   ((B decl-formal-type nil lem_map_aux nil)) nil
+   (member_insert existence "" "lem_map_aux.B")))
+ (member_insert_TCC3 0
+  (member_insert_TCC3-1 nil 3743437791 ("" (existence-tcc) nil nil)
+   ((B decl-formal-type nil lem_map_aux nil)) nil
+   (member_insert existence "" "lem_map_aux.B")))
+ (member_insert_TCC4 0
+  (member_insert_TCC4-1 nil 3743437791 ("" (existence-tcc) nil nil)
+   ((B decl-formal-type nil lem_map_aux nil)) nil
+   (member_insert existence "" "lem_map_aux.B")))
+ (member_insert_TCC5 0
+  (member_insert_TCC5-1 nil 3743437791 ("" (existence-tcc) nil nil)
+   ((B decl-formal-type nil lem_map_aux nil)) nil
+   (member_insert existence "" "lem_map_aux.B")))
+ (all_def_lemma_TCC1 0
+  (all_def_lemma_TCC1-1 nil 3743437791 ("" (existence-tcc) nil nil) nil
+   nil (all_def_lemma existence "" "lem_map_aux.V")))
+ (all_def_lemma_TCC2 0
+  (all_def_lemma_TCC2-1 nil 3743437791 ("" (existence-tcc) nil nil) nil
+   nil (all_def_lemma existence "" "lem_map_aux.V")))
+ (all_def_lemma_TCC3 0
+  (all_def_lemma_TCC3-1 nil 3743437791 ("" (existence-tcc) nil nil) nil
+   nil (all_def_lemma existence "" "lem_map_aux.V")))
+ (all_def_lemma_TCC4 0
+  (all_def_lemma_TCC4-1 nil 3743437791 ("" (existence-tcc) nil nil)
+   ((V decl-formal-type nil lem_map_aux nil)) nil
+   (all_def_lemma existence "" "lem_map_aux.V")))
+ (all_def_lemma 0
+  (all_def_lemma-1 nil 3744129062
+   ("" (grind) (("1" (postpone) nil nil) ("2" (postpone) nil nil)) nil)
+   nil shostak))
+ (any_0 0
+  (any_0-1 nil 3744140522
+   ("" (expand "fadd")
+    (("" (expand "fsome")
+      (("" (expand "fevery")
+        (("" (grind) (("" (postpone) nil nil)) nil)) nil))
+      nil))
+    nil)
+   nil shostak))
+ (empty_size_TCC1 0
+  (empty_size_TCC1-1 nil 3743437791 ("" (subtype-tcc) nil nil) nil nil
+   (empty_size subtype "(0)"
+    "{n: naturalnumbers.nat | n = finite_sets[lem_map_aux.K].Card(fmap[lem_map_aux.K, lem_map_aux.V].fdom(fmap[lem_map_aux.K, lem_map_aux.V].fempty))}")))
+ (empty_size_TCC2 0
+  (empty_size_TCC2-1 nil 3744128435 ("" (existence-tcc) nil nil) nil
+   nil (empty_size existence "" "lem_map_aux.V")))
+ (empty_size_TCC3 0
+  (empty_size_TCC2-1 nil 3743437791 ("" (subtype-tcc) nil nil) nil nil
+   (empty_size subtype
+    "fmap[lem_map_aux.K, lem_map_aux.V].fdom(fmap[lem_map_aux.K, lem_map_aux.V].fempty)"
+    "finite_set[K]")))
+ (empty_size_TCC4 0
+  (empty_size_TCC4-1 nil 3744128435 ("" (subtype-tcc) nil nil) nil nil
+   (empty_size subtype
+    "fmap[lem_map_aux.K, lem_map_aux.V].fdom(fmap[lem_map_aux.K, lem_map_aux.V].fempty)"
+    "finite_set[K]")))
+ (singleton_size_TCC1 0
+  (singleton_size_TCC1-1 nil 3743437791 ("" (subtype-tcc) nil nil) nil
+   nil
+   (singleton_size subtype "(1)"
+    "{n: naturalnumbers.nat | n = finite_sets[nat].Card(fmap[nat, nat].fdom(fmap[nat, nat].fadd((2))((3))(fmap[nat, nat].fempty)))}")))
+ (singleton_size_TCC2 0
+  (singleton_size_TCC2-1 nil 3743437791 ("" (subtype-tcc) nil nil) nil
+   nil
+   (singleton_size subtype
+    "fmap[nat, nat].fdom(fmap[nat, nat].fadd((2))((3))(fmap[nat, nat].fempty))"
+    "finite_set[nat]"))))
+

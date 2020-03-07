@@ -1,0 +1,12 @@
+is_one : THEORY
+BEGIN
+
+i: VAR int
+
+is_one(i) : MACRO bit = i = 1
+
+%=================== Properties of is_one operations ===================
+
+is_one_prop: LEMMA i /= 1 IMPLIES NOT is_one(i)
+
+END is_one

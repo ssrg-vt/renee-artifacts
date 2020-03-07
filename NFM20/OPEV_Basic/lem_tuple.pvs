@@ -1,0 +1,75 @@
+lem_tuple: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% fst[A, B : TYPE]((v1 : A), ( v2 : B)) : A =  v1
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% snd[A, B : TYPE]((v1 : A), ( v2 : B)) : B =  v2
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %% 
+% % 
+% 
+% % 
+% 
+% swap[A, B : TYPE]((v1 : A), ( v2 : B)) : [B, A] = (v2,  v1)
+% 
+% 
+% 
+
+
+
+END lem_tuple

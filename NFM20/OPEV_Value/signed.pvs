@@ -1,0 +1,24 @@
+signed[N:posnat] : THEORY
+BEGIN
+
+IMPORTING unsigned
+
+bv: VAR bvec[N]
+
+signed(bv) : MACRO int =
+    IF unsigned(bv) < exp2(N-1)
+    THEN unsigned(bv)
+    ELSE unsigned(bv) - exp2(N)
+    ENDIF
+
+%=================== Properties of signed operations ===================
+
+signed_inj: LEMMA (FORALL (x, y: bvec[N]): (signed(x) = signed(y) IMPLIES (x = y)))
+
+signed_surj: LEMMA (FORALL (y: {n: nat| n <= maxint[N] AND n >= minint[N]}): (EXISTS (x: bvec[N]): signed(x) = y))
+
+signed_lowerbound: LEMMA signed(bv) >= minint[N]
+
+signed_upperbound: LEMMA signed(bv) <= maxint[N]
+
+END signed

@@ -1,0 +1,163 @@
+mword: THEORY
+BEGIN
+
+IMPORTING word
+
+IMPORTING bitvectors@bv_rotate
+
+IMPORTING structures@Unit_adt
+
+itself[A: TYPE] : TYPE = Unit
+
+mword : TYPE = [n: posnat, word[n]]
+
+mw, mw1, mw2: VAR mword
+
+word_to_int(mw) : int = LET (n, w) = mw IN to_int[n](w)
+
+word_to_nat(mw) : nat = mw`2
+
+word_of_nat(n: posnat)(w: nat) : mword = (n, of_nat[n](w))
+
+
+% ========================================================================== *)
+% conversion between bool list and int                                       *)
+% ========================================================================== *)
+
+bl_to_nat_aux(bs: list[bool])(i: nat): RECURSIVE nat =
+CASES bs OF
+      null: i,
+      cons(b, bs'): bl_to_nat_aux(bs')((IF b THEN 1 ELSE 0 ENDIF) + i + i)
+ENDCASES
+MEASURE length(bs)
+
+
+bl_to_nat(bs: list[bool]) : nat = bl_to_nat_aux(bs)(0)
+
+
+nat_to_bl_aux(n: nat)(i: nat)(bs: list[bool]) : RECURSIVE list[bool] =
+IF n = 0 THEN bs
+ELSE LET b_last = (mod(i, 2) = 1)
+IN nat_to_bl_aux(n - 1)(div(i, 2))(cons(b_last, bs))
+ENDIF
+MEASURE n
+
+nat_to_bl(n: nat)(i: nat) : list[bool] = nat_to_bl_aux(n)(i)(null[bool])
+
+
+word_of_bl(bs: {l: list[bool] | length(l) > 0}) : mword =
+  LET n = length(bs) IN
+  (n, of_nat[n](bl_to_nat(bs)))
+
+word_to_bl(mw) : list[bool] = LET (n, w) = mw in nat_to_bl(n)(w)
+
+
+word_length(mw) : nat = mw`1
+
+
+word_inject(n: posnat, m: int) : mword = (n, mod(m, exp2(n)))
+
+
+mword_add(mw1)(mw2) : mword = LET (n, w) = mw1 IN (n, of_nat[n](w + mw2`2))
+
+mword_minus(mw1)(mw2) : mword = LET (n, w) = mw1 IN (n, of_int[n](w - mw2`2))
+
+mword_neg(mw): mword = LET (n, w) = mw IN (n, of_int[n](- (to_int[n](w))))
+
+mword_mult(mw1)(mw2) : mword = LET (n, w) = mw1 IN (n, of_nat[n](w * mw2`2))
+
+mword_udiv(mw1)(mw2) : mword = IF mw2`2 = 0 THEN failwith("mword_udiv: div by 0") ELSE LET (n, w) = mw1 IN (n, of_nat[n](floor(to_nat(w)/to_nat(mw2`2)))) ENDIF
+
+mword_div(mw1)(mw2) : mword = IF mw2`2 = 0 THEN failwith("mword_div: div by 0") ELSE LET (n, w) = mw1 IN (n, of_int[n](floor(to_int(w)/to_int(mw2`2)))) ENDIF
+
+mword_mod(mw1)(mw2) : mword = IF mw2`2 = 0 THEN failwith("mword_mod: mod by 0") ELSE LET (n, w) = mw1 IN (n, of_nat(mod(n, mw2`2))) ENDIF
+
+mword_pow(mw)(m: nat) : mword = LET (n, w) = mw IN (n, of_nat(w ^ m))
+
+
+
+mword_lt(mw1)(mw2) : bool = word_to_nat(mw1) < word_to_nat(mw2)
+
+mword_le(mw1)(mw2) : bool = word_to_nat(mw1) <= word_to_nat(mw2)
+
+mword_gt(mw1)(mw2) : bool = word_to_nat(mw1) > word_to_nat(mw2)
+
+mword_ge(mw1)(mw2) : bool = word_to_nat(mw1) >= word_to_nat(mw2)
+
+
+mword_slt(mw1)(mw2) : bool = word_to_int(mw1) < word_to_int(mw2)
+
+mword_sle(mw1)(mw2) : bool = word_to_int(mw1) <= word_to_int(mw2)
+
+mword_sgt(mw1)(mw2) : bool = word_to_int(mw1) > word_to_int(mw2)
+
+mword_sge(mw1)(mw2) : bool = word_to_int(mw1) >= word_to_int(mw2)
+
+
+
+mword_not(mw) : mword = LET (n, w) = mw IN (n, exp2(n) - 1 - w)
+
+mword_and(mw1)(mw2) : mword = LET (n, w) = mw1 IN (n, bv2nat[n](nat2bv[n](w) AND nat2bv[n](mod(mw2`2, exp2(n)))))
+
+mword_or(mw1)(mw2) : mword = LET (n, w) = mw1 IN (n, bv2nat[n](nat2bv[n](w) OR nat2bv[n](mod(mw2`2, exp2(n)))))
+
+mword_xor(mw1)(mw2) : mword = LET (n, w) = mw1 IN (n, bv2nat[n](nat2bv[n](w) XOR nat2bv[n](mod(mw2`2, exp2(n)))))
+
+
+word_shiftLeft(mw)(m: nat) : mword = LET (n, w) = mw IN (n, of_int[n](exp2(m) * w))
+
+word_shiftRight(mw)(m: nat) : mword = LET (n, w) = mw IN (n, of_int[n](div(w, exp2(m))))
+
+word_arithShiftRight(mw)(m: nat) : mword = LET (n, w) = mw IN (n, of_int[n](div(to_int[n](w), exp2(n))))
+
+
+
+word_msb(mw): bool = LET (n, w) = mw IN nat2bv[n](w)^(n - 1)
+
+word_lsb(mw): bool = LET (n, w) = mw IN (mod(w, 2) = 1)
+
+
+word_ror(m: nat)(mw) : mword = LET (n, w) = mw IN LET m1 = mod(m, n) IN (n, bv2nat[n](rotate_right(m1, nat2bv[n](w))))
+
+word_rol(m: nat)(mw) : mword = LET (n, w) = mw IN LET m1 = mod(m, n) IN (n, bv2nat[n](rotate_left(m1, nat2bv[n](w))))
+
+
+word_setBit(mw)(m: below(mw`1))(b: bool) : mword =
+  LET n = mw`1 IN
+  IF b THEN mword_or(mw)((n, exp2(m)))
+  ELSE mword_and(mw)(n, (exp2(n) - exp2(m) - 1))
+  ENDIF
+
+word_getBit(mw)(m: below(mw`1)) : bool = LET (n, w) = mw IN (nat2bv[n](w))^(m)
+
+
+word_concat(mw1)(mw2) : mword = LET (n1, w1) = mw1, (n2, w2) = mw2 IN (n1 + n2, w1 * exp2(n2) + w2)
+
+
+word_extract(lo: nat)(hi: upfrom(lo))(mw : {nw: mword | nw`1 > hi}) : mword =
+  LET sz = hi - lo + 1 IN
+  LET (n, w) = mw IN
+  (sz, bv2nat[sz](nat2bv[n](w)^(hi, lo)))
+
+word_update(mw1)(lo: below(mw1`1))(hi: {n: upfrom(lo) | n < mw1`1})(mw2 : {nw: mword | nw`1 = hi - lo + 1}) : mword =
+  LET (n, w) = mw1 IN
+  LET nw1 = word_extract(lo)(hi)(mw1) IN
+  LET nw1' = word_shiftLeft(nw1)(lo) IN
+  LET nw1'' = mword_minus(mw1)(nw1') IN
+  LET nw2 = word_shiftLeft(mw2)(lo) IN
+  mword_add(nw1'')(nw2)
+  % LET sz = hi - lo + 1 IN
+  % LET bv = nat2bv[n](w) IN
+  % IF lo = 0 THEN IF hi = n - 1 THEN (n, mw2`2) ELSE (n, )
+  % LET wl = word_to_bl(mw1) IN
+  % (n, word_of_bl(list_append(take(n - hi - 1)(wl))(list_append(word_to_bl(mw2))(drop(n - lo)(wl)))))
+%  LET bv = nat2bv[n](w) IN
+%  (n, bv2nat[n]((bv^(n - 1, hi)) o nat2bv[sz](mw2`2) o (bv ^ (lo, 0))))
+  
+
+nat_bl_inv: LEMMA FORALL (n: nat, i: nat): bl_to_nat(nat_to_bl(n)(i)) = i
+
+bl_nat_inv: LEMMA FORALL (bs: list[bool]): LET n = length(bs) IN nat_to_bl(n)(bl_to_nat(bs)) = bs
+
+
+END mword

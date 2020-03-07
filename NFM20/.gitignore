@@ -1,0 +1,14 @@
+Test_Cases/*.pvs
+Test_Cases/*.prf
+Test_Cases/*.prf~
+*.summary
+*.prf~
+_build/
+.pvscontext
+pvsbin/
+*bak
+.vscode/
+__pycache__/
+data.json
+debug.log
+opev

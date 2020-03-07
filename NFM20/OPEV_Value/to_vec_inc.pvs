@@ -1,0 +1,37 @@
+to_vec_inc : THEORY
+BEGIN
+
+IMPORTING unsigned
+
+mod_signed(m:int, n:posnat): MACRO int =
+    LET mod_result = mod(m, exp2(n)) IN
+    IF mod_result < exp2(n - 1)
+    THEN mod_result
+    ELSE mod_result - exp2(n)
+    ENDIF
+
+to_vec_inc(len: nat, n: int) : bvec[len] =
+    IF n >= 0 AND n < exp2(len)
+    THEN reverse[len](nat2bv[len](n))
+    ELSE reverse[len](nat2bv[len](mod(n, exp2(len))))
+    ENDIF
+
+%=================== Properties of to_vec and unsigned operations ===================
+
+to_vec_inj: LEMMA (FORALL (len: nat, x, y: below(exp2(len))): to_vec_inc(len, x) = to_vec_inc(len, y) IMPLIES x = y)
+
+to_vec_inj_rev: LEMMA (FORALL (len:nat, x, y: int): mod(x, exp2(len)) = mod(y, exp2(len)) IMPLIES to_vec_inc(len, x) = to_vec_inc(len, y))
+
+to_vec_inv: LEMMA FORALL (len: nat, bv: bvec[len]): to_vec_inc(len, unsigned(bv)) = bv
+
+to_vec_inv_ext: LEMMA FORALL (len: nat, i: int, bv: bvec[len]): to_vec_inc(len, unsigned(bv) + i * exp2(len)) = bv
+
+to_vec_inv_extension: LEMMA FORALL (len: nat, i: int, j: int) : to_vec_inc(len, i + j * exp2(len)) = to_vec_inc(len, i)
+
+to_vec_surj: LEMMA (FORALL (len: nat, y: bvec[len]): (EXISTS (x: below(exp2(len))): to_vec_inc(len, x) = y))
+
+unsigned_inv: LEMMA FORALL (len: nat, val: int): unsigned(to_vec_inc(len, val)) = mod(val, exp2(len))
+
+unsigned_inv_ext: LEMMA FORALL (len: nat, val: int): val >= 0 AND val < exp2(len) IMPLIES unsigned(LAMBDA (i:below(len)): nat2bv[len](val)(len-1-i)) = mod(val, exp2(len))
+
+END to_vec_inc

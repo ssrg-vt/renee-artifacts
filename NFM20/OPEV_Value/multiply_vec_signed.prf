@@ -1,0 +1,14 @@
+(multiply_vec_signed
+ (multiply_vec_signed_TCC1 0
+  (multiply_vec_signed_TCC1-1 nil 3728422512 ("" (subtype-tcc) nil nil)
+   ((real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil))
+ (multiply_vec_signed_TCC2 0
+  (multiply_vec_signed_TCC2-1 nil 3728422512 ("" (subtype-tcc) nil nil)
+   ((real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil)))
+

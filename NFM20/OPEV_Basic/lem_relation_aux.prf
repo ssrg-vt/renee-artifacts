@@ -1,0 +1,64 @@
+(lem_relation_aux
+ (relToSet_inv 0
+  (relToSet_inv-1 nil 3743970380 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (rel_apply_0 0
+  (rel_apply_0-1 nil 3744152574
+   ("" (grind)
+    (("" (expand "fold")
+      (("" (decompose-equality)
+        (("1" (grind)
+          (("1" (expand "emptyset")
+            (("1" (decompose-equality) (("1" (grind) nil nil)) nil))
+            nil)
+           ("2" (expand "emptyset")
+            (("2" (decompose-equality) (("2" (grind) nil nil)) nil))
+            nil)
+           ("3" (expand "fold")
+            (("3" (grind)
+              (("1" (postpone) nil nil) ("2" (postpone) nil nil)
+               ("3" (postpone) nil nil) ("4" (postpone) nil nil))
+              nil))
+            nil)
+           ("4" (postpone) nil nil) ("5" (postpone) nil nil)
+           ("6" (postpone) nil nil) ("7" (postpone) nil nil)
+           ("8" (postpone) nil nil) ("9" (postpone) nil nil)
+           ("10" (postpone) nil nil) ("11" (postpone) nil nil))
+          nil)
+         ("2" (postpone) nil nil) ("3" (postpone) nil nil)
+         ("4" (postpone) nil nil) ("5" (postpone) nil nil)
+         ("6" (postpone) nil nil) ("7" (postpone) nil nil))
+        nil))
+      nil))
+    nil)
+   nil shostak))
+ (trancl_withoutTransitiveEdges_thm_TCC1 0
+  (trancl_withoutTransitiveEdges_thm_TCC1-1 nil 3743969142
+   ("" (subtype-tcc) nil nil) nil nil
+   (trancl_withoutTransitiveEdges_thm subtype "lem_relation_aux.r"
+    "finite_set[[A, A]]")))
+ (withoutTransitiveEdges_0_TCC1 0
+  (withoutTransitiveEdges_0_TCC1-1 nil 3743969142
+   ("" (subtype-tcc) nil nil) nil nil
+   (withoutTransitiveEdges_0 subtype
+    "{x0: [naturalnumbers.nat, naturalnumbers.nat] | x0 = ((0), (1))}"
+    "finite_set[[nat, nat]]")))
+ (withoutTransitiveEdges_1_TCC1 0
+  (withoutTransitiveEdges_1_TCC1-1 nil 3743969142
+   ("" (subtype-tcc) nil nil) nil nil
+   (withoutTransitiveEdges_1 subtype
+    "{x0: [naturalnumbers.nat, naturalnumbers.nat] | booleans.OR(x0 = ((0), (1)), booleans.OR(x0 = ((1), (2)), x0 = ((0), (2))))}"
+    "finite_set[[nat, nat]]")))
+ (withoutTransitiveEdges_2_TCC1 0
+  (withoutTransitiveEdges_2_TCC1-1 nil 3743969142
+   ("" (subtype-tcc) nil nil) nil nil
+   (withoutTransitiveEdges_2 subtype
+    "{x0: [naturalnumbers.nat, naturalnumbers.nat] | booleans.OR(x0 = ((0), (1)), booleans.OR(x0 = ((1), (2)), booleans.OR(x0 = ((2), (3)), x0 = ((0), (3)))))}"
+    "finite_set[[nat, nat]]")))
+ (withoutTransitiveEdges_3_TCC1 0
+  (withoutTransitiveEdges_3_TCC1-1 nil 3743969142
+   ("" (subtype-tcc) nil nil) nil nil
+   (withoutTransitiveEdges_3 subtype
+    "{x0: [naturalnumbers.nat, naturalnumbers.nat] | booleans.OR(x0 = ((0), (0)), x0 = ((0), (1)))}"
+    "finite_set[[nat, nat]]"))))
+

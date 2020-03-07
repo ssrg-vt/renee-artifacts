@@ -1,0 +1,14 @@
+bitwise_or_bit : THEORY
+BEGIN
+
+b1, b2, b3: VAR bit
+
+bitwise_or_bit(b1, b2) : MACRO bit = b1 OR b2
+
+%=================== Properties of bitwise or operations ===================
+
+bit_or_commutativity: LEMMA bitwise_or_bit(b1, b2) = bitwise_or_bit(b2, b1)
+
+bit_or_associativity: LEMMA bitwise_or_bit(b1, bitwise_or_bit(b2, b3)) = bitwise_or_bit(bitwise_or_bit(b1, b2), b3)
+
+END bitwise_or_bit

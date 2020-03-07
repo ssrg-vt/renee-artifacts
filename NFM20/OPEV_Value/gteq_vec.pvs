@@ -1,0 +1,22 @@
+gteq_vec[N:posnat, M:posnat] : THEORY
+BEGIN
+
+IMPORTING signed
+
+bv1: VAR bvec[N]
+
+bv2: VAR bvec[M]
+
+gteq_vec(bv1, bv2) : MACRO bit = signed(bv1) >= signed(bv2)
+
+;>=(bv1, bv2) : MACRO bit = signed(bv1) >= signed(bv2)
+
+gteq_vec_signed(bv1, bv2) : MACRO bit = signed(bv1) >= signed(bv2)
+
+%=================== Properties of gteq_vec and signed operations ===================
+
+gteq_vec_op_eq: LEMMA (bv1 >= bv2) = gteq_vec(bv1, bv2)
+
+gteq_vec_signed_def: LEMMA gteq_vec_signed(bv1, bv2) = (bv1 >= bv2)
+
+END gteq_vec

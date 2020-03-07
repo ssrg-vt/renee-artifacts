@@ -1,0 +1,12 @@
+neq_range : THEORY
+BEGIN
+
+m, n: VAR int
+
+b1, b2: VAR bit
+
+neq_range(m, n) : MACRO bit = m /= n
+
+neq_bit(b1, b2: bit) : MACRO bit = b1 /= b2
+
+END neq_range

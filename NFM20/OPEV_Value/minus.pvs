@@ -1,0 +1,8 @@
+minus : THEORY
+BEGIN
+
+m, n: VAR int
+
+minus(m, n:int) : MACRO int = m - n;
+
+END minus

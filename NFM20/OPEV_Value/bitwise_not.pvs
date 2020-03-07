@@ -1,0 +1,14 @@
+bitwise_not[N:nat] : THEORY
+BEGIN
+
+bv: VAR bvec[N]
+
+bitwise_not(bv) : MACRO bvec[N] = LAMBDA (i:below(N)): NOT bv(i)
+
+;~(bv) : MACRO bvec[N] = LAMBDA (i:below(N)): NOT bv(i)
+
+%=================== Properties of bitwise not operations ===================
+
+not_op_eq: LEMMA (~bv) = bitwise_not(bv)
+
+END bitwise_not

@@ -1,0 +1,59 @@
+(lem_string_aux
+ (char_simple_0_TCC1 0
+  (char_simple_0_TCC1-1 nil 3743980651 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil (char_simple_0 subtype "0" "below[length(\"1\")]")))
+ (char_simple_0_TCC2 0
+  (char_simple_0_TCC2-1 nil 3743980651 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (list2finseq const-decl "finseq[T]" list2finseq nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil (char_simple_0 subtype "0" "below[length(\"0\")]")))
+ (char_simple_0 0
+  (char_simple_0-1 nil 3743980744
+   ("" (grind) (("" (postpone) nil nil)) nil) nil shostak))
+ (char_simple_1_TCC1 0
+  (char_simple_1_TCC1-1 nil 3743980651 ("" (subtype-tcc) nil nil) nil
+   nil (char_simple_1 subtype "0" "below[length(\"Y\")]")))
+ (char_simple_1_TCC2 0
+  (char_simple_1_TCC2-1 nil 3743980651 ("" (subtype-tcc) nil nil) nil
+   nil (char_simple_1 subtype "0" "below[length(\"X\")]")))
+ (char_simple_2_TCC1 0
+  (char_simple_2_TCC1-1 nil 3743980651 ("" (subtype-tcc) nil nil) nil
+   nil (char_simple_2 subtype "0" "below[length(\"\\\\x00\")]")))
+ (char_simple_2_TCC2 0
+  (char_simple_2_TCC2-1 nil 3743980651 ("" (subtype-tcc) nil nil) nil
+   nil (char_simple_2 subtype "0" "below[length(\"\\\\xAF\")]")))
+ (char_simple_2 0
+  (char_simple_2-1 nil 3743980786
+   ("" (grind) (("" (postpone) nil nil)) nil) nil shostak))
+ (toCharList_0_TCC1 0
+  (toCharList_0_TCC1-1 nil 3743980651 ("" (subtype-tcc) nil nil) nil
+   nil (toCharList_0 subtype "0" "below[length(\"H\")]")))
+ (toCharList_0_TCC2 0
+  (toCharList_0_TCC2-1 nil 3743980651 ("" (subtype-tcc) nil nil) nil
+   nil (toCharList_0 subtype "0" "below[length(\"e\")]")))
+ (toCharList_0_TCC3 0
+  (toCharList_0_TCC3-1 nil 3743980651 ("" (subtype-tcc) nil nil) nil
+   nil (toCharList_0 subtype "0" "below[length(\"l\")]")))
+ (toCharList_0_TCC4 0
+  (toCharList_0_TCC4-1 nil 3743980651 ("" (subtype-tcc) nil nil) nil
+   nil (toCharList_0 subtype "0" "below[length(\"o\")]")))
+ (makeString_0_TCC1 0
+  (makeString_0_TCC1-1 nil 3743980651 ("" (subtype-tcc) nil nil) nil
+   nil (makeString_0 subtype "0" "below[length(\"a\")]")))
+ (makeString_2_TCC1 0
+  (makeString_2_TCC1-1 nil 3743980651 ("" (subtype-tcc) nil nil) nil
+   nil (makeString_2 subtype "0" "below[length(\"c\")]")))
+ (string_cons_1_TCC1 0
+  (string_cons_1_TCC1-1 nil 3743980651 ("" (subtype-tcc) nil nil) nil
+   nil (string_cons_1 subtype "0" "below[length(\"x\")]"))))
+

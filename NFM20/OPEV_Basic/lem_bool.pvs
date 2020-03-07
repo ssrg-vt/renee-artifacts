@@ -1,0 +1,119 @@
+lem_bool: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% not( b : bool) : bool = 
+% CASES  b OF
+%   TRUE: FALSE,
+%   FALSE: TRUE 
+% ENDCASES
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% and( b1 : bool)( b2 : bool) : bool = 
+% CASES (b1,  b2) OF
+%   (TRUE, TRUE): TRUE
+%   ELSE FALSE 
+% ENDCASES
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% or( b1 : bool)( b2 : bool) : bool = 
+% CASES (b1,  b2) OF
+%   (FALSE, FALSE): FALSE
+%   ELSE TRUE 
+% ENDCASES
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% imp( b1 : bool)( b2 : bool) : bool = 
+% CASES (b1,  b2) OF
+%   (TRUE, FALSE): FALSE
+%   ELSE TRUE 
+% ENDCASES
+% 
+% 
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% equiv( b1 : bool)( b2 : bool) : bool = 
+% CASES (b1,  b2) OF
+%   (TRUE, TRUE): TRUE,
+%   (FALSE, FALSE): TRUE
+%   ELSE FALSE 
+% ENDCASES
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+
+END lem_bool

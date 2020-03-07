@@ -1,0 +1,18 @@
+neq_vec_range[N:nat] : THEORY
+BEGIN
+
+IMPORTING unsigned
+
+bv: VAR bvec[N]
+
+m: VAR int
+
+neq_vec_range(bv, m) : MACRO bit = unsigned(bv) /= m
+
+neq_range_vec(m, bv) : MACRO bit = m /= unsigned(bv)
+
+%=================== Properties of neq_vec and unsigned operations ===================
+
+neq_range_vec_range_eq: LEMMA neq_range_vec(m, bv) = neq_vec_range(bv, m)
+
+END neq_vec_range

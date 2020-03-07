@@ -1,0 +1,9 @@
+mod_vec_range[N:nat] : THEORY
+BEGIN
+
+IMPORTING to_vec_inc
+
+mod_vec_range(bv: bvec[N], m:{m:nzint| mod(m, exp2(N)) /= 0}) : MACRO bvec[N] =
+    to_vec_inc(N, mod(unsigned[N](bv), mod(m, exp2(N))))
+
+END mod_vec_range

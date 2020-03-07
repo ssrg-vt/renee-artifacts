@@ -1,0 +1,24 @@
+duplicate_bits[N:nat] : THEORY
+BEGIN
+
+m: VAR nat
+
+bv: VAR bvec[N]
+
+duplicate_bits(bv, m) : RECURSIVE bvec[N*m] =
+  IF m = 0 THEN empty_bv
+  ELSE bv o (duplicate_bits(bv, m-1))
+  ENDIF
+  MEASURE m
+
+;^^(bv, m) : MACRO bvec[N*m] = duplicate_bits(bv, m)
+
+%=================== Properties of duplicate operations ===================
+
+duplicate_empty: LEMMA m = 0 IMPLIES bv^^m = empty_bv
+
+duplicate_inv: LEMMA m = 1 IMPLIES bv^^m = bv
+
+duplicate_bits_op_eq: LEMMA (bv ^^ m) = duplicate_bits(bv, m)
+
+END duplicate_bits

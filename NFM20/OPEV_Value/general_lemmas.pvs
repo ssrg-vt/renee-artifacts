@@ -1,0 +1,353 @@
+general_lemmas : THEORY
+BEGIN
+
+%====================================== Auxiliary lemmas for pvs built-in definitions ======================================
+
+bvec0_range_inv: LEMMA FORALL (i, j: nat): j = 0 IMPLIES bvec0[i+j] = bvec0[i]
+
+bv2nat_rec_resize_eq: LEMMA FORALL (i:posnat, j:posnat, x: bvec[j+i]): (FORALL (k:{n: nat| n < i}): bv2nat_rec(j, x^(j+k, 0)) = bv2nat_rec(j, x^(j+k-1, 0)))
+
+bv2nat_rec_res_eq: LEMMA FORALL (i:nat, j:posnat, x: bvec[j+i+1], y: bvec[j+i]): y = x^(j+i-1, 0) IMPLIES bv2nat_rec(j, x) = bv2nat_rec(j, y)
+
+nat2bv_inj: LEMMA FORALL (len: nat, x, y: below(exp2(len))): nat2bv[len](x) = nat2bv[len](y) IMPLIES x = y
+
+bv_is_empty: LEMMA FORALL (n:nat, bv:bvec[n]): n = 0 IMPLIES bv = empty_bv
+
+%====================================== Properties of bitwise not operations ======================================
+
+IMPORTING bitwise_not_bit
+IMPORTING bitwise_not
+
+not_inv: LEMMA FORALL (n:nat, bv: bvec[n]): bitwise_not[n](bitwise_not[n](bv)) = bv
+
+not_empty: LEMMA bitwise_not[0](empty_bv) = empty_bv
+
+
+%====================================== Properties of bitwise and operations ======================================
+
+IMPORTING bitwise_and_bit
+IMPORTING bitwise_and
+
+and_commutativity: LEMMA FORALL (n:nat, m:upfrom(n), bv1: bvec[n], bv2: bvec[m]): m = n IMPLIES (bv1 & bv2) = (bv2 & bv1)
+
+and_associativity: LEMMA FORALL (n:nat, m:upfrom(n), k:upfrom(m), bv1: bvec[n], bv2: bvec[m], bv3: bvec[k]): (bv1 & (bv2 & bv3)) = ((bv1 & bv2) & bv3)
+
+and_empty_any: LEMMA FORALL (n:nat, bv: bvec[n]): bitwise_and[0, n](empty_bv, bv) = empty_bv
+
+and_empty_empty: LEMMA bitwise_and[0, 0](empty_bv, empty_bv) = empty_bv
+
+not_and_zero: LEMMA FORALL (n:nat, bv:bvec[n]): (bv & (~bv)) = bvec0[n]
+
+
+%====================================== Properties of bitwise or operations ======================================
+
+IMPORTING bitwise_or_bit
+IMPORTING bitwise_or
+
+or_commutativity: LEMMA FORALL (n:nat, m:upfrom(n), bv1:bvec[n], bv2:bvec[m]): n = m IMPLIES (bv1 or bv2) = (bv2 or bv1)
+
+or_associativity: LEMMA FORALL (n:nat, m:upfrom(n), k:upfrom(m), bv1: bvec[n], bv2: bvec[m], bv3: bvec[k]): (bv1 or (bv2 or bv3)) = ((bv1 or bv2) or bv3)
+
+and_or_distributive: LEMMA FORALL (n:nat, m:upfrom(n), k:upfrom(m), bv1: bvec[n], bv2: bvec[m], bv3: bvec[k]): (bv1 & (bv2 or bv3)) = ((bv1 & bv2) or (bv1 & bv3))
+
+or_and_distributive: LEMMA FORALL (n:nat, m:upfrom(n), k:upfrom(m), bv1: bvec[n], bv2: bvec[m], bv3: bvec[k]): (bv1 or (bv2 & bv3)) = ((bv1 or bv2) & (bv1 or bv3))
+
+not_or_one: LEMMA FORALL (n:nat, bv:bvec[n]): (bv or (~bv)) = bvec1[n]
+
+and_or_demorgan: LEMMA FORALL (n:nat, m:upfrom(n), bv1: bvec[n], bv2: bvec[m]): (~(bv1 & bv2)) = ((~bv1) or (~bv2))
+
+or_empty_any: LEMMA FORALL (n:nat, bv: bvec[n]): bitwise_or[0, n](empty_bv, bv) = empty_bv
+
+or_empty_empty: LEMMA bitwise_or[0, 0](empty_bv, empty_bv) = empty_bv
+
+
+%====================================== Properties of bitwise xor operations ======================================
+
+IMPORTING bitwise_xor_bit
+IMPORTING bitwise_xor
+
+xor_commutativity: LEMMA FORALL (n:nat, m:upfrom(n), bv1:bvec[n], bv2:bvec[m]): m = n IMPLIES (bv1 ^ bv2) = (bv2 ^ bv1)
+
+xor_associativity: LEMMA FORALL (n:nat, m:upfrom(n), k:upfrom(m), bv1: bvec[n], bv2: bvec[m], bv3: bvec[k]): (bv1 ^ (bv2 ^ bv3)) = ((bv1 ^ bv2) ^ bv3)
+
+not_xor_one: LEMMA FORALL (n:nat, bv:bvec[n]): (bv ^ (~bv)) = bvec1[n]
+
+xor_rev: LEMMA FORALL (n:nat, bv:bvec[n]): (bv ^ (bvec1[n])) = (~bv)
+
+xor_inv: LEMMA FORALL (n:nat, bv:bvec[n]): (bv ^ (bvec0[n])) = bv
+
+xor_def: LEMMA FORALL (n:nat, m:upfrom(n), bv1:bvec[n], bv2:bvec[m]): (bv1 ^ bv2) = ((bv1 & (~bv2)) or ((~bv1) & bv2))
+
+xor_def2: LEMMA FORALL (n:nat, m:upfrom(n), bv1:bvec[n], bv2:bvec[m]): (bv1 ^ bv2) = ((bv1 or bv2) & (~(bv1 & bv2)))
+
+xor_empty_any: LEMMA FORALL (n:nat, bv: bvec[n]): bitwise_xor[0, n](empty_bv, bv) = empty_bv
+
+xor_empty_empty: LEMMA bitwise_xor[0, 0](empty_bv, empty_bv) = empty_bv
+
+
+%====================================== Properties of bitwise shift operations ======================================
+
+IMPORTING bitwise_shift
+
+left_shift_toomuch: LEMMA FORALL (i:nat, n:nat, bv: bvec[n]): i >= n IMPLIES ((bv << i) = bvec0[n])
+
+right_shift_toomuch: LEMMA FORALL (i:nat, n:nat, bv: bvec[n]): i >= n IMPLIES ((bv >> i) = bvec0[n])
+
+
+%====================================== Properties of length operations ======================================
+
+IMPORTING length
+
+length_empty: LEMMA length[0](empty_bv) = 0
+
+
+%====================================== Properties of length operations ======================================
+
+IMPORTING most_significant
+
+
+%====================================== Properties of extz and exts operations ======================================
+
+IMPORTING extz
+IMPORTING exts
+
+extz_empty: LEMMA FORALL(n:nat): extz[0](n, empty_bv) = bvec0[n]
+
+
+
+%====================================== Properties of mask operations ======================================
+
+IMPORTING mask
+
+mask_empty: LEMMA mask[0](0, empty_bv) = empty_bv
+
+mask_inv: LEMMA FORALL (n:nat, bv:bvec[n]): mask(n, bv) = bv
+
+
+%====================================== Properties of slice_raw operations ======================================
+
+IMPORTING slice_raw
+
+mask_slice_eq: LEMMA FORALL (n:posnat, bv: bvec[n], i:below[n]): slice_raw(bv, i, n - 1) = mask(n - i, bv)
+
+slice_to_empty: LEMMA FORALL (n:posnat, bv:bvec[n], i:below[n], j:below[n]): j = i - 1 IMPLIES slice_raw(bv, i, j) = empty_bv
+
+slice_singleton: LEMMA FORALL (n:posnat, bv:bvec[n], i:below[n], j:below[n]): j = i IMPLIES slice_raw(bv, i, j) = bv^(i,i)
+
+slice_def: LEMMA FORALL (n:posnat, bv:bvec[n], i:below[n], j:below[n]): i < j IMPLIES slice_raw(bv, i, j) = bv ^ (j, i)
+
+slice_inv: LEMMA FORALL (n:posnat, bv:bvec[n]): slice_raw(bv, 0, n - 1) = bv
+
+
+%====================================== Properties of unsigned operations ======================================
+
+IMPORTING unsigned
+
+reverse_empty: LEMMA reverse[0](empty_bv) = empty_bv
+
+unsigned_empty_zero: LEMMA unsigned[0](empty_bv) = 0
+
+unsigned_rec: LEMMA FORALL (n: posnat, bv: bvec[n+1]): unsigned[n+1](bv) = exp2(n) * bv(0) + unsigned[n](bv^(n, 1))
+
+unsigned_not_sum: LEMMA FORALL (n:nat, bv:bvec[n]): unsigned(bv) + unsigned(~bv) = exp2(n) - 1
+
+unsigned_mib_one: LEMMA FORALL(n:posnat, bv: bvec[n]): bv ^ (0) IMPLIES unsigned[n](bv) >= exp2(n - 1)
+
+unsigned_one_mib: LEMMA FORALL(n:posnat, bv: bvec[n]): unsigned[n](bv) >= exp2(n - 1) IMPLIES bv ^ (0)
+
+unsigned_ext_0: LEMMA FORALL(n: nat, j:nat, bv: bvec[n]): j = 0 IMPLIES unsigned[n + j](bv) = unsigned[n](bv)
+
+unsigned_mibs_zero: LEMMA FORALL(n:posnat, m:posnat, bv:bvec[n]): m < n AND unsigned[n](bv) < exp2(m) IMPLIES FORALL (k:{x:nat| x < n - m}): bv ^ (k) = FALSE
+
+
+%====================================== Properties of unsigned operations ======================================
+
+IMPORTING signed
+
+extz_unsigned: LEMMA FORALL (n: nat, m:nat, bv: bvec[n]): unsigned[n+m](extz(n+m, bv)) = unsigned[n](bv)
+
+exts_signed: LEMMA FORALL (n: posnat, m:nat, bv: bvec[n]): signed[n+m](exts(n+m, bv)) = signed[n](bv)
+
+extz_fill_F: LEMMA FORALL (n:posnat, m: posnat, bv: bvec[n]): m <= n AND (FORALL (k:{x:nat| x < n - m}): bv ^ (k) = FALSE) IMPLIES bv = (bv ^ (n - 1, n - m) o fill[n - m](FALSE))
+
+mib_one_signed: LEMMA FORALL (n:posnat, bv:bvec[n]): most_significant(bv) IMPLIES signed(bv) < 0
+
+unsigned_left_shift: LEMMA FORALL (i:nat, n:nat, bv: bvec[n]): unsigned[i + n](bvec0[i] o bv) = unsigned[n](bv) * exp2(i)
+
+%===unsigned_left_shift_limited: LEMMA FORALL (i:nat, n:nat, bv: bvec[n]): i < n IMPLIES (unsigned[n](bv << i) = mod(unsigned(bv) * exp2(i), exp2(n)))
+
+unsigned_right_shift_oneb: LEMMA FORALL (n:posnat, bv:bvec[n+1]): unsigned[n+1](bv^(n-1, 0) o bvec0[1]) = floor(unsigned[n+1](bv) / 2)
+
+unsigned_right_shift: LEMMA FORALL (i:nat, n:nat, bv:bvec[n]): unsigned[n](bv >> i) = floor(unsigned[n](bv) / exp2(i))
+
+
+%====================================== Properties of to_vec_inc operations ======================================
+
+IMPORTING to_vec_inc
+
+to_vec_fill_F: LEMMA FORALL (n:nat, val:int): mod(val, exp2(n)) = 0 IMPLIES to_vec_inc(n, val) = bvec0[n]
+
+to_vec_fill_T: LEMMA FORALL (n:nat, val:int): mod(val, exp2(n)) = exp2(n) - 1 IMPLIES to_vec_inc(n, val) = bvec1[n]
+
+to_vec_inj_ext: LEMMA FORALL (len:nat, x, y: int): to_vec_inc(len, x) = to_vec_inc(len, y) IMPLIES mod(x, exp2(len)) = mod(y, exp2(len))
+
+to_vec_inv_signed: LEMMA FORALL (len: posnat, bv: bvec[len]): to_vec_inc(len, signed(bv)) = bv
+
+to_vec_empty: LEMMA FORALL (n:int): to_vec_inc(0, n) = empty_bv
+
+mod_signed_to_vec_eq: LEMMA FORALL (len: posnat, val: int): mod_signed(val, len) = signed[len](to_vec_inc(len, val))
+
+%====================================== Properties of to_vec_dec operations ======================================
+
+IMPORTING to_vec_dec
+
+to_vec_eq: LEMMA FORALL (len:nat, n:int): to_vec_dec(len, n) = to_vec_inc(len, n)
+
+
+%====================================== Properties of different compare operations ======================================
+
+IMPORTING eq_vec
+IMPORTING eq_range
+IMPORTING eq_vec_range
+IMPORTING neq_vec
+IMPORTING neq_range
+IMPORTING neq_vec_range
+IMPORTING lt
+IMPORTING lt_vec
+IMPORTING lt_vec_range
+IMPORTING lt_vec_unsigned
+IMPORTING gt
+IMPORTING gt_vec
+IMPORTING gt_vec_range
+IMPORTING gt_vec_unsigned
+IMPORTING lteq
+IMPORTING lteq_vec
+IMPORTING lteq_vec_range
+IMPORTING lteq_vec_unsigned
+IMPORTING gteq
+IMPORTING gteq_vec
+IMPORTING gteq_vec_range
+IMPORTING gteq_vec_unsigned
+
+eq_vec_empty_any: LEMMA eq_vec_range[0](empty_bv, 0)
+
+gt_vec_lteq_rel: LEMMA FORALL (n:posnat, m:posnat, bv1:bvec[n], bv2:bvec[m]): (bv1 > bv2) = NOT (bv1 <= bv2)
+
+gt_range_vec_lteq_rel: LEMMA FORALL (n:posnat, m:int, bv:bvec[n]): gt_range_vec[n](m, bv) = NOT lteq_range_vec[n](m, bv)
+
+gt_vec_range_lteq_rel: LEMMA FORALL (n:posnat, m:int, bv:bvec[n]): gt_vec_range[n](bv, m) = NOT lteq_vec_range[n](bv, m)
+
+gteq_vec_lt_rel: LEMMA FORALL (n:posnat, m:posnat, bv1:bvec[n], bv2:bvec[m]): (bv1 >= bv2) = NOT (bv1 < bv2)
+
+gteq_range_vec_lt_rel: LEMMA FORALL (n:posnat, m:int, bv:bvec[n]): gteq_range_vec[n](m, bv) = NOT lt_range_vec[n](m, bv)
+
+gteq_vec_range_lt_rel: LEMMA FORALL (n:posnat, m:int, bv:bvec[n]): gteq_vec_range[n](bv, m) = NOT lt_vec_range[n](bv, m)
+
+lteq_vec_empty_any: LEMMA FORALL (n:nat, bv:bvec[n]): lteq_vec_unsigned[0, n](empty_bv, bv)
+
+gteq_vec_any_empty: LEMMA FORALL (n:nat, bv:bvec[n]): gteq_vec_unsigned[n, 0](bv, empty_bv)
+
+%====================================== Properties of add_* operations ======================================
+
+IMPORTING add
+IMPORTING add_vec
+IMPORTING add_vec_range
+IMPORTING add_vec_signed
+IMPORTING add_vec_range_signed
+
+add_vec_commutativity: LEMMA FORALL (n:nat, m:nat, bv1:bvec[n], bv2:bvec[m]): m = n IMPLIES (bv1 + bv2) = (bv2 + bv1)
+
+add_vec_associativity: LEMMA FORALL (n:nat, m:nat, k:nat, bv1: bvec[n], bv2: bvec[m], bv3: bvec[k]): m = n AND n = k IMPLIES (bv1 + (bv2 + bv3)) = ((bv1 + bv2) + bv3)
+
+add_overflow_rel: LEMMA FORALL (n:nat, m:nat, bv1:bvec[n], bv2:bvec[m]): add_overflow_vec(bv1, bv2)`1 = add_vec(bv1, bv2)
+
+add_vec_def: LEMMA FORALL (n:nat, m:nat, bv1:bvec[n], bv2:bvec[m]): unsigned(bv1 + bv2) = mod(unsigned(bv1) + unsigned(bv2), exp2(n))
+
+add_empty_any: LEMMA FORALL (n:nat, bv:bvec[n]): add_vec[n,0](bv, empty_bv) = bv
+
+add_any_empty: LEMMA FORALL (n:nat, bv:bvec[n]): add_vec[0,n](empty_bv, bv) = empty_bv
+
+add_vec_signed_unsigned: LEMMA FORALL (n:posnat, m:posnat, bv1:bvec[n], bv2:bvec[m]): m = n IMPLIES add_vec_signed[n, m](bv1, bv2) = add_vec[n, m](bv1, bv2)
+
+add_vec_range_signed_unsigned: LEMMA FORALL (n:posnat, m:int, bv:bvec[n]): add_vec_range_signed[n](bv, m) = add_vec_range[n](bv, m)
+
+add_range_vec_signed_unsigned: LEMMA FORALL (n:posnat, m:int, bv:bvec[n]): add_range_vec_signed[n](m, bv) = add_range_vec[n](m, bv)
+
+add_vec_bit_signed_unsigned: LEMMA FORALL (n:posnat, b:bit, bv:bvec[n]): add_vec_bit_signed[n](bv, b) = (IF b THEN (add_vec_range[n](bv, 1)) ELSE bv ENDIF)
+
+
+%====================================== Properties of minus operations ======================================
+
+IMPORTING minus
+IMPORTING minus_vec
+IMPORTING minus_vec_range
+IMPORTING minus_vec_signed
+IMPORTING minus_vec_range_signed
+
+minus_eq_plus_neg: LEMMA FORALL (n:nat, m:nat, bv1:bvec[n], bv2:bvec[m]): m = n IMPLIES bv1 - bv2 = bv1 + add_vec_range[m]((~bv2), 1)
+
+add_plus_neg: LEMMA FORALL (n:nat, bv:bvec[n]): bv + add_vec_range[n]((~bv), 1) = bvec0[n]
+
+minus_any_empty: LEMMA FORALL (n:nat, bv:bvec[n]): minus_vec[n, 0](bv, empty_bv) = bv
+
+minus_empty_any: LEMMA FORALL (n:nat, bv:bvec[n]): minus_vec[0, n](empty_bv, bv) = empty_bv
+
+
+%====================================== Properties of multiply operations ======================================
+
+IMPORTING multiply
+IMPORTING multiply_vec
+IMPORTING mult_vec_range
+IMPORTING multiply_vec_signed
+IMPORTING mult_vec_range_signed
+
+%===== Associativity does not hold for this definition
+%multiply_vec_associativity: (bv * (bv1 * bv2)) = ((bv * bv1) * bv2)
+
+multiply_upperbound: LEMMA FORALL (n:nat, m:nat, bv1:bvec[n], bv2:bvec[m]): unsigned[n](bv1) * unsigned[m](bv2) < exp2(m + n)
+
+mult_overflow_firstelem: LEMMA FORALL (n:nat, m:nat, bv1:bvec[n], bv2:bvec[m]): mult_overflow_vec(bv1, bv2)`1 = multiply_vec(bv1, bv2)
+
+%==========multiply_add_distributive: (bv * (bv1 + bv2)) = ((bv * bv1) + (bv * bv2))
+
+multiply_vec_commutativity: LEMMA FORALL (n, m: nat, bv1: bvec[n], bv2: bvec[m]): n = m implies (bv1 * bv2) = (bv2 * bv1)
+
+
+multiply_def: LEMMA FORALL (n, m: nat, bv1: bvec[n], bv2: bvec[m]): m = n IMPLIES unsigned[2*n](bv1 * bv2) = unsigned[n](bv1) * unsigned[m](bv2)
+
+mult_vec_range_def:  LEMMA FORALL (n:nat, m: int, bv: bvec[n]): mult_vec_range[n](bv, m) = multiply_vec[n,n](bv, to_vec_inc(n, m))
+
+mult_range_vec_def: LEMMA FORALL (n:nat, m: int, bv: bvec[n]): mult_range_vec[n](m, bv) = multiply_vec[n,n](to_vec_inc(n, m), bv)
+
+mult_any_empty: LEMMA FORALL (n:nat, bv:bvec[n]): multiply_vec[n, 0](bv, empty_bv) = bvec0[2*n]
+
+mult_empty_any: LEMMA FORALL (n:nat, bv:bvec[n]): multiply_vec[0, n](empty_bv, bv) = empty_bv
+
+
+%====================================== Properties of modulo operations ======================================
+
+IMPORTING modulo
+IMPORTING mod_vec
+IMPORTING mod_vec_range
+
+subvec_mod_rel: LEMMA FORALL (n: posnat, m:posnat, bv: bvec[n]): m < n IMPLIES unsigned[m](bv ^ (n - 1, n - m)) = mod(unsigned[n](bv), exp2(m))
+
+extz_mod_rel: LEMMA FORALL (len:posnat, n:posnat, bv: bvec[n]): len < n  AND mod(exp2(len), exp2(n)) /= 0 IMPLIES unsigned[len](extz(len, bv)) = unsigned[n](mod_vec_range[n](bv, exp2(len)))
+
+exts_mod_rel: LEMMA FORALL (len: posnat, n:nat, bv: bvec[n]): len < n AND mod(exp2(len), exp2(n)) /= 0 IMPLIES unsigned[len](exts(len, bv)) = unsigned[n](mod_vec_range[n](bv, exp2(len)))
+
+mask_mod_rel: LEMMA FORALL (n: posnat, m:posnat, bv: bvec[n]): m <= n IMPLIES unsigned(mask(m, bv)) = mod(unsigned[n](bv), exp2(m))
+
+mod_empty_any: LEMMA FORALL (n:nat, bv:bvec[n]): unsigned(bv) /= 0 IMPLIES mod_vec[0, n](empty_bv, bv) = empty_bv
+
+
+%====================================== Properties of quot operations ======================================
+
+IMPORTING quot
+IMPORTING quot_vec
+IMPORTING quot_vec_signed
+
+quot_empty_any: LEMMA FORALL (n:nat, bv:bvec[n]): unsigned(bv) /= 0 IMPLIES quot_vec[0, n](empty_bv, bv) = empty_bv
+
+END general_lemmas
+

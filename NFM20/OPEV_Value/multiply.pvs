@@ -1,0 +1,8 @@
+multiply : THEORY
+BEGIN
+
+m, n: VAR int
+
+multiply(m, n) : MACRO int = m * n
+
+END multiply

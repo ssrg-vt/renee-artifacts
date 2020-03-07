@@ -1,0 +1,19 @@
+quot_vec[N:nat, M:nat] : THEORY
+BEGIN
+
+IMPORTING to_vec_inc
+
+quot_vec(bv1:bvec[N], bv2:{bv:bvec[M]| unsigned[M](bv) /= 0}) : MACRO bvec[N] =
+    to_vec_inc(N, floor(unsigned[N](bv1)/unsigned[M](bv2)))
+    
+quot_overflow_vec(bv1:bvec[N], bv2:bvec[M]) : MACRO [bvec[N], bit, bit] =
+    IF unsigned(bv2) = 0
+    THEN (bvec0[N], FALSE, FALSE)
+    ELSE
+        LET quot_result = floor(unsigned[N](bv1)/unsigned[M](bv2)) IN
+        LET overflow = quot_result > exp2(M),
+            c_out = (mod(floor(quot_result/exp2(N)), 2) /= 0) IN
+        (to_vec_inc(N, quot_result), overflow , c_out)
+    ENDIF
+
+END quot_vec

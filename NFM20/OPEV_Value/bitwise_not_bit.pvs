@@ -1,0 +1,12 @@
+bitwise_not_bit : THEORY
+BEGIN
+
+bitwise_not_bit(b:bit) : MACRO bit = NOT b
+
+;~(b:bit) : MACRO bit = NOT b
+
+%=================== Properties of bitwise not operations ===================
+
+bit_not_inv: LEMMA (FORALL (b: bit): ~(~b) = b)
+
+END bitwise_not_bit

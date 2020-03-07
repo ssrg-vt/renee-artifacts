@@ -1,0 +1,8 @@
+gteq: THEORY
+BEGIN
+
+m, n: VAR int
+
+gteq(m, n) : MACRO bit = m >= n
+
+END gteq

@@ -1,0 +1,22 @@
+eq_range : THEORY
+BEGIN
+
+m, n: VAR int
+
+b1, b2: VAR bit
+
+eq_range(m, n) : MACRO bit  = m = n
+
+;==(m, n) : MACRO bit = m = n
+
+eq_bit(b1, b2) : MACRO bit = b1 = b2
+
+;==(b1, b2) : MACRO bit = b1 = b2
+
+%=================== Properties of eq_vec unsigned operations ===================
+
+eq_range_op_eq: LEMMA (m == n) = eq_range(m, n)
+
+eq_bit_op_eq: LEMMA (b1 == b2) = eq_bit(b1, b2)
+
+END eq_range

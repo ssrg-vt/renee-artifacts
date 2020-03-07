@@ -1,0 +1,121 @@
+lem_set_extra: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_maybe
+
+IMPORTING lem_function
+
+IMPORTING lem_num
+
+IMPORTING lem_list
+
+IMPORTING lem_sorting
+
+IMPORTING lem_set
+
+IMPORTING set_extra
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+chooseAndSplit[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Ord_a : ord_class[A])( s : set[A]) : option[[set[A], A, set[A]]] =  
+  IF eqs(s)(emptyset) THEN None ELSE
+   LET element = choose(s) IN LET (lt,  gt) = lem_set.split(dict_Basic_classes_SetType_a)(dict_Basic_classes_Ord_a)(element)(s) IN 
+   Some((lt,  element,  gt)) ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+setCompare[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Ord_a : ord_class[A]) : [set[A] -> [set[A] -> ordering]] = set_compare_by(dict_Basic_classes_Ord_a`compare_method)
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_set_dict[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A]) : setType_class[set[A]] = (#  
+
+  setElemCompare_method := set_compare_by(dict_Basic_classes_SetType_a`setElemCompare_method)
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% leastFixedPointUnbounded[A : TYPE]( f : [set[A] -> set[A]])( x : set[A]) : RECURSIVE set[A] = LET  fx = f(x) IN  
+%   IF subset fx x THEN x ELSE unbounded_lfp(f)(union(fx)(x)) ENDIF
+% MEASURE leastFixedPointUnbounded
+% 
+% 
+% 
+
+
+END lem_set_extra

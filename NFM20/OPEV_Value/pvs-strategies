@@ -1,0 +1,76 @@
+;;****
+;; Xiaoxin An (*1), Amer Tahat (*2), and Binoy Ravindran (*3)
+;; This software is being developed by Virgina Tech (*1, *2, *3).
+;; This software is supported by Office of Naval Research (ONR).
+
+;; December 2017
+
+;; Get formula from current goal (unnegated if antecedent formula)
+(defun get-fnum (fnum)
+  (let ((index (- (abs fnum) 1))
+        (goal (current-goal *ps*)))
+    (if (> fnum 0)
+        (formula (nth index (p-sforms goal)))
+        (argument (formula (nth index (n-sforms goal)))))))
+
+(defstep case-insert-fname (fname &optional (fnum 1))
+  (let ((formula1 (get-fnum fnum)))
+    (let ((casestr (format nil "~a(~a) = ~a(~a)" fname (args1 formula1) fname (args2 formula1))))
+      (apply (case casestr))))
+  "" "")
+
+(defstep case-split-strat (fname &optional (fnum 1))
+  (let ((rewritestr1 (format nil "~a_inj" fname))
+        (rewritestr2 (format nil "~a_inv" fname)))
+    (branch (case-insert-fname fname fnum)
+            ((then (rewrite rewritestr1)(grind)(eval-formula))
+             (then (hide 2)(rewrite rewritestr2)(grind)(eval-formula))
+             (then (grind)(eval-formula)))))
+  "" "")
+
+(defun get-rem-subgoalnum ()
+  (list-length (remaining-subgoals (parent-proofstate *ps*))))
+
+(defun get-pslength ()
+  (list-length (p-sforms (current-goal *ps*)))
+  )
+
+(defun get-form-type ()
+  (let ((pslength (get-pslength)))
+    (if (= pslength 0)
+        1
+        (let ((formula1 (get-fnum 1)))
+          (let ((formstr (format nil "~a" formula1)))
+            (if (search "to_vec_inc" formstr)
+                2
+                1))))))
+
+(defstep insert-neq-form (&optional (fnum -1))
+  (let ((formula1 (get-fnum fnum)))
+    (let ((casestr (format nil "~a /= ~a"
+                           (args1 formula1) (args2 formula1))))
+      (apply (case casestr))))
+  "" "")
+
+(defstep eval-strat ()
+  (let ((pslength (get-pslength)))
+    (if (= pslength 0)
+        (try (flip-ineq -1)
+             (then (grind)(eval-formula))
+             (branch (insert-neq-form)
+                     ((grind)
+                      (eval-formula))))
+        (then (decompose-equality)(grind)(eval-formula))))
+  "" "")
+
+(defstep arith-strat (fname &optional (fnum 1))
+  (branch (grind :exclude ("to_vec_inc"))
+          ((let ((ftype (get-form-type)))
+             (if (= ftype 1)
+                 (eval-strat)
+                 (case-split-strat fname fnum)))
+           (let ((ftype (get-form-type)))
+             (if (= ftype 1)
+                 (eval-strat)
+                 (case-split-strat fname fnum)))))
+  "" "")

@@ -1,0 +1,43 @@
+lem_assert_extra: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING structures@Unit
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+fail[A : TYPE] : A = failwith("fail")
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+ensure( test : bool)( msg : string) : Unit =  
+  IF test THEN unit ELSE failwith(msg) ENDIF
+
+
+
+
+END lem_assert_extra

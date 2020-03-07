@@ -1,0 +1,8 @@
+lteq: THEORY
+BEGIN
+
+m, n: VAR int
+
+lteq(m, n) : MACRO bit = m <= n
+
+END lteq

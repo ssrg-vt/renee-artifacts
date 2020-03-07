@@ -1,0 +1,39 @@
+lem_pervasives: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_bool
+
+IMPORTING lem_tuple
+
+IMPORTING lem_maybe
+
+IMPORTING lem_either
+
+IMPORTING lem_function
+
+IMPORTING lem_num
+
+IMPORTING lem_map
+
+IMPORTING lem_set
+
+IMPORTING lem_list
+
+IMPORTING lem_string
+
+IMPORTING lem_word
+
+IMPORTING lem_show
+
+IMPORTING lem_sorting
+
+IMPORTING lem_relation
+
+
+
+END lem_pervasives

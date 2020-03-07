@@ -1,0 +1,16 @@
+bitwise_and_bit : THEORY
+BEGIN
+
+b1, b2, b3: VAR bit
+
+bitwise_and_bit(b1, b2) : MACRO bit = b1 AND b2
+
+;&(b1, b2) : MACRO bit = b1 AND b2
+
+%=================== Properties of bitwise and operations ===================
+
+bit_and_commutativity: LEMMA (b1 & b2) = (b2 & b1)
+
+bit_and_associativity: LEMMA (b1 & (b2 & b3)) = ((b1 & b2) & b3)
+
+END bitwise_and_bit

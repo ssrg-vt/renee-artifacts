@@ -1,0 +1,46 @@
+(lem_basic_classes_aux
+ (ordering_cases_0 0
+  (ordering_cases_0-1 nil 3742140332 ("" (grind) nil nil)
+   ((orderingIsLess const-decl "bool" lem_basic_classes nil)
+    (ordering_cases const-decl "A" lem_basic_classes nil)
+    (minus_odd_is_odd application-judgement "odd_int" integers nil))
+   shostak))
+ (ordering_cases_1 0
+  (ordering_cases_1-1 nil 3742140339 ("" (grind) nil nil)
+   ((orderingIsLess const-decl "bool" lem_basic_classes nil)
+    (orderingIsEqual const-decl "bool" lem_basic_classes nil)
+    (ordering_cases const-decl "A" lem_basic_classes nil)
+    (minus_odd_is_odd application-judgement "odd_int" integers nil))
+   shostak))
+ (ordering_cases_2 0
+  (ordering_cases_2-1 nil 3742140344 ("" (grind) nil nil)
+   ((orderingIsLess const-decl "bool" lem_basic_classes nil)
+    (orderingIsEqual const-decl "bool" lem_basic_classes nil)
+    (ordering_cases const-decl "A" lem_basic_classes nil)
+    (minus_odd_is_odd application-judgement "odd_int" integers nil))
+   shostak))
+ (ordering_match_1 0
+  (ordering_match_1-1 nil 3742140348 ("" (grind) nil nil)
+   ((minus_odd_is_odd application-judgement "odd_int" integers nil))
+   shostak))
+ (ordering_match_2 0
+  (ordering_match_2-1 nil 3742140352 ("" (grind) nil nil) nil shostak))
+ (ordering_match_3 0
+  (ordering_match_3-1 nil 3742140355 ("" (grind) nil nil)
+   ((bool_and const-decl "bool" lib_extra nil)) shostak))
+ (ordering_match_4 0
+  (ordering_match_4-1 nil 3742140359 ("" (grind) nil nil)
+   ((minus_odd_is_odd application-judgement "odd_int" integers nil))
+   shostak))
+ (ordering_match_5 0
+  (ordering_match_5-1 nil 3742140365 ("" (grind) nil nil) nil shostak))
+ (ordering_match_6 0
+  (ordering_match_6-1 nil 3742140369 ("" (grind) nil nil)
+   ((bool_and const-decl "bool" lib_extra nil)) shostak))
+ (pairEqual_def_lemma 0
+  (pairEqual_def_lemma-1 nil 3742140372 ("" (grind) nil nil)
+   ((bool_and const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak)))
+

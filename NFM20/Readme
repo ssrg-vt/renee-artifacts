@@ -1,0 +1,47 @@
+Prerequisites:
+        python3 (>= 3.5)
+        OCaml (= 4.07.0)
+              OCaml libraries: depext ocamlbuild utop yojson zarith num omd menhir linenoise async_unix
+	PVS (= 7.0.639)
+		http://www.csl.sri.com/users/owre/drop/pvs-snapshots/
+	Configure and install lem/linksem/ott/sail:
+		https://github.com/rems-project/lem
+		https://github.com/rems-project/linksem
+		https://github.com/rems-project/sail.git
+		
+
+# How to set up the environment?
+  Add	/path/to/pvs                  to    	PVS_HOME
+  Add	/path/to/OPEV_Value           to    	PVS_LIBRARY_PATH
+  Add	/path/to/OPEV_Basic           to    	PVS_LIBRARY_PATH
+  Add	/path/to/lem			to	      PATH
+  Add	/path/to/ott/bin			to	      PATH
+
+
+# Notice: 
+1. The PVS 7.0.639 is a development version.
+2. The bugs are listed in BugReport.pdf.
+
+How to install the application:
+./configure
+make
+
+
+How to use OPEV to validate the translation:
+Validate all the functions in library OPEV_Values with maximum sequence length 8 and maximum tests number 10:
+	./opev --length 8 --number 10 --range -5 5 OPEV_Values
+
+
+# How to add a new library (take OPEV_Value as example):
+1. Add the neede information for OPEV_Value to tag.json file
+    "pvsLibNames": [..., "OPEV_Value"],
+    "OPEV_Value": {
+        "library_path": "./OPEV_Value",
+        "mlSrcFiles": ["./OPEV_Value/ocaml_src/sail_values.ml"],
+        "externalCmds": ["zarith"],
+        "externalMLs" : [],
+        "specialString": ""
+    },
+2. Execute the following command
+  $ ./configure
+

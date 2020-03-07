@@ -1,0 +1,224 @@
+lem_list_extra: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_maybe
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_tuple
+
+IMPORTING lem_num
+
+IMPORTING lem_list
+
+IMPORTING lem_assert_extra
+
+IMPORTING list_extra
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% head[A : TYPE]( l : list[A]) : A = 
+% CASES  l OF
+%   cons( x, xs):  x,
+%   null: failwith("List_extra.head of empty list") 
+% ENDCASES
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% tail[A : TYPE]( l : list[A]) : list[A] = 
+% CASES  l OF
+%   cons( x, xs):  xs,
+%   null: failwith("List_extra.tail of empty list") 
+% ENDCASES
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+last[A : TYPE](l : list[A]) : RECURSIVE A = 
+CASES l OF
+      null: failwith("List_extra.last of empty list"),
+      cons(x, xs): CASES xs OF
+                         null: x,
+                         cons(x2, xs'): last(xs)
+                   ENDCASES
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+init[A : TYPE](l : list[A]) : RECURSIVE list[A] = 
+CASES l OF
+      null: failwith("List_extra.init of empty list"),
+      cons(x, xs): CASES xs OF
+                         null: null,
+                         cons(x2, xs'): list_cons(x)(init(xs))
+                   ENDCASES
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+foldl1[A : TYPE]( f : [A -> [A -> A]])( x_xs : list[A]) : A = 
+CASES  x_xs OF
+  cons(x,  xs): foldl(f)(x)(xs),
+  null: failwith("List_extra.foldl1 of empty list") 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+foldr1[A : TYPE]( f : [A -> [A -> A]])( x_xs : list[A]) : A = 
+CASES  x_xs OF
+  cons(x,  xs): foldr(f)(x)(xs),
+  null: failwith("List_extra.foldr1 of empty list") 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% nth[A : TYPE]( l : list[A])( n : nat) : A = 
+% CASES index(l)(n) OF
+%   Some( e):  e,
+%   None: failwith("List_extra.nth") 
+% ENDCASES
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+% 
+% 
+
+% 
+
+findNonPure[A : TYPE]( p0 : [A -> bool])( l : list[A]) : A = 
+CASES find(p0)(l) OF
+  Some( e):  e,
+  None: failwith("List_extra.findNonPure") 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+% 
+% 
+
+% 
+
+zipSameLength[A, B : TYPE]( l1 : list[A])( l2 : list[B]) : RECURSIVE list[[A, B]] =
+CASES l1 OF
+      null: CASES l2 OF
+                  null: null[[A, B]],
+                  cons(y, ys): failwith("List_extra.zipSameLength of different length lists")
+            ENDCASES,
+      cons(x, xs): CASES l2 OF
+                         null: failwith("List_extra.zipSameLength of different length lists"),
+                         cons(y, ys): list_cons((x, y))(zipSameLength(xs)(ys))
+                   ENDCASES
+ENDCASES
+MEASURE length(l1)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+unfoldr[A, B : TYPE](f : [A -> option[[B, A]]])(x : A) : RECURSIVE list[B] = 
+CASES f(x) OF
+      None: null[B],
+      Some(yx): LET (y, x') = yx IN list_cons(y)(unfoldr(f)(x'))
+ENDCASES
+MEASURE f(x) BY <<
+
+
+
+
+
+END lem_list_extra

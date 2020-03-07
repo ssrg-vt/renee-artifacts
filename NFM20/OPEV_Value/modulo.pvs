@@ -1,0 +1,28 @@
+modulo : THEORY
+BEGIN
+
+modulo(n:int, m:nzint) : MACRO int =
+    IF (n > 0 AND m < 0) OR (n < 0 AND m > 0)
+    THEN n - m * ceiling(n/m)
+    ELSE n - m * floor(n/m)
+    ENDIF
+    
+%=================== Properties of modulo operations ===================
+
+modulo_mod_rel: LEMMA FORALL (n:int, m:nzint): (m > 0 AND n >= 0) OR (m < 0 AND n <= 0) IMPLIES modulo(n, m) = mod(n, m)
+
+modulo_zero: LEMMA FORALL (n: int, m: nzint): integer?(n / m) IMPLIES modulo(n, m) = 0
+modulo_notzero: LEMMA FORALL (n:int, m:nzint): NOT integer?(n / m) IMPLIES modulo(n, m) /= 0
+
+modulo_pos: LEMMA FORALL (n:int, m:nzint): n > 0 AND NOT integer?(n/m) IMPLIES modulo(n, m) > 0
+
+modulo_neg: LEMMA FORALL (n:int, m:nzint): n < 0 AND NOT integer?(n/m) IMPLIES modulo(n, m) < 0
+
+modulo_mod_diff: LEMMA FORALL (n:int, m:nzint):
+    (n > 0 AND m < 0) OR (n < 0 AND m > 0) IMPLIES
+    IF integer?(n / m)
+    THEN modulo(n, m) = 0
+    ELSE modulo(n, m) = mod(n, m) - m
+    ENDIF
+
+END modulo

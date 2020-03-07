@@ -1,0 +1,437 @@
+(thms
+ (pairEqual_def_lemma 0
+  (pairEqual_def_lemma-1 nil 3745009166 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (bool_and const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (id_def_lemma 0
+  (id_def_lemma-1 nil 3745009174 ("" (grind) nil nil)
+   ((id const-decl "(bijective?[T, T])" identity nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (apply_def_lemma 0
+  (apply_def_lemma-1 nil 3745009187 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (maybeEqualBy_def_lemma 0
+  (maybeEqualBy_def_lemma-1 nil 3745009192 ("" (grind) nil nil)
+   ((option_equal const-decl "bool" lib_extra nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (isJustNothing 0
+  (isJustNothing-1 nil 3745009197 ("" (grind) nil nil)
+   ((isNothing const-decl "bool" lem_maybe nil)
+    (isJust const-decl "bool" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (bool_and const-decl "bool" lib_extra nil))
+   shostak))
+ (fromMaybe 0
+  (fromMaybe-1 nil 3745009203 ("" (grind) nil nil)
+   ((fromMaybe const-decl "A" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (bool_and const-decl "bool" lib_extra nil))
+   shostak))
+ (maybe_map 0
+  (maybe_map-1 nil 3745009209 ("" (grind) nil nil)
+   ((map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (bool_and const-decl "bool" lib_extra nil))
+   shostak))
+ (maybe_bind 0
+  (maybe_bind-1 nil 3745009214 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (bind const-decl "option[B]" lem_maybe nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (bool_and const-decl "bool" lib_extra nil))
+   shostak))
+ (natSucc_def_lemma 0
+  (natSucc_def_lemma-1 nil 3745009218 ("" (grind) nil nil)
+   ((succ const-decl "nat" naturalnumbers nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil))
+   shostak))
+ (naturalSucc_def_lemma 0
+  (naturalSucc_def_lemma-1 nil 3745009223 ("" (grind) nil nil)
+   ((succ const-decl "nat" naturalnumbers nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil))
+   shostak))
+ (rationalPowNat_def_lemma_TCC1 0
+  (rationalPowNat_def_lemma_TCC1-1 nil 3745008557 ("" (grind) nil nil)
+   ((/= const-decl "boolean" notequal nil)) nil
+   (rationalPowNat_def_lemma subtype "thms.e"
+    "{i: integers.int | booleans.OR(thms.r /= 0, reals.>=(i, 0))}")))
+ (rationalPowNat_def_lemma 0
+  (rationalPowNat_def_lemma-1 nil 3745009241
+   ("" (induct "e") (("1" (grind) nil nil) ("2" (grind) nil nil)) nil)
+   ((rat_times_rat_is_rat application-judgement "rat" rationals nil)
+    (rat_expt application-judgement "rat" exponentiation nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (expt def-decl "real" exponentiation nil)
+    (rat_exp application-judgement "rat" exponentiation nil)
+    (nat_induction formula-decl nil naturalnumbers nil)
+    (^ const-decl "real" exponentiation nil)
+    (/= const-decl "boolean" notequal nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (rationalPowInteger def-decl "rat" lem_num nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (rat nonempty-type-eq-decl nil rationals nil)
+    (pred type-eq-decl nil defined_types nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil))
+   shostak))
+ (realPowNat_def_lemma_TCC1 0
+  (realPowNat_def_lemma_TCC1-1 nil 3745008557 ("" (grind) nil nil)
+   ((/= const-decl "boolean" notequal nil)) nil
+   (realPowNat_def_lemma subtype "thms.e"
+    "{i: integers.int | booleans.OR(thms.r /= 0, reals.>=(i, 0))}")))
+ (realPowNat_def_lemma 0
+  (realPowNat_def_lemma-1 nil 3745009413
+   ("" (induct "e") (("1" (grind) nil nil) ("2" (grind) nil nil)) nil)
+   ((real_times_real_is_real application-judgement "real" reals nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (expt def-decl "real" exponentiation nil)
+    (nat_induction formula-decl nil naturalnumbers nil)
+    (^ const-decl "real" exponentiation nil)
+    (/= const-decl "boolean" notequal nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (realPowInteger def-decl "real" lem_num nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (pred type-eq-decl nil defined_types nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil))
+   shostak))
+ (fst_def_lemma 0
+  (fst_def_lemma-1 nil 3745009424 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (snd_def_lemma 0
+  (snd_def_lemma-1 nil 3745009428 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (fst_snd 0
+  (fst_snd-1 nil 3745009432 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (curry_uncurry 0
+  (curry_uncurry-1 nil 3745009436 ("" (grind) nil nil)
+   ((curry const-decl "[A -> [B -> C]]" lem_function nil)
+    (uncurry const-decl "C" lem_function nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (uncurry_curry 0
+  (uncurry_curry-1 nil 3745009440 ("" (grind) nil nil)
+   ((uncurry const-decl "C" lem_function nil)
+    (curry const-decl "[A -> [B -> C]]" lem_function nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (swap_def_lemma 0
+  (swap_def_lemma-1 nil 3745009443 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (length_def_lemma 0
+  (length_def_lemma-1 nil 3745009447 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (length_spec 0
+  (length_spec-1 nil 3745009451 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (bool_and const-decl "bool" lib_extra nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil))
+   shostak))
+ (listEqualBy_def_lemma 0
+  (listEqualBy_def_lemma-1 nil 3745009454 ("" (grind) nil nil)
+   ((bool_and const-decl "bool" lib_extra nil)
+    (list_equal_by def-decl "bool" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (lexicographicCompareBy_def_lemma 0
+  (lexicographicCompareBy_def_lemma-1 nil 3745009461
+   ("" (grind) nil nil)
+   ((list_compare_by def-decl "ordering" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (append_def_lemma 0
+  (append_def_lemma-1 nil 3745009467 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (snoc_def_lemma 0
+  (snoc_def_lemma-1 nil 3745009473 ("" (grind) nil nil)
+   ((list_append const-decl "list[T]" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (snoc_length 0
+  (snoc_length-1 nil 3745009476
+   ("" (induct "l") (("1" (grind) nil nil) ("2" (grind) nil nil)) nil)
+   ((posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_induction formula-decl nil list_adt nil)
+    (A decl-formal-type nil thms nil)
+    (succ const-decl "nat" naturalnumbers nil)
+    (null adt-constructor-decl "(null?)" list_adt nil)
+    (null? adt-recognizer-decl "[list -> boolean]" list_adt nil)
+    (cons adt-constructor-decl "[[T, list] -> (cons?)]" list_adt nil)
+    (cons? adt-recognizer-decl "[list -> boolean]" list_adt nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (length def-decl "nat" list_props nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (list type-decl nil list_adt nil))
+   shostak))
+ (snoc_append 0
+  (snoc_append-1 nil 3745009508
+   ("" (induct "l1") (("1" (grind) nil nil) ("2" (grind) nil nil)) nil)
+   ((append def-decl "list[T]" list_props nil)
+    (list_induction formula-decl nil list_adt nil)
+    (A decl-formal-type nil thms nil)
+    (null adt-constructor-decl "(null?)" list_adt nil)
+    (null? adt-recognizer-decl "[list -> boolean]" list_adt nil)
+    (cons adt-constructor-decl "[[T, list] -> (cons?)]" list_adt nil)
+    (cons? adt-recognizer-decl "[list -> boolean]" list_adt nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (list type-decl nil list_adt nil))
+   shostak))
+ (reverse_def_lemma 0
+  (reverse_def_lemma-1 nil 3745019543
+   ("" (induct "l")
+    (("1" (grind) nil nil)
+     ("2" (grind)
+      (("2" (expand "reverseAppend" +)
+        (("2" (case "cons2_var!1 = null")
+          (("1" (assert) nil nil)
+           ("2" (assert) (("2" (postpone) nil nil)) nil))
+          nil))
+        nil))
+      nil))
+    nil)
+   nil shostak))
+ (reverse_nil 0
+  (reverse_nil-1 nil 3745020753 ("" (grind) nil nil)
+   ((reverse def-decl "list[T]" list_props nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (reverseAppend 0
+  (reverseAppend-1 nil 3745020761 ("" (postpone) nil nil) nil shostak))
+ (map_def_lemma 0
+  (map_def_lemma-1 nil 3745020768
+   ("" (grind)
+    (("" (expand "count_map")
+      (("" (grind) (("" (postpone) nil nil)) nil)) nil))
+    nil)
+   nil shostak))
+ (any_def_lemma 0
+  (any_def_lemma-1 nil 3745032014
+   ("" (induct "l") (("1" (grind) nil nil) ("2" (postpone) nil nil))
+    nil)
+   nil shostak))
+ (null_size_TCC1 0
+  (null_size_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil nil
+   (null_size subtype "(0)"
+    "{n: naturalnumbers.nat | n = finite_sets[thms.A].Card(thms.s)}")))
+ (null_size_TCC2 0
+  (null_size_TCC2-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil nil
+   (null_size subtype "thms.s" "finite_set[A]")))
+ (null_size_TCC3 0
+  (null_size_TCC3-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil nil
+   (null_size subtype "thms.s" "finite_set[A]")))
+ (null_singleton_TCC1 0
+  (null_singleton_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil
+   (null_singleton subtype "(1)"
+    "{n: naturalnumbers.nat | n = finite_sets[thms.A].Card(sets[thms.A].singleton(thms.x))}")))
+ (set_filter_def_lemma_TCC1 0
+  (set_filter_def_lemma_TCC1-1 nil 3745008557
+   ("" (subtype-tcc) nil nil) nil nil
+   (set_filter_def_lemma subtype "thms.s" "finite_set[A]")))
+ (bigunion_def_lemma_TCC1 0
+  (bigunion_def_lemma_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil)
+   nil nil
+   (bigunion_def_lemma subtype "thms.bs" "finite_set[set[A]]")))
+ (bigunion_def_lemma_TCC2 0
+  (bigunion_def_lemma_TCC2-1 nil 3745008557 ("" (subtype-tcc) nil nil)
+   nil nil (bigunion_def_lemma subtype "thms.s" "finite_set[A]")))
+ (bigintersection_def_lemma_TCC1 0
+  (bigintersection_def_lemma_TCC1-1 nil 3745008557
+   ("" (subtype-tcc) nil nil) nil nil
+   (bigintersection_def_lemma subtype "set_extra.bigunion(thms.bs)"
+    "finite_set[A]")))
+ (set_map_def_lemma_TCC1 0
+  (set_map_def_lemma_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil)
+   nil nil (set_map_def_lemma subtype "thms.s" "finite_set[A]")))
+ (sigma_def_lemma_TCC1 0
+  (sigma_def_lemma_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil (sigma_def_lemma subtype "thms.sa" "finite_set[A]")))
+ (sigma_def_lemma_TCC2 0
+  (sigma_def_lemma_TCC2-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil (sigma_def_lemma subtype "thms.sb(thms.a)" "finite_set[B]")))
+ (cross_def_lemma_TCC1 0
+  (cross_def_lemma_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil (cross_def_lemma subtype "thms.s1" "finite_set[A]")))
+ (cross_def_lemma_TCC2 0
+  (cross_def_lemma_TCC2-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil (cross_def_lemma subtype "thms.s2" "finite_set[B]")))
+ (empty_size_TCC1 0
+  (empty_size_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil nil
+   (empty_size subtype "(0)"
+    "{n: naturalnumbers.nat | n = finite_sets[thms.K].Card(fmap[thms.K, thms.V].fdom(fmap[thms.K, thms.V].fempty))}")))
+ (empty_size_TCC2 0
+  (empty_size_TCC2-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil nil
+   (empty_size subtype
+    "fmap[thms.K, thms.V].fdom(fmap[thms.K, thms.V].fempty)"
+    "finite_set[K]")))
+ (empty_size_TCC3 0
+  (empty_size_TCC3-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil nil
+   (empty_size subtype
+    "fmap[thms.K, thms.V].fdom(fmap[thms.K, thms.V].fempty)"
+    "finite_set[K]")))
+ (singleton_size_TCC1 0
+  (singleton_size_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil
+   (singleton_size subtype "(1)"
+    "{n: naturalnumbers.nat | n = finite_sets[nat].Card(fmap[nat, nat].fdom(fmap[nat, nat].fadd((2))((3))(fmap[nat, nat].fempty)))}")))
+ (singleton_size_TCC2 0
+  (singleton_size_TCC2-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil
+   (singleton_size subtype
+    "fmap[nat, nat].fdom(fmap[nat, nat].fadd((2))((3))(fmap[nat, nat].fempty))"
+    "finite_set[nat]")))
+ (head_def_lemma_TCC1 0
+  (head_def_lemma_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil (head_def_lemma subtype "thms.l" "(list_adt[thms.A].cons?)")))
+ (head_def_lemma_TCC2 0
+  (head_def_lemma_TCC2-1 nil 3745008557 ("" (existence-tcc) nil nil)
+   nil nil (head_def_lemma existence "" "thms.A")))
+ (tail_def_lemma_TCC1 0
+  (tail_def_lemma_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil (tail_def_lemma subtype "thms.l" "(list_adt[thms.A].cons?)")))
+ (head_tail_cons_TCC1 0
+  (head_tail_cons_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil (head_tail_cons subtype "thms.l" "(list_adt[thms.A].cons?)")))
+ (head_tail_cons_TCC2 0
+  (head_tail_cons_TCC2-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil (head_tail_cons subtype "thms.l" "(list_adt[thms.A].cons?)")))
+ (nth_def_lemma_TCC1 0
+  (nth_def_lemma_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil
+   (nth_def_lemma subtype "thms.n"
+    "naturalnumbers.below(list_props[thms.A].length(thms.l))")))
+ (nth_def_lemma_TCC2 0
+  (nth_def_lemma_TCC2-1 nil 3745008557 ("" (existence-tcc) nil nil) nil
+   nil (nth_def_lemma existence "" "thms.A")))
+ (nth_index_TCC1 0
+  (nth_index_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil nil
+   (nth_index subtype "thms.n"
+    "naturalnumbers.below(list_props[thms.A].length(thms.l))")))
+ (find_def_lemma_TCC1 0
+  (find_def_lemma_TCC1-1 nil 3745008557 ("" (existence-tcc) nil nil)
+   nil nil (find_def_lemma existence "" "thms.V")))
+ (fromSet_def_lemma_TCC1 0
+  (fromSet_def_lemma_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil)
+   nil nil (fromSet_def_lemma subtype "thms.s" "finite_set[K]")))
+ (fromSet_def_lemma_TCC2 0
+  (fromSet_def_lemma_TCC2-1 nil 3745008557 ("" (subtype-tcc) nil nil)
+   nil nil (fromSet_def_lemma subtype "thms.s" "finite_set[K]")))
+ (fromSet_def_lemma 0
+  (fromSet_def_lemma-1 nil 3745080184 ("" (grind) nil nil)
+   ((fmap_from_set const-decl "fmap" fmap nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (fold_def_lemma_TCC1 0
+  (fold_def_lemma_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil
+   nil
+   (fold_def_lemma subtype "fmap[thms.K, thms.V].fmap_to_set(thms.m)"
+    "finite_set[[K, V]]")))
+ (choose_sing_TCC1 0
+  (choose_sing_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil)
+   ((A decl-formal-type nil thms nil)
+    (member const-decl "bool" sets nil)
+    (empty? const-decl "bool" sets nil)
+    (nonempty? const-decl "bool" sets nil))
+   nil
+   (choose_sing subtype "{x0: thms.A | x0 = thms.x}"
+    "(sets[thms.A].nonempty?)")))
+ (choose_in_TCC1 0
+  (choose_in_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil) nil nil
+   (choose_in subtype "thms.s" "(sets[thms.A].nonempty?)")))
+ (lfp_saturate_neg_TCC1 0
+  (lfp_saturate_neg_TCC1-1 nil 3745008557 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (minus_int_is_int application-judgement "int" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (member const-decl "bool" sets nil)
+    (map const-decl "set[B]" set_extra nil))
+   nil
+   (lfp_saturate_neg subtype
+    "set_extra.map((LAMBDA (x: integers.int): ))"
+    "[set[int] -> set[int]]"))))
+

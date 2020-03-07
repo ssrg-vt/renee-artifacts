@@ -1,0 +1,15 @@
+extz[N:nat] : THEORY
+BEGIN
+
+extz(m:nat, bv:bvec[N]) : MACRO bvec[m]=
+    IF N < m
+    THEN bv o fill[m-N](FALSE)
+    ELSIF N = m THEN bv
+    ELSE
+         IF m > 0
+         THEN bv^(N-1, N-m)
+         ELSE empty_bv
+         ENDIF
+    ENDIF
+
+END extz

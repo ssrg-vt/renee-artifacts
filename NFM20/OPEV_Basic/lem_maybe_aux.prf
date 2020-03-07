@@ -1,0 +1,150 @@
+(lem_maybe_aux
+ (maybeEqualBy_def_lemma 0
+  (maybeEqualBy_def_lemma-1 nil 3744389103 ("" (grind) nil nil)
+   ((option_equal const-decl "bool" lib_extra nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (maybe_eq_1 0
+  (maybe_eq_1-1 nil 3742833867 ("" (grind) nil nil)
+   ((option_equal const-decl "bool" lib_extra nil)) shostak))
+ (maybe_eq_2 0
+  (maybe_eq_2-1 nil 3742833872 ("" (grind) nil nil)
+   ((option_equal const-decl "bool" lib_extra nil)) shostak))
+ (maybe_eq_3 0
+  (maybe_eq_3-1 nil 3742833877 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (maybe_eq_4 0
+  (maybe_eq_4-1 nil 3742833882 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (maybe_1 0
+  (maybe_1-1 nil 3742837524 ("" (grind) nil nil)
+   ((maybe const-decl "B" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (maybe_2 0
+  (maybe_2-1 nil 3742837541 ("" (grind) nil nil)
+   ((maybe const-decl "B" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (maybe_3 0
+  (maybe_3-1 nil 3742837547 ("" (grind) nil nil)
+   ((maybe const-decl "B" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (maybe_4 0
+  (maybe_4-1 nil 3742837552 ("" (grind) nil nil)
+   ((maybe const-decl "B" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (isJust_1 0
+  (isJust_1-1 nil 3742834884 ("" (grind) nil nil)
+   ((isJust const-decl "bool" lem_maybe nil)) shostak))
+ (isJust_2 0
+  (isJust_2-1 nil 3742837556 ("" (grind) nil nil)
+   ((isJust const-decl "bool" lem_maybe nil)) shostak))
+ (isNothing_1 0
+  (isNothing_1-1 nil 3742837561 ("" (grind) nil nil)
+   ((isNothing const-decl "bool" lem_maybe nil)) shostak))
+ (isNothing_2 0
+  (isNothing_2-1 nil 3742837565 ("" (grind) nil nil)
+   ((isNothing const-decl "bool" lem_maybe nil)) shostak))
+ (isJustNothing 0
+  (isJustNothing-1 nil 3742837569 ("" (grind) nil nil)
+   ((isNothing const-decl "bool" lem_maybe nil)
+    (isJust const-decl "bool" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (bool_and const-decl "bool" lib_extra nil))
+   shostak))
+ (fromMaybe 0
+  (fromMaybe-1 nil 3742837574 ("" (grind) nil nil)
+   ((fromMaybe const-decl "A" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (bool_and const-decl "bool" lib_extra nil))
+   shostak))
+ (fromMaybe_1 0
+  (fromMaybe_1-1 nil 3742837578 ("" (grind) nil nil)
+   ((fromMaybe const-decl "A" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (fromMaybe_2 0
+  (fromMaybe_2-1 nil 3742837583 ("" (grind) nil nil)
+   ((fromMaybe const-decl "A" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (fromMaybe_3 0
+  (fromMaybe_3-1 nil 3742837587 ("" (grind) nil nil)
+   ((fromMaybe const-decl "A" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (fromMaybe_4 0
+  (fromMaybe_4-1 nil 3742837591 ("" (grind) nil nil)
+   ((fromMaybe const-decl "A" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (maybe_map 0
+  (maybe_map-1 nil 3742837598 ("" (grind) nil nil)
+   ((map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (bool_and const-decl "bool" lib_extra nil))
+   shostak))
+ (map_1 0
+  (map_1-1 nil 3742837602 ("" (grind) nil nil)
+   ((map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (map_2 0
+  (map_2-1 nil 3742837606 ("" (grind) nil nil)
+   ((map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (map_3 0
+  (map_3-1 nil 3742837610 ("" (grind) nil nil)
+   ((map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (maybe_bind 0
+  (maybe_bind-1 nil 3742837614 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (bind const-decl "option[B]" lem_maybe nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (bool_and const-decl "bool" lib_extra nil))
+   shostak))
+ (bind_1 0
+  (bind_1-1 nil 3742837618 ("" (grind) nil nil)
+   ((maybe const-decl "B" lem_maybe nil)
+    (bind const-decl "option[B]" lem_maybe nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (bind_2 0
+  (bind_2-1 nil 3742837625 ("" (grind) nil nil)
+   ((maybe const-decl "B" lem_maybe nil)
+    (bind const-decl "option[B]" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (bind_3 0
+  (bind_3-1 nil 3742837629 ("" (grind) nil nil)
+   ((maybe const-decl "B" lem_maybe nil)
+    (bind const-decl "option[B]" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (bind_4 0
+  (bind_4-1 nil 3742837633 ("" (grind) nil nil)
+   ((maybe const-decl "B" lem_maybe nil)
+    (bind const-decl "option[B]" lem_maybe nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak)))
+

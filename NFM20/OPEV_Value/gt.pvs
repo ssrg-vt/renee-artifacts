@@ -1,0 +1,8 @@
+gt: THEORY
+BEGIN
+
+m, n: VAR int
+
+gt(m, n) : MACRO bit = m > n
+
+END gt

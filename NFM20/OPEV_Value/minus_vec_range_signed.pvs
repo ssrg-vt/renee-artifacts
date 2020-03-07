@@ -1,0 +1,27 @@
+minus_vec_range_signed[N:posnat] : THEORY
+BEGIN
+
+IMPORTING signed
+IMPORTING to_vec_inc
+
+bv: VAR bvec[N]
+
+b: VAR bit
+
+minus_vec_bit(bv, b): MACRO bvec[N] =
+    IF NOT b
+    THEN bv
+    ELSE to_vec_inc(N, signed(bv) - 1)
+    ENDIF
+
+minus_overflow_vec_bit_signed(bv, b) : MACRO [bvec[N], bit, bit] =
+    IF NOT b
+    THEN (bv, FALSE, FALSE)
+    ELSE
+        LET minus_result = signed(bv) - 1 IN
+        LET overflow = minus_result > maxint[N] OR minus_result < minint[N],
+            c_out = (mod(floor((unsigned[N](bv) - 1)/exp2(N)), 2) /= 0) IN
+        (to_vec_inc(N, minus_result), overflow, c_out)
+    ENDIF
+
+END minus_vec_range_signed

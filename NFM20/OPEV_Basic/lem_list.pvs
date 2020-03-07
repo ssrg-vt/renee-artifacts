@@ -1,0 +1,1099 @@
+lem_list: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_maybe
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_function
+
+IMPORTING lem_tuple
+
+IMPORTING lem_num
+
+IMPORTING list_extra
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+list_null[A : TYPE]( l : list[A]) : bool = 
+CASES  l OF
+  null: TRUE
+  ELSE FALSE 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% length[A : TYPE]( l : list[A]) : RECURSIVE nat = 
+% CASES  l OF
+%   null: 0,
+%   cons( x,  xs):  instance_Num_NumAdd_nat.+ length(xs) 1 
+% ENDCASES
+% MEASURE length
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% % 
+% 
+% % 
+% 
+% listEqualBy[A : TYPE]( eq : [A -> [A -> bool]])( l1 : list[A])( l2 : list[A]) : RECURSIVE bool = 
+% CASES (l1, l2) OF
+%   (null, null): TRUE,
+%   (null, cons(x1, x0)): FALSE,
+%   (cons(x3, x2), null): FALSE,
+%   (cons(x, xs), cons( y,  ys)): bool_and(eq(x)(y))(list_equal_by(eq)(xs)(ys)) 
+% ENDCASES
+% MEASURE listEqualBy
+% 
+% 
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_list_dict[A : TYPE](dict_Basic_classes_Eq_a : eq_class[A]) : eq_class[list[A]] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( l1 : list[A])( l2 : list[A]) : NOT(eqs(l1)(l2)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% % 
+% 
+% % 
+% 
+% lexicographicCompareBy[A : TYPE]( cmp : [A -> [A -> ordering]])( l1 : list[A])( l2 : list[A]) : RECURSIVE ordering = 
+% CASES (l1, l2) OF
+%   (null, null): 0,
+%   (null, cons(x1, x0)): -1,
+%   (cons(x3, x2), null): 1,
+%   (cons(x, xs), cons( y, ys)): 
+% CASES cmp(x)(y) OF
+%   -1: -1,
+%   1: 1,
+%   0: list_compare_by(cmp)(xs)(ys) 
+% ENDCASES 
+% ENDCASES
+% MEASURE lexicographicCompareBy
+% 
+% 
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+lexicographic_less[A : TYPE](less : [A -> [A -> bool]])(less_eq : [A -> [A -> bool]])(l1 : list[A])(l2 : list[A]) : RECURSIVE bool =
+CASES l1 OF
+      null: CASES l2 OF
+                  null: FALSE,
+                  cons(y, ys): TRUE
+            ENDCASES,
+      cons(x, xs): CASES l2 OF
+                         null: FALSE,
+                         cons(y, ys): bool_or(less(x)(y))(bool_and(less_eq(x)(y))(lexicographic_less(less)(less_eq)(xs)(ys))) 
+                   ENDCASES
+ENDCASES
+MEASURE length(l1)
+
+
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+lexicographic_less_eq[A : TYPE]( less : [A -> [A -> bool]])( less_eq : [A -> [A -> bool]])( l1 : list[A])( l2 : list[A]) : RECURSIVE bool =
+CASES l1 OF
+      null: CASES l2 OF
+                  null: TRUE,
+                  cons(y, ys): TRUE
+            ENDCASES,
+      cons(x, xs): CASES l2 OF
+                         null: FALSE,
+                         cons(y, ys): bool_or(less(x)(y))(bool_and(less_eq(x)(y))(lexicographic_less_eq(less)(less_eq)(xs)(ys))) 
+                   ENDCASES
+ENDCASES
+MEASURE length(l1)
+
+
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_list_dict[A : TYPE](dict_Basic_classes_Ord_a : ord_class[A]) : ord_class[list[A]] = (#  
+
+  compare_method := list_compare_by(dict_Basic_classes_Ord_a`compare_method),  
+
+  isLess_method := lexicographic_less(dict_Basic_classes_Ord_a`isLess_method)(dict_Basic_classes_Ord_a`isLessEqual_method),  
+
+  isLessEqual_method := lexicographic_less_eq(dict_Basic_classes_Ord_a`isLess_method)(dict_Basic_classes_Ord_a`isLessEqual_method),  
+
+  isGreater_method := (LAMBDA ( x : list[A])( y : list[A]) : lexicographic_less(dict_Basic_classes_Ord_a`isLess_method)(dict_Basic_classes_Ord_a`isLessEqual_method)(y)(x)),  
+
+  isGreaterEqual_method := (LAMBDA ( x : list[A])( y : list[A]) : lexicographic_less_eq(dict_Basic_classes_Ord_a`isLess_method)(dict_Basic_classes_Ord_a`isLessEqual_method)(y)(x))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %% (* originally append *)
+% % 
+% 
+% % 
+% 
+% append[A : TYPE]( xs : list[A])( ys : list[A]) : RECURSIVE list[A] = 
+% CASES  xs OF
+%   null:  ys,
+%   cons( x,  xs'): list_cons(x)(list_append(xs')(ys)) 
+% ENDCASES
+% MEASURE append
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% snoc[A : TYPE]( e : A)( l : list[A]) : list[A] = list_append(l)(cons(e, null))
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+% (* originally named rev_append *)
+% 
+
+% 
+
+reverseAppend[A : TYPE](l1 : list[A])(l2 : list[A]) : RECURSIVE list[A] = 
+CASES l1 OF
+      null: l2,
+      cons(x, xs): reverseAppend(xs)(list_cons(x)(l2)) 
+ENDCASES
+MEASURE length(l1)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %% (* originally named rev *)
+% % 
+% 
+% % 
+% 
+% reverse[A : TYPE]( l : list[A]) : list[A] = reverseAppend(l)(null)
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+map_tr[A, B : TYPE]( rev_acc : list[B])( f : [A -> B])( l : list[A]) : RECURSIVE list[B] = 
+CASES l OF
+      null: rev(rev_acc),
+      cons(x, xs): map_tr(list_cons(f(x))(rev_acc))(f)(xs) 
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+count_map[A, B : TYPE]( f : [A -> B])( l : list[A])( ctr : nat) : RECURSIVE list[B] = 
+CASES l OF
+      null: null,
+      cons(hd, tl): list_cons(f(hd))( IF nat_lt(ctr)((5000)) THEN count_map(f)(tl)(nat_add(ctr)((1))) ELSE map_tr(null)(f)(tl) ENDIF) 
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% map[A, B : TYPE]( f : [A -> B])( l : list[A]) : list[B] = count_map(f)(l)(0)
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %% (* originally foldl *)
+% % 
+% % 
+% 
+% % 
+% 
+% foldl[A, B : TYPE]( f : [A -> [B -> A]])( b : A)( l : list[B]) : RECURSIVE A = 
+% CASES  l OF
+%   null:  b,
+%   cons( x,  xs): foldl(f)(f(b)(x))(xs) 
+% ENDCASES
+% MEASURE foldl
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %% (* originally foldr with different argument order *)
+% % 
+% 
+% % 
+% 
+% foldr[A, B : TYPE]( f : [A -> [B -> B]])( b : B)( l : list[A]) : RECURSIVE B = 
+% CASES  l OF
+%   null:  b,
+%   cons( x,  xs): f(x)(foldr(f)(b)(xs)) 
+% ENDCASES
+% MEASURE foldr
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %% (* before also called "flatten" *)
+% % 
+% 
+% % 
+% 
+% concat[A : TYPE] : [list[list[A]] -> list[A]] = foldr(list_append)(null)
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %% (* originally for_all *)
+% % 
+% 
+% % 
+% 
+% all[A : TYPE]( P : [A -> bool])( l : list[A]) : bool = foldl((LAMBDA ( r : bool)( e : A) : bool_and(P(e))(r)))(TRUE)(l)
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %% (* originally exist *)
+% % 
+% 
+% % 
+% 
+% any[A : TYPE]( P : [A -> bool])( l : list[A]) : bool = foldl((LAMBDA ( r : bool)( e : A) : bool_or(P(e))(r)))(FALSE)(l)
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+% 
+% 
+% 
+
+% 
+
+dest_init_aux[A : TYPE](rev_init : list[A])(last_elem_seen : A)(to_process : list[A]) : RECURSIVE [list[A], A] = 
+CASES to_process OF
+      null: (rev(rev_init),  last_elem_seen),
+      cons(x, xs): dest_init_aux(list_cons(last_elem_seen)(rev_init))(x)(xs) 
+ENDCASES
+MEASURE length(to_process)
+
+
+
+%
+% 
+% 
+
+% 
+
+dest_init[A : TYPE]( l : list[A]) : option[[list[A], A]] = 
+CASES  l OF
+  null: None,
+  cons( x, xs): Some(dest_init_aux(null)(x)(xs)) 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+% 
+
+index[A : TYPE](l : list[A])(n : nat) : RECURSIVE option[A] = 
+CASES l OF
+      null: None,
+      cons(x, xs):  IF eqs(n)((0)) THEN Some(x) ELSE index(xs)(nat_minus(n)((1))) ENDIF 
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+% 
+
+findIndices_aux[A : TYPE](i : nat)(p0 : [A -> bool])(l : list[A]) : RECURSIVE list[nat] = 
+CASES l OF
+      null: null,
+      cons(x, xs): IF p0(x) THEN list_cons(i)(findIndices_aux(nat_add(i)((1)))(p0)(xs)) ELSE findIndices_aux(nat_add(i)((1)))(p0)(xs) ENDIF 
+ENDCASES
+MEASURE length(l)
+
+
+
+%
+% 
+
+% 
+
+findIndices[A : TYPE]( p0 : [A -> bool])( l : list[A]) : list[nat] = findIndices_aux((0))(p0)(l)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+findIndex[A : TYPE]( p0 : [A -> bool])( l : list[A]) : option[nat] = 
+CASES findIndices(p0)(l) OF
+  null: None,
+  cons( x, x0): Some(x) 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+% 
+
+genlist[A : TYPE](f : [nat -> A])(n : nat) : RECURSIVE list[A] =  
+  IF eqs(n)((0)) THEN null ELSE
+   LET n'0 = nat_minus(n)((1)) IN list_append(genlist(f)(n'0))(cons(f(n'0), null))
+    ENDIF
+MEASURE n
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+replicate[A : TYPE](n : nat)(x : A) : RECURSIVE list[A] =  
+  IF eqs(n)((0)) THEN null ELSE
+   LET n'0 = nat_minus(n)((1)) IN list_cons(x)(replicate(n'0)(x)) ENDIF
+MEASURE n
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+splitAtAcc[A : TYPE](revAcc : list[A])(n : nat)(l : list[A]) : RECURSIVE [list[A], list[A]] = 
+CASES l OF
+      null: (rev(revAcc), null[A]),
+      cons(x, xs):  IF nat_le(n)((0)) THEN (rev(revAcc),  l) ELSE splitAtAcc(list_cons(x)(revAcc))(nat_minus(n)((1)))(xs) ENDIF 
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+splitAt[A : TYPE]( n : nat)( l : list[A]) : [list[A], list[A]] = splitAtAcc(null)(n)(l)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+take[A : TYPE]( n : nat)( l : list[A]) : list[A] = proj_1(splitAt[A](n)(l))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+drop[A : TYPE]( n : nat)( l : list[A]) : list[A] = proj_2(splitAt[A](n)(l))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+splitWhile_tr[A : TYPE](p : [A -> bool])(l : list[A])(acc : list[A]) : RECURSIVE [list[A], list[A]] = 
+CASES l OF
+      null: (rev(acc), null[A]),
+      cons(x, xs): IF p(x) THEN splitWhile_tr(p)(xs)(list_cons(x)(acc)) ELSE (rev(acc), list_cons(x)(xs)) ENDIF 
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+splitWhile[A : TYPE]( p : [A -> bool])( xs : list[A]) : [list[A], list[A]] = splitWhile_tr(p)(xs)(null)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+takeWhile[A : TYPE]( p : [A -> bool])( l : list[A]) : list[A] = proj_1(splitWhile(p)(l))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+dropWhile[A : TYPE]( p : [A -> bool])( l : list[A]) : list[A] = proj_2(splitWhile(p)(l))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% isPrefixOf[A : TYPE]( l1 : list[A])( l2 : list[A]) : RECURSIVE bool = 
+% CASES (l1,  l2) OF
+%   (null, x0): TRUE,
+%   (cons(x2, x1), null): FALSE,
+%   (cons(x, xs), cons( y, ys)): bool_and(dict_Basic_classes_Eq_a`isEqual_method(x)(y))(isPrefixOf(xs)(ys)) 
+% ENDCASES
+% MEASURE isPrefixOf
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+update[A : TYPE](l : list[A])(n : nat)(e : A) : RECURSIVE list[A] = 
+CASES l OF
+      null: null,
+      cons(x, xs):  IF eqs(n)((0)) THEN list_cons(e)(xs) ELSE list_cons(x)(update(xs)(nat_minus(n)((1)))(e)) ENDIF 
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% % 
+% 
+% % 
+% 
+% elemBy[A : TYPE]( eq : [A -> [A -> bool]])( e : A)( l : list[A]) : bool = some(eq(e))(l)
+% 
+% 
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% elem[A : TYPE] : [A -> [list[A] -> bool]] = list_member_by(dict_Basic_classes_Eq_a`isEqual_method)
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+% (* previously not of maybe type *)
+% 
+
+% 
+
+find[A : TYPE](p0 : [A -> bool])(l : list[A]) : RECURSIVE option[A] = 
+CASES l OF
+      null: None,
+      cons(x, xs):  IF p0(x) THEN Some(x) ELSE find(p0)(xs) ENDIF 
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% (* DPM: eta-expansion for Coq backend type-inference. *)
+% 
+
+% 
+
+lookupBy[A, B : TYPE](eq : [A -> [A -> bool]])(k : A)(m : list[[A, B]]) : option[B] = lem_maybe.map((LAMBDA ( x : [A, B]) : proj_2(x)))(find((LAMBDA ((k' : A), (x0 : B)) : eq(k)(k')))(m))
+
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% filter[A : TYPE]( P : [A -> bool])( l : list[A]) : RECURSIVE list[A] = 
+% CASES  l OF
+%   null: null,
+%   cons( x,  xs):  IF P(x) THEN list_cons(x)(filter(P)(xs)) ELSE filter(P)(xs) ENDIF 
+% ENDCASES
+% MEASURE filter
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% partition[A : TYPE]( P : [A -> bool])( l : list[A]) : [list[A], list[A]] = (filter(P)(l), filter((LAMBDA ( x : A) : NOT(P(x))))(l))
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+reversePartition[A : TYPE]( p0 : [A -> bool])( l : list[A]) : [list[A], list[A]] = list_partition(p0)(rev(l))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+% 
+% 
+
+% 
+
+list_delete_first[A : TYPE](p0 : [A -> bool])(l : list[A]) : RECURSIVE option[list[A]] = 
+CASES l OF
+      null: None,
+      cons(x, xs):  IF p0(x) THEN Some(xs) ELSE lem_maybe.map((LAMBDA ( xs' : list[A]) : list_cons(x)(xs')))(list_delete_first(p0)(xs)) ENDIF 
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+% 
+
+list_delete[A : TYPE]( eq : [A -> [A -> bool]])( x : A)( l : list[A]) : list[A] = fromMaybe(l)(list_delete_first(eq(x))(l))
+
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+% (* before combine *)
+% 
+
+% 
+
+list_combine[A, B : TYPE](l1 : list[A])(l2 : list[B]) : RECURSIVE list[[A, B]] =
+CASES l1 OF
+      null: null[[A, B]],
+      cons(x, xs): CASES l2 OF
+                         null: null[[A, B]],
+                         cons(y, ys): list_cons((x, y))(list_combine(xs)(ys))
+                   ENDCASES
+ENDCASES
+MEASURE length(l1)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% unzip[A, B : TYPE]( l : list[[A, B]]) : RECURSIVE [list[A], list[B]] = 
+% CASES  l OF
+%   null: (null, null),
+%   cons((x,  y),  xys): LET (xs,  ys) = split(xys) IN (list_cons(x)(xs), list_cons(y)(ys)) 
+% ENDCASES
+% MEASURE unzip
+% 
+% 
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_list_dict[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A]) : setType_class[list[A]] = (#  
+
+  setElemCompare_method := list_compare_by(dict_Basic_classes_SetType_a`setElemCompare_method)
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% allDistinct[A : TYPE]( l : list[A]) : RECURSIVE bool = 
+% CASES  l OF
+%   null: TRUE,
+%   cons(x, l'): bool_and(NOT(list_member(x)(l')))(distinct(l')) 
+% ENDCASES
+% MEASURE allDistinct
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+mapMaybe[A, B : TYPE](f : [A -> option[B]])(l : list[A]) : RECURSIVE list[B] = 
+CASES l OF
+      null: null,
+      cons(x, xs): CASES f(x) OF
+                         None: mapMaybe(f)(xs),
+                         Some(y): list_cons(y)(mapMaybe(f)(xs)) 
+                   ENDCASES
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+mapiAux[A, B : TYPE](f : [nat -> [B -> A]])(n :  nat)(l : list[B]) : RECURSIVE list[A] = 
+CASES l OF
+      null: null,
+      cons(x, xs): list_cons(f(n)(x))(mapiAux(f)(nat_add(n)((1)))(xs)) 
+ENDCASES
+MEASURE length(l)
+
+
+
+%
+% 
+
+% 
+
+mapi[A, B : TYPE]( f : [nat -> [A -> B]])( l : list[A]) : list[B] = mapiAux(f)((0))(l)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+deletes[A : TYPE](dict_Basic_classes_Eq_a : eq_class[A])( xs : list[A])( ys : list[A]) : list[A] = foldl(flip(list_delete(dict_Basic_classes_Eq_a`isEqual_method)))(xs)(ys)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+catMaybes[A : TYPE](xs : list[option[A]]) : RECURSIVE list[A] = 
+CASES xs OF
+      null: null,
+      cons(x, xs'): CASES x OF
+                          None: catMaybes(xs'),
+                          Some(x'): list_cons(x')(catMaybes(xs'))
+                    ENDCASES
+ENDCASES
+MEASURE length(xs)
+
+
+
+
+END lem_list

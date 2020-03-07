@@ -1,0 +1,8 @@
+length[N:nat] : THEORY
+BEGIN
+
+bv: VAR bvec[N]
+
+length(bv) : MACRO nat = N
+
+END length

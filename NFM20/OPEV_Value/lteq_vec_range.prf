@@ -1,0 +1,22 @@
+(lteq_vec_range
+ (lteq_vec_range_TCC1 0
+  (lteq_vec_range_TCC1-1 nil 3728418391 ("" (subtype-tcc) nil nil)
+   ((real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil))
+ (lteq_vec_range_op_eq 0
+  (lteq_vec_range_op_eq-1 nil 3728418392 ("" (grind) nil nil)
+   ((bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (unsigned const-decl "nat" unsigned nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   shostak))
+ (lteq_range_vec_op_eq 0
+  (lteq_range_vec_op_eq-1 nil 3728418397 ("" (grind) nil nil)
+   ((bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (unsigned const-decl "nat" unsigned nil)
+    (nil application-judgement "above(n)" exp2 nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   shostak)))
+

@@ -1,0 +1,500 @@
+thms : THEORY
+
+BEGIN
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_function
+
+IMPORTING lem_maybe
+
+IMPORTING lem_num
+
+IMPORTING lem_tuple
+
+IMPORTING lem_list
+
+IMPORTING lem_either
+
+IMPORTING lem_set_helpers
+
+IMPORTING lem_set
+
+IMPORTING lem_map
+
+IMPORTING lem_relation
+
+IMPORTING lem_sorting
+
+IMPORTING lem_function_extra
+
+IMPORTING lem_assert_extra
+
+IMPORTING lem_list_extra
+
+IMPORTING lem_string
+
+IMPORTING lem_num_extra
+
+IMPORTING lem_map_extra
+
+IMPORTING lem_set_extra
+
+IMPORTING lem_maybe_extra
+
+IMPORTING lem_string_extra
+
+IMPORTING lem_show
+
+IMPORTING lem_show_extra
+
+IMPORTING lem_word
+
+IMPORTING lem_machine_word
+
+IMPORTING lem_pervasives
+
+IMPORTING lem_pervasives_extra
+
+
+pairEqual_def_lemma[A, B : TYPE] : LEMMA FORALL (dict_Basic_classes_Eq_b : eq_class[B]), (dict_Basic_classes_Eq_a : eq_class[A]), (a1 : A), (a2 : A), (b1 : B), (b2 : B) : (eqs(bool_and(dict_Basic_classes_Eq_a`isEqual_method(a1)(a2))(dict_Basic_classes_Eq_b`isEqual_method(b1)(b2)))(pair_equal(dict_Basic_classes_Eq_a`isEqual_method)(dict_Basic_classes_Eq_b`isEqual_method)((a1,  b1))((a2,  b2))))
+
+
+id_def_lemma[A : TYPE] : LEMMA FORALL (x : A) : (eqs(x)(id(x)))
+
+apply_def_lemma[A, B : TYPE] : LEMMA FORALL (f : [A -> B]) : (eqs((LAMBDA ( x : A) : f(x)))((LAMBDA ( x : A) : f(x))))
+
+
+maybeEqualBy_def_lemma[A : TYPE] : LEMMA FORALL (eq : [A -> [A -> bool]]), (y : option[A]), (x : option[A]) : (eqs(CASES x OF
+  None: CASES y OF
+              None: TRUE,
+              Some(y'): FALSE
+        ENDCASES,
+  Some(x'): CASES y OF
+                  None: FALSE,
+                  Some(y'): eq(x')(y')
+            ENDCASES
+ENDCASES
+)(option_equal(eq)(x)(y)))
+
+isJustNothing : LEMMA bool_and(FORALL (x : option[C]) : (eqs(isNothing(x))(NOT(isJust(x)))))(bool_and(FORALL (v : B) : (isJust(Some(v))))(isNothing(None)))
+
+fromMaybe : LEMMA bool_and(FORALL (d : B), (v : B) : (dict_Basic_classes_Eq_b`isEqual_method(fromMaybe(d)(Some(v)))(v)))(FORALL (d : A) : (dict_Basic_classes_Eq_a`isEqual_method(fromMaybe(d)(None))(d)))
+
+maybe_map : LEMMA bool_and(FORALL (f : [D -> C]) : (option_equal(dict_Basic_classes_Eq_c`isEqual_method)(map(f)(None))(None)))(FORALL (f : [A -> B]), (v : A) : (option_equal(dict_Basic_classes_Eq_b`isEqual_method)(map(f)(Some(v)))(Some(f(v)))))
+
+maybe_bind : LEMMA bool_and(FORALL (f : [D -> option[C]]) : (option_equal(dict_Basic_classes_Eq_c`isEqual_method)(bind(None)(f))(None)))(FORALL (f : [A -> option[B]]), (v : A) : (option_equal(dict_Basic_classes_Eq_b`isEqual_method)(bind(Some(v))(f))(f(v))))
+
+
+natSucc_def_lemma : LEMMA FORALL (n : nat) : (eqs(nat_add(n)((1)))(succ(n)))
+
+naturalSucc_def_lemma : LEMMA FORALL (n : nat) : (eqs(nat_add(n)((1)))(succ(n)))
+
+rationalPowNat_def_lemma : LEMMA FORALL (e : nat), (r : rat) : (eqs(rationalPowInteger(r)((e)))(rat_pow(r)(e)))
+
+realPowNat_def_lemma : LEMMA FORALL (e : nat), (r : real) : (eqs(realPowInteger(r)((e)))(pow(r)(e)))
+
+
+fst_def_lemma[A, B : TYPE] : LEMMA FORALL (v2 : B), (v1 : A) : (eqs(v1)(proj_1((v1,  v2))))
+
+snd_def_lemma[A, B : TYPE] : LEMMA FORALL (v2 : B), (v1 : A) : (eqs(v2)(proj_2((v1,  v2))))
+
+fst_snd : LEMMA FORALL (v : [B, A]) : (pair_equal(dict_Basic_classes_Eq_b`isEqual_method)(dict_Basic_classes_Eq_a`isEqual_method)(v)((proj_1(v), proj_2(v))))
+
+curry_uncurry : LEMMA FORALL (f : [[C, B] -> A]), (xy : [C, B]) : (dict_Basic_classes_Eq_a`isEqual_method(uncurry(curry(f))(xy))(f(xy)))
+
+uncurry_curry : LEMMA FORALL (f : [B -> [A -> C]]), (x : B), (y : A) : (dict_Basic_classes_Eq_c`isEqual_method(curry(uncurry(f))(x)(y))(f(x)(y)))
+
+swap_def_lemma[A, B : TYPE] : LEMMA FORALL (v2 : B), (v1 : A) : (pair_equal(eqs)(eqs)((v2,  v1))((LAMBDA ((v1: A), (v2: B)) : (v2,  v1))((v1,  v2))))
+
+
+length_def_lemma[A : TYPE] : LEMMA FORALL (l : list[A]) : (eqs(CASES  l OF
+  null: (0),
+  cons( x,  xs): nat_add(length(xs))((1)) 
+ENDCASES)(length(l)))
+
+length_spec : LEMMA bool_and(eqs(length(null))((0)))(FORALL (x : A), (xs : list[A]) : (eqs(length(list_cons(x)(xs)))(nat_add(length(xs))((1)))))
+
+listEqualBy_def_lemma[A : TYPE] : LEMMA FORALL (l1 : list[A]), (l2 : list[A]), (eq : [A -> [A -> bool]]) : (eqs(CASES l1 OF
+  null: CASES l2 OF
+              null: TRUE,
+              cons(y, ys): FALSE
+        ENDCASES,
+  cons(x, xs): CASES l2 OF
+                     null: FALSE,
+                     cons(y, ys): bool_and(eq(x)(y))(list_equal_by(eq)(xs)(ys)) 
+               ENDCASES
+ENDCASES
+)(list_equal_by(eq)(l1)(l2)))
+
+lexicographicCompareBy_def_lemma[A : TYPE] : LEMMA FORALL (l1 : list[A]), (l2 : list[A]), (cmp : [A -> [A -> ordering]]) : (eqs(CASES l1 OF
+  null: CASES l2 OF
+              null: 0,
+              cons(y, ys): -1
+        ENDCASES,
+  cons(x, xs): CASES l2 OF
+                     null: 1,
+                     cons(y, ys): IF cmp(x)(y) = 0 THEN list_compare_by(cmp)(xs)(ys) ELSE cmp(x)(y) ENDIF
+               ENDCASES
+ENDCASES
+)(list_compare_by(cmp)(l1)(l2)))
+
+append_def_lemma[A : TYPE] : LEMMA FORALL (ys : list[A]), (xs : list[A]) : (eqs(CASES  xs OF
+  null:  ys,
+  cons( x,  xs'): list_cons(x)(list_append(xs')(ys)) 
+ENDCASES)(list_append(xs)(ys)))
+
+snoc_def_lemma[A : TYPE] : LEMMA FORALL (e : A), (l : list[A]) : (eqs(list_append(l)(cons(e, null)))(list_append(l)(cons(e, null))))
+
+snoc_length : LEMMA FORALL (e : A), (l : list[A]) : (eqs(length(list_append(l)(cons(e, null))))(succ(length(l))))
+
+snoc_append : LEMMA FORALL (e : A), (l1 : list[A]), (l2 : list[A]) : (eqs(list_append(list_append(l1)(l2))(cons(e, null)))(list_append(l1)(list_append(l2)(cons(e, null)))))
+
+reverse_def_lemma[A : TYPE] : LEMMA FORALL (l : list[A]) : (eqs(reverseAppend(l)(null))(rev(l)))
+
+reverse_nil : LEMMA eqs(rev(null))(null)
+
+reverseAppend : LEMMA FORALL (l1 : list[A]), (l2 : list[A]) : (eqs(reverseAppend(l1)(l2))(list_append(rev(l1))(l2)))
+
+set_map_def_lemma[A, B : TYPE] : LEMMA FORALL (s : set[A]), (f : [A -> B]) : (eqs(LET  x2 = emptyset[B] IN
+  fold((LAMBDA (e : A)( x2 : set[B]) : IF TRUE THEN add(f(e))(x2) ELSE x2 ENDIF))(s)(x2))(map(f)(s)))
+
+map_nil : LEMMA eqs(map((LAMBDA ( x : nat) : nat_add(x)((1))))(null))(null)
+
+foldl_def_lemma[A, B : TYPE] : LEMMA FORALL (f : [A -> [B -> A]]), (l : list[B]), (b : A) : (eqs(CASES  l OF
+  null:  b,
+  cons( x,  xs): foldl(f)(f(b)(x))(xs) 
+ENDCASES
+)(foldl(f)(b)(l)))
+
+foldr_def_lemma[A, B : TYPE] : LEMMA FORALL (f : [A -> [B -> B]]), (l : list[A]), (b : B) : (eqs(CASES  l OF
+  null:  b,
+  cons( x,  xs): f(x)(foldr(f)(b)(xs)) 
+ENDCASES
+)(foldr(f)(b)(l)))
+
+concat_def_lemma[A : TYPE] : LEMMA FORALL  : (eqs(foldr(list_append)(null))(list_concat))
+
+concat_nil : LEMMA eqs(list_concat(null))(null)
+
+concat_emp_thm : LEMMA eqs(list_concat(null))(null)
+
+concat_cons_thm : LEMMA FORALL (l : list[A]), (ll : list[list[A]]) : (eqs(list_concat(list_cons(l)(ll)))(list_append(l)(list_concat(ll))))
+
+concatMap_nil : LEMMA eqs(list_concat(map((LAMBDA (x : nat) : cons(x, cons(x, null))))(null)))(null)
+
+concatMap_concat : LEMMA FORALL (ll : list[list[A]]) : (eqs(list_concat(ll))(list_concat(map((LAMBDA ( l : list[A]) :  l))(ll))))
+
+concatMap_alt_def : LEMMA FORALL (f : [B -> list[A]]), (l : list[B]) : (eqs(list_concat(map(f)(l)))(foldr((LAMBDA ( l : B)( ll : list[A]) : list_append(f(l))(ll)))(null)(l)))
+
+map_all_def_lemma[K, V : TYPE] : LEMMA FORALL (p : [K -> [V -> bool]]), (m : fmap[K, V]) : (eqs(FORALL (k : K), (v : V) : (bool_and(p(k)(v))(option_equal(eqs)(flookup(k)(m))(Some(v)))))(fevery(p)(m)))
+
+all_nil_thm : LEMMA FORALL (p : [A -> bool]) : (every(p)(null))
+
+all_cons_thm : LEMMA FORALL (p : [A -> bool]), (e : A), (l : list[A]) : (eqs(every(p)(list_cons(e)(l)))(bool_and(p(e))(every(p)(l))))
+
+any_def_lemma[A : TYPE] : LEMMA FORALL (p : [A -> bool]), (l : list[A]) : (eqs(foldl((LAMBDA ( r : bool)( e : A) : bool_or(p(e))(r)))(FALSE)(l))(some(p)(l)))
+
+any_nil_thm : LEMMA FORALL (p : [A -> bool]) : (NOT(some(p)(null)))
+
+any_cons_thm : LEMMA FORALL (p : [A -> bool]), (e : A), (l : list[A]) : (eqs(some(p)(list_cons(e)(l)))(bool_or(p(e))(some(p)(l))))
+
+dest_init_nil : LEMMA option_equal(pair_equal(eqs)(dict_Basic_classes_Eq_a`isEqual_method))(dest_init(null))(None)
+
+dest_init_snoc : LEMMA FORALL (x : A), (xs : list[A]) : (option_equal(pair_equal(eqs)(dict_Basic_classes_Eq_a`isEqual_method))(dest_init(list_append(xs)(cons(x, null))))(Some((xs,  x))))
+
+index_is_none : LEMMA FORALL (l : list[A]), (n : nat) : (eqs(option_equal(dict_Basic_classes_Eq_a`isEqual_method)(index(l)(n))(None))(nat_ge(n)(length(l))))
+
+index_list_eq : LEMMA FORALL (l1 : list[A]), (l2 : list[A]) : (eqs(FORALL (n : nat) : (option_equal(dict_Basic_classes_Eq_a`isEqual_method)(index(l1)(n))(index(l2)(n))))(eqs(l1)(l2)))
+
+genlist_length : LEMMA FORALL (f : [nat -> A]), (n : nat) : (eqs(length(genlist(f)(n)))(n))
+
+genlist_index : LEMMA FORALL (f : [nat -> A]), (n : nat), (i : nat) : (bool_or(NOT(nat_lt(i)(n)))(option_equal(dict_Basic_classes_Eq_a`isEqual_method)(index(genlist(f)(n))(i))(Some(f(i)))))
+
+replicate_length : LEMMA FORALL (n : nat), (x : A) : (eqs(length(replicate(n)(x)))(n))
+
+replicate_index : LEMMA FORALL (n : nat), (x : A), (i : nat) : (bool_or(NOT(nat_lt(i)(n)))(option_equal(dict_Basic_classes_Eq_a`isEqual_method)(index(replicate(n)(x))(i))(Some(x))))
+
+splitAt_append : LEMMA FORALL (n : nat), (xs : list[A]) : (LET (xs1,  xs2) = splitAt(n)(xs) IN eqs(xs)(list_append(xs1)(xs2)))
+
+splitAt_length : LEMMA FORALL (n : nat), (xs : list[A]) : (LET (xs1,  xs2) = splitAt(n)(xs) IN bool_or(eqs(length(xs1))(n))(bool_and(eqs(length(xs1))(length(xs)))(list_null(xs2))))
+
+splitAt_take_drop : LEMMA FORALL (n : nat), (xs : list[A]) : (pair_equal(eqs)(eqs)(splitAt(n)(xs))((take(n)(xs), drop(n)(xs))))
+
+isPrefixOf_def_lemma[A : TYPE] : LEMMA FORALL (l1 : list[A]), (l2 : list[A]) : (eqs(CASES l1 OF
+  null: TRUE,
+  cons(x, xs): CASES l2 OF
+                     null: FALSE,
+                     cons(y, ys): bool_and(eqs(x)(y))(isPrefixOf(xs)(ys)) 
+               ENDCASES
+ENDCASES
+)(isPrefixOf(l1)(l2)))
+
+isPrefixOf_alt_def : LEMMA FORALL (l1 : list[A]), (l2 : list[A]) : (eqs(isPrefixOf(l1)(l2))(EXISTS (l3 : list[A]) : (eqs(l2)(list_append(l1)(l3)))))
+
+isPrefixOf_sym : LEMMA FORALL (l : list[A]) : (isPrefixOf(l)(l))
+
+isPrefixOf_trans : LEMMA FORALL (l1 : list[A]), (l2 : list[A]), (l3 : list[A]) : (bool_or(NOT(isPrefixOf(l1)(l2)))(bool_or(NOT(isPrefixOf(l2)(l3)))(isPrefixOf(l1)(l3))))
+
+isPrefixOf_antisym : LEMMA FORALL (l1 : list[A]), (l2 : list[A]) : (bool_or(NOT(isPrefixOf(l1)(l2)))(bool_or(NOT(isPrefixOf(l2)(l1)))(eqs(l1)(l2))))
+
+list_update_length : LEMMA FORALL (l : list[A]), (n : nat), (e : A) : (eqs(length(update(l)(n)(e)))(length(l)))
+
+list_update_index : LEMMA FORALL (i : nat), (l : list[nat]), (n : nat), (e : nat) : (option_equal(eqs)(index(update(l)(n)(e))(i))( IF bool_and(eqs(i)(n))(nat_lt(n)(length(l))) THEN Some(e) ELSE index(l)(e)
+   ENDIF))
+
+elemBy_def_lemma[A : TYPE] : LEMMA FORALL (e : A), (l : list[A]), (eq : [A -> [A -> bool]]) : (eqs(some(eq(e))(l))(list_member_by(eq)(e)(l)))
+
+elem_def_lemma[A : TYPE] : LEMMA FORALL (dict_Basic_classes_Eq_a : eq_class[A]) : (eqs(list_member_by(dict_Basic_classes_Eq_a`isEqual_method))(list_member))
+
+elem_spec : LEMMA bool_and(FORALL (e : B) : (NOT(list_member(e)(null))))(FORALL (e : A), (x : A), (xs : list[A]) : (eqs(list_member(e)(list_cons(x)(xs)))(bool_or(dict_Basic_classes_Eq_a`isEqual_method(e)(x))(list_member(e)(xs)))))
+
+find_in : LEMMA FORALL (p : [A -> bool]), (l : list[A]), (x : A) : (bool_or(NOT(option_equal(dict_Basic_classes_Eq_a`isEqual_method)(find(p)(l))(Some(x))))(bool_and(p(x))(list_member(x)(l))))
+
+find_not_in : LEMMA FORALL (p : [A -> bool]), (l : list[A]) : (eqs(option_equal(dict_Basic_classes_Eq_a`isEqual_method)(find(p)(l))(None))(NOT(some(p)(l))))
+
+set_filter_def_lemma[A : TYPE] : LEMMA FORALL (s : set[A]), (p : [A -> bool]) : (eqs(LET  x2 = emptyset[A] IN
+  fold((LAMBDA (e : A)( x2 : set[A]) : IF p(e) THEN add(e)(x2) ELSE x2 ENDIF))(s)(x2))(filter(p)(s)))
+
+filter_nil_thm : LEMMA FORALL (p : [A -> bool]) : (eqs(filter(p)(null))(null))
+
+filter_cons_thm : LEMMA FORALL (p : [A -> bool]), (x : A), (xs : list[A]) : (eqs(filter(p)(list_cons(x)(xs)))(LET  l' = filter(p)(xs) IN
+  IF p(x) THEN list_cons(x)(l') ELSE l' ENDIF))
+
+partition_def_lemma[A : TYPE] : LEMMA FORALL (p : [A -> bool]), (l : list[A]) : (pair_equal(eqs)(eqs)((filter(p)(l), filter((LAMBDA ( x : A) : NOT(p(x))))(l)))(list_partition(p)(l)))
+
+partition_fst : LEMMA FORALL (p : [A -> bool]), (l : list[A]) : (eqs(proj_1(list_partition(p)(l)))(filter(p)(l)))
+
+partition_snd : LEMMA FORALL (p : [A -> bool]), (l : list[A]) : (eqs(proj_2(list_partition(p)(l)))(filter((LAMBDA ( x : A) : NOT(p(x))))(l)))
+
+unzip_def_lemma[A, B : TYPE] : LEMMA FORALL (l : list[[A, B]]) : (eqs(CASES  l OF
+  null: (null[A], null[B]),
+  cons(xy,  xys): LET (x,  y) = xy, (xs,  ys) = split(xys) IN (list_cons(x)(xs), list_cons(y)(ys)) 
+ENDCASES
+)(split(l)))
+
+allDistinct_def_lemma[A : TYPE] : LEMMA FORALL (l : list[A]) : (eqs(CASES  l OF
+  null: TRUE,
+  cons(x, l'): bool_and(NOT(list_member(x)(l')))(distinct(l')) 
+ENDCASES)(distinct(l)))
+
+
+
+
+null_size : LEMMA FORALL (s : set[A]) : (bool_or(NOT(empty?(s)))(eqs(card(s))((0))))
+
+null_singleton : LEMMA FORALL (x : A) : (eqs(card(singleton(x)))((1)))
+
+union_in : LEMMA FORALL (e : A), (s1 : set[A]), (s2 : set[A]) : (eqs(member(e)(union(s1)(s2)))(bool_or(member(e)(s1))(member(e)(s2))))
+
+filter_def_lemma[A : TYPE] : LEMMA FORALL (s : set[A]), (p : [A -> bool]) : (eqs(LET  x2 = emptyset IN
+  fold((LAMBDA (e : A)( x2 : set[A]) : IF p(e) THEN add(e)(x2) ELSE x2 ENDIF))(s)(x2))(filter(p)(s)))
+
+filter_emp : LEMMA FORALL (p : [A -> bool]) : (eqs(filter(p)(emptyset))(emptyset))
+
+filter_insert : LEMMA FORALL (e : A), (s : set[A]), (p : [A -> bool]) : (eqs(filter(p)(add(e)(s)))( IF p(e) THEN add(e)(filter(p)(s)) ELSE filter(p)(s) ENDIF))
+
+split_simple : LEMMA pair_equal(eqs)(eqs)(split(instance_Basic_classes_SetType_tup2_dict(instance_Basic_classes_SetType_Num_natural_dict)(instance_Basic_classes_SetType_Num_natural_dict))(instance_Basic_classes_Ord_tup2_dict(instance_Basic_classes_Ord_Num_natural_dict)(instance_Basic_classes_Ord_Num_natural_dict))(((3), (0)))({ x0 : [nat, nat] | x0 = ((1), (0)) OR x0 = ((2), (0)) OR x0 = ((3), (0)) OR x0 = ((4), (0)) OR x0 = ((5), (0)) OR x0 = ((6), (0)) }))(({ x1 : [nat, nat] | x1 = ((1), (0)) OR x1 = ((2), (0)) }, { x2 : [nat, nat] | x2 = ((4), (0)) OR x2 = ((5), (0)) OR x2 = ((6), (0)) }))
+
+isSubsetOf_refl : LEMMA FORALL (s : set[A]) : (subset?(s)(s))
+
+isSubsetOf_def : LEMMA FORALL (s1 : set[A]), (s2 : set[A]) : (eqs(subset?(s1)(s2))(FORALL (e : A) : (bool_or(NOT(member(e)(s1)))(member(e)(s2)))))
+
+isSubsetOf_eq : LEMMA FORALL (s1 : set[A]), (s2 : set[A]) : (eqs(eqs(s1)(s2))(bool_and(subset?(s1)(s2))(subset?(s2)(s1))))
+
+isProperSubsetOf_irrefl : LEMMA FORALL (s : set[A]) : (NOT(strict_subset?(s)(s)))
+
+isProperSubsetOf_def : LEMMA FORALL (s1 : set[A]), (s2 : set[A]) : (eqs(strict_subset?(s1)(s2))(bool_and(subset?(s1)(s2))(NOT(subset?(s2)(s1)))))
+
+bigunion_def_lemma[A : TYPE] : LEMMA FORALL (bs : set[set[A]]), (s : set[A]) : (eqs(LET  x2 = emptyset[A] IN
+  fold((LAMBDA (s : set[A])( x2 : set[A]) : fold((LAMBDA (x : A)( x2 : set[A]) : IF TRUE THEN add(x)(x2) ELSE x2 ENDIF))(s)(x2)))(bs)(x2))(bigunion(bs)))
+
+bigunion_in : LEMMA FORALL (e : A), (bs : set[set[A]]) : (eqs(member(e)(bigunion(bs)))(EXISTS (s : set[A]) : (bool_and(member(s)(bs))(member(e)(s)))))
+
+bigintersection_def_lemma[A : TYPE] : LEMMA FORALL (bs : set[set[A]]) : (eqs(LET  x2 = emptyset[A] IN
+  fold((LAMBDA (x : A)( x2 : set[A]) :
+  IF FORALL (s : set[A]) : member(s)( bs) IMPLIES (member(x)(s)) THEN
+   add(x)(x2) ELSE x2 ENDIF))(bigunion(bs))(x2))(bigintersection(bs)))
+
+difference_in : LEMMA FORALL (e : A), (s1 : set[A]), (s2 : set[A]) : (eqs(member(e)(difference(s1)(s2)))(bool_and(member(e)(s1))(NOT(member(e)(s2)))))
+
+intersection_in : LEMMA FORALL (e : A), (s1 : set[A]), (s2 : set[A]) : (eqs(member(e)(intersection(s1)(s2)))(bool_and(member(e)(s1))(member(e)(s2))))
+
+map_def_lemma[A, B : TYPE] : LEMMA FORALL (s : set[A]), (f : [A -> B]) : (eqs(LET  x2 = emptyset IN
+  fold((LAMBDA (e : A)( x2 : set[B]) : IF TRUE THEN add(f(e))(x2) ELSE x2 ENDIF))(s)(x2))(map(f)(s)))
+
+sigma_def_lemma[A, B : TYPE] : LEMMA FORALL (sa : set[A]), (sb : [A -> set[B]]), (a : A) : (eqs(LET  x2 = emptyset[[A, B]] IN
+  fold((LAMBDA (a : A)( x2 : set[[A, B]]) : fold((LAMBDA (b : B)( x2 : set[[A, B]]) :
+  IF TRUE THEN add((a,  b))(x2) ELSE x2 ENDIF))(sb(a))(x2)))(sa)(x2))(sigma(sa)(sb)))
+
+cross_def_lemma[A, B : TYPE] : LEMMA FORALL (s1 : set[A]), (s2 : set[B]) : (eqs(LET  x2 = emptyset[[A, B]] IN
+  fold((LAMBDA (e1 : A)( x2 : set[[A, B]]) : fold((LAMBDA (e2 : B)( x2 : set[[A, B]]) :
+  IF TRUE THEN add((e1,  e2))(x2) ELSE x2 ENDIF))(s2)(x2)))(s1)(x2))(cross(s1)(s2)))
+
+cross_by_sigma : LEMMA FORALL (s1 : set[A]), (s2 : set[B]) : (eqs(cross(s1)(s2))(sigma(s1)((LAMBDA ( y : A) : s2))))
+
+lfp_termination : LEMMA subset?({ x0 : nat | x0 = (1) OR x0 = (3) OR x0 = (5) OR x0 = (7) OR x0 = (9) })(leastFixedPoint(instance_Basic_classes_SetType_Num_natural_dict)((5))(map((LAMBDA ( x : nat) : nat_add((2))(x))))({ x1 : nat | x1 = (1) }))
+
+
+insert_equal_singleton : LEMMA fequal_by(eqs)(eqs)(fadd((42))(FALSE)(fempty))(fadd((42))(FALSE)(fempty))
+
+empty_null : LEMMA is_empty(fempty)
+
+lookup_empty : LEMMA FORALL (k : B) : (option_equal(dict_Basic_classes_Eq_a`isEqual_method)(flookup(k)(fempty))(None))
+
+lookup_insert : LEMMA FORALL (k : A), (k' : A), (v : B), (m : fmap[A, B]) : (option_equal(dict_Basic_classes_Eq_b`isEqual_method)(flookup(k)(fadd(k')(v)(m)))( IF dict_Basic_classes_Eq_a`isEqual_method(k)(k') THEN Some(v) ELSE
+  flookup(k)(m) ENDIF))
+
+member_empty : LEMMA FORALL (k : B) : (NOT(member(k)(fdom(fempty))))
+
+member_insert : LEMMA FORALL (k : A), (k' : A), (v : B), (m : fmap[A, B]) : (eqs(member(k)(fdom(fadd(k')(v)(m))))(bool_or(dict_Basic_classes_Eq_a`isEqual_method(k)(k'))(member(k)(fdom(m)))))
+
+all_def_lemma[K, V : TYPE] : LEMMA FORALL (p : [K -> [V -> bool]]), (m : fmap[K, V]) : (eqs(FORALL (k : K), (v : V) : (bool_and(p(k)(v))(option_equal(dict_Basic_classes_Eq_v`isEqual_method)(flookup(k)(m))(Some(v)))))(fevery(p)(m)))
+
+delete_delete : LEMMA is_empty(fremove((5))(fremove((5))(fadd((5))(TRUE)(fempty))))
+
+empty_size : LEMMA eqs(card(fdom(fempty)))((0))
+
+singleton_size : LEMMA eqs(card(fdom(fadd((2))((3))(fempty))))((1))
+
+
+relToSet_inv : LEMMA FORALL (r : set[[B, A]]) : (eqs(r)(r))
+
+inRel_set : LEMMA FORALL (s : set[[A, B]]), (a : A), (b : B) : (eqs(member((a,  b))(s))(member((a,  b))(s)))
+
+inRel_pred : LEMMA FORALL (p : [B -> [A -> bool]]), (a : B), (b : A), (sa : set[B]), (sb : set[A]) : (bool_and(eqs(member((a,  b))(relFromPred(dict_Basic_classes_SetType_b)(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_b)(dict_Basic_classes_Eq_a)(sa)(sb)(p)))(p(a)(b)))(bool_and(member(a)(sa))(member(b)(sb))))
+
+in_relAdd : LEMMA FORALL (a : B), (b : A), (a' : B), (b' : A), (r : set[[B, A]]) : (bool_or(eqs(member((a,  b))(add((a', b'))(r)))(bool_and(dict_Basic_classes_Eq_b`isEqual_method(a)(a'))(dict_Basic_classes_Eq_a`isEqual_method(b)(b'))))(member((a,  b))(r)))
+
+relId_spec : LEMMA FORALL (x : A), (y : A), (s : set[A]) : (eqs(member((x,  y))(relIdOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(s)))(bool_and(member(x)(s))(dict_Basic_classes_Eq_a`isEqual_method(x)(y))))
+
+in_rel_union : LEMMA FORALL (a : B), (b : A), (r1 : set[[B, A]]), (r2 : set[[B, A]]) : (bool_or(eqs(member((a,  b))(union(r1)(r2)))(member((a,  b))(r1)))(member((a,  b))(r2)))
+
+in_rel_inter : LEMMA FORALL (a : B), (b : A), (r1 : set[[B, A]]), (r2 : set[[B, A]]) : (bool_and(eqs(member((a,  b))(intersection(r1)(r2)))(member((a,  b))(r1)))(member((a,  b))(r2)))
+
+rel_restrict_empty : LEMMA FORALL (r : set[[A, A]]) : (eqs(relRestrict(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(emptyset))(emptyset))
+
+rel_restrict_rel_empty : LEMMA FORALL (s : set[A]) : (eqs(relRestrict(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(emptyset)(s))(emptyset))
+
+rel_restrict_rel_add : LEMMA FORALL (r : set[[A, A]]), (x : A), (y : A), (s : set[A]) : (eqs(relRestrict(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(add((x, y))(r))(s))( IF bool_and(member(x)(s))(member(y)(s)) THEN
+  add((x, y))(relRestrict(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))
+   ELSE
+  relRestrict(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s)
+   ENDIF))
+
+rel_converse_empty : LEMMA eqs(relConverse(dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_b)(emptyset))(emptyset)
+
+rel_converse_add : LEMMA FORALL (x : B), (y : A), (r : set[[B, A]]) : (eqs(relConverse(dict_Basic_classes_SetType_b)(dict_Basic_classes_SetType_a)(add((x, y))(r)))(add((y, x))(relConverse(dict_Basic_classes_SetType_b)(dict_Basic_classes_SetType_a)(r))))
+
+rel_converse_converse : LEMMA FORALL (r : set[[B, A]]) : (eqs(relConverse(dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_b)(relConverse(dict_Basic_classes_SetType_b)(dict_Basic_classes_SetType_a)(r)))(r))
+
+rel_over_empty : LEMMA FORALL (s : set[A]) : (relOver(dict_Basic_classes_SetType_a)(emptyset)(s))
+
+rel_over_add : LEMMA FORALL (x : A), (y : A), (s : set[A]), (r : set[[A, A]]) : (eqs(relOver(dict_Basic_classes_SetType_a)(add((x, y))(r))(s))(bool_and(member(x)(s))(bool_and(member(y)(s))(relOver(dict_Basic_classes_SetType_a)(r)(s)))))
+
+rel_apply_empty_set : LEMMA FORALL (r : set[[B, A]]) : (eqs(relApply(dict_Basic_classes_SetType_b)(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_b)(r)(emptyset))(emptyset))
+
+rel_apply_empty : LEMMA FORALL (s : set[B]) : (eqs(relApply(dict_Basic_classes_SetType_b)(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_b)(emptyset)(s))(emptyset))
+
+rel_apply_add : LEMMA FORALL (x : B), (y : A), (s : set[B]), (r : set[[B, A]]) : (eqs(relApply(dict_Basic_classes_SetType_b)(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_b)(add((x, y))(r))(s))( IF member(x)(s) THEN
+  add(y)(relApply(dict_Basic_classes_SetType_b)(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_b)(r)(s))
+   ELSE
+  relApply(dict_Basic_classes_SetType_b)(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_b)(r)(s)
+   ENDIF))
+
+is_subrel_empty : LEMMA FORALL (r : set[[B, A]]) : (subset?(emptyset)(r))
+
+is_subrel_add : LEMMA FORALL (x : B), (y : A), (r1 : set[[B, A]]), (r2 : set[[B, A]]) : (eqs(subset?(add((x, y))(r1))(r2))(bool_and(member((x,  y))(r2))(subset?(r1)(r2))))
+
+is_symmetric_empty : LEMMA FORALL (r : set[[A, A]]) : (isSymmetricOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(emptyset))
+
+is_symmetric_sing : LEMMA FORALL (r : set[[A, A]]), (x : A) : (isSymmetricOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)({ x0 : A | x0 = x }))
+
+is_antisymmetric_empty : LEMMA FORALL (r : set[[A, A]]) : (isAntisymmetricOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(emptyset))
+
+is_antisymmetric_sing : LEMMA FORALL (r : set[[A, A]]), (x : A) : (isAntisymmetricOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)({ x0 : A | x0 = x }))
+
+isStrictPartialOrderOn_antisym : LEMMA FORALL (r : set[[A, A]]), (s : set[A]) : (bool_or(NOT(isStrictPartialOrderOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s)))(isAntisymmetricOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s)))
+
+transitive_closure_add_thm : LEMMA FORALL (x : A), (y : A), (r : set[[A, A]]) : (bool_or(NOT(isTransitive(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)))(eqs(transitiveClosureAdd(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(x)(y)(r))(TC(add((x, y))(r)))))
+
+trancl_withoutTransitiveEdges_thm : LEMMA FORALL (r : set[[A, A]]) : (bool_or(NOT(is_finite(r)))(eqs(TC(withoutTransitiveEdges(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)))(TC(r))))
+
+
+
+THE_spec : LEMMA FORALL (p : [A -> bool]), (x : A) : (eqs(option_equal(dict_Basic_classes_Eq_a`isEqual_method)(the_opt(p))(Some(x)))(bool_and(p(x))(FORALL (y : A) : (bool_or(NOT(p(y)))(dict_Basic_classes_Eq_a`isEqual_method(x)(y))))))
+
+
+
+head_def_lemma[A : TYPE] : LEMMA FORALL (l : list[A]) : (
+  dict_Basic_classes_Eq_a`isEqual_method(CASES  l OF
+  cons( x, xs):  x,
+  null: failwith("List_extra.head of empty list") 
+ENDCASES)(car(l)))
+
+tail_def_lemma[A : TYPE] : LEMMA FORALL (l : list[A]) : (eqs(CASES  l OF
+  cons( x, xs):  xs,
+  null: failwith("List_extra.tail of empty list") 
+ENDCASES)(cdr(l)))
+
+head_tail_cons : LEMMA FORALL (l : list[A]) : (bool_or(NOT(nat_gt(length(l))((0))))(eqs(l)(list_cons(car(l))(cdr(l)))))
+
+init_last_append : LEMMA FORALL (l : list[A]) : (bool_or(NOT(nat_gt(length(l))((0))))(eqs(l)(list_append(init(l))(cons(last(l), null)))))
+
+init_last_dest : LEMMA FORALL (l : list[A]) : (bool_or(NOT(nat_gt(length(l))((0))))(option_equal(pair_equal(eqs)(dict_Basic_classes_Eq_a`isEqual_method))(dest_init(l))(Some((init(l), last(l))))))
+
+nth_def_lemma[A : TYPE] : LEMMA FORALL (n : nat), (l : list[A]) : (
+  dict_Basic_classes_Eq_a`isEqual_method(CASES index(l)(n) OF
+  Some( e):  e,
+  None: failwith("List_extra.nth") 
+ENDCASES)(nth(l)(n)))
+
+nth_index : LEMMA FORALL (l : list[A]), (n : nat), (e : B) : (bool_or(NOT(nat_lt(n)(length(l))))(option_equal(dict_Basic_classes_Eq_a`isEqual_method)(index(l)(n))(Some(nth(l)(n)))))
+
+
+makeString_def_lemma : LEMMA FORALL (len : nat), (c : char) : (eqs(list2finseq(replicate(len)(c)))(make_string(len)(c)))
+
+
+
+find_def_lemma[K, V : TYPE] : LEMMA FORALL (k : K), (m : fmap[K, V]) : (
+  dict_Basic_classes_Eq_v`isEqual_method(CASES flookup(k)(m) OF
+  Some( x):  x,
+  None: failwith("Map_extra.find") 
+ENDCASES)(fapply(k)(m)))
+
+fromSet_def_lemma[K, V : TYPE] : LEMMA FORALL (s : set[K]), (f : [K -> V]) : (fequal_by(dict_Basic_classes_Eq_k`isEqual_method)(dict_Basic_classes_Eq_v`isEqual_method)(fold((LAMBDA ( k : K)( m : fmap[K, V]) : fadd(k)(f(k))(m)))(s)(fempty))(fmap_from_set(f)(s)))
+
+fold_def_lemma[K, R, V : TYPE] : LEMMA FORALL (m : fmap[K, V]), (v : R), (f : [K -> [V -> [R -> R]]]) : (eqs(fold((LAMBDA ((k: K), (v: V)) : (LAMBDA ( r : R) : f(k)(v)(r))))(fmap_to_set(m))(v))(ffold(f)(m)(v)))
+
+
+choose_sing : LEMMA FORALL (x : A) : (dict_Basic_classes_Eq_a`isEqual_method(choose({ x0 : A | x0 = x }))(x))
+
+choose_in : LEMMA FORALL (s : set[A]) : (bool_or(NOT(NOT(empty?(s))))(member(choose(s))(s)))
+
+leastFixedPointUnbounded_def_lemma[A : TYPE] : LEMMA FORALL (f : [set[A] -> set[A]]), (x : set[A]) : (eqs(LET  fx = f(x) IN  IF subset?(fx)(x) THEN x ELSE unbounded_lfp(f)(union(fx)(x)) ENDIF)(unbounded_lfp(f)(x)))
+
+lfp_empty : LEMMA eqs(unbounded_lfp(map((LAMBDA ( x : nat) :  x)))(emptyset))(emptyset)
+
+lfp_saturate_neg : LEMMA eqs(unbounded_lfp(map((LAMBDA ( x : int) : -(x))))({ x0 : int | x0 = (1) OR x0 = (2) OR x0 = (3) }))({ x1 : int | x1 = -((3)) OR x1 = -((2)) OR x1 = -((1)) OR x1 = (1) OR x1 = (2) OR x1 = (3) })
+
+lfp_saturate_mod : LEMMA eqs(unbounded_lfp(map((LAMBDA ( x : nat) : nat_mod(nat_mult((2))(x))((5)))))({ x0 : nat | x0 = (1) }))({ x1 : nat | x1 = (1) OR x1 = (2) OR x1 = (3) OR x1 = (4) })
+
+
+
+
+
+
+boolListFrombitSeq_len : LEMMA FORALL (n : nat), (bs : bitSequence) : (eqs(length(boolListFrombitSeq(n)(bs)))(n))
+
+bitSeqFromBoolList_nothing : LEMMA FORALL (bl : list[bool]) : (eqs(isNothing(bitSeqFromBoolList(bl)))(lem_list.list_null(bl)))
+
+integerFromBitSeq_inv : LEMMA FORALL (i : int) : (eqs(integerFromBitSeq(bitSeqFromInteger(None)(i)))(i))
+
+
+
+
+
+
+END thms

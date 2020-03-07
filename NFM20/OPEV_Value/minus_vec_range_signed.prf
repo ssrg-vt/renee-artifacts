@@ -1,0 +1,8 @@
+(minus_vec_range_signed
+ (minus_vec_bit_TCC1 0
+  (minus_vec_bit_TCC1-1 nil 3728426415 ("" (subtype-tcc) nil nil)
+   ((int_minus_int_is_int application-judgement "int" integers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil)))
+

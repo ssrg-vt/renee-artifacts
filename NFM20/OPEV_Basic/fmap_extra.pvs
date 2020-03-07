@@ -1,0 +1,26 @@
+fmap_extra[K: TYPE, V: TYPE+, W: TYPE+]: THEORY
+BEGIN
+
+IMPORTING fmap
+
+k: VAR K
+
+v: VAR V
+
+w: VAR W
+
+fmap_image(f: [V -> W])(m: fmap[K, V]) : fmap[K, W] =
+  LAMBDA k: LET ov = m(k) IN
+            CASES ov OF
+                  None: None[W],
+                  Some(v): Some(f(v))
+            ENDCASES
+
+fmap_domain_image(f: [K -> [V -> W]])(m: fmap[K, V]) : fmap[K, W] =
+LAMBDA k: LET ov = m(k) IN
+          CASES ov OF
+                None: None[W],
+                Some(v): Some(f(k)(v))
+          ENDCASES
+
+END fmap_extra

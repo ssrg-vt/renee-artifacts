@@ -1,0 +1,21 @@
+(neq_vec
+ (neq_vec_TCC1 0
+  (neq_vec_TCC1-1 nil 3726352320 ("" (subtype-tcc) nil nil)
+   ((real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil))
+ (neq_vec_TCC2 0
+  (neq_vec_TCC2-1 nil 3726352383 ("" (subtype-tcc) nil nil)
+   ((real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil))
+ (neq_vec_def 0
+  (neq_vec_def-1 nil 3726355422 ("" (grind) nil nil)
+   ((bv2nat const-decl "below(exp2(N))" bv_nat nil)
+    (unsigned const-decl "nat" unsigned nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (nil application-judgement "above(n)" exp2 nil))
+   shostak)))
+

@@ -1,0 +1,40 @@
+add_vec_range[N:nat] : THEORY
+BEGIN
+
+IMPORTING to_vec_inc
+
+bv: VAR bvec[N]
+
+m: VAR int
+
+b: VAR bit
+
+add_vec_range(bv, m) : MACRO bvec[N] = to_vec_inc(N, unsigned[N](bv) + m);
+
++(bv, m) : MACRO bvec[N] = add_vec_range(bv, m);
+
+add_range_vec(m, bv) : MACRO bvec[N] = add_vec_range(bv, m);
+
++(m, bv) : MACRO bvec[N] = add_range_vec(m, bv);
+
+add_vec_range_range(bv, m) : MACRO int = unsigned[N](bv) + m
+
+add_range_vec_range(m, bv) : MACRO int = unsigned[N](bv) + m
+
+add_vec_bit(bv, b) : MACRO bvec[N] = add_vec_range(bv, (IF b THEN 1 ELSE 0 ENDIF));
+
++(bv, b) : MACRO bvec[N] = add_vec_range(bv, (IF b THEN 1 ELSE 0 ENDIF));
+
+%=================== Properties of add operations ===================
+
+add_vec_range_commutativity: LEMMA (bv + m) = (m + bv)
+
+add_vec_range_op_eq: LEMMA (bv + m) = add_vec_range(bv, m)
+
+add_range_vec_op_eq: LEMMA (m + bv) = add_range_vec(m, bv)
+
+add_vec_bit_op_eq: LEMMA (bv + b) = add_vec_bit(bv, b)
+
+add_vec_range_vec_range_rel: LEMMA add_range_vec_range(m, bv) = add_vec_range_range(bv, m)
+
+END add_vec_range

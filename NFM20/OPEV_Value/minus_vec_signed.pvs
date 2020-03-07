@@ -1,0 +1,17 @@
+minus_vec_signed[N:posnat, M:posnat] : THEORY
+BEGIN
+
+IMPORTING signed
+IMPORTING to_vec_inc
+
+bv1: VAR bvec[N]
+
+bv2: VAR bvec[M]
+
+minus_overflow_vec_signed(bv1, bv2) : MACRO [bvec[N], bit, bit] =
+    LET minus_result = signed[N](bv1) - signed[M](bv2) IN
+    LET overflow = minus_result > maxint[N] OR minus_result < minint[N],
+        c_out = (mod(floor((unsigned[N](bv1) - unsigned[M](bv2))/exp2(N)), 2) /= 0) IN
+    (to_vec_inc(N, minus_result), overflow, c_out)
+
+END minus_vec_signed

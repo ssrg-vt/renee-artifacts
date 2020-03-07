@@ -1,0 +1,144 @@
+(lem_either_aux
+ (either_equal_1 0
+  (either_equal_1-1 nil 3743186351 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (instance_Basic_classes_Eq_bool_dict const-decl "eq_class[bool]"
+     lem_basic_classes nil)
+    (eitherEqual const-decl "[union[A, B] -> [union[A, B] -> bool]]"
+     lem_either nil)
+    (eitherEqualBy const-decl "bool" lem_either nil))
+   shostak))
+ (either_equal_2 0
+  (either_equal_2-1 nil 3743186356 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (instance_Basic_classes_Eq_bool_dict const-decl "eq_class[bool]"
+     lem_basic_classes nil)
+    (eitherEqual const-decl "[union[A, B] -> [union[A, B] -> bool]]"
+     lem_either nil)
+    (eitherEqualBy const-decl "bool" lem_either nil))
+   shostak))
+ (either_equal_3 0
+  (either_equal_3-1 nil 3743188688 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (instance_Basic_classes_Eq_bool_dict const-decl "eq_class[bool]"
+     lem_basic_classes nil)
+    (eitherEqual const-decl "[union[A, B] -> [union[A, B] -> bool]]"
+     lem_either nil)
+    (eitherEqualBy const-decl "bool" lem_either nil))
+   shostak))
+ (either_equal_4 0
+  (either_equal_4-1 nil 3743188694 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (instance_Basic_classes_Eq_bool_dict const-decl "eq_class[bool]"
+     lem_basic_classes nil)
+    (eitherEqual const-decl "[union[A, B] -> [union[A, B] -> bool]]"
+     lem_either nil)
+    (eitherEqualBy const-decl "bool" lem_either nil))
+   shostak))
+ (either_equal_5 0
+  (either_equal_5-1 nil 3743188701 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (instance_Basic_classes_Eq_bool_dict const-decl "eq_class[bool]"
+     lem_basic_classes nil)
+    (eitherEqual const-decl "[union[A, B] -> [union[A, B] -> bool]]"
+     lem_either nil)
+    (eitherEqualBy const-decl "bool" lem_either nil))
+   shostak))
+ (either_equal_6 0
+  (either_equal_6-1 nil 3743188706 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (instance_Basic_classes_Eq_bool_dict const-decl "eq_class[bool]"
+     lem_basic_classes nil)
+    (eitherEqual const-decl "[union[A, B] -> [union[A, B] -> bool]]"
+     lem_either nil)
+    (eitherEqualBy const-decl "bool" lem_either nil))
+   shostak))
+ (either_equal_7 0
+  (either_equal_7-1 nil 3743188709 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (instance_Basic_classes_Eq_bool_dict const-decl "eq_class[bool]"
+     lem_basic_classes nil)
+    (eitherEqual const-decl "[union[A, B] -> [union[A, B] -> bool]]"
+     lem_either nil)
+    (eitherEqualBy const-decl "bool" lem_either nil))
+   shostak))
+ (either_pattern_1 0
+  (either_pattern_1-1 nil 3743188713 ("" (grind) nil nil) nil shostak))
+ (either_pattern_2 0
+  (either_pattern_2-1 nil 3743188717 ("" (grind) nil nil) nil shostak))
+ (either_pattern_3 0
+  (either_pattern_3-1 nil 3743188719 ("" (grind) nil nil) nil shostak))
+ (either_pattern_4 0
+  (either_pattern_4-1 nil 3743188724 ("" (grind) nil nil) nil shostak))
+ (isLeft_1 0
+  (isLeft_1-1 nil 3743188864 ("" (grind) nil nil) nil shostak))
+ (isLeft_2 0
+  (isLeft_2-1 nil 3743188858 ("" (grind) nil nil) nil shostak))
+ (isRight_1 0
+  (isRight_1-1 nil 3743188867 ("" (grind) nil nil) nil shostak))
+ (isRight_2 0
+  (isRight_2-1 nil 3743188870 ("" (grind) nil nil) nil shostak))
+ (either_1 0
+  (either_1-1 nil 3743188873 ("" (grind) nil nil)
+   ((either const-decl "C" lem_either nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (either_2 0
+  (either_2-1 nil 3743188876 ("" (grind) nil nil)
+   ((either const-decl "C" lem_either nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (either_3 0
+  (either_3-1 nil 3743188879 ("" (grind) nil nil)
+   ((either const-decl "C" lem_either nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (either_4 0
+  (either_4-1 nil 3743188882 ("" (grind) nil nil)
+   ((either const-decl "C" lem_either nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (partitionEither_1_TCC1 0
+  (partitionEither_1_TCC1-1 nil 3743186346 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (partitionEither def-decl "[list[A], list[B]]" lem_either nil))
+   nil
+   (partitionEither_1 subtype
+    "lem_either.partitionEither(list_adt[union_adt[booleans.boolean, booleans.boolean].union].cons(union_adt[booleans.boolean, booleans.boolean].inl(booleans.TRUE), list_adt[union_adt[booleans.boolean, booleans.boolean].union].cons(union_adt[booleans.boolean, booleans.boolean].inr(booleans.FALSE), list_adt[union_adt[booleans.boolean, booleans.boolean].union].cons(union_adt[booleans.boolean, booleans.boolean].inr(booleans.FALSE), list_adt[union_adt[booleans.boolean, booleans.boolean].union].cons(union_adt[booleans.boolean, booleans.boolean].inl(booleans.FALSE), list_adt[union_adt[booleans.boolean, booleans.boolean].union].cons(union_adt[booleans.boolean, booleans.boolean].inr(booleans.TRUE), list_adt[union_adt[booleans.boolean, booleans.boolean].union].null))))))"
+    "[(list_adt[booleans.boolean].cons?), (list_adt[booleans.boolean].cons?)]")))
+ (partitionEither_1_TCC2 0
+  (partitionEither_1_TCC2-1 nil 3743186346 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (list type-decl nil list_adt nil)
+    (cons? adt-recognizer-decl "[list -> boolean]" list_adt nil)
+    (list_equal_by def-decl "bool" list_extra nil))
+   nil
+   (partitionEither_1 subtype
+    "restrict[list_adt[booleans.boolean].list, (list_adt[booleans.boolean].cons?), [list_adt[booleans.boolean].list -> booleans.bool]].restrict(list_extra.list_equal_by(lib_extra.eqs))"
+    "[(list_adt[booleans.boolean].cons?) -> [(list_adt[booleans.boolean].cons?) -> booleans.bool]]")))
+ (partitionEither_1 0
+  (partitionEither_1-1 nil 3743188884 ("" (grind) nil nil)
+   ((partitionEither def-decl "[list[A], list[B]]" lem_either nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (restrict const-decl "R" restrict nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (list_equal_by def-decl "bool" list_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (lefts_1 0
+  (lefts_1-1 nil 3743188888 ("" (grind) nil nil)
+   ((partitionEither def-decl "[list[A], list[B]]" lem_either nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (list_equal_by def-decl "bool" list_extra nil))
+   shostak))
+ (rights_1 0
+  (rights_1-1 nil 3743188891 ("" (grind) nil nil)
+   ((partitionEither def-decl "[list[A], list[B]]" lem_either nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (list_equal_by def-decl "bool" list_extra nil))
+   shostak)))
+

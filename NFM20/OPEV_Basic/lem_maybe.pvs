@@ -1,0 +1,235 @@
+lem_maybe: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_function
+
+IMPORTING option
+
+
+% %%
+% % 
+% % (* ========================================================================== *)
+% % (* Basic stuff                                                                *)
+% % (* ========================================================================== *)
+% % 
+% % 
+% 
+%  maybe A : TYPE : DATATYPE
+% BEGIN
+%  
+%   
+%  Nothing:  Nothing?A
+%   
+%  Just(x0: A):  Just?
+% END  maybe
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% % 
+% 
+% % 
+% 
+% maybeEqualBy[A : TYPE]( eq : [A -> [A -> bool]])( x : option[A])( y : option[A]) : bool = 
+% CASES (x, y) OF
+%   (None, None): TRUE,
+%   (None, Some(x0)): FALSE,
+%   (Some(x1), None): FALSE,
+%   (Some( x'), Some( y')): eq(x')(y') 
+% ENDCASES
+% 
+% 
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_Maybe_maybe_dict[A : TYPE](dict_Basic_classes_Eq_a : eq_class[A]) : eq_class[option[A]] = (#  
+
+  isEqual_method := option_equal(dict_Basic_classes_Eq_a`isEqual_method),  
+
+  isInequal_method := (LAMBDA ( x : option[A])( y : option[A]) : NOT(option_equal(dict_Basic_classes_Eq_a`isEqual_method)(x)(y)))
+
+#)
+
+
+
+%  
+% 
+% 
+% 
+
+% 
+
+maybeCompare[A, B : TYPE]( cmp : [B -> [A -> ordering]])( x : option[B])( y : option[A]) : ordering =
+CASES x OF
+      None: CASES y OF
+                  None: 0,
+                  Some(y'): -1
+            ENDCASES,
+      Some(x'): CASES y OF
+                      None: 1,
+                      Some(y'): cmp(x')(y')
+                ENDCASES
+ENDCASES
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_Maybe_maybe_dict[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A]) : setType_class[option[A]] = (#  
+
+  setElemCompare_method := maybeCompare(dict_Basic_classes_SetType_a`setElemCompare_method)
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_Maybe_maybe_dict[A : TYPE](dict_Basic_classes_Ord_a : ord_class[A]) : ord_class[option[A]] = (#  
+
+  compare_method := maybeCompare(dict_Basic_classes_Ord_a`compare_method),  
+
+  isLess_method := (LAMBDA ( m1 : option[A]) : (LAMBDA ( m2 : option[A]) : eqs(maybeCompare(dict_Basic_classes_Ord_a`compare_method)(m1)(m2))(-1))),  
+
+  isLessEqual_method := (LAMBDA ( m1 : option[A]) : (LAMBDA ( m2 : option[A]) : LET  r = maybeCompare(dict_Basic_classes_Ord_a`compare_method)(m1)(m2) IN bool_or(eqs(r)(-1))(eqs(r)(0)))),  
+
+  isGreater_method := (LAMBDA ( m1 : option[A]) : (LAMBDA ( m2 : option[A]) : eqs(maybeCompare(dict_Basic_classes_Ord_a`compare_method)(m1)(m2))(1))),  
+
+  isGreaterEqual_method := (LAMBDA ( m1 : option[A]) : (LAMBDA ( m2 : option[A]) : LET  r = maybeCompare(dict_Basic_classes_Ord_a`compare_method)(m1)(m2) IN bool_or(eqs(r)(1))(eqs(r)(0))))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+maybe[A, B : TYPE]( d : B)( f : [A -> B])( mb : option[A]) : B = 
+CASES  mb OF
+  Some( a): f(a),
+  None:  d 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isJust[A : TYPE]( mb : option[A]) : bool = 
+CASES  mb OF
+  Some(x0): TRUE,
+  None: FALSE 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isNothing[A : TYPE]( mb : option[A]) : bool = 
+CASES  mb OF
+  Some(x0): FALSE,
+  None: TRUE 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+fromMaybe[A : TYPE]( d : A)( mb : option[A]) : A = 
+CASES  mb OF
+  Some( v):  v,
+  None:  d 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+% 
+% 
+
+% 
+
+map[A, B : TYPE]( f : [A -> B]) : [option[A] -> option[B]] = maybe(None)((LAMBDA ( v : A) : Some(f(v))))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+% 
+% 
+
+% 
+
+bind[A, B : TYPE]( mb : option[A])( f : [A -> option[B]]) : option[B] = maybe(None)(f)(mb)
+
+
+
+END lem_maybe

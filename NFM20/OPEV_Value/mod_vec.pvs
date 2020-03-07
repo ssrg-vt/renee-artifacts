@@ -1,0 +1,10 @@
+mod_vec[N:nat, M:nat] : THEORY
+BEGIN
+
+IMPORTING to_vec_inc
+
+mod_vec(bv1: bvec[N], bv2:{bv: bvec[M] | unsigned[M](bv) /= 0}) : MACRO bvec[N] =
+    to_vec_inc(N, mod(unsigned[N](bv1), unsigned[M](bv2)))
+
+
+END mod_vec

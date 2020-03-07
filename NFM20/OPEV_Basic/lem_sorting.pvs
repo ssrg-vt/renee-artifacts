@@ -1,0 +1,166 @@
+lem_sorting: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_maybe
+
+IMPORTING lem_list
+
+IMPORTING lem_num
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+% 
+
+isPermutationBy[A : TYPE](eq : [A -> [A -> bool]])(l1 : list[A])(l2 : list[A]) : RECURSIVE bool = 
+CASES l1 OF
+      null: list_null(l2),
+      cons(x, xs): CASES list_delete_first(eq(x))(l2) OF
+                         None: FALSE,
+                         Some(ys): isPermutationBy(eq)(xs)(ys) 
+                   ENDCASES
+ENDCASES
+MEASURE length(l1)
+
+
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% (* DPM: rejigged the definition with a nested match to get past Coq's termination checker. *)
+% 
+
+% 
+
+isSortedBy[A : TYPE](cmp : [A -> [A -> bool]])(l : list[A]) : RECURSIVE bool = 
+CASES l OF
+      null: TRUE,
+      cons(x1, xs): CASES xs OF
+                          null: TRUE,
+                          cons(x2, x0): bool_and(cmp(x1)(x2))(isSortedBy(cmp)(xs)) 
+                    ENDCASES
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+% 
+
+insertBy[A : TYPE](cmp : [A -> [A -> bool]])(e : A)(l : list[A]) : RECURSIVE list[A] = 
+CASES l OF
+      null: cons(e, null),
+      cons(x, xs): IF cmp(x)(e) THEN list_cons(x)(insertBy(cmp)(e)(xs)) ELSE list_cons(e)(list_cons(x)(xs)) ENDIF 
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+% 
+
+insertSortBy[A : TYPE]( cmp : [A -> [A -> bool]])( l : list[A]) : list[A] = foldl((LAMBDA ( l : list[A])( e : A) : insertBy(cmp)(e)(l)))(null)(l)
+
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+predicate_of_ord[A : TYPE](f : [A -> [A -> ordering]])(x : A)(y : A) : bool = 
+IF f(x)(y) = 1 THEN FALSE ELSE TRUE ENDIF
+
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+
+
+END lem_sorting

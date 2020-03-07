@@ -1,0 +1,16 @@
+bitwise_xor_bit : THEORY
+BEGIN
+
+b1, b2, b3: VAR bit
+
+bitwise_xor_bit(b1, b2:bit) : MACRO bit = XOR(b1, b2)
+
+;^(b1, b2:bit) : MACRO bit = XOR(b1, b2)
+
+%=================== Properties of bitwise xor operations ===================
+
+bit_xor_commutativity: LEMMA (b1 ^ b2) = (b2 ^ b1)
+
+bit_xor_associativity: LEMMA (b1 ^ (b2 ^ b3)) = ((b1 ^ b2) ^ b3)
+
+END bitwise_xor_bit

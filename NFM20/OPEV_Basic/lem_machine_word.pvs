@@ -1,0 +1,5276 @@
+lem_machine_word: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_num
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_show
+
+IMPORTING mword
+
+
+% %%
+% % 
+% % 
+% 
+%  mword A : TYPE: TYPE
+% 
+% 
+% 
+
+%
+% 
+% 
+
+ size_class[A: TYPE] : TYPE = [# 
+  size_method:  nat
+ #]
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% % (* A singleton type family that can be used to carry a size as the type parameter *)
+% % 
+% % 
+% 
+%  itself A : TYPE: TYPE
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+size_itself[A : TYPE](dict_Machine_word_Size_a : size_class[A])( x : itself[A]) : nat =  dict_Machine_word_Size_a`size_method
+
+
+%
+% 
+% (*******************************************************************)
+% (* Fixed bitwidths extracted from Anthony's models.                *)
+% (*                                                                 *)
+% (* If you need a size N that is not included here, put the lines   *)
+% (*                                                                 *)
+% (* type tyN                                                        *)
+% (* instance (Size tyN) let size = N end                            *)
+% (* declare isabelle target_rep type tyN = `N`                      *)
+% (* declare hol target_rep type tyN = `N`                           *)
+% (*                                                                 *)
+% (* in your project, replacing N in each line.                      *)
+% (*******************************************************************)
+% 
+% 
+
+ ty1: TYPE
+
+
+%
+% 
+
+ ty2: TYPE
+
+
+%
+% 
+
+ ty3: TYPE
+
+
+%
+% 
+
+ ty4: TYPE
+
+
+%
+% 
+
+ ty5: TYPE
+
+
+%
+% 
+
+ ty6: TYPE
+
+
+%
+% 
+
+ ty7: TYPE
+
+
+%
+% 
+
+ ty8: TYPE
+
+
+%
+% 
+
+ ty9: TYPE
+
+
+%
+% 
+
+ ty10: TYPE
+
+
+%
+% 
+
+ ty11: TYPE
+
+
+%
+% 
+
+ ty12: TYPE
+
+
+%
+% 
+
+ ty13: TYPE
+
+
+%
+% 
+
+ ty14: TYPE
+
+
+%
+% 
+
+ ty15: TYPE
+
+
+%
+% 
+
+ ty16: TYPE
+
+
+%
+% 
+
+ ty17: TYPE
+
+
+%
+% 
+
+ ty18: TYPE
+
+
+%
+% 
+
+ ty19: TYPE
+
+
+%
+% 
+
+ ty20: TYPE
+
+
+%
+% 
+
+ ty21: TYPE
+
+
+%
+% 
+
+ ty22: TYPE
+
+
+%
+% 
+
+ ty23: TYPE
+
+
+%
+% 
+
+ ty24: TYPE
+
+
+%
+% 
+
+ ty25: TYPE
+
+
+%
+% 
+
+ ty26: TYPE
+
+
+%
+% 
+
+ ty27: TYPE
+
+
+%
+% 
+
+ ty28: TYPE
+
+
+%
+% 
+
+ ty29: TYPE
+
+
+%
+% 
+
+ ty30: TYPE
+
+
+%
+% 
+
+ ty31: TYPE
+
+
+%
+% 
+
+ ty32: TYPE
+
+
+%
+% 
+
+ ty33: TYPE
+
+
+%
+% 
+
+ ty34: TYPE
+
+
+%
+% 
+
+ ty35: TYPE
+
+
+%
+% 
+
+ ty36: TYPE
+
+
+%
+% 
+
+ ty37: TYPE
+
+
+%
+% 
+
+ ty38: TYPE
+
+
+%
+% 
+
+ ty39: TYPE
+
+
+%
+% 
+
+ ty40: TYPE
+
+
+%
+% 
+
+ ty41: TYPE
+
+
+%
+% 
+
+ ty42: TYPE
+
+
+%
+% 
+
+ ty43: TYPE
+
+
+%
+% 
+
+ ty44: TYPE
+
+
+%
+% 
+
+ ty45: TYPE
+
+
+%
+% 
+
+ ty46: TYPE
+
+
+%
+% 
+
+ ty47: TYPE
+
+
+%
+% 
+
+ ty48: TYPE
+
+
+%
+% 
+
+ ty49: TYPE
+
+
+%
+% 
+
+ ty50: TYPE
+
+
+%
+% 
+
+ ty51: TYPE
+
+
+%
+% 
+
+ ty52: TYPE
+
+
+%
+% 
+
+ ty53: TYPE
+
+
+%
+% 
+
+ ty54: TYPE
+
+
+%
+% 
+
+ ty55: TYPE
+
+
+%
+% 
+
+ ty56: TYPE
+
+
+%
+% 
+
+ ty57: TYPE
+
+
+%
+% 
+
+ ty58: TYPE
+
+
+%
+% 
+
+ ty59: TYPE
+
+
+%
+% 
+
+ ty60: TYPE
+
+
+%
+% 
+
+ ty61: TYPE
+
+
+%
+% 
+
+ ty62: TYPE
+
+
+%
+% 
+
+ ty63: TYPE
+
+
+%
+% 
+
+ ty64: TYPE
+
+
+%
+% 
+
+ ty65: TYPE
+
+
+%
+% 
+
+ ty66: TYPE
+
+
+%
+% 
+
+ ty67: TYPE
+
+
+%
+% 
+
+ ty68: TYPE
+
+
+%
+% 
+
+ ty69: TYPE
+
+
+%
+% 
+
+ ty70: TYPE
+
+
+%
+% 
+
+ ty71: TYPE
+
+
+%
+% 
+
+ ty72: TYPE
+
+
+%
+% 
+
+ ty73: TYPE
+
+
+%
+% 
+
+ ty74: TYPE
+
+
+%
+% 
+
+ ty75: TYPE
+
+
+%
+% 
+
+ ty76: TYPE
+
+
+%
+% 
+
+ ty77: TYPE
+
+
+%
+% 
+
+ ty78: TYPE
+
+
+%
+% 
+
+ ty79: TYPE
+
+
+%
+% 
+
+ ty80: TYPE
+
+
+%
+% 
+
+ ty81: TYPE
+
+
+%
+% 
+
+ ty82: TYPE
+
+
+%
+% 
+
+ ty83: TYPE
+
+
+%
+% 
+
+ ty84: TYPE
+
+
+%
+% 
+
+ ty85: TYPE
+
+
+%
+% 
+
+ ty86: TYPE
+
+
+%
+% 
+
+ ty87: TYPE
+
+
+%
+% 
+
+ ty88: TYPE
+
+
+%
+% 
+
+ ty89: TYPE
+
+
+%
+% 
+
+ ty90: TYPE
+
+
+%
+% 
+
+ ty91: TYPE
+
+
+%
+% 
+
+ ty92: TYPE
+
+
+%
+% 
+
+ ty93: TYPE
+
+
+%
+% 
+
+ ty94: TYPE
+
+
+%
+% 
+
+ ty95: TYPE
+
+
+%
+% 
+
+ ty96: TYPE
+
+
+%
+% 
+
+ ty97: TYPE
+
+
+%
+% 
+
+ ty98: TYPE
+
+
+%
+% 
+
+ ty99: TYPE
+
+
+%
+% 
+
+ ty100: TYPE
+
+
+%
+% 
+
+ ty101: TYPE
+
+
+%
+% 
+
+ ty102: TYPE
+
+
+%
+% 
+
+ ty103: TYPE
+
+
+%
+% 
+
+ ty104: TYPE
+
+
+%
+% 
+
+ ty105: TYPE
+
+
+%
+% 
+
+ ty106: TYPE
+
+
+%
+% 
+
+ ty107: TYPE
+
+
+%
+% 
+
+ ty108: TYPE
+
+
+%
+% 
+
+ ty109: TYPE
+
+
+%
+% 
+
+ ty110: TYPE
+
+
+%
+% 
+
+ ty111: TYPE
+
+
+%
+% 
+
+ ty112: TYPE
+
+
+%
+% 
+
+ ty113: TYPE
+
+
+%
+% 
+
+ ty114: TYPE
+
+
+%
+% 
+
+ ty115: TYPE
+
+
+%
+% 
+
+ ty116: TYPE
+
+
+%
+% 
+
+ ty117: TYPE
+
+
+%
+% 
+
+ ty118: TYPE
+
+
+%
+% 
+
+ ty119: TYPE
+
+
+%
+% 
+
+ ty120: TYPE
+
+
+%
+% 
+
+ ty121: TYPE
+
+
+%
+% 
+
+ ty122: TYPE
+
+
+%
+% 
+
+ ty123: TYPE
+
+
+%
+% 
+
+ ty124: TYPE
+
+
+%
+% 
+
+ ty125: TYPE
+
+
+%
+% 
+
+ ty126: TYPE
+
+
+%
+% 
+
+ ty127: TYPE
+
+
+%
+% 
+
+ ty128: TYPE
+
+
+%
+% 
+
+ ty129: TYPE
+
+
+%
+% 
+
+ ty130: TYPE
+
+
+%
+% 
+
+ ty131: TYPE
+
+
+%
+% 
+
+ ty132: TYPE
+
+
+%
+% 
+
+ ty133: TYPE
+
+
+%
+% 
+
+ ty134: TYPE
+
+
+%
+% 
+
+ ty135: TYPE
+
+
+%
+% 
+
+ ty136: TYPE
+
+
+%
+% 
+
+ ty137: TYPE
+
+
+%
+% 
+
+ ty138: TYPE
+
+
+%
+% 
+
+ ty139: TYPE
+
+
+%
+% 
+
+ ty140: TYPE
+
+
+%
+% 
+
+ ty141: TYPE
+
+
+%
+% 
+
+ ty142: TYPE
+
+
+%
+% 
+
+ ty143: TYPE
+
+
+%
+% 
+
+ ty144: TYPE
+
+
+%
+% 
+
+ ty145: TYPE
+
+
+%
+% 
+
+ ty146: TYPE
+
+
+%
+% 
+
+ ty147: TYPE
+
+
+%
+% 
+
+ ty148: TYPE
+
+
+%
+% 
+
+ ty149: TYPE
+
+
+%
+% 
+
+ ty150: TYPE
+
+
+%
+% 
+
+ ty151: TYPE
+
+
+%
+% 
+
+ ty152: TYPE
+
+
+%
+% 
+
+ ty153: TYPE
+
+
+%
+% 
+
+ ty154: TYPE
+
+
+%
+% 
+
+ ty155: TYPE
+
+
+%
+% 
+
+ ty156: TYPE
+
+
+%
+% 
+
+ ty157: TYPE
+
+
+%
+% 
+
+ ty158: TYPE
+
+
+%
+% 
+
+ ty159: TYPE
+
+
+%
+% 
+
+ ty160: TYPE
+
+
+%
+% 
+
+ ty161: TYPE
+
+
+%
+% 
+
+ ty162: TYPE
+
+
+%
+% 
+
+ ty163: TYPE
+
+
+%
+% 
+
+ ty164: TYPE
+
+
+%
+% 
+
+ ty165: TYPE
+
+
+%
+% 
+
+ ty166: TYPE
+
+
+%
+% 
+
+ ty167: TYPE
+
+
+%
+% 
+
+ ty168: TYPE
+
+
+%
+% 
+
+ ty169: TYPE
+
+
+%
+% 
+
+ ty170: TYPE
+
+
+%
+% 
+
+ ty171: TYPE
+
+
+%
+% 
+
+ ty172: TYPE
+
+
+%
+% 
+
+ ty173: TYPE
+
+
+%
+% 
+
+ ty174: TYPE
+
+
+%
+% 
+
+ ty175: TYPE
+
+
+%
+% 
+
+ ty176: TYPE
+
+
+%
+% 
+
+ ty177: TYPE
+
+
+%
+% 
+
+ ty178: TYPE
+
+
+%
+% 
+
+ ty179: TYPE
+
+
+%
+% 
+
+ ty180: TYPE
+
+
+%
+% 
+
+ ty181: TYPE
+
+
+%
+% 
+
+ ty182: TYPE
+
+
+%
+% 
+
+ ty183: TYPE
+
+
+%
+% 
+
+ ty184: TYPE
+
+
+%
+% 
+
+ ty185: TYPE
+
+
+%
+% 
+
+ ty186: TYPE
+
+
+%
+% 
+
+ ty187: TYPE
+
+
+%
+% 
+
+ ty188: TYPE
+
+
+%
+% 
+
+ ty189: TYPE
+
+
+%
+% 
+
+ ty190: TYPE
+
+
+%
+% 
+
+ ty191: TYPE
+
+
+%
+% 
+
+ ty192: TYPE
+
+
+%
+% 
+
+ ty193: TYPE
+
+
+%
+% 
+
+ ty194: TYPE
+
+
+%
+% 
+
+ ty195: TYPE
+
+
+%
+% 
+
+ ty196: TYPE
+
+
+%
+% 
+
+ ty197: TYPE
+
+
+%
+% 
+
+ ty198: TYPE
+
+
+%
+% 
+
+ ty199: TYPE
+
+
+%
+% 
+
+ ty200: TYPE
+
+
+%
+% 
+
+ ty201: TYPE
+
+
+%
+% 
+
+ ty202: TYPE
+
+
+%
+% 
+
+ ty203: TYPE
+
+
+%
+% 
+
+ ty204: TYPE
+
+
+%
+% 
+
+ ty205: TYPE
+
+
+%
+% 
+
+ ty206: TYPE
+
+
+%
+% 
+
+ ty207: TYPE
+
+
+%
+% 
+
+ ty208: TYPE
+
+
+%
+% 
+
+ ty209: TYPE
+
+
+%
+% 
+
+ ty210: TYPE
+
+
+%
+% 
+
+ ty211: TYPE
+
+
+%
+% 
+
+ ty212: TYPE
+
+
+%
+% 
+
+ ty213: TYPE
+
+
+%
+% 
+
+ ty214: TYPE
+
+
+%
+% 
+
+ ty215: TYPE
+
+
+%
+% 
+
+ ty216: TYPE
+
+
+%
+% 
+
+ ty217: TYPE
+
+
+%
+% 
+
+ ty218: TYPE
+
+
+%
+% 
+
+ ty219: TYPE
+
+
+%
+% 
+
+ ty220: TYPE
+
+
+%
+% 
+
+ ty221: TYPE
+
+
+%
+% 
+
+ ty222: TYPE
+
+
+%
+% 
+
+ ty223: TYPE
+
+
+%
+% 
+
+ ty224: TYPE
+
+
+%
+% 
+
+ ty225: TYPE
+
+
+%
+% 
+
+ ty226: TYPE
+
+
+%
+% 
+
+ ty227: TYPE
+
+
+%
+% 
+
+ ty228: TYPE
+
+
+%
+% 
+
+ ty229: TYPE
+
+
+%
+% 
+
+ ty230: TYPE
+
+
+%
+% 
+
+ ty231: TYPE
+
+
+%
+% 
+
+ ty232: TYPE
+
+
+%
+% 
+
+ ty233: TYPE
+
+
+%
+% 
+
+ ty234: TYPE
+
+
+%
+% 
+
+ ty235: TYPE
+
+
+%
+% 
+
+ ty236: TYPE
+
+
+%
+% 
+
+ ty237: TYPE
+
+
+%
+% 
+
+ ty238: TYPE
+
+
+%
+% 
+
+ ty239: TYPE
+
+
+%
+% 
+
+ ty240: TYPE
+
+
+%
+% 
+
+ ty241: TYPE
+
+
+%
+% 
+
+ ty242: TYPE
+
+
+%
+% 
+
+ ty243: TYPE
+
+
+%
+% 
+
+ ty244: TYPE
+
+
+%
+% 
+
+ ty245: TYPE
+
+
+%
+% 
+
+ ty246: TYPE
+
+
+%
+% 
+
+ ty247: TYPE
+
+
+%
+% 
+
+ ty248: TYPE
+
+
+%
+% 
+
+ ty249: TYPE
+
+
+%
+% 
+
+ ty250: TYPE
+
+
+%
+% 
+
+ ty251: TYPE
+
+
+%
+% 
+
+ ty252: TYPE
+
+
+%
+% 
+
+ ty253: TYPE
+
+
+%
+% 
+
+ ty254: TYPE
+
+
+%
+% 
+
+ ty255: TYPE
+
+
+%
+% 
+
+ ty256: TYPE
+
+
+%
+% 
+
+ ty257: TYPE
+
+
+%
+% 
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty1_dict : size_class[ty1] = (#  
+
+  size_method := (1)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty2_dict : size_class[ty2] = (#  
+
+  size_method := (2)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty3_dict : size_class[ty3] = (#  
+
+  size_method := (3)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty4_dict : size_class[ty4] = (#  
+
+  size_method := (4)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty5_dict : size_class[ty5] = (#  
+
+  size_method := (5)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty6_dict : size_class[ty6] = (#  
+
+  size_method := (6)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty7_dict : size_class[ty7] = (#  
+
+  size_method := (7)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty8_dict : size_class[ty8] = (#  
+
+  size_method := (8)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty9_dict : size_class[ty9] = (#  
+
+  size_method := (9)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty10_dict : size_class[ty10] = (#  
+
+  size_method := (10)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty11_dict : size_class[ty11] = (#  
+
+  size_method := (11)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty12_dict : size_class[ty12] = (#  
+
+  size_method := (12)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty13_dict : size_class[ty13] = (#  
+
+  size_method := (13)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty14_dict : size_class[ty14] = (#  
+
+  size_method := (14)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty15_dict : size_class[ty15] = (#  
+
+  size_method := (15)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty16_dict : size_class[ty16] = (#  
+
+  size_method := (16)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty17_dict : size_class[ty17] = (#  
+
+  size_method := (17)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty18_dict : size_class[ty18] = (#  
+
+  size_method := (18)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty19_dict : size_class[ty19] = (#  
+
+  size_method := (19)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty20_dict : size_class[ty20] = (#  
+
+  size_method := (20)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty21_dict : size_class[ty21] = (#  
+
+  size_method := (21)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty22_dict : size_class[ty22] = (#  
+
+  size_method := (22)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty23_dict : size_class[ty23] = (#  
+
+  size_method := (23)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty24_dict : size_class[ty24] = (#  
+
+  size_method := (24)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty25_dict : size_class[ty25] = (#  
+
+  size_method := (25)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty26_dict : size_class[ty26] = (#  
+
+  size_method := (26)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty27_dict : size_class[ty27] = (#  
+
+  size_method := (27)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty28_dict : size_class[ty28] = (#  
+
+  size_method := (28)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty29_dict : size_class[ty29] = (#  
+
+  size_method := (29)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty30_dict : size_class[ty30] = (#  
+
+  size_method := (30)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty31_dict : size_class[ty31] = (#  
+
+  size_method := (31)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty32_dict : size_class[ty32] = (#  
+
+  size_method := (32)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty33_dict : size_class[ty33] = (#  
+
+  size_method := (33)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty34_dict : size_class[ty34] = (#  
+
+  size_method := (34)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty35_dict : size_class[ty35] = (#  
+
+  size_method := (35)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty36_dict : size_class[ty36] = (#  
+
+  size_method := (36)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty37_dict : size_class[ty37] = (#  
+
+  size_method := (37)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty38_dict : size_class[ty38] = (#  
+
+  size_method := (38)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty39_dict : size_class[ty39] = (#  
+
+  size_method := (39)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty40_dict : size_class[ty40] = (#  
+
+  size_method := (40)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty41_dict : size_class[ty41] = (#  
+
+  size_method := (41)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty42_dict : size_class[ty42] = (#  
+
+  size_method := (42)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty43_dict : size_class[ty43] = (#  
+
+  size_method := (43)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty44_dict : size_class[ty44] = (#  
+
+  size_method := (44)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty45_dict : size_class[ty45] = (#  
+
+  size_method := (45)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty46_dict : size_class[ty46] = (#  
+
+  size_method := (46)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty47_dict : size_class[ty47] = (#  
+
+  size_method := (47)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty48_dict : size_class[ty48] = (#  
+
+  size_method := (48)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty49_dict : size_class[ty49] = (#  
+
+  size_method := (49)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty50_dict : size_class[ty50] = (#  
+
+  size_method := (50)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty51_dict : size_class[ty51] = (#  
+
+  size_method := (51)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty52_dict : size_class[ty52] = (#  
+
+  size_method := (52)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty53_dict : size_class[ty53] = (#  
+
+  size_method := (53)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty54_dict : size_class[ty54] = (#  
+
+  size_method := (54)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty55_dict : size_class[ty55] = (#  
+
+  size_method := (55)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty56_dict : size_class[ty56] = (#  
+
+  size_method := (56)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty57_dict : size_class[ty57] = (#  
+
+  size_method := (57)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty58_dict : size_class[ty58] = (#  
+
+  size_method := (58)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty59_dict : size_class[ty59] = (#  
+
+  size_method := (59)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty60_dict : size_class[ty60] = (#  
+
+  size_method := (60)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty61_dict : size_class[ty61] = (#  
+
+  size_method := (61)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty62_dict : size_class[ty62] = (#  
+
+  size_method := (62)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty63_dict : size_class[ty63] = (#  
+
+  size_method := (63)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty64_dict : size_class[ty64] = (#  
+
+  size_method := (64)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty65_dict : size_class[ty65] = (#  
+
+  size_method := (65)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty66_dict : size_class[ty66] = (#  
+
+  size_method := (66)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty67_dict : size_class[ty67] = (#  
+
+  size_method := (67)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty68_dict : size_class[ty68] = (#  
+
+  size_method := (68)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty69_dict : size_class[ty69] = (#  
+
+  size_method := (69)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty70_dict : size_class[ty70] = (#  
+
+  size_method := (70)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty71_dict : size_class[ty71] = (#  
+
+  size_method := (71)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty72_dict : size_class[ty72] = (#  
+
+  size_method := (72)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty73_dict : size_class[ty73] = (#  
+
+  size_method := (73)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty74_dict : size_class[ty74] = (#  
+
+  size_method := (74)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty75_dict : size_class[ty75] = (#  
+
+  size_method := (75)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty76_dict : size_class[ty76] = (#  
+
+  size_method := (76)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty77_dict : size_class[ty77] = (#  
+
+  size_method := (77)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty78_dict : size_class[ty78] = (#  
+
+  size_method := (78)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty79_dict : size_class[ty79] = (#  
+
+  size_method := (79)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty80_dict : size_class[ty80] = (#  
+
+  size_method := (80)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty81_dict : size_class[ty81] = (#  
+
+  size_method := (81)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty82_dict : size_class[ty82] = (#  
+
+  size_method := (82)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty83_dict : size_class[ty83] = (#  
+
+  size_method := (83)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty84_dict : size_class[ty84] = (#  
+
+  size_method := (84)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty85_dict : size_class[ty85] = (#  
+
+  size_method := (85)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty86_dict : size_class[ty86] = (#  
+
+  size_method := (86)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty87_dict : size_class[ty87] = (#  
+
+  size_method := (87)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty88_dict : size_class[ty88] = (#  
+
+  size_method := (88)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty89_dict : size_class[ty89] = (#  
+
+  size_method := (89)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty90_dict : size_class[ty90] = (#  
+
+  size_method := (90)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty91_dict : size_class[ty91] = (#  
+
+  size_method := (91)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty92_dict : size_class[ty92] = (#  
+
+  size_method := (92)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty93_dict : size_class[ty93] = (#  
+
+  size_method := (93)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty94_dict : size_class[ty94] = (#  
+
+  size_method := (94)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty95_dict : size_class[ty95] = (#  
+
+  size_method := (95)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty96_dict : size_class[ty96] = (#  
+
+  size_method := (96)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty97_dict : size_class[ty97] = (#  
+
+  size_method := (97)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty98_dict : size_class[ty98] = (#  
+
+  size_method := (98)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty99_dict : size_class[ty99] = (#  
+
+  size_method := (99)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty100_dict : size_class[ty100] = (#  
+
+  size_method := (100)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty101_dict : size_class[ty101] = (#  
+
+  size_method := (101)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty102_dict : size_class[ty102] = (#  
+
+  size_method := (102)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty103_dict : size_class[ty103] = (#  
+
+  size_method := (103)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty104_dict : size_class[ty104] = (#  
+
+  size_method := (104)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty105_dict : size_class[ty105] = (#  
+
+  size_method := (105)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty106_dict : size_class[ty106] = (#  
+
+  size_method := (106)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty107_dict : size_class[ty107] = (#  
+
+  size_method := (107)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty108_dict : size_class[ty108] = (#  
+
+  size_method := (108)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty109_dict : size_class[ty109] = (#  
+
+  size_method := (109)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty110_dict : size_class[ty110] = (#  
+
+  size_method := (110)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty111_dict : size_class[ty111] = (#  
+
+  size_method := (111)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty112_dict : size_class[ty112] = (#  
+
+  size_method := (112)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty113_dict : size_class[ty113] = (#  
+
+  size_method := (113)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty114_dict : size_class[ty114] = (#  
+
+  size_method := (114)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty115_dict : size_class[ty115] = (#  
+
+  size_method := (115)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty116_dict : size_class[ty116] = (#  
+
+  size_method := (116)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty117_dict : size_class[ty117] = (#  
+
+  size_method := (117)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty118_dict : size_class[ty118] = (#  
+
+  size_method := (118)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty119_dict : size_class[ty119] = (#  
+
+  size_method := (119)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty120_dict : size_class[ty120] = (#  
+
+  size_method := (120)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty121_dict : size_class[ty121] = (#  
+
+  size_method := (121)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty122_dict : size_class[ty122] = (#  
+
+  size_method := (122)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty123_dict : size_class[ty123] = (#  
+
+  size_method := (123)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty124_dict : size_class[ty124] = (#  
+
+  size_method := (124)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty125_dict : size_class[ty125] = (#  
+
+  size_method := (125)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty126_dict : size_class[ty126] = (#  
+
+  size_method := (126)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty127_dict : size_class[ty127] = (#  
+
+  size_method := (127)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty128_dict : size_class[ty128] = (#  
+
+  size_method := (128)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty129_dict : size_class[ty129] = (#  
+
+  size_method := (129)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty130_dict : size_class[ty130] = (#  
+
+  size_method := (130)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty131_dict : size_class[ty131] = (#  
+
+  size_method := (131)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty132_dict : size_class[ty132] = (#  
+
+  size_method := (132)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty133_dict : size_class[ty133] = (#  
+
+  size_method := (133)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty134_dict : size_class[ty134] = (#  
+
+  size_method := (134)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty135_dict : size_class[ty135] = (#  
+
+  size_method := (135)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty136_dict : size_class[ty136] = (#  
+
+  size_method := (136)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty137_dict : size_class[ty137] = (#  
+
+  size_method := (137)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty138_dict : size_class[ty138] = (#  
+
+  size_method := (138)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty139_dict : size_class[ty139] = (#  
+
+  size_method := (139)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty140_dict : size_class[ty140] = (#  
+
+  size_method := (140)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty141_dict : size_class[ty141] = (#  
+
+  size_method := (141)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty142_dict : size_class[ty142] = (#  
+
+  size_method := (142)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty143_dict : size_class[ty143] = (#  
+
+  size_method := (143)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty144_dict : size_class[ty144] = (#  
+
+  size_method := (144)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty145_dict : size_class[ty145] = (#  
+
+  size_method := (145)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty146_dict : size_class[ty146] = (#  
+
+  size_method := (146)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty147_dict : size_class[ty147] = (#  
+
+  size_method := (147)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty148_dict : size_class[ty148] = (#  
+
+  size_method := (148)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty149_dict : size_class[ty149] = (#  
+
+  size_method := (149)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty150_dict : size_class[ty150] = (#  
+
+  size_method := (150)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty151_dict : size_class[ty151] = (#  
+
+  size_method := (151)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty152_dict : size_class[ty152] = (#  
+
+  size_method := (152)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty153_dict : size_class[ty153] = (#  
+
+  size_method := (153)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty154_dict : size_class[ty154] = (#  
+
+  size_method := (154)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty155_dict : size_class[ty155] = (#  
+
+  size_method := (155)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty156_dict : size_class[ty156] = (#  
+
+  size_method := (156)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty157_dict : size_class[ty157] = (#  
+
+  size_method := (157)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty158_dict : size_class[ty158] = (#  
+
+  size_method := (158)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty159_dict : size_class[ty159] = (#  
+
+  size_method := (159)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty160_dict : size_class[ty160] = (#  
+
+  size_method := (160)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty161_dict : size_class[ty161] = (#  
+
+  size_method := (161)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty162_dict : size_class[ty162] = (#  
+
+  size_method := (162)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty163_dict : size_class[ty163] = (#  
+
+  size_method := (163)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty164_dict : size_class[ty164] = (#  
+
+  size_method := (164)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty165_dict : size_class[ty165] = (#  
+
+  size_method := (165)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty166_dict : size_class[ty166] = (#  
+
+  size_method := (166)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty167_dict : size_class[ty167] = (#  
+
+  size_method := (167)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty168_dict : size_class[ty168] = (#  
+
+  size_method := (168)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty169_dict : size_class[ty169] = (#  
+
+  size_method := (169)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty170_dict : size_class[ty170] = (#  
+
+  size_method := (170)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty171_dict : size_class[ty171] = (#  
+
+  size_method := (171)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty172_dict : size_class[ty172] = (#  
+
+  size_method := (172)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty173_dict : size_class[ty173] = (#  
+
+  size_method := (173)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty174_dict : size_class[ty174] = (#  
+
+  size_method := (174)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty175_dict : size_class[ty175] = (#  
+
+  size_method := (175)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty176_dict : size_class[ty176] = (#  
+
+  size_method := (176)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty177_dict : size_class[ty177] = (#  
+
+  size_method := (177)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty178_dict : size_class[ty178] = (#  
+
+  size_method := (178)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty179_dict : size_class[ty179] = (#  
+
+  size_method := (179)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty180_dict : size_class[ty180] = (#  
+
+  size_method := (180)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty181_dict : size_class[ty181] = (#  
+
+  size_method := (181)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty182_dict : size_class[ty182] = (#  
+
+  size_method := (182)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty183_dict : size_class[ty183] = (#  
+
+  size_method := (183)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty184_dict : size_class[ty184] = (#  
+
+  size_method := (184)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty185_dict : size_class[ty185] = (#  
+
+  size_method := (185)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty186_dict : size_class[ty186] = (#  
+
+  size_method := (186)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty187_dict : size_class[ty187] = (#  
+
+  size_method := (187)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty188_dict : size_class[ty188] = (#  
+
+  size_method := (188)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty189_dict : size_class[ty189] = (#  
+
+  size_method := (189)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty190_dict : size_class[ty190] = (#  
+
+  size_method := (190)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty191_dict : size_class[ty191] = (#  
+
+  size_method := (191)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty192_dict : size_class[ty192] = (#  
+
+  size_method := (192)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty193_dict : size_class[ty193] = (#  
+
+  size_method := (193)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty194_dict : size_class[ty194] = (#  
+
+  size_method := (194)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty195_dict : size_class[ty195] = (#  
+
+  size_method := (195)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty196_dict : size_class[ty196] = (#  
+
+  size_method := (196)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty197_dict : size_class[ty197] = (#  
+
+  size_method := (197)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty198_dict : size_class[ty198] = (#  
+
+  size_method := (198)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty199_dict : size_class[ty199] = (#  
+
+  size_method := (199)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty200_dict : size_class[ty200] = (#  
+
+  size_method := (200)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty201_dict : size_class[ty201] = (#  
+
+  size_method := (201)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty202_dict : size_class[ty202] = (#  
+
+  size_method := (202)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty203_dict : size_class[ty203] = (#  
+
+  size_method := (203)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty204_dict : size_class[ty204] = (#  
+
+  size_method := (204)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty205_dict : size_class[ty205] = (#  
+
+  size_method := (205)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty206_dict : size_class[ty206] = (#  
+
+  size_method := (206)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty207_dict : size_class[ty207] = (#  
+
+  size_method := (207)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty208_dict : size_class[ty208] = (#  
+
+  size_method := (208)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty209_dict : size_class[ty209] = (#  
+
+  size_method := (209)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty210_dict : size_class[ty210] = (#  
+
+  size_method := (210)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty211_dict : size_class[ty211] = (#  
+
+  size_method := (211)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty212_dict : size_class[ty212] = (#  
+
+  size_method := (212)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty213_dict : size_class[ty213] = (#  
+
+  size_method := (213)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty214_dict : size_class[ty214] = (#  
+
+  size_method := (214)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty215_dict : size_class[ty215] = (#  
+
+  size_method := (215)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty216_dict : size_class[ty216] = (#  
+
+  size_method := (216)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty217_dict : size_class[ty217] = (#  
+
+  size_method := (217)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty218_dict : size_class[ty218] = (#  
+
+  size_method := (218)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty219_dict : size_class[ty219] = (#  
+
+  size_method := (219)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty220_dict : size_class[ty220] = (#  
+
+  size_method := (220)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty221_dict : size_class[ty221] = (#  
+
+  size_method := (221)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty222_dict : size_class[ty222] = (#  
+
+  size_method := (222)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty223_dict : size_class[ty223] = (#  
+
+  size_method := (223)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty224_dict : size_class[ty224] = (#  
+
+  size_method := (224)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty225_dict : size_class[ty225] = (#  
+
+  size_method := (225)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty226_dict : size_class[ty226] = (#  
+
+  size_method := (226)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty227_dict : size_class[ty227] = (#  
+
+  size_method := (227)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty228_dict : size_class[ty228] = (#  
+
+  size_method := (228)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty229_dict : size_class[ty229] = (#  
+
+  size_method := (229)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty230_dict : size_class[ty230] = (#  
+
+  size_method := (230)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty231_dict : size_class[ty231] = (#  
+
+  size_method := (231)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty232_dict : size_class[ty232] = (#  
+
+  size_method := (232)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty233_dict : size_class[ty233] = (#  
+
+  size_method := (233)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty234_dict : size_class[ty234] = (#  
+
+  size_method := (234)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty235_dict : size_class[ty235] = (#  
+
+  size_method := (235)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty236_dict : size_class[ty236] = (#  
+
+  size_method := (236)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty237_dict : size_class[ty237] = (#  
+
+  size_method := (237)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty238_dict : size_class[ty238] = (#  
+
+  size_method := (238)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty239_dict : size_class[ty239] = (#  
+
+  size_method := (239)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty240_dict : size_class[ty240] = (#  
+
+  size_method := (240)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty241_dict : size_class[ty241] = (#  
+
+  size_method := (241)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty242_dict : size_class[ty242] = (#  
+
+  size_method := (242)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty243_dict : size_class[ty243] = (#  
+
+  size_method := (243)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty244_dict : size_class[ty244] = (#  
+
+  size_method := (244)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty245_dict : size_class[ty245] = (#  
+
+  size_method := (245)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty246_dict : size_class[ty246] = (#  
+
+  size_method := (246)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty247_dict : size_class[ty247] = (#  
+
+  size_method := (247)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty248_dict : size_class[ty248] = (#  
+
+  size_method := (248)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty249_dict : size_class[ty249] = (#  
+
+  size_method := (249)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty250_dict : size_class[ty250] = (#  
+
+  size_method := (250)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty251_dict : size_class[ty251] = (#  
+
+  size_method := (251)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty252_dict : size_class[ty252] = (#  
+
+  size_method := (252)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty253_dict : size_class[ty253] = (#  
+
+  size_method := (253)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty254_dict : size_class[ty254] = (#  
+
+  size_method := (254)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty255_dict : size_class[ty255] = (#  
+
+  size_method := (255)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty256_dict : size_class[ty256] = (#  
+
+  size_method := (256)
+
+#)
+
+
+
+%
+% 
+
+%
+
+instance_Machine_word_Size_Machine_word_ty257_dict : size_class[ty257] = (#  
+
+  size_method := (257)
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%   
+
+wordFromNatural[A : TYPE](dict_Machine_word_Size_a : size_class[A])( n : nat) : mword = word_inject((dict_Machine_word_Size_a`size_method,  n))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% (* Building libraries fails if we don't provide implementations for the
+%    type class. *)
+% 
+
+% 
+
+wordToHex[A : TYPE]( w : mword) : string = "wordToHex not yet implemented"
+
+
+%
+% 
+% 
+
+%
+
+instance_Show_Show_Machine_word_mword_dict[A : TYPE] : show_class[mword] = (#  
+  show_method :=  wordToHex[A]
+#)
+
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+size_test_fn[A : TYPE](dict_Machine_word_Size_a : size_class[A])(x0 : mword) : nat =  dict_Machine_word_Size_a`size_method
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_Machine_word_mword_dict[A : TYPE] : eq_class[mword] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( w1 : mword)( w2 : mword) : NOT(eqs(w1)(w2)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+zeroExtend[A, B : TYPE](dict_Machine_word_Size_b : size_class[B])(x : mword) : mword = wordFromNatural[B](dict_Machine_word_Size_b)(word_to_nat(x))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% (* Now we can define wordFromInteger for OCaml *)
+% 
+% 
+
+% 
+
+wordFromInteger[A : TYPE](dict_Machine_word_Size_a : size_class[A])(i : int) : mword =  
+  IF int_lt(i)((0)) THEN
+   mword_neg(wordFromNatural[A](dict_Machine_word_Size_a)(int_abs(-(i)))) ELSE
+   wordFromNatural[A](dict_Machine_word_Size_a)(int_abs(i)) ENDIF
+
+
+%
+% 
+% 
+
+% 
+
+signExtend[A, B : TYPE](dict_Machine_word_Size_b : size_class[B])(x : mword) : mword = wordFromInteger[B](dict_Machine_word_Size_b)(word_to_int(x))
+
+
+
+END lem_machine_word

@@ -1,0 +1,40 @@
+minus_vec_range[N:nat] : THEORY
+BEGIN
+
+IMPORTING to_vec_inc
+
+bv: VAR bvec[N]
+
+m: VAR int
+
+b: VAR bit
+
+minus_vec_range(bv, m) : MACRO bvec[N] = to_vec_inc(N, unsigned[N](bv) - m);
+
+-(bv, m) : MACRO bvec[N] = to_vec_inc(N, unsigned[N](bv) - m);
+
+minus_range_vec(m, bv) : MACRO bvec[N] = to_vec_inc(N, m - unsigned[N](bv));
+
+-(m, bv) : MACRO bvec[N] = minus_range_vec(m, bv);
+
+minus_vec_range_range(bv, m) : MACRO int = unsigned[N](bv) - m
+
+minus_range_vec_range(m, bv) : MACRO int = m - unsigned[N](bv)
+
+minus_overflow_vec_bit(bv, b) : MACRO [bvec[N], bit, bit] =
+    IF NOT b
+    THEN (bv, FALSE, FALSE)
+    ELSE
+        LET minus_result = unsigned[N](bv) - 1 IN
+        LET overflow = minus_result > exp2(N) OR minus_result < 0,
+            c_out = (mod(floor(minus_result/exp2(N)), 2) /= 0) IN
+        (to_vec_inc(N, minus_result), overflow, c_out)
+    ENDIF
+
+%=================== Properties of minus operations ===================
+
+minus_vec_range_op_eq: LEMMA (bv - m) = minus_vec_range(bv, m)
+
+minus_range_vec_op_eq: LEMMA (m - bv) = minus_range_vec(m, bv)
+
+END minus_vec_range

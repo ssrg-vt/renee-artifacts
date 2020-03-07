@@ -1,0 +1,42 @@
+bitwise_shift[N:nat] : THEORY
+BEGIN
+
+i, j: VAR nat
+
+bv: VAR bvec[N]
+
+bitwise_leftshift(bv, i) : MACRO bvec[N] =
+    IF i = 0 THEN bv
+    ELSIF i < N THEN bvec0[i] o bv^(N-1, i)
+    ELSE bvec0[N] ENDIF
+
+;<<(bv, i) : MACRO bvec[N] =
+    IF i = 0 THEN bv
+    ELSIF i < N THEN bvec0[i] o bv^(N-1, i)
+    ELSE bvec0[N] ENDIF
+
+bitwise_rightshift(bv, i) : MACRO bvec[N] =
+    IF i = 0 THEN bv
+    ELSIF i < N THEN bv^(N-i-1, 0) o bvec0[i]
+    ELSE bvec0[N] ENDIF
+
+;>>(bv, i) : MACRO bvec[N] =
+    IF i = 0 THEN bv
+    ELSIF i < N THEN bv^(N-i-1, 0) o bvec0[i]
+    ELSE bvec0[N] ENDIF
+
+%=================== Properties of bitwise shift operations ===================
+
+left_shift_zero: LEMMA ((bv << 0) = bv)
+
+right_shift_zero: LEMMA ((bv >> 0) = bv)
+
+left_associativity: LEMMA ((bv >> i) >> j) = (bv >> (i + j))
+
+right_associativity: LEMMA ((bv << i) << j) = (bv << (i + j))
+
+leftshift_op_eq: LEMMA (bv << i) = bitwise_leftshift(bv, i)
+
+rightshift_op_eq: LEMMA (bv >> i) = bitwise_rightshift(bv, i)
+
+END bitwise_shift

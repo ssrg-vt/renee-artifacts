@@ -1,0 +1,20 @@
+
+bitwise_rotate[N:posnat] : THEORY
+BEGIN
+
+m: VAR nat
+
+bv: VAR bvec[N]
+
+bitwise_rotate(bv, m): bvec[N] =
+   LET m_mod = mod(m, N) IN
+   IF m_mod = 0 THEN bv
+   ELSE bv^(m_mod-1, 0) o bv^(N-1, m_mod) ENDIF
+
+%=================== Properties of bitwise rotate operations ===================
+
+rotate_zero: LEMMA (bitwise_rotate(bv, 0) = bv)
+
+rotate_inv: LEMMA mod(m, N) = 0 IMPLIES (bitwise_rotate(bv, m) = bv)
+
+END bitwise_rotate

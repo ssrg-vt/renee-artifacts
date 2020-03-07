@@ -1,0 +1,116 @@
+lem_function: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% id[A : TYPE]( x : A) : A =  x
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+comb[A, B, C : TYPE]( f : [B -> C])( g : [A -> B]) : [A -> C] = (LAMBDA ( x : A) : f(g(x)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% apply[A, B : TYPE]( f : [A -> B]) : [A -> B] = (LAMBDA ( x : A) : f(x))
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+rev_apply[A, B : TYPE]( x : A)( f : [A -> B]) : B = f(x)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+flip[A, B, C : TYPE]( f : [A -> [B -> C]]) : [B -> [A -> C]] = (LAMBDA ( x : B)( y : A) : f(y)(x))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+curry[A, B, C : TYPE]( f : [[A, B] -> C]) : [A -> [B -> C]] = (LAMBDA ( a : A)( b : B) : f((a,  b)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+uncurry[A, B, C : TYPE]( f : [A -> [B -> C]])((a : A), (b : B)) : C = f(a)(b)
+
+
+
+END lem_function

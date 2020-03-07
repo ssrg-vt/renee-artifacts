@@ -1,0 +1,64 @@
+(lem_bool_aux
+ (not_1 0 (not_1-1 nil 3742139856 ("" (grind) nil nil) nil shostak))
+ (not_2 0 (not_2-1 nil 3742139862 ("" (propax) nil nil) nil shostak))
+ (and_1 0
+  (and_1-1 nil 3742139866 ("" (grind) nil nil)
+   ((bool_and const-decl "bool" lib_extra nil)) shostak))
+ (and_2 0
+  (and_2-1 nil 3742139873 ("" (grind) nil nil)
+   ((bool_and const-decl "bool" lib_extra nil)) shostak))
+ (and_3 0
+  (and_3-1 nil 3742139879 ("" (grind) nil nil)
+   ((bool_and const-decl "bool" lib_extra nil)) shostak))
+ (and_4 0
+  (and_4-1 nil 3742139883 ("" (grind) nil nil)
+   ((bool_and const-decl "bool" lib_extra nil)) shostak))
+ (or_1 0
+  (or_1-1 nil 3742139889 ("" (grind) nil nil)
+   ((bool_or const-decl "bool" lib_extra nil)) shostak))
+ (or_2 0
+  (or_2-1 nil 3742139895 ("" (grind) nil nil)
+   ((bool_or const-decl "bool" lib_extra nil)) shostak))
+ (or_3 0
+  (or_3-1 nil 3742139899 ("" (grind) nil nil)
+   ((bool_or const-decl "bool" lib_extra nil)) shostak))
+ (or_4 0
+  (or_4-1 nil 3742139905 ("" (grind) nil nil)
+   ((bool_or const-decl "bool" lib_extra nil)) shostak))
+ (imp_1 0
+  (imp_1-1 nil 3742139912 ("" (grind) nil nil)
+   ((bool_or const-decl "bool" lib_extra nil)) shostak))
+ (imp_2 0
+  (imp_2-1 nil 3742139916 ("" (grind) nil nil)
+   ((bool_or const-decl "bool" lib_extra nil)) shostak))
+ (imp_3 0
+  (imp_3-1 nil 3742139921 ("" (grind) nil nil)
+   ((bool_or const-decl "bool" lib_extra nil)) shostak))
+ (imp_4 0
+  (imp_4-1 nil 3742139925 ("" (grind) nil nil)
+   ((bool_or const-decl "bool" lib_extra nil)) shostak))
+ (equiv_1 0
+  (equiv_1-1 nil 3742139929 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (equiv_2 0
+  (equiv_2-1 nil 3742139933 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (equiv_3 0
+  (equiv_3-1 nil 3742139936 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (equiv_4 0
+  (equiv_4-1 nil 3742139940 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (xor_1 0
+  (xor_1-1 nil 3742139945 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (xor_2 0
+  (xor_2-1 nil 3742139949 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (xor_3 0
+  (xor_3-1 nil 3742139953 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (xor_4 0
+  (xor_4-1 nil 3742139958 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak)))
+

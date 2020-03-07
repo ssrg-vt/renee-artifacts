@@ -1,0 +1,37 @@
+lem_num_extra: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_num
+
+IMPORTING lem_string
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+END lem_num_extra

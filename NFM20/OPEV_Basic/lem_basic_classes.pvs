@@ -1,0 +1,988 @@
+lem_basic_classes: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+%
+% 
+% (* ========================================================================== *)
+% (* Equality                                                                   *)
+% (* ========================================================================== *)
+% 
+% (* Lem`s default equality (=) is defined by the following type-class Eq.
+%    This typeclass should define equality on an abstract datatype 'a. It should
+%    always coincide with the default equality of Coq, HOL and Isabelle.
+%    For OCaml, it might be different, since abstract datatypes like sets
+%    might have fancy equalities. *)
+% 
+% 
+
+ eq_class[A: TYPE] : TYPE = [#  
+  isEqual_method: [A -> [A ->  bool]],
+  isInequal_method: [A -> [A ->  bool]]
+ #]
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+unsafe_structural_inequality[A : TYPE]( x : A)( y : A) : bool = NOT(eqs(x)(y))
+
+
+%
+% 
+% (* The default for equality is the unsafe structural one. It can 
+%    (and should) be overriden for concrete types later. *)
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_var_dict[A : TYPE] : eq_class[A] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method :=  unsafe_structural_inequality
+
+#)
+
+
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %%
+% % 
+% % 
+% % (* ========================================================================== *)
+% % (* Orderings                                                                  *)
+% % (* ========================================================================== *)
+% % 
+% % (* The type-class Ord represents total orders (also called linear orders) *)
+% % 
+% 
+%  ordering : DATATYPE
+% BEGIN
+%  LT:  LT? 
+%  EQ:  EQ? 
+%  GT:  GT?
+% END  ordering
+% 
+% 
+% 
+
+%
+% 
+% 
+
+% 
+
+orderingIsLess( r : ordering) : bool = 
+TABLE r
+  | -1   | TRUE  ||
+  | ELSE | FALSE || 
+ENDTABLE
+
+
+%
+% 
+
+% 
+
+orderingIsGreater( r : ordering) : bool = 
+TABLE r
+  | 1    | TRUE  ||
+  | ELSE | FALSE ||
+ENDTABLE
+
+
+%
+% 
+
+% 
+
+orderingIsEqual( r : ordering) : bool = 
+TABLE r
+  | 0    | TRUE  ||
+  | ELSE | FALSE || 
+ENDTABLE
+
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+% 
+
+ordering_cases[A : TYPE]( r : ordering)( lt : A)( eq : A)( gt : A) : A =  
+  IF orderingIsLess(r) THEN lt ELSE
+     IF orderingIsEqual(r) THEN eq ELSE gt ENDIF ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_Basic_classes_ordering_dict : eq_class[ordering] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( x : ordering)( y : ordering) : NOT(eqs(x)(y)))
+
+#)
+
+
+
+%
+% 
+% 
+
+ ord_class[A: TYPE] : TYPE = [#  
+  compare_method: [A -> [A ->  ordering]],
+  isLess_method: [A -> [A ->  bool]],
+  isLessEqual_method: [A -> [A ->  bool]],
+  isGreater_method: [A -> [A ->  bool]],
+  isGreaterEqual_method: [A -> [A ->  bool]]
+ #]
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+%
+% 
+% 
+
+% 
+
+genericCompare[A : TYPE](less : [A -> [A ->  bool]])(equal : [A -> [A ->  bool]])(x : A)(y : A) : ordering =  
+  IF less(x)(y) THEN -1 ELSE IF equal(x)(y) THEN 0 ELSE 1 ENDIF ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+ordCompare[A : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Ord_a : ord_class[A])( x : A)( y : A) : ordering =  
+  IF dict_Basic_classes_Ord_a`isLess_method(x)(y) THEN -1 ELSE
+     IF dict_Basic_classes_Eq_a`isEqual_method(x)(y) THEN 0 ELSE 1 ENDIF
+    ENDIF
+
+
+%
+% 
+% 
+
+ ordMaxMin_class[A: TYPE] : TYPE = [#  
+  max_method: [A -> [A -> A]],
+  min_method: [A -> [A -> A]]
+ #]
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+minByLessEqual[A : TYPE]( le : [A -> [A -> bool]])( x : A)( y : A) : A =  
+  IF le(x)(y) THEN x ELSE y ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+maxByLessEqual[A : TYPE]( le : [A -> [A -> bool]])( x : A)( y : A) : A =  
+  IF le(y)(x) THEN x ELSE y ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_OrdMaxMin_var_dict[A : TYPE](dict_Basic_classes_Ord_a : ord_class[A]) : ordMaxMin_class[A] = (#  
+
+  max_method := maxByLessEqual(dict_Basic_classes_Ord_a`isLessEqual_method),  
+
+  min_method := minByLessEqual(dict_Basic_classes_Ord_a`isLessEqual_method)
+
+#)
+
+
+
+%
+% 
+% 
+% (* ========================================================================== *)
+% (* SetTypes                                                                   *)
+% (* ========================================================================== *)
+% 
+% (* Set implementations use often an order on the elements. This allows the OCaml implementation
+%    to use trees for implementing them. At least, one needs to be able to check equality on sets.
+%    One could use the Ord type-class for sets. However, defining a special typeclass is cleaner
+%    and allows more flexibility. One can make e.g. sure, that this type-class is ignored for
+%    backends like HOL or Isabelle, which don't need it. Moreover, one is not forced to also instantiate
+%    the functions "<", "<=" ... *)
+% 
+% 
+
+ setType_class[A: TYPE] : TYPE = [#  
+  setElemCompare_method: [A -> [A ->  ordering]]
+ #]
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_var_dict[A : TYPE] : setType_class[A] = (#  
+
+  setElemCompare_method := (LAMBDA ( x : A)( y : A) : 0)
+
+#)
+
+
+
+%
+% 
+% (* ========================================================================== *)
+% (* Instantiations                                                             *)
+% (* ========================================================================== *)
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_bool_dict : eq_class[bool] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( x : bool)( y : bool) : NOT(eqs(x)(y)))
+
+#)
+
+
+
+%
+% 
+% 
+
+% 
+
+boolCompare( b1 : bool)( b2 : bool) : ordering = 
+TABLE (b1, b2)
+  | (TRUE, TRUE)   | 0   ||
+  | (TRUE, FALSE)  | 1   ||
+  | (FALSE, TRUE)  | -1  ||
+  | (FALSE, FALSE) | 0   ||
+ENDTABLE
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_bool_dict : setType_class[bool] = (#  
+
+  setElemCompare_method :=  boolCompare
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_char_dict : eq_class[char] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( left : char)( right : char) : NOT(eqs(left)(right)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_string_dict : eq_class[string] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( l : string)( r : string) : NOT(eqs(l)(r)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% pairEqual[A, B : TYPE]((a1 : A), ( b1 : B))((a2 : A), ( b2 : B)) : bool = bool_and(dict_Basic_classes_Eq_a`isEqual_method(a1)(a2))(dict_Basic_classes_Eq_b`isEqual_method(b1)(b2))
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_tup2_dict[A, B : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B]) : eq_class[[A, B]] = (#  
+
+  isEqual_method := pair_equal(dict_Basic_classes_Eq_a`isEqual_method)(dict_Basic_classes_Eq_b`isEqual_method),  
+
+  isInequal_method := (LAMBDA ( x : [A, B])( y : [A, B]) : NOT(pair_equal(dict_Basic_classes_Eq_a`isEqual_method)(dict_Basic_classes_Eq_b`isEqual_method)(x)(y)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+pairCompare[A, B : TYPE]( cmpa : [A -> [A -> ordering]])( cmpb : [B -> [B -> ordering]])((a1 : A), ( b1 : B))((a2 : A), ( b2 : B)) : ordering =
+  IF cmpa(a1)(a2) = 0
+  THEN cmpb(b1)(b2)
+  ELSE cmpa(a1)(a2)
+  ENDIF
+
+
+%
+% 
+% 
+
+% 
+
+pairLess[A, B : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])((x1 : B), ( x2 : A))((y1 : B), ( y2 : A)) : bool = bool_or(dict_Basic_classes_Ord_b`isLess_method(x1)(y1))(bool_and(dict_Basic_classes_Ord_b`isLessEqual_method(x1)(y1))(dict_Basic_classes_Ord_a`isLess_method(x2)(y2)))
+
+
+%
+% 
+
+% 
+
+pairLessEq[A, B : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])((x1 : B), ( x2 : A))((y1 : B), ( y2 : A)) : bool = bool_or(dict_Basic_classes_Ord_b`isLess_method(x1)(y1))(bool_and(dict_Basic_classes_Ord_b`isLessEqual_method(x1)(y1))(dict_Basic_classes_Ord_a`isLessEqual_method(x2)(y2)))
+
+
+%
+% 
+% 
+
+% 
+
+pairGreater[A, B : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])( x12 : [A, B])( y12 : [A, B]) : bool = pairLess[B, A](dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)(y12)(x12)
+
+
+%
+% 
+
+% 
+
+pairGreaterEq[A, B : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])( x12 : [A, B])( y12 : [A, B]) : bool = pairLessEq[B, A](dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)(y12)(x12)
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_tup2_dict[A, B : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B]) : ord_class[[A, B]] = (#  
+  compare_method := pairCompare[A, B](dict_Basic_classes_Ord_a`compare_method)(dict_Basic_classes_Ord_b`compare_method),  
+  isLess_method := 
+  pairLess[B, A](dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a),  
+  isLessEqual_method := 
+  pairLessEq[B, A](dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a),  
+  isGreater_method := 
+  pairGreater[A, B](dict_Basic_classes_Ord_a)(dict_Basic_classes_Ord_b),  
+  isGreaterEqual_method := 
+  pairGreaterEq[A, B](dict_Basic_classes_Ord_a)(dict_Basic_classes_Ord_b)
+#)
+
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_tup2_dict[A, B : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B]) : setType_class[[A, B]] = (#  
+  setElemCompare_method := pairCompare[A, B](dict_Basic_classes_SetType_a`setElemCompare_method)(dict_Basic_classes_SetType_b`setElemCompare_method)
+#)
+
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+tripleEqual[A, B, C : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B])(dict_Basic_classes_Eq_c : eq_class[C])((x1 : A), ( x2 : B), ( x3 : C))((y1 : A), ( y2 : B), ( y3 : C)) : bool = pair_equal[A, [B, C]](dict_Basic_classes_Eq_a`isEqual_method)(pair_equal[B, C](dict_Basic_classes_Eq_b`isEqual_method)(dict_Basic_classes_Eq_c`isEqual_method))((x1, (x2,  x3)))((y1, (y2,  y3)))
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_tup3_dict[A, B, C : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B])(dict_Basic_classes_Eq_c : eq_class[C]) : eq_class[[A, B, C]] = (#  
+  isEqual_method := 
+  tripleEqual[A, B, C](dict_Basic_classes_Eq_a)(dict_Basic_classes_Eq_b)(dict_Basic_classes_Eq_c),  
+  isInequal_method := (LAMBDA ( x : [A, B, C])( y : [A, B, C]) : NOT(tripleEqual[A, B, C](dict_Basic_classes_Eq_a)(dict_Basic_classes_Eq_b)(dict_Basic_classes_Eq_c)(x)(y)))
+#)
+
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+tripleCompare[A, B, C : TYPE]( cmpa : [A -> [A -> ordering]])( cmpb : [B -> [B -> ordering]])( cmpc : [C -> [C -> ordering]])((a1 : A), ( b1 : B), ( c1 : C))((a2 : A), ( b2 : B), ( c2 : C)) : ordering = pairCompare[A, [B, C]](cmpa)(pairCompare[B, C](cmpb)(cmpc))((a1, (b1,  c1)))((a2, (b2,  c2)))
+
+
+%
+% 
+% 
+
+% 
+
+tripleLess[A, B, C : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])((x1 : A), ( x2 : B), ( x3 : C))((y1 : A), ( y2 : B), ( y3 : C)) : bool = pairLess[[B, C], A](instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_c))(dict_Basic_classes_Ord_a)((x1, (x2,  x3)))((y1, (y2,  y3)))
+
+
+%
+% 
+
+% 
+
+tripleLessEq[A, B, C : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])((x1 : A), ( x2 : B), ( x3 : C))((y1 : A), ( y2 : B), ( y3 : C)) : bool = pairLessEq[[B, C], A](instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_c))(dict_Basic_classes_Ord_a)((x1, (x2,  x3)))((y1, (y2,  y3)))
+
+
+%
+% 
+% 
+
+% 
+
+tripleGreater[A, B, C : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])( x123 : [C, B, A])( y123 : [C, B, A]) : bool = tripleLess[C, B, A](dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)(y123)(x123)
+
+
+%
+% 
+
+% 
+
+tripleGreaterEq[A, B, C : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])( x123 : [C, B, A])( y123 : [C, B, A]) : bool = tripleLessEq[C, B, A](dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)(y123)(x123)
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_tup3_dict[A, B, C : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C]) : ord_class[[A, B, C]] = (#  
+  compare_method := tripleCompare[A, B, C](dict_Basic_classes_Ord_a`compare_method)(dict_Basic_classes_Ord_b`compare_method)(dict_Basic_classes_Ord_c`compare_method),  
+  isLess_method := 
+  tripleLess[A, B, C](dict_Basic_classes_Ord_a)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_c),  
+  isLessEqual_method := 
+  tripleLessEq[A, B, C](dict_Basic_classes_Ord_a)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_c),  
+  isGreater_method := 
+  tripleGreater[C, B, A](dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a),  
+  isGreaterEqual_method := 
+  tripleGreaterEq[C, B, A](dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)
+#)
+
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_tup3_dict[A, B, C : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])(dict_Basic_classes_SetType_c : setType_class[C]) : setType_class[[A, B, C]] = (#  
+  setElemCompare_method := tripleCompare[A, B, C](dict_Basic_classes_SetType_a`setElemCompare_method)(dict_Basic_classes_SetType_b`setElemCompare_method)(dict_Basic_classes_SetType_c`setElemCompare_method)
+#)
+
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+quadrupleEqual[A, B, C, D : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B])(dict_Basic_classes_Eq_c : eq_class[C])(dict_Basic_classes_Eq_d : eq_class[D])((x1 : A), ( x2 : B), ( x3 : C), ( x4 : D))((y1 : A), ( y2 : B), ( y3 : C), ( y4 : D)) : bool = pair_equal[A, [B, [C, D]]](dict_Basic_classes_Eq_a`isEqual_method)(pair_equal[B, [C, D]](dict_Basic_classes_Eq_b`isEqual_method)(pair_equal[C, D](dict_Basic_classes_Eq_c`isEqual_method)(dict_Basic_classes_Eq_d`isEqual_method)))((x1, (x2, (x3,  x4))))((y1, (y2, (y3,  y4))))
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_tup4_dict[A, B, C, D : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B])(dict_Basic_classes_Eq_c : eq_class[C])(dict_Basic_classes_Eq_d : eq_class[D]) : eq_class[[A, B, C, D]] = (#  
+  isEqual_method := 
+  quadrupleEqual[A, B, C, D](dict_Basic_classes_Eq_a)(dict_Basic_classes_Eq_b)(dict_Basic_classes_Eq_c)(dict_Basic_classes_Eq_d),  
+  isInequal_method := (LAMBDA ( x : [A, B, C, D])( y : [A, B, C, D]) : NOT(quadrupleEqual[A, B, C, D](dict_Basic_classes_Eq_a)(dict_Basic_classes_Eq_b)(dict_Basic_classes_Eq_c)(dict_Basic_classes_Eq_d)(x)(y)))
+#)
+
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+quadrupleCompare[A, B, C, D : TYPE]( cmpa : [A -> [A -> ordering]])( cmpb : [B -> [B -> ordering]])( cmpc : [C -> [C -> ordering]])( cmpd : [D -> [D -> ordering]])((a1 : A), ( b1 : B), ( c1 : C), ( d1 : D))((a2 : A), ( b2 : B), ( c2 : C), ( d2 : D)) : ordering = pairCompare[A, [B, [C, D]]](cmpa)(pairCompare[B, [C, D]](cmpb)(pairCompare[C, D](cmpc)(cmpd)))((a1, (b1, (c1,  d1))))((a2, (b2, (c2,  d2))))
+
+
+%
+% 
+% 
+
+% 
+
+quadrupleLess[A, B, C, D : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])((x1 : A), ( x2 : B), ( x3 : C), ( x4 : D))((y1 : A), ( y2 : B), ( y3 : C), ( y4 : D)) : bool = pairLess[[B, [C, D]], A](instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_b)(instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_d)))(dict_Basic_classes_Ord_a)((x1, (x2, (x3,  x4))))((y1, (y2, (y3,  y4))))
+
+
+%
+% 
+
+% 
+
+quadrupleLessEq[A, B, C, D : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])((x1 : A), ( x2 : B), ( x3 : C), ( x4 : D))((y1 : A), ( y2 : B), ( y3 : C), ( y4 : D)) : bool = pairLessEq[[B, [C, D]], A](instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_b)(instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_d)))(dict_Basic_classes_Ord_a)((x1, (x2, (x3,  x4))))((y1, (y2, (y3,  y4))))
+
+
+%
+% 
+% 
+
+% 
+
+quadrupleGreater[A, B, C, D : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])( x1234 : [D, C, B, A])( y1234 : [D, C, B, A]) : bool = quadrupleLess[D, C, B, A](dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)(y1234)(x1234)
+
+
+%
+% 
+
+% 
+
+quadrupleGreaterEq[A, B, C, D : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])( x1234 : [D, C, B, A])( y1234 : [D, C, B, A]) : bool = quadrupleLessEq[D, C, B, A](dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)(y1234)(x1234)
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_tup4_dict[A, B, C, D : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D]) : ord_class[[A, B, C, D]] = (#  
+  compare_method := quadrupleCompare[A, B, C, D](dict_Basic_classes_Ord_a`compare_method)(dict_Basic_classes_Ord_b`compare_method)(dict_Basic_classes_Ord_c`compare_method)(dict_Basic_classes_Ord_d`compare_method),  
+  isLess_method := 
+  quadrupleLess[A, B, C, D](dict_Basic_classes_Ord_a)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_d),  
+  isLessEqual_method := 
+  quadrupleLessEq[A, B, C, D](dict_Basic_classes_Ord_a)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_d),  
+  isGreater_method := 
+  quadrupleGreater[D, C, B, A](dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a),  
+  isGreaterEqual_method := 
+  quadrupleGreaterEq[D, C, B, A](dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)
+#)
+
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_tup4_dict[A, B, C, D : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])(dict_Basic_classes_SetType_c : setType_class[C])(dict_Basic_classes_SetType_d : setType_class[D]) : setType_class[[A, B, C, D]] = (#  
+  setElemCompare_method := quadrupleCompare[A, B, C, D](dict_Basic_classes_SetType_a`setElemCompare_method)(dict_Basic_classes_SetType_b`setElemCompare_method)(dict_Basic_classes_SetType_c`setElemCompare_method)(dict_Basic_classes_SetType_d`setElemCompare_method)
+#)
+
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+quintupleEqual[A, B, C, D, E : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B])(dict_Basic_classes_Eq_c : eq_class[C])(dict_Basic_classes_Eq_d : eq_class[D])(dict_Basic_classes_Eq_e : eq_class[E])((x1 : A), ( x2 : B), ( x3 : C), ( x4 : D), ( x5 : E))((y1 : A), ( y2 : B), ( y3 : C), ( y4 : D), ( y5 : E)) : bool = pair_equal[A, [B, [C, [D, E]]]](dict_Basic_classes_Eq_a`isEqual_method)(pair_equal[B, [C, [D, E]]](dict_Basic_classes_Eq_b`isEqual_method)(pair_equal[C, [D, E]](dict_Basic_classes_Eq_c`isEqual_method)(pair_equal[D, E](dict_Basic_classes_Eq_d`isEqual_method)(dict_Basic_classes_Eq_e`isEqual_method))))((x1, (x2, (x3, (x4,  x5)))))((y1, (y2, (y3, (y4,  y5)))))
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_tup5_dict[A, B, C, D, E : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B])(dict_Basic_classes_Eq_c : eq_class[C])(dict_Basic_classes_Eq_d : eq_class[D])(dict_Basic_classes_Eq_e : eq_class[E]) : eq_class[[A, B, C, D, E]] = (#  
+  isEqual_method := 
+  quintupleEqual[A, B, C, D, E](dict_Basic_classes_Eq_a)(dict_Basic_classes_Eq_b)(dict_Basic_classes_Eq_c)(dict_Basic_classes_Eq_d)(dict_Basic_classes_Eq_e),  
+  isInequal_method := (LAMBDA ( x : [A, B, C, D, E])( y : [A, B, C, D, E]) : NOT(quintupleEqual[A, B, C, D, E](dict_Basic_classes_Eq_a)(dict_Basic_classes_Eq_b)(dict_Basic_classes_Eq_c)(dict_Basic_classes_Eq_d)(dict_Basic_classes_Eq_e)(x)(y)))
+#)
+
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+quintupleCompare[A, B, C, D, E : TYPE]( cmpa : [A -> [A -> ordering]])( cmpb : [B -> [B -> ordering]])( cmpc : [C -> [C -> ordering]])( cmpd : [D -> [D -> ordering]])( cmpe : [E -> [E -> ordering]])((a1 : A), ( b1 : B), ( c1 : C), ( d1 : D), ( e1 : E))((a2 : A), ( b2 : B), ( c2 : C), ( d2 : D), ( e2 : E)) : ordering = pairCompare[A, [B, [C, [D, E]]]](cmpa)(pairCompare[B, [C, [D, E]]](cmpb)(pairCompare[C, [D, E]](cmpc)(pairCompare[D, E](cmpd)(cmpe))))((a1, (b1, (c1, (d1,  e1)))))((a2, (b2, (c2, (d2,  e2)))))
+
+
+%
+% 
+% 
+
+% 
+
+quintupleLess[A, B, C, D, E : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])(dict_Basic_classes_Ord_e : ord_class[E])((x1 : A), ( x2 : B), ( x3 : C), ( x4 : D), ( x5 : E))((y1 : A), ( y2 : B), ( y3 : C), ( y4 : D), ( y5 : E)) : bool = pairLess[[B, [C, [D, E]]], A](instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_b)(instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_c)(instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_e))))(dict_Basic_classes_Ord_a)((x1, (x2, (x3, (x4,  x5)))))((y1, (y2, (y3, (y4,  y5)))))
+
+
+%
+% 
+
+% 
+
+quintupleLessEq[A, B, C, D, E : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])(dict_Basic_classes_Ord_e : ord_class[E])((x1 : A), ( x2 : B), ( x3 : C), ( x4 : D), ( x5 : E))((y1 : A), ( y2 : B), ( y3 : C), ( y4 : D), ( y5 : E)) : bool = pairLessEq[[B, [C, [D, E]]], A](instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_b)(instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_c)(instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_e))))(dict_Basic_classes_Ord_a)((x1, (x2, (x3, (x4,  x5)))))((y1, (y2, (y3, (y4,  y5)))))
+
+
+%
+% 
+% 
+
+% 
+
+quintupleGreater[A, B, C, D, E : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])(dict_Basic_classes_Ord_e : ord_class[E])( x12345 : [E, D, C, B, A])( y12345 : [E, D, C, B, A]) : bool = quintupleLess[E, D, C, B, A](dict_Basic_classes_Ord_e)(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)(y12345)(x12345)
+
+
+%
+% 
+
+% 
+
+quintupleGreaterEq[A, B, C, D, E : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])(dict_Basic_classes_Ord_e : ord_class[E])( x12345 : [E, D, C, B, A])( y12345 : [E, D, C, B, A]) : bool = quintupleLessEq[E, D, C, B, A](dict_Basic_classes_Ord_e)(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)(y12345)(x12345)
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_tup5_dict[A, B, C, D, E : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])(dict_Basic_classes_Ord_e : ord_class[E]) : ord_class[[A, B, C, D, E]] = (#  
+  compare_method := quintupleCompare[A, B, C, D, E](dict_Basic_classes_Ord_a`compare_method)(dict_Basic_classes_Ord_b`compare_method)(dict_Basic_classes_Ord_c`compare_method)(dict_Basic_classes_Ord_d`compare_method)(dict_Basic_classes_Ord_e`compare_method),  
+  isLess_method := 
+  quintupleLess[A, B, C, D, E](dict_Basic_classes_Ord_a)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_e),  
+  isLessEqual_method := 
+  quintupleLessEq[A, B, C, D, E](dict_Basic_classes_Ord_a)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_e),  
+  isGreater_method := 
+  quintupleGreater[E, D, C, B, A](dict_Basic_classes_Ord_e)(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a),  
+  isGreaterEqual_method := 
+  quintupleGreaterEq[E, D, C, B, A](dict_Basic_classes_Ord_e)(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)
+#)
+
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_tup5_dict[A, B, C, D, E : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])(dict_Basic_classes_SetType_c : setType_class[C])(dict_Basic_classes_SetType_d : setType_class[D])(dict_Basic_classes_SetType_e : setType_class[E]) : setType_class[[A, B, C, D, E]] = (#  
+  setElemCompare_method := quintupleCompare[A, B, C, D, E](dict_Basic_classes_SetType_a`setElemCompare_method)(dict_Basic_classes_SetType_b`setElemCompare_method)(dict_Basic_classes_SetType_c`setElemCompare_method)(dict_Basic_classes_SetType_d`setElemCompare_method)(dict_Basic_classes_SetType_e`setElemCompare_method)
+#)
+
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+sextupleEqual[A, B, C, D, E, F : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B])(dict_Basic_classes_Eq_c : eq_class[C])(dict_Basic_classes_Eq_d : eq_class[D])(dict_Basic_classes_Eq_e : eq_class[E])(dict_Basic_classes_Eq_f : eq_class[F])((x1 : A), ( x2 : B), ( x3 : C), ( x4 : D), ( x5 : E), ( x6 : F))((y1 : A), ( y2 : B), ( y3 : C), ( y4 : D), ( y5 : E), ( y6 : F)) : bool = pair_equal[A, [B, [C, [D, [E, F]]]]](dict_Basic_classes_Eq_a`isEqual_method)(pair_equal[B, [C, [D, [E, F]]]](dict_Basic_classes_Eq_b`isEqual_method)(pair_equal[C, [D, [E, F]]](dict_Basic_classes_Eq_c`isEqual_method)(pair_equal[D, [E, F]](dict_Basic_classes_Eq_d`isEqual_method)(pair_equal[E, F](dict_Basic_classes_Eq_e`isEqual_method)(dict_Basic_classes_Eq_f`isEqual_method)))))((x1, (x2, (x3, (x4, (x5,  x6))))))((y1, (y2, (y3, (y4, (y5,  y6))))))
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_tup6_dict[A, B, C, D, E, F : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B])(dict_Basic_classes_Eq_c : eq_class[C])(dict_Basic_classes_Eq_d : eq_class[D])(dict_Basic_classes_Eq_e : eq_class[E])(dict_Basic_classes_Eq_f : eq_class[F]) : eq_class[[A, B, C, D, E, F]] = (#  
+  isEqual_method := 
+  sextupleEqual[A, B, C, D, E, F](dict_Basic_classes_Eq_a)(dict_Basic_classes_Eq_b)(dict_Basic_classes_Eq_c)(dict_Basic_classes_Eq_d)(dict_Basic_classes_Eq_e)(dict_Basic_classes_Eq_f),  
+  isInequal_method := (LAMBDA ( x : [A, B, C, D, E, F])( y : [A, B, C, D, E, F]) : NOT(sextupleEqual[A, B, C, D, E, F](dict_Basic_classes_Eq_a)(dict_Basic_classes_Eq_b)(dict_Basic_classes_Eq_c)(dict_Basic_classes_Eq_d)(dict_Basic_classes_Eq_e)(dict_Basic_classes_Eq_f)(x)(y)))
+#)
+
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+sextupleCompare[A, B, C, D, E, F : TYPE]( cmpa : [A -> [A -> ordering]])( cmpb : [B -> [B -> ordering]])( cmpc : [C -> [C -> ordering]])( cmpd : [D -> [D -> ordering]])( cmpe : [E -> [E -> ordering]])( cmpf : [F -> [F -> ordering]])((a1 : A), ( b1 : B), ( c1 : C), ( d1 : D), ( e1 : E), ( f1 : F))((a2 : A), ( b2 : B), ( c2 : C), ( d2 : D), ( e2 : E), ( f2 : F)) : ordering = pairCompare[A, [B, [C, [D, [E, F]]]]](cmpa)(pairCompare[B, [C, [D, [E, F]]]](cmpb)(pairCompare[C, [D, [E, F]]](cmpc)(pairCompare[D, [E, F]](cmpd)(pairCompare[E, F](cmpe)(cmpf)))))((a1, (b1, (c1, (d1, (e1,  f1))))))((a2, (b2, (c2, (d2, (e2,  f2))))))
+
+
+%
+% 
+% 
+
+% 
+
+sextupleLess[A, B, C, D, E, F : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])(dict_Basic_classes_Ord_e : ord_class[E])(dict_Basic_classes_Ord_f : ord_class[F])((x1 : A), ( x2 : B), ( x3 : C), ( x4 : D), ( x5 : E), ( x6 : F))((y1 : A), ( y2 : B), ( y3 : C), ( y4 : D), ( y5 : E), ( y6 : F)) : bool = pairLess[[B, [C, [D, [E, F]]]], A](instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_b)(instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_c)(instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_d)(instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_e)(dict_Basic_classes_Ord_f)))))(dict_Basic_classes_Ord_a)((x1, (x2, (x3, (x4, (x5,  x6))))))((y1, (y2, (y3, (y4, (y5,  y6))))))
+
+
+%
+% 
+
+% 
+
+sextupleLessEq[A, B, C, D, E, F : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])(dict_Basic_classes_Ord_e : ord_class[E])(dict_Basic_classes_Ord_f : ord_class[F])((x1 : A), ( x2 : B), ( x3 : C), ( x4 : D), ( x5 : E), ( x6 : F))((y1 : A), ( y2 : B), ( y3 : C), ( y4 : D), ( y5 : E), ( y6 : F)) : bool = pairLessEq[[B, [C, [D, [E, F]]]], A](instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_b)(instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_c)(instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_d)(instance_Basic_classes_Ord_tup2_dict(dict_Basic_classes_Ord_e)(dict_Basic_classes_Ord_f)))))(dict_Basic_classes_Ord_a)((x1, (x2, (x3, (x4, (x5,  x6))))))((y1, (y2, (y3, (y4, (y5,  y6))))))
+
+
+%
+% 
+% 
+
+% 
+
+sextupleGreater[A, B, C, D, E, F : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])(dict_Basic_classes_Ord_e : ord_class[E])(dict_Basic_classes_Ord_f : ord_class[F])( x123456 : [F, E, D, C, B, A])( y123456 : [F, E, D, C, B, A]) : bool = sextupleLess[F, E, D, C, B, A](dict_Basic_classes_Ord_f)(dict_Basic_classes_Ord_e)(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)(y123456)(x123456)
+
+
+%
+% 
+
+% 
+
+sextupleGreaterEq[A, B, C, D, E, F : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])(dict_Basic_classes_Ord_e : ord_class[E])(dict_Basic_classes_Ord_f : ord_class[F])( x123456 : [F, E, D, C, B, A])( y123456 : [F, E, D, C, B, A]) : bool = sextupleLessEq[F, E, D, C, B, A](dict_Basic_classes_Ord_f)(dict_Basic_classes_Ord_e)(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)(y123456)(x123456)
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_tup6_dict[A, B, C, D, E, F : TYPE](dict_Basic_classes_Ord_a : ord_class[A])(dict_Basic_classes_Ord_b : ord_class[B])(dict_Basic_classes_Ord_c : ord_class[C])(dict_Basic_classes_Ord_d : ord_class[D])(dict_Basic_classes_Ord_e : ord_class[E])(dict_Basic_classes_Ord_f : ord_class[F]) : ord_class[[A, B, C, D, E, F]] = (#  
+  compare_method := sextupleCompare[A, B, C, D, E, F](dict_Basic_classes_Ord_a`compare_method)(dict_Basic_classes_Ord_b`compare_method)(dict_Basic_classes_Ord_c`compare_method)(dict_Basic_classes_Ord_d`compare_method)(dict_Basic_classes_Ord_e`compare_method)(dict_Basic_classes_Ord_f`compare_method),  
+  isLess_method := 
+  sextupleLess[A, B, C, D, E, F](dict_Basic_classes_Ord_a)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_e)(dict_Basic_classes_Ord_f),  
+  isLessEqual_method := 
+  sextupleLessEq[A, B, C, D, E, F](dict_Basic_classes_Ord_a)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_e)(dict_Basic_classes_Ord_f),  
+  isGreater_method := 
+  sextupleGreater[F, E, D, C, B, A](dict_Basic_classes_Ord_f)(dict_Basic_classes_Ord_e)(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a),  
+  isGreaterEqual_method := 
+  sextupleGreaterEq[F, E, D, C, B, A](dict_Basic_classes_Ord_f)(dict_Basic_classes_Ord_e)(dict_Basic_classes_Ord_d)(dict_Basic_classes_Ord_c)(dict_Basic_classes_Ord_b)(dict_Basic_classes_Ord_a)
+#)
+
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_tup6_dict[A, B, C, D, E, F : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])(dict_Basic_classes_SetType_c : setType_class[C])(dict_Basic_classes_SetType_d : setType_class[D])(dict_Basic_classes_SetType_e : setType_class[E])(dict_Basic_classes_SetType_f : setType_class[F]) : setType_class[[A, B, C, D, E, F]] = (#  
+  setElemCompare_method := sextupleCompare[A, B, C, D, E, F](dict_Basic_classes_SetType_a`setElemCompare_method)(dict_Basic_classes_SetType_b`setElemCompare_method)(dict_Basic_classes_SetType_c`setElemCompare_method)(dict_Basic_classes_SetType_d`setElemCompare_method)(dict_Basic_classes_SetType_e`setElemCompare_method)(dict_Basic_classes_SetType_f`setElemCompare_method)
+#)
+
+
+
+
+
+END lem_basic_classes

@@ -1,0 +1,10 @@
+(lem_function_aux
+ (id_def_lemma 0
+  (id_def_lemma-1 nil 3742913602 ("" (grind) nil nil)
+   ((id const-decl "(bijective?[T, T])" identity nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (apply_def_lemma 0
+  (apply_def_lemma-1 nil 3742913610 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak)))
+

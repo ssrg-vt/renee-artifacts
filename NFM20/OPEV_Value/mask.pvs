@@ -1,0 +1,6 @@
+mask[N:nat] : THEORY
+BEGIN
+
+mask(m: {m:nat| m <= N}, bv: bvec[N]) : MACRO bvec[m] = LAMBDA (i:below[m]): bv(i+N-m)
+
+END mask

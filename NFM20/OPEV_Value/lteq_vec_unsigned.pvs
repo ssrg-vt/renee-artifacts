@@ -1,0 +1,12 @@
+lteq_vec_unsigned[N:nat, M:nat]: THEORY
+BEGIN
+
+IMPORTING unsigned
+
+bv1: VAR bvec[N]
+
+bv2: VAR bvec[M]
+
+lteq_vec_unsigned(bv1, bv2) : MACRO bit = unsigned(bv1) <= unsigned(bv2)
+
+END lteq_vec_unsigned

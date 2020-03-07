@@ -1,0 +1,30 @@
+additional_arithmetic : THEORY
+BEGIN
+
+m, n: VAR int
+
+i: VAR nat
+
+power(m, i) : MACRO int = m^i;
+
+**(m, i) : MACRO int = m^i;
+
+abs(n) : MACRO nat = IF n < 0 THEN -n ELSE n ENDIF
+
+max(m, n) : MACRO int = max(m, n)
+
+min(m, n) : MACRO int = min(m, n)
+
+%=================== Properties of power, abs, max, min, length operations ===================
+
+power_exp2: LEMMA (2**i) = exp2(i)
+
+abs_inv: LEMMA abs(-m) = abs(m)
+
+max_prop: LEMMA max(m, n) >= m and max(m, n) >= n
+
+min_prop: LEMMA min(m, n) <= m and min(m, n) <= n
+
+power_op_eq: LEMMA (m**i) = power(m, i)
+
+END additional_arithmetic

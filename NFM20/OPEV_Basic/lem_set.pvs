@@ -1,0 +1,468 @@
+lem_set: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_maybe
+
+IMPORTING lem_function
+
+IMPORTING lem_num
+
+IMPORTING lem_list
+
+IMPORTING lem_set_helpers
+
+IMPORTING set_extra
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_set_dict[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A]) : eq_class[set[A]] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( s1 : set[A])( s2 : set[A]) : NOT(eqs(s1)(s2)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %% 
+% % 
+% 
+% % 
+% 
+% filter[A : TYPE]( P : [A -> bool])( s : set[A]) : set[A] = % XXX: comp binding
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+partition[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])( p0 : [A -> bool])( s : set[A]) : [set[A], set[A]] = (filter(p0)(s), filter((LAMBDA ( e : A) : NOT(p0(e))))(s))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+split[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Ord_a : ord_class[A])( p : A)( s : set[A]) : [set[A], set[A]] = (filter(dict_Basic_classes_Ord_a`isGreater_method(p))(s), filter(dict_Basic_classes_Ord_a`isLess_method(p))(s))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+splitMember[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Ord_a : ord_class[A])( p : A)( s : set[A]) : [set[A], bool, set[A]] = (filter(dict_Basic_classes_Ord_a`isLess_method(p))(s), member(p)(s), filter(dict_Basic_classes_Ord_a`isGreater_method(p))(s))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% % 
+% 
+% % 
+% 
+% bigunion[A : TYPE]( bs : set[set[A]]) : set[A] = % XXX: comp binding
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% bigintersection[A : TYPE]( bs : set[set[A]]) : set[A] = % XXX: comp binding
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %% (* before image *)
+% % 
+% 
+% % 
+% 
+% map[A, B : TYPE]( f : [A -> B])( s : set[A]) : set[B] = % XXX: comp binding
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+setMapMaybe[A, B : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])( f : [A -> option[B]])( s : set[A]) : set[B] = map_union((LAMBDA ( x : A) : 
+CASES f(x) OF
+  Some( y): singleton(y),
+  None: emptyset 
+ENDCASES))(s)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+removeMaybe[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])( s : set[option[A]]) : set[A] = setMapMaybe(instance_Basic_classes_SetType_Maybe_maybe_dict(dict_Basic_classes_SetType_a))(dict_Basic_classes_SetType_a)((LAMBDA ( x : option[A]) :  x))(s)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% % 
+% 
+% % 
+% 
+% sigma[A, B : TYPE]( sa : set[A])( sb : [A -> set[B]]) : set[[A, B]] = % XXX: comp binding
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% % 
+% 
+% % 
+% 
+% cross[A, B : TYPE]( s1 : set[A])( s2 : set[B]) : set[[A, B]] = % XXX: comp binding
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+leastFixedPoint[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(bound : nat)(f : [set[A] -> set[A]])(x : set[A]) : RECURSIVE set[A] =  
+  IF eqs(bound)((0)) THEN x ELSE
+   LET bound'0 = nat_minus(bound)((1)) IN LET fx = f(x) IN
+     IF subset?(fx)(x) THEN x ELSE
+      leastFixedPoint(dict_Basic_classes_SetType_a)(bound'0)(f)(union(fx)(x))
+       ENDIF ENDIF
+MEASURE bound
+
+
+
+ 
+END lem_set

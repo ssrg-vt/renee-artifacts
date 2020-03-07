@@ -1,0 +1,160 @@
+lem_show: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_string
+
+IMPORTING lem_maybe
+
+IMPORTING lem_num
+
+IMPORTING lem_basic_classes
+
+%
+% 
+% 
+
+ show_class[A: TYPE] : TYPE = [# 
+  show_method: [A ->  string]
+ #]
+
+
+%
+% 
+% 
+
+%
+
+instance_Show_Show_string_dict : show_class[string] = (#  
+  show_method := (LAMBDA ( s : string) : str_concat(doublequote)(str_concat(s)(doublequote)))
+#)
+
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+stringFromMaybe[A : TYPE]( showX : [A -> string])( x : option[A]) : string = 
+CASES  x OF
+  Some( x): str_concat("Just (")(str_concat(showX(x))(")")),
+  None: "Nothing" 
+ENDCASES
+
+
+%
+% 
+% 
+
+%
+
+instance_Show_Show_Maybe_maybe_dict[A : TYPE](dict_Show_Show_a : show_class[A]) : show_class[option[A]] = (#  
+
+  show_method := (LAMBDA ( x_opt : option[A]) : stringFromMaybe(dict_Show_Show_a`show_method)(x_opt))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+stringFromListAux[A : TYPE](showX : [A -> string])(l : list[A]) : RECURSIVE string = 
+CASES l OF
+      null: "",
+      cons(x, xs): CASES xs OF
+                          null: showX(x)
+                          ELSE str_concat(showX(x))(str_concat("; ")(stringFromListAux(showX)(xs))) 
+                    ENDCASES 
+ENDCASES
+MEASURE length(l)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+stringFromList[A : TYPE]( showX : [A -> string])( xs : list[A]) : string = str_concat("[")(str_concat(stringFromListAux(showX)(xs))("]"))
+
+
+%
+% 
+% 
+
+%
+
+instance_Show_Show_list_dict[A : TYPE](dict_Show_Show_a : show_class[A]) : show_class[list[A]] = (#  
+
+  show_method := (LAMBDA ( xs : list[A]) : stringFromList(dict_Show_Show_a`show_method)(xs))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+stringFromPair[A, B : TYPE]( showX : [A -> string])( showY : [B -> string])((x : A), (y : B)) : string = str_concat("(")(str_concat(showX(x))(str_concat(", ")(str_concat(showY(y))(")"))))
+
+
+%
+% 
+% 
+
+%
+
+instance_Show_Show_tup2_dict[A, B : TYPE](dict_Show_Show_a : show_class[A])(dict_Show_Show_b : show_class[B]) : show_class[[A, B]] = (#  
+
+  show_method := stringFromPair(dict_Show_Show_a`show_method)(dict_Show_Show_b`show_method)
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Show_Show_bool_dict : show_class[bool] = (#  
+
+  show_method := (LAMBDA ( b : bool) :  
+  IF b THEN "true" ELSE "false" ENDIF)
+
+#)
+
+
+
+
+END lem_show

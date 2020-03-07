@@ -1,0 +1,20 @@
+eq_vec[N:posnat, M:posnat] : THEORY
+BEGIN
+
+IMPORTING signed
+
+bv1: VAR bvec[N]
+
+bv2: VAR bvec[M]
+
+eq_vec(bv1, bv2) : MACRO bit = signed(bv1) = signed(bv2)
+
+;==(bv1, bv2) : MACRO bit = signed(bv1) = signed(bv2)
+
+%=================== Properties of eq_vec and signed operations ===================
+
+eq_vec_def: LEMMA (bv1 == bv2) IMPLIES (signed[N](bv1) = signed[M](bv2))
+
+eq_vec_op_eq: LEMMA (bv1 == bv2) = eq_vec(bv1, bv2)
+
+END eq_vec

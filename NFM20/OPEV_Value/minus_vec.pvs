@@ -1,0 +1,24 @@
+minus_vec[N:nat, M:nat] : THEORY
+BEGIN
+
+IMPORTING to_vec_inc
+
+bv1: VAR bvec[N]
+
+bv2: VAR bvec[M]
+
+minus_vec(bv1, bv2) : MACRO bvec[N] = to_vec_inc(N, unsigned[N](bv1) - unsigned[M](bv2));
+
+-(bv1, bv2) : MACRO bvec[N] = to_vec_inc(N, unsigned[N](bv1) - unsigned[M](bv2));
+
+minus_overflow_vec(bv1, bv2) : MACRO [bvec[N], bit, bit] =
+    LET minus_result = unsigned[N](bv1) - unsigned[M](bv2) IN
+    LET overflow = minus_result > exp2(N) OR minus_result < 0,
+        c_out = (mod(floor(minus_result/exp2(N)), 2) /= 0) IN
+    (to_vec_inc(N, minus_result), overflow, c_out)
+
+%=================== Properties of minus operations ===================
+
+minus_vec_op_eq: LEMMA (bv1 - bv2) = minus_vec(bv1, bv2)
+
+END minus_vec

@@ -1,0 +1,16 @@
+duplicate : THEORY
+BEGIN
+
+b: VAR bit
+
+n: VAR nat
+
+duplicate(b, n) : MACRO bvec[n] = LAMBDA(i:below[n]) : b
+
+;^^(b, n) : MACRO bvec[n] = LAMBDA(i:below[n]) : b
+
+%=================== Properties of duplicate operations ===================
+
+duplicate_op_eq: LEMMA (b ^^ n) = duplicate(b, n)
+
+END duplicate

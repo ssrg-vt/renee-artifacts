@@ -1,0 +1,26 @@
+eq_vec_range[N:nat] : THEORY
+BEGIN
+
+IMPORTING unsigned
+
+bv: VAR bvec[N]
+
+m: VAR int
+
+eq_vec_range(bv, m) : MACRO bit = unsigned(bv) = m
+
+;==(bv, m) : MACRO bit = unsigned(bv) = m
+
+eq_range_vec(m, bv) : MACRO bit = m = unsigned(bv)
+
+;==(m, bv) : MACRO bit = m = unsigned(bv)
+
+%=================== Properties of eq_vec unsigned operations ===================
+
+eq_range_vec_op_eq: LEMMA (m == bv) = eq_range_vec(m, bv)
+
+eq_vec_range_op_eq: LEMMA (bv == m) = eq_vec_range(bv, m)
+
+eq_range_vec_range: LEMMA (m == bv) = (bv == m)
+
+END eq_vec_range

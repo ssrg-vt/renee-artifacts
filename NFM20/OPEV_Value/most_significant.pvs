@@ -1,0 +1,6 @@
+most_significant[N:posnat] : THEORY
+BEGIN
+
+most_significant(bv: bvec[N]) : bit = bv(0)
+
+END most_significant

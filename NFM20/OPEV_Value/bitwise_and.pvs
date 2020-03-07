@@ -1,0 +1,20 @@
+bitwise_and[N:nat, M:upfrom(N)] : THEORY
+BEGIN
+
+bv1: VAR bvec[N]
+
+bv2: VAR bvec[M]
+
+bitwise_and(bv1, bv2) : MACRO bvec[N] = LAMBDA (i:below(N)): bv1(i) AND bv2(i)
+
+;&(bv1, bv2) : MACRO bvec[N] = LAMBDA (i:below(N)): bv1(i) AND bv2(i)
+
+%=================== Properties of bitwise and operations ===================
+
+and_inv: LEMMA (bv1 & (bvec1[N])) = bv1
+
+and_zero: LEMMA (bv1 & (bvec0[N])) = bvec0[N]
+
+and_op_eq: LEMMA (bv1 & bv2) = bitwise_and(bv1, bv2)
+
+END bitwise_and

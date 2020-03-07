@@ -1,0 +1,12 @@
+(bitwise_xor_bit
+ (bit_xor_commutativity 0
+  (bit_xor_commutativity-1 nil 3728414759 ("" (grind) nil nil)
+   ((/= const-decl "boolean" notequal nil)
+    (XOR const-decl "bool" xor_def nil))
+   shostak))
+ (bit_xor_associativity 0
+  (bit_xor_associativity-1 nil 3728414765 ("" (grind) nil nil)
+   ((/= const-decl "boolean" notequal nil)
+    (XOR const-decl "bool" xor_def nil))
+   shostak)))
+

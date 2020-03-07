@@ -1,0 +1,95 @@
+set_extra: THEORY
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING list_extra
+
+IMPORTING structures@set_as_list
+
+sigma[A, B: TYPE](sa: set[A])(f: [A -> set[B]]) : set[[A, B]] =
+  {(a:A, b:B) | member(a, sa) AND member(b, f(a))}
+
+
+map[A, B: TYPE](f: [A -> B])(sa: set[A]) : set[B] =
+  {b: B | EXISTS (a: A): member(a, sa) AND b = f(a)}
+
+
+bigunion[A: TYPE](sa: set[set[A]]) : set[A] = Union(sa)
+
+bigintersection[A: TYPE](sa: set[set[A]]) : set[A] = Intersection(sa)
+
+
+map_union[A, B: TYPE](f: [A -> set[B]])(sa: set[A]) : set[B] =
+  bigunion(map(f)(sa))
+
+
+fold[A, B: TYPE](f: [A -> [B -> B]])(sa: finite_set[A])(b: B) : RECURSIVE B =
+  IF sa = emptyset[A]
+  THEN b
+  ELSE LET a = choose(sa) IN
+       fold(f)(remove(a, sa))(f(a)(b))
+  ENDIF
+MEASURE card(sa)
+
+
+member[A: TYPE](a: A)(s: set[A]) : bool = member(a, s)
+
+
+add[A: TYPE](x: A)(xs: set[A]) : set[A] = add(x, xs)
+
+
+filter[A : TYPE](p: [A -> bool])(s : set[A]) : set[A] = {x: A | member(x, s) AND p(x)}
+
+
+toOrderedList[A: TYPE](cmp: [A -> [A -> bool]])(x: finite_set[A]): list[A] = sort(cmp)(set2list(x))
+
+
+set_compare_by[A: TYPE](cmp: [A -> [A -> ordering]])(x: finite_set[A])(y: finite_set[A]) : ordering =
+  LET cmpb = (LAMBDA (x: A)(y: A): cmp(x)(y) < 0) IN
+  LET x' = toOrderedList(cmpb)(x) IN
+  LET y' = toOrderedList(cmpb)(y) IN
+  list_compare_by(cmp)(x')(y')
+
+
+cross[A, B: TYPE](s1 : set[A])(s2 : set[B]) : set[[A, B]] = {xy: [A, B] | LET (x, y) = xy IN member(x, s1) AND member(y, s2)}
+
+
+subset?[A: TYPE](x: set[A])(y: set[A]) : bool = subset?(x, y)
+
+strict_subset?[A: TYPE](x: set[A])(y: set[A]) : bool = strict_subset?(x, y)
+
+
+union[A: TYPE](x: set[A])(y: set[A]) : set[A] = union(x, y)
+
+intersection[A: TYPE](x: set[A])(y: set[A]) : set[A] = intersection(x, y)
+
+difference[A: TYPE](x: set[A])(y: set[A]) : set[A] = difference(x, y)
+
+
+set_case[A, B: TYPE](s: finite_set[A])(c_empty : B)(c_singleton : [A -> B])(c_else : B) : B =
+  IF s = emptyset[A]
+  THEN c_empty
+  ELSE
+    IF card(s) = 1
+    THEN c_singleton(choose(s))
+    ELSE c_else
+    ENDIF
+  ENDIF
+
+
+from_list[A: TYPE](l : list[A]) : RECURSIVE set[A] =
+  IF null?(l) THEN emptyset[A] ELSE add(car(l), from_list(cdr(l))) ENDIF
+MEASURE l BY <<
+
+
+unbounded_lfp[T: TYPE](f: [set[T] -> set[T]])(s: set[T]) : set[T] =
+    glb({s' : set[T] | f(s) <= s' AND f(s') <= s'})
+
+
+set2list_emptyset[T: TYPE]: LEMMA FORALL (s: finite_set[T]): null?(set2list(s)) IMPLIES s = emptyset[T]
+
+set2list_eq_card[T: TYPE]: LEMMA FORALL (s: finite_set[T]): length(set2list(s)) = card(s)
+
+
+END set_extra

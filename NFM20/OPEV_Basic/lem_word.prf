@@ -1,0 +1,246 @@
+(lem_word
+ (boolListFrombitSeqAux_TCC1 0
+  (boolListFrombitSeqAux_TCC1-1 nil 3744050014
+   ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (>= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (eqs const-decl "bool" lib_extra nil))
+   nil (boolListFrombitSeqAux subtype "num_extra.r" "nat")))
+ (boolListFrombitSeqAux_TCC2 0
+  (boolListFrombitSeqAux_TCC2-1 nil 3744050014
+   ("" (termination-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (>= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (int_plus_int_is_int application-judgement "int" integers nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (length def-decl "nat" list_props nil)
+    (eqs const-decl "bool" lib_extra nil))
+   nil
+   (boolListFrombitSeqAux termination
+    "lem_word.boolListFrombitSeqAux(LET r = ((number_fields.-)(lem_word.n, (1))) IN IF reals.<(num_extra.r, 0) THEN 0 ELSE num_extra.r ENDIF)(lem_word.s)(lem_word.bl')"
+    "nil")))
+ (cleanBitSeq_TCC1 0
+  (cleanBitSeq_TCC1-1 nil 3744050014 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (PRED type-eq-decl nil defined_types nil)
+    (option type-decl nil option_adt nil)
+    (every adt-def-decl "boolean" option_adt nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (>= const-decl "bool" reals nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil (cleanBitSeq subtype "num_extra.r" "nat")))
+ (bitSeqTestBit_TCC1 0
+  (bitSeqTestBit_TCC1-1 nil 3744050014 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (>= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (PRED type-eq-decl nil defined_types nil)
+    (option type-decl nil option_adt nil)
+    (every adt-def-decl "boolean" option_adt nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil (bitSeqTestBit subtype "num_extra.r" "nat")))
+ (bitSeqBinopAux_TCC1 0
+  (bitSeqBinopAux_TCC1-1 nil 3744050014 ("" (termination-tcc) nil nil)
+   ((nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (length def-decl "nat" list_props nil))
+   nil
+   (bitSeqBinopAux termination
+    "lem_word.bitSeqBinopAux(lem_word.binop)(lem_word.s1)(list_adt[booleans.boolean].null)(lem_word.s2)(lem_word.bl2')"
+    "nil")))
+ (bitSeqBinopAux_TCC2 0
+  (bitSeqBinopAux_TCC2-1 nil 3744050014 ("" (termination-tcc) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (length def-decl "nat" list_props nil))
+   nil
+   (bitSeqBinopAux termination
+    "lem_word.bitSeqBinopAux(lem_word.binop)(lem_word.s1)(lem_word.bl1')(lem_word.s2)(list_adt[booleans.boolean].null)"
+    "nil")))
+ (bitSeqBinopAux_TCC3 0
+  (bitSeqBinopAux_TCC3-1 nil 3744050014 ("" (termination-tcc) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (bitSeqBinopAux termination
+    "lem_word.bitSeqBinopAux(lem_word.binop)(lem_word.s1)(lem_word.bl1')(lem_word.s2)(lem_word.bl2')"
+    "nil")))
+ (integerFromBoolListAux_TCC1 0
+  (integerFromBoolListAux_TCC1-1 nil 3744050014
+   ("" (termination-tcc) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (length def-decl "nat" list_props nil))
+   nil
+   (integerFromBoolListAux termination
+    "lem_word.integerFromBoolListAux(((number_fields.+)((number_fields.*(lem_word.acc, (2))), (1))))(lem_word.bl')"
+    "nil")))
+ (integerFromBoolListAux_TCC2 0
+  (integerFromBoolListAux_TCC2-1 nil 3744050014
+   ("" (termination-tcc) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil)
+    (length def-decl "nat" list_props nil))
+   nil
+   (integerFromBoolListAux termination
+    "lem_word.integerFromBoolListAux((number_fields.*(lem_word.acc, (2))))(lem_word.bl')"
+    "nil")))
+ (boolListFromNatural_TCC1 0
+  (boolListFromNatural_TCC1-1 nil 3744050014
+   ("" (termination-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (>= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (nnrat_div_posrat_is_nnrat application-judgement "nonneg_rat"
+     rationals nil)
+    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (boolListFromNatural termination
+    "lem_word.boolListFromNatural(list_extra.list_cons(lib_extra.eqs(IF (2) = 0 THEN lib_extra.failwith(\"nat_mod: mod by 0\") ELSE mod.mod(lem_word.remainder, (2)) ENDIF)((1)))(lem_word.acc))(IF (2) = 0 THEN lib_extra.failwith(\"nat_div: div by 0\") ELSE floor_ceil.floor(number_fields./(lem_word.remainder, (2))) ENDIF)"
+    "nil")))
+ (bitSeqFromInteger_TCC1 0
+  (bitSeqFromInteger_TCC1-1 nil 3744050014 ("" (grind) nil nil)
+   ((abs const-decl "{n: nonneg_real | n >= m AND n >= -m}" real_defs
+         nil)
+    (boolListFromInteger const-decl "[bool, list[bool]]" lem_word nil)
+    (every adt-def-decl "boolean" option_adt nil)
+    (minus_int_is_int application-judgement "int" integers nil)
+    (int_plus_int_is_int application-judgement "int" integers nil))
+   nil
+   (bitSeqFromInteger subtype "option_adt[numbers.number].None"
+    "option[nat]")))
+ (bitSeqPow_TCC1 0
+  (bitSeqPow_TCC1-1 nil 3744050014 ("" (subtype-tcc) nil nil)
+   ((/= const-decl "boolean" notequal nil)) nil
+   (bitSeqPow subtype "lem_word.n"
+    "{i_1: integers.int | booleans.OR(lem_word.i /= 0, reals.>=(i_1, 0))}")))
+ (bitSeqDiv_TCC1 0
+  (bitSeqDiv_TCC1-1 nil 3744050014 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (/= const-decl "boolean" notequal nil))
+   nil (bitSeqDiv subtype "num_extra.y" "nznum"))))
+

@@ -1,0 +1,137 @@
+%%% ADT file generated from option
+
+option_adt[T: TYPE]: THEORY
+ BEGIN
+
+  option: TYPE
+
+  Some?, None?: [option -> boolean]
+
+  t: [(Some?) -> T]
+
+  Some: [T -> (Some?)]
+
+  None: (None?)
+
+  option_ord: [option -> upto(1)]
+
+  option_ord_defaxiom: AXIOM
+    (FORALL (t: T): option_ord(Some(t)) = 0) AND option_ord(None) = 1;
+
+  ord(x: option): upto(1) = CASES x OF Some(Some1_var): 0, None: 1 ENDCASES
+
+  option_Some_extensionality: AXIOM
+    FORALL (Some?_var: (Some?), Some?_var2: (Some?)):
+      t(Some?_var) = t(Some?_var2) IMPLIES Some?_var = Some?_var2;
+
+  option_Some_eta: AXIOM
+    FORALL (Some?_var: (Some?)): Some(t(Some?_var)) = Some?_var;
+
+  option_None_extensionality: AXIOM
+    FORALL (None?_var: (None?), None?_var2: (None?)):
+      None?_var = None?_var2;
+
+  option_t_Some: AXIOM
+    FORALL (Some1_var: T): t(Some(Some1_var)) = Some1_var;
+
+  option_inclusive: AXIOM
+    FORALL (option_var: option): Some?(option_var) OR None?(option_var);
+
+  option_induction: AXIOM
+    FORALL (p: [option -> boolean]):
+      (FORALL (Some1_var: T): p(Some(Some1_var))) AND p(None) IMPLIES
+       FORALL (option_var: option): p(option_var);
+
+  every(p: PRED[T])(a: option):  boolean =
+      CASES a OF Some(Some1_var): p(Some1_var), None: TRUE ENDCASES;
+
+  every(p: PRED[T], a: option):  boolean =
+      CASES a OF Some(Some1_var): p(Some1_var), None: TRUE ENDCASES;
+
+  some(p: PRED[T])(a: option):  boolean =
+      CASES a OF Some(Some1_var): p(Some1_var), None: FALSE ENDCASES;
+
+  some(p: PRED[T], a: option):  boolean =
+      CASES a OF Some(Some1_var): p(Some1_var), None: FALSE ENDCASES;
+
+  subterm(x: option, y: option):  boolean = x = y;
+
+  <<:  (strict_well_founded?[option]) = LAMBDA (x, y: option): FALSE;
+
+  option_well_founded: AXIOM strict_well_founded?[option](<<);
+
+  reduce_nat(Some?_fun: [T -> nat], None?_fun: nat):  [option -> nat] =
+      LAMBDA (option_adtvar: option):
+        LET red: [option -> nat] = reduce_nat(Some?_fun, None?_fun) IN
+          CASES option_adtvar
+            OF Some(Some1_var): Some?_fun(Some1_var), None: None?_fun
+            ENDCASES;
+
+  REDUCE_nat(Some?_fun: [[T, option] -> nat], None?_fun: [option -> nat]):
+        [option -> nat] =
+      LAMBDA (option_adtvar: option):
+        LET red: [option -> nat] = REDUCE_nat(Some?_fun, None?_fun) IN
+          CASES option_adtvar
+            OF Some(Some1_var): Some?_fun(Some1_var, option_adtvar),
+               None: None?_fun(option_adtvar)
+            ENDCASES;
+
+  reduce_ordinal(Some?_fun: [T -> ordinal], None?_fun: ordinal):
+        [option -> ordinal] =
+      LAMBDA (option_adtvar: option):
+        LET red: [option -> ordinal] = reduce_ordinal(Some?_fun, None?_fun)
+          IN
+          CASES option_adtvar
+            OF Some(Some1_var): Some?_fun(Some1_var), None: None?_fun
+            ENDCASES;
+
+  REDUCE_ordinal(Some?_fun: [[T, option] -> ordinal],
+                 None?_fun: [option -> ordinal]):
+        [option -> ordinal] =
+      LAMBDA (option_adtvar: option):
+        LET red: [option -> ordinal] = REDUCE_ordinal(Some?_fun, None?_fun)
+          IN
+          CASES option_adtvar
+            OF Some(Some1_var): Some?_fun(Some1_var, option_adtvar),
+               None: None?_fun(option_adtvar)
+            ENDCASES;
+ END option_adt
+
+option_adt_map[T: TYPE, T1: TYPE]: THEORY
+ BEGIN
+
+  IMPORTING option_adt
+
+  map(f: [T -> T1])(a: option[T]):  option[T1] =
+      CASES a OF Some(Some1_var): Some(f(Some1_var)), None: None ENDCASES;
+
+  map(f: [T -> T1], a: option[T]):  option[T1] =
+      CASES a OF Some(Some1_var): Some(f(Some1_var)), None: None ENDCASES;
+
+  every(R: [[T, T1] -> boolean])(x: option[T], y: option[T1]):  boolean =
+      Some?(x) AND Some?(y) AND R(t(x), t(y)) OR None?(x) AND None?(y);
+ END option_adt_map
+
+option_adt_reduce[T: TYPE, range: TYPE]: THEORY
+ BEGIN
+
+  IMPORTING option_adt[T]
+
+  reduce(Some?_fun: [T -> range], None?_fun: range):
+        [option[T] -> range] =
+      LAMBDA (option_adtvar: option[T]):
+        LET red: [option[T] -> range] = reduce(Some?_fun, None?_fun) IN
+          CASES option_adtvar
+            OF Some(Some1_var): Some?_fun(Some1_var), None: None?_fun
+            ENDCASES;
+
+  REDUCE(Some?_fun: [[T, option[T]] -> range],
+         None?_fun: [option[T] -> range]):
+        [option[T] -> range] =
+      LAMBDA (option_adtvar: option[T]):
+        LET red: [option[T] -> range] = REDUCE(Some?_fun, None?_fun) IN
+          CASES option_adtvar
+            OF Some(Some1_var): Some?_fun(Some1_var, option_adtvar),
+               None: None?_fun(option_adtvar)
+            ENDCASES;
+ END option_adt_reduce

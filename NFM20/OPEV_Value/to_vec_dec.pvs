@@ -1,0 +1,8 @@
+to_vec_dec : THEORY
+BEGIN
+
+IMPORTING to_vec_inc
+
+to_vec_dec(len: nat, n: int) : MACRO bvec[len] = to_vec_inc(len, n)
+
+END to_vec_dec

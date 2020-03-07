@@ -1,0 +1,637 @@
+lem_relation: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_tuple
+
+IMPORTING lem_set
+
+IMPORTING lem_num
+
+IMPORTING set_extra
+
+%
+% 
+% (* ========================================================================== *)
+% (* The type of relations                                                      *)
+% (* ========================================================================== *)
+% 
+% 
+
+ rel_pred[A: TYPE, B: TYPE] : TYPE = [A -> [B ->  bool]]
+
+
+%
+% 
+
+ rel_set[A: TYPE, B: TYPE] : TYPE =  set[[A, B]]
+
+
+%
+% 
+% (* Binary relations are usually represented as either
+%    sets of pairs (rel_set) or as curried functions (rel_pred). 
+%    
+%    The choice depends on taste and the backend. Lem should not take a 
+%    decision, but supports both representations. There is an abstract type
+%    pred, which can be converted to both representations. The representation
+%    of pred itself then depends on the backend. However, for the time beeing,
+%    let's implement relations as sets to get them working more quickly. *)
+% 
+% 
+
+ rel[A: TYPE, B: TYPE] : TYPE =  rel_set[A, B]
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+relEq[A, B : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])( r1 : set[[A, B]])( r2 : set[[A, B]]) : bool = eqs(r1)(r2)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+% 
+
+relToPred[A, B : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])(dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B])( r : set[[A, B]]) : [A -> [B -> bool]] = (LAMBDA ( x : A)( y : B) : member((x,  y))(r))
+
+
+%
+% 
+
+% 
+
+relFromPred[A, B : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])(dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B])(xs : set[A])(ys : set[B])(p : [A -> [B -> bool]]) : set[[A, B]] = filter((LAMBDA ((x: A), (y: B)) : p(x)(y)))(cross(xs)(ys))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+relIdOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( s : set[A]) : set[[A, A]] = relFromPred(dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(dict_Basic_classes_Eq_a)(s)(s)(dict_Basic_classes_Eq_a`isEqual_method)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+relComp[A, B, C : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])(dict_Basic_classes_SetType_c : setType_class[C])(dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B])( r1 : set[[A, B]])( r2 : set[[B, C]]) : set[[A, C]] = LET  x2 = emptyset[[A, C]] IN 
+  fold((LAMBDA ((e1: A), (e2: B)): (LAMBDA ( x2 : set[[A, C]]) : fold((LAMBDA ((e2': B), (e3: C)) : (LAMBDA ( x2 : set[[A, C]]) :
+  IF dict_Basic_classes_Eq_b`isEqual_method(e2)(e2') THEN add((e1,  e3))(x2)
+    ELSE x2 ENDIF)))(r2)(x2))))(r1)(x2)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+relRestrict[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])(r : set[[A, A]])(s : set[A]) : set[[A, A]] = LET x2 = emptyset[[A, A]] IN 
+  fold((LAMBDA (a : A)(x2 : set[[A, A]]) : fold((LAMBDA (b : A)(x2 : set[[A, A]]) :
+  IF member((a, b))(r) THEN add((a, b))(x2) ELSE x2 ENDIF))(s)(x2)))(s)(x2)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+relConverse[A, B : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])(r : set[[A, B]]) : set[[B, A]] = map((LAMBDA ((v1: A), (v2: B)) : (v2, v1)))(r)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+relDomain[A, B : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])( r : set[[A, B]]) : set[A] = map((LAMBDA ( x : [A, B]) : proj_1(x)))(r)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+relRange[A, B : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])( r : set[[A, B]]) : set[B] = map((LAMBDA ( x : [A, B]) : proj_2(x)))(r)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+relOver[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])( r : set[[A, A]])( s : set[A]) : bool = subset?(union(relDomain[A, A](dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_a)(r))(relRange[A, A](dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_a)(r)))(s)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+relApply[A, B : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, B]])( s : set[A]) : set[B] = LET  x2 = emptyset[B] IN 
+            fold((LAMBDA ((x: A), (y: B)) : (LAMBDA ( x2 : set[B]) :
+  IF member(x)(s) THEN add(y)(x2) ELSE x2 ENDIF)))(r)(x2)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isReflexiveOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = FORALL (e : A) : member(e)( s) IMPLIES (member((e,  e))(r))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isIrreflexiveOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = FORALL (e : A) : member(e)( s) IMPLIES (NOT(member((e,  e))(r)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isIrreflexive[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]]) : bool = FORALL ((e1 : A), ( e2 : A)) : member((e1,  e2))(r) IMPLIES (NOT(dict_Basic_classes_Eq_a`isEqual_method(e1)(e2)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isSymmetricOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = FORALL (e1 : A), (e2 : A) : member(e1)( s) AND member(e2)( s) IMPLIES (bool_or(NOT(member((e1,  e2))(r)))(member((e2,  e1))(r)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isSymmetric[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]]) : bool = FORALL ((e1 : A), ( e2 : A)) : member((e1,  e2))( r) IMPLIES (member((e2,  e1))(r))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isAntisymmetricOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = FORALL (e1 : A), (e2 : A) : member(e1)( s) AND member(e2)( s) IMPLIES (bool_or(NOT(member((e1,  e2))(r)))(bool_or(NOT(member((e2,  e1))(r)))(dict_Basic_classes_Eq_a`isEqual_method(e1)(e2))))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isAntisymmetric[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]]) : bool = FORALL ((e1 : A), ( e2 : A)) : member((e1,  e2))( r) IMPLIES (bool_or(NOT(member((e2,  e1))(r)))(dict_Basic_classes_Eq_a`isEqual_method(e1)(e2)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isTransitiveOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = FORALL (e1 : A), (e2 : A), (e3 : A) : member(e1)( s) AND member(e2)( s) AND member(e3)( s) IMPLIES (bool_or(NOT(member((e1,  e2))(r)))(bool_or(NOT(member((e2,  e3))(r)))(member((e1,  e3))(r))))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isTransitive[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]]) : bool = FORALL ((e1 : A), ( e2 : A)), (e3 : A) : member((e1,  e2))( r) AND member(e3)(relApply(dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)({ x0 : A | x0 = e2 })) IMPLIES (member((e1,  e3))(r))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isTotalOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = FORALL (e1 : A), (e2 : A) : member(e1)( s) AND member(e2)( s) IMPLIES (bool_or(member((e1,  e2))(r))(member((e2,  e1))(r)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isTrichotomousOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = FORALL (e1 : A), (e2 : A) : member(e1)( s) AND member(e2)( s) IMPLIES (bool_or(member((e1,  e2))(r))(bool_or(dict_Basic_classes_Eq_a`isEqual_method(e1)(e2))(member((e2,  e1))(r))))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isSingleValued[A, B : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])(dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B])( r : set[[A, B]]) : bool = FORALL ((e1 : A), ( e2a : B)), (e2b : B) : member((e1,  e2a))( r) AND member(e2b)(relApply(dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_b)(dict_Basic_classes_Eq_a)(r)({ x0 : A | x0 = e1 })) IMPLIES (dict_Basic_classes_Eq_b`isEqual_method(e2a)(e2b))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isEquivalenceOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = bool_and(isReflexiveOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))(bool_and(isSymmetricOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))(isTransitiveOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isPreorderOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = bool_and(isReflexiveOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))(isTransitiveOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isPartialOrderOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = bool_and(isReflexiveOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))(bool_and(isTransitiveOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))(isAntisymmetricOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isStrictPartialOrderOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = bool_and(isIrreflexiveOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))(isTransitiveOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isStrictPartialOrder[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]]) : bool = bool_and(isIrreflexive(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r))(isTransitive(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isTotalOrderOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = bool_and(isPartialOrderOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))(isTotalOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+isStrictTotalOrderOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : bool = bool_and(isStrictPartialOrderOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))(isTrichotomousOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(r)(s))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+% 
+
+transitiveClosureAdd[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( x : A)( y : A)( r : set[[A, A]]) : set[[A, A]] = union(add((x, y))(r))(union(LET  x2 = emptyset[[A, A]] IN 
+  fold((LAMBDA (z : A)( x2 : set[[A, A]]) :
+  IF member((y,  z))(r) THEN add((x,  z))(x2) ELSE x2 ENDIF))(relRange(dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_a)(r))(x2))(LET  x2 = emptyset[[A, A]] IN 
+  fold((LAMBDA (z : A)( x2 : set[[A, A]]) :
+  IF member((z,  x))(r) THEN add((z,  y))(x2) ELSE x2 ENDIF))(relDomain(dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_a)(r))(x2)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+reflexiveTransitiveClosureOn[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]])( s : set[A]) : set[[A, A]] = TC(union(r)(relIdOn(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(s)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+withoutTransitiveEdges[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_Eq_a : eq_class[A])( r : set[[A, A]]) : set[[A, A]] = LET  tc = TC(r) IN LET  x2 = emptyset[[A, A]] IN 
+  fold((LAMBDA ((a: A), (c: A)) : (LAMBDA ( x2 : set[[A, A]]) :
+  IF
+   FORALL (b : A) : member(b)(relRange(dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_a)(r)) IMPLIES (
+   bool_or(NOT(bool_and(dict_Basic_classes_Eq_a`isInequal_method(a)(b))(dict_Basic_classes_Eq_a`isInequal_method(b)(c))))(NOT(bool_and(member((a,  b))(tc))(member((b,  c))(tc)))))
+    THEN add((a,  c))(x2) ELSE x2 ENDIF)))(r)(x2)
+
+
+
+END lem_relation

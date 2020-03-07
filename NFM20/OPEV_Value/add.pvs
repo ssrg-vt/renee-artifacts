@@ -1,0 +1,10 @@
+add : THEORY
+BEGIN
+
+m, n: VAR int
+
+add(m, n) : MACRO int = m + n
+
+add_signed(m, n) : MACRO int = m + n
+
+END add

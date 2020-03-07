@@ -1,0 +1,103 @@
+lem_map_extra: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_function
+
+IMPORTING lem_assert_extra
+
+IMPORTING lem_maybe
+
+IMPORTING lem_list
+
+IMPORTING lem_num
+
+IMPORTING lem_set
+
+IMPORTING lem_map
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% find[K, V : TYPE]( k : K)( m : fmap[K, V]) : V = 
+% CASES flookup(k)(m) OF
+%   Some( x):  x,
+%   None: failwith("Map_extra.find") 
+% ENDCASES
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% fromSet[K, V : TYPE]( f : [K -> V])( s : set[K]) : fmap[K, V] = fold((LAMBDA ( k : K)( m : fmap[K, V]) : fadd(k)(f(k))(m)))(s)(fempty)
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% fold[K, R, V : TYPE]( f : [K -> [V -> [R -> R]]])( m : fmap[K, V])( v : R) : R = fold((LAMBDA ((k : K), ( v : V))( r : R) : f(k)(v)(r)))(fmap_to_set(m))(v)
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% (* OLD: TODO: mapMaybe depends on toList that is not defined for hol and isabelle *)
+% 
+
+% 
+
+option_map[A, B, C : TYPE](f : [A -> [B -> option[C]]])(m : fmap[A, B]) : fmap[A, C] = foldl((LAMBDA (m' : fmap[A, C]) : (LAMBDA ((k: A), (v: B)) : 
+CASES f(k)(v) OF
+      None: m',
+      Some(v'): fadd(k)(v')(m') 
+ENDCASES
+)))(fempty)(fmap_to_list(m))
+
+
+
+
+END lem_map_extra

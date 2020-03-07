@@ -1,0 +1,35 @@
+{
+    "tags": [
+        "testFileDir",
+        "proveitPath",
+        "pvsLibNames",
+        "mlSrcFiles",
+        "externalCmds",
+        "externalMLs",
+        "functions",
+        "consts",
+        "types",
+        "instances",
+        "patterns",
+        "specialString"
+    ],
+    "proveitPath": "../pvs/proveit",
+    "pvsLibNames": ["OPEV_Value", "OPEV_Basic"],
+    "OPEV_Value": {
+        "library_path": "./OPEV_Value",
+        "mlSrcFiles": ["./OPEV_Value/ocaml_src/sail_values.ml"],
+        "externalCmds": ["zarith"],
+        "externalMLs" : [],
+        "specialString": ""
+    },
+    "OPEV_Basic": {
+        "library_path": "./OPEV_Basic",
+        "mlSrcFiles": ["../lem/ocaml-lib"],
+        "externalCmds": ["zarith", "nums.cma"],
+        "externalMLs" : [
+            "../lem/ocaml-lib/num_impl_num/big_int_impl.ml",
+            "../lem/ocaml-lib/num_impl_num/rational_impl.ml"
+        ],
+        "specialString": "lem_"
+    }
+}

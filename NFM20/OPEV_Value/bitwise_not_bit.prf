@@ -1,0 +1,4 @@
+(bitwise_not_bit
+ (bit_not_inv 0
+  (bit_not_inv-1 nil 3728414431 ("" (grind) nil nil) nil shostak)))
+

@@ -1,0 +1,18 @@
+multiply_vec_signed[N:posnat, M:posnat] : THEORY
+BEGIN
+
+IMPORTING signed
+IMPORTING to_vec_inc
+
+bv1: VAR bvec[N]
+bv2: VAR bvec[M]
+
+multiply_vec_signed(bv1, bv2) : MACRO bvec[2*N] = to_vec_inc(2*N, signed[N](bv1) * signed[M](bv2))
+
+mult_overflow_vec_signed(bv1, bv2) : MACRO [bvec[2*N], bit, bit] =
+    LET mult_result = signed[N](bv1) * signed[M](bv2) IN
+    LET overflow = mult_result > maxint[N] OR mult_result < minint[N],
+        c_out = (mod(floor((unsigned[N](bv1) * unsigned[M](bv2))/exp2(2*N)), 2) /= 0) IN
+    (to_vec_inc(2*N, mult_result), overflow , c_out)
+
+END multiply_vec_signed

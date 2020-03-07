@@ -1,0 +1,59 @@
+(lem_tuple_aux
+ (fst_def_lemma 0
+  (fst_def_lemma-1 nil 3742832292 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (fst_1 0
+  (fst_1-1 nil 3742832300 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (fst_2 0
+  (fst_2-1 nil 3742832305 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (snd_def_lemma 0
+  (snd_def_lemma-1 nil 3742832310 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (fst_snd 0
+  (fst_snd-1 nil 3742832315 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (snd_1 0
+  (snd_1-1 nil 3742832319 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (snd_2 0
+  (snd_2-1 nil 3742832325 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)) shostak))
+ (curry_1 0
+  (curry_1-1 nil 3742832329 ("" (grind) nil nil)
+   ((bool_and const-decl "bool" lib_extra nil)
+    (curry const-decl "[A -> [B -> C]]" lem_function nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (curry_uncurry 0
+  (curry_uncurry-1 nil 3742832334 ("" (grind) nil nil)
+   ((curry const-decl "[A -> [B -> C]]" lem_function nil)
+    (uncurry const-decl "C" lem_function nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (uncurry_curry 0
+  (uncurry_curry-1 nil 3742832338 ("" (grind) nil nil)
+   ((uncurry const-decl "C" lem_function nil)
+    (curry const-decl "[A -> [B -> C]]" lem_function nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (uncurry_1 0
+  (uncurry_1-1 nil 3742832343 ("" (grind) nil nil)
+   ((bool_and const-decl "bool" lib_extra nil)
+    (uncurry const-decl "C" lem_function nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (swap_def_lemma 0
+  (swap_def_lemma-1 nil 3742832348 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (swap_1 0
+  (swap_1-1 nil 3742832354 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil))
+   shostak)))
+

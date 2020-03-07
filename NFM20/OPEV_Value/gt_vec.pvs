@@ -1,0 +1,22 @@
+gt_vec[N:posnat, M:posnat] : THEORY
+BEGIN
+
+IMPORTING signed
+
+bv1: VAR bvec[N]
+
+bv2: VAR bvec[M]
+
+gt_vec(bv1, bv2) : MACRO bit = signed[N](bv1) > signed[M](bv2)
+
+;>(bv1, bv2) : MACRO bit = signed[N](bv1) > signed[M](bv2)
+
+gt_vec_signed(bv1, bv2) : MACRO bit = signed(bv1) > signed(bv2)
+
+%=================== Properties of gt_vec and signed operations ===================
+
+gt_vec_op_eq: LEMMA (bv1 > bv2) = gt_vec(bv1, bv2)
+
+gt_vec_signed_def: LEMMA gt_vec_signed(bv1, bv2) = (bv1 > bv2)
+
+END gt_vec

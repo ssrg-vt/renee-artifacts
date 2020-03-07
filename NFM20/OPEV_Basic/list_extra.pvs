@@ -1,0 +1,124 @@
+list_extra: THEORY
+BEGIN
+
+IMPORTING lib_extra
+
+list_cons[T: TYPE](x: T)(xs: list[T]) : list[T] = cons(x, xs)
+
+list_append[T: TYPE](xs: list[T])(ys: list[T]) : list[T] = append(xs, ys)
+
+rev[T: TYPE](xs: list[T]) : MACRO list[T] = reverse(xs)
+
+foldl[A, B : TYPE](f : [A -> [B -> A]])(b : A)(l : list[B]) : RECURSIVE A =
+CASES l OF
+      null: b,
+      cons(x, xs): foldl(f)(f(b)(x))(xs)
+ENDCASES
+MEASURE length(l)
+
+
+foldr[A, B : TYPE](f : [A -> [B -> B]])(b : B)(l : list[A]) : RECURSIVE B =
+CASES l OF
+      null: b,
+      cons(x, xs): f(x)(foldr(f)(b)(xs))
+ENDCASES
+MEASURE length(l)
+
+
+split[A, B: TYPE](l: list[[A, B]]): RECURSIVE [[list[A], list[B]]] =
+CASES l OF
+      null: (null[A], null[B]),
+      cons(xy, xys): LET (x, y) = xy, (xs, ys) = split(xys) IN
+               (cons(x, xs), cons(y, ys))
+ENDCASES
+MEASURE length(l)
+
+
+insert[A: TYPE](cmp: [A -> [A -> bool]])(a: A)(l: list[A]) : RECURSIVE list[A] =
+CASES l OF
+      null: cons(a, null),
+      cons(x, xs): IF cmp(a)(x) THEN cons(a, l)
+                   ELSE cons(x, cons(a, xs))
+                   ENDIF
+ENDCASES
+MEASURE length(l)
+
+
+sort[A: TYPE](cmp: [A -> [A -> bool]])(l: list[A]) : RECURSIVE list[A] =
+CASES l OF
+      null: null,
+      cons(x, xs): insert(cmp)(x)(sort(cmp)(xs))
+ENDCASES
+MEASURE length(l)
+
+
+nth[A: TYPE](l: list[A])(n: below(length(l))) : A = nth(l, n)
+
+
+list_member_by[A: TYPE](eq: [A -> [A -> bool]])(a: A)(l: list[A]) : RECURSIVE bool =
+CASES l OF
+      null: FALSE,
+      cons(x, xs): IF eq(x)(a) THEN TRUE ELSE list_member_by(eq)(a)(xs) ENDIF
+ENDCASES
+MEASURE length(l)
+
+
+list_member[A: TYPE](a: A)(l: list[A]) : bool = member(a, l)
+
+list_concat[A: TYPE] : [list[list[A]] -> list[A]] = foldr(list_append)(null[A])
+
+list_partition[A: TYPE](p: [A -> bool])(l: list[A]) : [list[A], list[A]] = (filter(p)(l), filter((LAMBDA (x : A) : NOT (p(x))))(l))
+
+
+list_compare_by[A : TYPE](cmp : [A -> [A -> ordering]])(l1 : list[A])(l2 : list[A]) : RECURSIVE ordering = 
+CASES l1 OF
+      null: CASES l2 OF
+                  null: 0,
+                  cons(x, xs): -1
+            ENDCASES,
+      cons(x, xs): CASES l2 OF
+                         null: 1,
+                         cons(y, ys): IF cmp(x)(y) = 0 THEN list_compare_by(cmp)(xs)(ys) ELSE cmp(x)(y) ENDIF
+                   ENDCASES
+ENDCASES
+MEASURE length(l1) + length(l2)
+
+
+list_equal_by[A : TYPE](eq : [A -> [A -> bool]])(l1 : list[A])(l2 : list[A]) : RECURSIVE bool =
+CASES l1 OF
+      null: CASES l2 OF
+                  null: TRUE,
+                  cons(y, ys): FALSE
+            ENDCASES,
+      cons(x, xs): CASES l2 OF
+                         null: FALSE,
+                         cons(y, ys): eq(x)(y) AND list_equal_by(eq)(xs)(ys)
+                   ENDCASES
+ENDCASES
+MEASURE length(l1) + length(l2)
+
+
+isPrefixOf[A : TYPE](l1 : list[A])( l2 : list[A]) : RECURSIVE bool =
+CASES l1 OF
+      null: TRUE,
+      cons(x, xs): CASES l2 OF
+                         null: FALSE,
+                         cons(y, ys): (x = y) AND (isPrefixOf(xs)(ys))
+                   ENDCASES
+ENDCASES
+MEASURE length(l1)
+
+
+
+distinct[A: TYPE](l : list[A]) : RECURSIVE bool =
+CASES l OF
+      null: TRUE,
+      cons(x, xs):  NOT(list_member(x)(xs)) AND distinct(xs)
+ENDCASES
+MEASURE length(l)
+
+
+list_eq_def[A: TYPE]: LEMMA FORALL (l: list[A]): list_equal_by(eqs)(l)(l)
+
+
+END list_extra

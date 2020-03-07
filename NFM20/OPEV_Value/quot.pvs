@@ -1,0 +1,20 @@
+quot : THEORY
+BEGIN
+
+quot(n:int, m:nzint) : MACRO int =
+    IF (n > 0 AND m < 0) OR (n < 0 AND m > 0)
+    THEN ceiling(n/m)
+    ELSE floor(n/m)
+    ENDIF
+
+%=================== Properties of quot_signed operations ===================
+
+quot_zero: LEMMA FORALL (m:nzint): quot(0, m) = 0
+
+quot_eq_zero: LEMMA FORALL (n:int, m:nzint): abs(n) < abs(m) IMPLIES quot(n, m) = 0
+
+quot_eq_div: LEMMA FORALL (n:int, m:nzint): integer?(n/m) IMPLIES quot(n,m) = n/m
+
+quot_abs_less: LEMMA FORALL (n:int, m:nzint): abs(m * quot(n, m)) <= abs(n)
+
+END quot

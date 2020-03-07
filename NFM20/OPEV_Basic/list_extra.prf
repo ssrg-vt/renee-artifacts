@@ -1,0 +1,49 @@
+(list_extra
+ (foldl_TCC1 0
+  (foldl_TCC1-1 nil 3744070646 ("" (termination-tcc) nil nil) nil nil
+   (foldl termination
+    "list_extra.foldl(list_extra.f)(list_extra.f(list_extra.b)(list_extra.x))(list_extra.xs)"
+    "nil")))
+ (foldr_TCC1 0
+  (foldr_TCC1-1 nil 3744070646 ("" (termination-tcc) nil nil) nil nil
+   (foldr termination
+    "list_extra.foldr(list_extra.f)(list_extra.b)(list_extra.xs)"
+    "nil")))
+ (split_TCC1 0
+  (split_TCC1-1 nil 3744070646 ("" (termination-tcc) nil nil) nil nil
+   (split termination "list_extra.split(list_extra.xys)" "nil")))
+ (sort_TCC1 0
+  (sort_TCC1-1 nil 3744070646 ("" (termination-tcc) nil nil) nil nil
+   (sort termination "list_extra.sort(list_extra.cmp)(list_extra.xs)"
+     "nil")))
+ (list_compare_TCC1 0
+  (list_compare_TCC1-1 nil 3744070646 ("" (termination-tcc) nil nil)
+   nil nil
+   (list_compare termination
+    "list_extra.list_compare(list_extra.cmp)(list_extra.xs)(list_extra.ys)"
+    "nil")))
+ (list_equal_by_TCC1 0
+  (list_equal_by_TCC1-1 nil 3744070646 ("" (termination-tcc) nil nil)
+   nil nil
+   (list_equal_by termination
+    "list_extra.list_equal_by(list_extra.eq)(list_extra.xs)(list_extra.ys)"
+    "nil")))
+ (list_eq_def 0
+  (list_eq_def-1 nil 3744070647
+   ("" (induct "l")
+    (("1" (grind) nil nil)
+     ("2" (skolem + ("x" "xs"))
+      (("2" (prop)
+        (("2" (expand "list_equal_by" +) (("2" (grind) nil nil)) nil))
+        nil))
+      nil))
+    nil)
+   ((list_induction formula-decl nil list_adt nil)
+    (A decl-formal-type nil list_extra nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (list_equal_by def-decl "bool" list_extra nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (list type-decl nil list_adt nil))
+   shostak)))
+

@@ -1,0 +1,7 @@
+(most_significant
+ (most_significant_TCC1 0
+  (most_significant_TCC1-1 nil 3722006471 ("" (subtype-tcc) nil nil)
+   ((real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil)))
+

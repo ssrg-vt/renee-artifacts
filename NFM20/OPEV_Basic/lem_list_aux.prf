@@ -1,0 +1,1492 @@
+(lem_list_aux
+ (null_simple_1 0
+  (null_simple_1-1 nil 3743179091 ("" (grind) nil nil)
+   ((list_null const-decl "bool" lem_list nil)) shostak))
+ (null_simple_2 0
+  (null_simple_2-1 nil 3743179248 ("" (grind) nil nil)
+   ((list_null const-decl "bool" lem_list nil)) shostak))
+ (null_simple_3 0
+  (null_simple_3-1 nil 3743179255 ("" (grind) nil nil)
+   ((list_null const-decl "bool" lem_list nil)) shostak))
+ (length_0 0
+  (length_0-1 nil 3743179313 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (length_1 0
+  (length_1-1 nil 3743179318 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   shostak))
+ (length_2 0
+  (length_2-1 nil 3743179322 ("" (grind) nil nil)
+   ((length def-decl "nat" list_props nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   shostak))
+ (list_ord_1_TCC1 0
+  (list_ord_1_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)) nil
+   (list_ord_1 subtype "list_adt[real].null" "list[nat]")))
+ (list_ord_1 0
+  (list_ord_1-1 nil 3743179331 ("" (grind) nil nil)
+   ((lexicographic_less def-decl "bool" lem_list nil)) shostak))
+ (list_ord_2 0
+  (list_ord_2-1 nil 3743179336 ("" (grind) nil nil)
+   ((lexicographic_less_eq def-decl "bool" lem_list nil)) shostak))
+ (list_ord_3 0
+  (list_ord_3-1 nil 3743179341 ("" (grind) nil nil)
+   ((lexicographic_less_eq def-decl "bool" lem_list nil)
+    (bool_and const-decl "bool" lib_extra nil)
+    (bool_or const-decl "bool" lib_extra nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (list_ord_4 0
+  (list_ord_4-1 nil 3743179346 ("" (grind) nil nil)
+   ((lexicographic_less_eq def-decl "bool" lem_list nil)
+    (bool_and const-decl "bool" lib_extra nil)
+    (bool_or const-decl "bool" lib_extra nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (list_ord_5_TCC1 0
+  (list_ord_5_TCC1-1 nil 3743179080
+   ("" (subtype-tcc) (("" (grind) nil nil)) nil)
+   ((real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (every adt-def-decl "boolean" list_adt nil))
+   nil
+   (list_ord_5 subtype "list_adt[real].cons((3), list_adt[real].null)"
+    "list[nat]")))
+ (list_ord_5 0
+  (list_ord_5-1 nil 3743179351 ("" (grind) nil nil)
+   ((lexicographic_less def-decl "bool" lem_list nil)
+    (bool_and const-decl "bool" lib_extra nil)
+    (bool_or const-decl "bool" lib_extra nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (list_ord_6_TCC1 0
+  (list_ord_6_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (list_ord_6 subtype
+    "list_adt[real].cons((3), list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].null)))"
+    "list[nat]")))
+ (list_ord_6 0
+  (list_ord_6-1 nil 3743179356 ("" (grind) nil nil)
+   ((lexicographic_less def-decl "bool" lem_list nil)
+    (bool_and const-decl "bool" lib_extra nil)
+    (bool_or const-decl "bool" lib_extra nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (list_ord_7_TCC1 0
+  (list_ord_7_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (list_ord_7 subtype
+    "list_adt[real].cons((3), list_adt[real].cons((4), list_adt[real].null))"
+    "list[nat]")))
+ (list_ord_7_TCC2 0
+  (list_ord_7_TCC2-1 nil 3743179080
+   ("" (subtype-tcc) (("" (grind) nil nil)) nil)
+   ((real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (every adt-def-decl "boolean" list_adt nil))
+   nil
+   (list_ord_7 subtype
+    "list_adt[real].cons((1), list_adt[real].cons((5), list_adt[real].cons((67), list_adt[real].null)))"
+    "list[nat]")))
+ (list_ord_7 0
+  (list_ord_7-1 nil 3743179361 ("" (grind) nil nil)
+   ((lexicographic_less def-decl "bool" lem_list nil)
+    (bool_and const-decl "bool" lib_extra nil)
+    (bool_or const-decl "bool" lib_extra nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (list_ord_8_TCC1 0
+  (list_ord_8_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (list_ord_8 subtype "list_adt[real].cons((56), list_adt[real].null)"
+    "list[nat]")))
+ (list_ord_8 0
+  (list_ord_8-1 nil 3743179367 ("" (grind) nil nil)
+   ((lexicographic_less def-decl "bool" lem_list nil)
+    (bool_and const-decl "bool" lib_extra nil)
+    (bool_or const-decl "bool" lib_extra nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (list_ord_9 0
+  (list_ord_9-1 nil 3743179371 ("" (grind) nil nil)
+   ((lexicographic_less_eq def-decl "bool" lem_list nil)
+    (bool_and const-decl "bool" lib_extra nil)
+    (bool_or const-decl "bool" lib_extra nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (append_1 0
+  (append_1-1 nil 3743179520 ("" (grind) nil nil)
+   ((append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (append_nil_1 0
+  (append_nil_1-1 nil 3743179647
+   ("" (induct "l") (("1" (grind) nil nil) ("2" (grind) nil nil)) nil)
+   ((append def-decl "list[T]" list_props nil)
+    (list_induction formula-decl nil list_adt nil)
+    (A decl-formal-type nil lem_list_aux nil)
+    (null adt-constructor-decl "(null?)" list_adt nil)
+    (null? adt-recognizer-decl "[list -> boolean]" list_adt nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (list type-decl nil list_adt nil))
+   shostak))
+ (append_nil_2 0
+  (append_nil_2-1 nil 3743181541
+   ("" (induct "l") (("1" (grind) nil nil) ("2" (grind) nil nil)) nil)
+   ((append def-decl "list[T]" list_props nil)
+    (list_induction formula-decl nil list_adt nil)
+    (A decl-formal-type nil lem_list_aux nil)
+    (null adt-constructor-decl "(null?)" list_adt nil)
+    (null? adt-recognizer-decl "[list -> boolean]" list_adt nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (list type-decl nil list_adt nil))
+   shostak))
+ (snoc_1 0
+  (snoc_1-1 nil 3743181573 ("" (grind) nil nil)
+   ((append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (snoc_2 0
+  (snoc_2-1 nil 3743181579 ("" (grind) nil nil)
+   ((append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (snoc_3 0
+  (snoc_3-1 nil 3743181585 ("" (grind) nil nil)
+   ((append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (reverseAppend_1 0
+  (reverseAppend_1-1 nil 3743181652 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverseAppend def-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (reverse_1 0
+  (reverse_1-1 nil 3743182160 ("" (grind) nil nil)
+   ((reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (reverse_2 0
+  (reverse_2-1 nil 3743182166 ("" (grind) nil nil)
+   ((reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (reverse_5 0
+  (reverse_5-1 nil 3743182170 ("" (grind) nil nil)
+   ((reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (map_1 0
+  (map_1-1 nil 3743182951 ("" (grind) nil nil)
+   ((map adt-def-decl "list[T1]" list_adt_map nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   shostak))
+ (map_2_TCC1 0
+  (map_2_TCC1-1 nil 3745016018 ("" (subtype-tcc) nil nil) nil nil
+   (map_2 subtype "list_adt[real].cons((2), list_adt[real].null)"
+    "list[nat]")))
+ (map_2_TCC2 0
+  (map_2_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (map_2 subtype "list_adt[real].cons((1), list_adt[real].null)"
+    "list[nat]")))
+ (map_2 0
+  (map_2-1 nil 3743182956 ("" (grind) nil nil)
+   ((map adt-def-decl "list[T1]" list_adt_map nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   shostak))
+ (map_3_TCC1 0
+  (map_3_TCC1-1 nil 3745016018 ("" (subtype-tcc) nil nil) nil nil
+   (map_3 subtype
+    "list_adt[real].cons((2), list_adt[real].cons((3), list_adt[real].null))"
+    "list[nat]")))
+ (map_3_TCC2 0
+  (map_3_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (map_3 subtype
+    "list_adt[real].cons((1), list_adt[real].cons((2), list_adt[real].null))"
+    "list[nat]")))
+ (map_3 0
+  (map_3-1 nil 3743182961 ("" (grind) nil nil)
+   ((map adt-def-decl "list[T1]" list_adt_map nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   shostak))
+ (map_4_TCC1 0
+  (map_4_TCC1-1 nil 3745016018 ("" (subtype-tcc) nil nil) nil nil
+   (map_4 subtype
+    "list_adt[real].cons((2), list_adt[real].cons((3), list_adt[real].cons((4), list_adt[real].null)))"
+    "list[nat]")))
+ (map_4_TCC2 0
+  (map_4_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (map_4 subtype
+    "list_adt[real].cons((1), list_adt[real].cons((2), list_adt[real].cons((3), list_adt[real].null)))"
+    "list[nat]")))
+ (map_4 0
+  (map_4-1 nil 3743182967 ("" (grind) nil nil)
+   ((map adt-def-decl "list[T1]" list_adt_map nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   shostak))
+ (map_5_TCC1 0
+  (map_5_TCC1-1 nil 3745016018 ("" (subtype-tcc) nil nil) nil nil
+   (map_5 subtype
+    "list_adt[real].cons((2), list_adt[real].cons((3), list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].null))))"
+    "list[nat]")))
+ (map_5_TCC2 0
+  (map_5_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (map_5 subtype
+    "list_adt[real].cons((1), list_adt[real].cons((2), list_adt[real].cons((3), list_adt[real].cons((4), list_adt[real].null))))"
+    "list[nat]")))
+ (map_5 0
+  (map_5-1 nil 3743182971 ("" (grind) nil nil)
+   ((map adt-def-decl "list[T1]" list_adt_map nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   shostak))
+ (map_6_TCC1 0
+  (map_6_TCC1-1 nil 3745016018 ("" (subtype-tcc) nil nil) nil nil
+   (map_6 subtype
+    "list_adt[real].cons((2), list_adt[real].cons((3), list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].cons((6), list_adt[real].null)))))"
+    "list[nat]")))
+ (map_6_TCC2 0
+  (map_6_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (map_6 subtype
+    "list_adt[real].cons((1), list_adt[real].cons((2), list_adt[real].cons((3), list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].null)))))"
+    "list[nat]")))
+ (map_6 0
+  (map_6-1 nil 3743182974 ("" (grind) nil nil)
+   ((map adt-def-decl "list[T1]" list_adt_map nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (nnint_plus_posint_is_posint application-judgement "posint"
+     integers nil))
+   shostak))
+ (foldl_0 0
+  (foldl_0-1 nil 3743183046 ("" (grind) nil nil)
+   ((foldl def-decl "A" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (foldl_1 0
+  (foldl_1-1 nil 3743183052 ("" (grind) nil nil)
+   ((foldl def-decl "A" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (foldl_4_TCC1 0
+  (foldl_4_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (foldl_4 subtype
+    "list_adt[real].cons((3), list_adt[real].cons((2), list_adt[real].cons((1), list_adt[real].null)))"
+    "list[nat]")))
+ (foldl_4 0
+  (foldl_4-1 nil 3743183057 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (foldl def-decl "A" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (foldr_0 0
+  (foldr_0-1 nil 3743183107 ("" (grind) nil nil)
+   ((foldr def-decl "B" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil))
+   shostak))
+ (foldr_1 0
+  (foldr_1-1 nil 3743183112 ("" (grind) nil nil)
+   ((foldr def-decl "B" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil))
+   shostak))
+ (foldr_4 0
+  (foldr_4-1 nil 3743183116 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (foldr def-decl "B" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (concat_1_TCC1 0
+  (concat_1_TCC1-1 nil 3743444994 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)) nil
+   (concat_1 subtype "list_adt[list[real]].null" "list[list[nat]]")))
+ (concat_1 0
+  (concat_1-1 nil 3743183127 ("" (grind) nil nil)
+   ((concat const-decl "[list[list[A]] -> list[A]]" lem_list nil)
+    (foldr def-decl "B" list_extra nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (concat_2_TCC1 0
+  (concat_2_TCC2-1 nil 3743444994 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (concat_2 subtype
+    "list_adt[list[real]].cons(list_adt[real].cons((2), list_adt[real].null), list_adt[list[real]].null)"
+    "list[list[nat]]")))
+ (concat_2 0
+  (concat_2-1 nil 3743183131 ("" (grind) nil nil)
+   ((concat const-decl "[list[list[A]] -> list[A]]" lem_list nil)
+    (foldr def-decl "B" list_extra nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (concat_3_TCC1 0
+  (concat_3_TCC1-1 nil 3743444994 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (concat_3 subtype
+    "list_adt[list[real]].cons(list_adt[real].null, list_adt[list[real]].cons(list_adt[real].cons((2), list_adt[real].null), list_adt[list[real]].null))"
+    "list[list[nat]]")))
+ (concat_3 0
+  (concat_3-1 nil 3743183136 ("" (grind) nil nil)
+   ((concat const-decl "[list[list[A]] -> list[A]]" lem_list nil)
+    (foldr def-decl "B" list_extra nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (concatMap_1 0
+  (concatMap_1-1 nil 3743183182 ("" (grind) nil nil)
+   ((concat const-decl "[list[list[A]] -> list[A]]" lem_list nil)
+    (map adt-def-decl "list[T1]" list_adt_map nil)
+    (foldr def-decl "B" list_extra nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (concatMap_2_TCC1 0
+  (concatMap_2_TCC1-1 nil 3745016018 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (concatMap_2 subtype
+    "list_adt[real].cons((1), list_adt[real].cons((2), list_adt[real].cons((2), list_adt[real].null)))"
+    "list[nat]")))
+ (concatMap_2 0
+  (concatMap_2-1 nil 3743183188 ("" (grind) nil nil)
+   ((concat const-decl "[list[list[A]] -> list[A]]" lem_list nil)
+    (map adt-def-decl "list[T1]" list_adt_map nil)
+    (foldr def-decl "B" list_extra nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (concatMap_3_TCC1 0
+  (concatMap_3_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (concatMap_3 subtype
+    "list_adt[real].cons((1), list_adt[real].cons((2), list_adt[real].cons((2), list_adt[real].cons((3), list_adt[real].cons((3), list_adt[real].null)))))"
+    "list[nat]")))
+ (concatMap_3 0
+  (concatMap_3-1 nil 3743183194 ("" (grind) nil nil)
+   ((concat const-decl "[list[list[A]] -> list[A]]" lem_list nil)
+    (map adt-def-decl "list[T1]" list_adt_map nil)
+    (foldr def-decl "B" list_extra nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (all_0 0
+  (all_0-1 nil 3743183237 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)) shostak))
+ (all_4_TCC1 0
+  (all_4_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (all_4 subtype
+    "list_adt[real].cons((5), list_adt[real].cons((6), list_adt[real].cons((7), list_adt[real].null)))"
+    "list[nat]")))
+ (all_4 0
+  (all_4-1 nil 3743183243 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (all_4_neg_TCC1 0
+  (all_4_neg_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (all_4_neg subtype
+    "list_adt[real].cons((5), list_adt[real].cons((2), list_adt[real].cons((7), list_adt[real].null)))"
+    "list[nat]")))
+ (all_4_neg 0
+  (all_4_neg-1 nil 3743183247 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (any_0 0
+  (any_0-1 nil 3743183267 ("" (grind) nil nil)
+   ((some adt-def-decl "boolean" list_adt nil)) shostak))
+ (any_4 0
+  (any_4-1 nil 3743183276 ("" (grind) nil nil)
+   ((some adt-def-decl "boolean" list_adt nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (any_4_neg 0
+  (any_4_neg-1 nil 3743183279 ("" (grind) nil nil)
+   ((some adt-def-decl "boolean" list_adt nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (dest_init_0 0
+  (dest_init_0-1 nil 3743183290 ("" (grind) nil nil)
+   ((dest_init const-decl "option[[list[A], A]]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (dest_init_1_TCC1 0
+  (dest_init_1_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((reverse def-decl "list[T]" list_props nil)
+    (dest_init_aux def-decl "[list[A], A]" lem_list nil)
+    (dest_init const-decl "option[[list[A], A]]" lem_list nil)
+    (every adt-def-decl "boolean" list_adt nil)
+    (every adt-def-decl "boolean" option_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (dest_init_1 subtype
+    "lem_list.dest_init(list_adt[real].cons((1), list_adt[real].null))"
+    "option_adt[[list[nat], nat]].option")))
+ (dest_init_1 0
+  (dest_init_1-1 nil 3743183293 ("" (grind) nil nil)
+   ((reverse def-decl "list[T]" list_props nil)
+    (dest_init_aux def-decl "[list[A], A]" lem_list nil)
+    (dest_init const-decl "option[[list[A], A]]" lem_list nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (dest_init_2_TCC1 0
+  (dest_init_2_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (dest_init_aux def-decl "[list[A], A]" lem_list nil)
+    (dest_init const-decl "option[[list[A], A]]" lem_list nil)
+    (every adt-def-decl "boolean" option_adt nil))
+   nil
+   (dest_init_2 subtype
+    "lem_list.dest_init(list_adt[real].cons((1), list_adt[real].cons((2), list_adt[real].cons((3), list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].null))))))"
+    "option_adt[[(list_adt[real].cons?), real]].option")))
+ (dest_init_2 0
+  (dest_init_2-1 nil 3743183296 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (dest_init_aux def-decl "[list[A], A]" lem_list nil)
+    (dest_init const-decl "option[[list[A], A]]" lem_list nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (index_0 0
+  (index_0-1 nil 3743183365 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (index def-decl "option[A]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (index_1 0
+  (index_1-1 nil 3743183369 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (index def-decl "option[A]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (index_2 0
+  (index_2-1 nil 3743183372 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (index def-decl "option[A]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (index_3 0
+  (index_3-1 nil 3743183374 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (index def-decl "option[A]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (index_4 0
+  (index_4-1 nil 3743183377 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (index def-decl "option[A]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (index_5 0
+  (index_5-1 nil 3743183379 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (index def-decl "option[A]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (index_6_TCC1 0
+  (index_6_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (index def-decl "option[A]" lem_list nil)
+    (every adt-def-decl "boolean" option_adt nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (index_6 subtype
+    "lem_list.index(list_adt[real].cons((0), list_adt[real].cons((1), list_adt[real].cons((2), list_adt[real].cons((3), list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].null)))))))((6))"
+    "option[nat]")))
+ (index_6 0
+  (index_6-1 nil 3743183382 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (index def-decl "option[A]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (findIndices_1 0
+  (findIndices_1-1 nil 3743183473 ("" (grind) nil nil)
+   ((findIndices_aux def-decl "list[nat]" lem_list nil)
+    (findIndices const-decl "list[nat]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (findIndices_2 0
+  (findIndices_2-1 nil 3743183477 ("" (grind) nil nil)
+   ((findIndices_aux def-decl "list[nat]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (findIndices const-decl "list[nat]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (findIndices_3_TCC1 0
+  (findIndices_3_TCC1-1 nil 3745016018 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (findIndices_3 subtype
+    "list_adt[real].cons((5), list_adt[real].null)" "list[nat]")))
+ (findIndices_3_TCC2 0
+  (findIndices_3_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (findIndices_3 subtype
+    "list_adt[real].cons((5), list_adt[real].cons((3), list_adt[real].cons((1), list_adt[real].cons((2), list_adt[real].cons((6), list_adt[real].null)))))"
+    "list[nat]")))
+ (findIndices_3 0
+  (findIndices_3-1 nil 3743183482 ("" (grind) nil nil)
+   ((findIndices_aux def-decl "list[nat]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (findIndices const-decl "list[nat]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (find_index0 0
+  (find_index0-1 nil 3743183484 ("" (grind) nil nil)
+   ((findIndices_aux def-decl "list[nat]" lem_list nil)
+    (findIndices const-decl "list[nat]" lem_list nil)
+    (findIndex const-decl "option[nat]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (find_index1_TCC1 0
+  (find_index1_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (find_index1 subtype
+    "list_adt[real].cons((2), list_adt[real].cons((4), list_adt[real].null))"
+    "list[nat]")))
+ (find_index1 0
+  (find_index1-1 nil 3743183487 ("" (grind) nil nil)
+   ((findIndices_aux def-decl "list[nat]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (findIndices const-decl "list[nat]" lem_list nil)
+    (findIndex const-decl "option[nat]" lem_list nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (find_index2_TCC1 0
+  (find_index2_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (find_index2 subtype
+    "list_adt[real].cons((2), list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].cons((67), list_adt[real].cons((1), list_adt[real].null)))))"
+    "list[nat]")))
+ (find_index2 0
+  (find_index2-1 nil 3743183490 ("" (grind) nil nil)
+   ((findIndices_aux def-decl "list[nat]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (findIndices const-decl "list[nat]" lem_list nil)
+    (findIndex const-decl "option[nat]" lem_list nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (elemIndices_0 0
+  (elemIndices_0-1 nil 3743183492 ("" (grind) nil nil)
+   ((findIndices_aux def-decl "list[nat]" lem_list nil)
+    (findIndices const-decl "list[nat]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (elemIndices_1 0
+  (elemIndices_1-1 nil 3743183495 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (findIndices_aux def-decl "list[nat]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (findIndices const-decl "list[nat]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (elemIndices_2_TCC1 0
+  (elemIndices_2_TCC1-1 nil 3745016018 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (elemIndices_2 subtype
+    "list_adt[real].cons((3), list_adt[real].cons((5), list_adt[real].null))"
+    "list[nat]")))
+ (elemIndices_2 0
+  (elemIndices_2-1 nil 3743183500 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (findIndices_aux def-decl "list[nat]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (findIndices const-decl "list[nat]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (elemIndex_0 0
+  (elemIndex_0-1 nil 3743183503 ("" (grind) nil nil)
+   ((findIndices_aux def-decl "list[nat]" lem_list nil)
+    (findIndices const-decl "list[nat]" lem_list nil)
+    (findIndex const-decl "option[nat]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (elemIndex_1 0
+  (elemIndex_1-1 nil 3743183505 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (findIndices_aux def-decl "list[nat]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (findIndices const-decl "list[nat]" lem_list nil)
+    (findIndex const-decl "option[nat]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (elemIndex_2 0
+  (elemIndex_2-1 nil 3743183509 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (findIndices_aux def-decl "list[nat]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (findIndices const-decl "list[nat]" lem_list nil)
+    (findIndex const-decl "option[nat]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (genlist_0 0
+  (genlist_0-1 nil 3743183511 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (genlist def-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (genlist_1 0
+  (genlist_1-1 nil 3743183514 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (genlist def-decl "list[A]" lem_list nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (genlist_2 0
+  (genlist_2-1 nil 3743183516 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (genlist def-decl "list[A]" lem_list nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (genlist_3 0
+  (genlist_3-1 nil 3743183518 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (genlist def-decl "list[A]" lem_list nil)
+    (append def-decl "list[T]" list_props nil)
+    (list_append const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (replicate_0 0
+  (replicate_0-1 nil 3743183575 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (replicate def-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (replicate_1 0
+  (replicate_1-1 nil 3743183579 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (replicate def-decl "list[A]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (replicate_2 0
+  (replicate_2-1 nil 3743183581 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (replicate def-decl "list[A]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (replicate_3 0
+  (replicate_3-1 nil 3743183584 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (replicate def-decl "list[A]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (splitAt_1 0
+  (splitAt_1-1 nil 3743183588 ("" (grind) nil nil)
+   ((reverse def-decl "list[T]" list_props nil)
+    (splitAtAcc def-decl "[list[A], list[A]]" lem_list nil)
+    (splitAt const-decl "[list[A], list[A]]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   shostak))
+ (splitAt_2_TCC1 0
+  (splitAt_2_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (splitAt const-decl "[list[A], list[A]]" lem_list nil)
+    (splitAtAcc def-decl "[list[A], list[A]]" lem_list nil)
+    (append def-decl "list[T]" list_props nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (list_cons const-decl "list[T]" list_extra nil))
+   nil
+   (splitAt_2 subtype
+    "lem_list.splitAt((2))(list_adt[real].cons((1), list_adt[real].cons((2), list_adt[real].cons((3), list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].cons((6), list_adt[real].null)))))))"
+    "[(list_adt[real].cons?), (list_adt[real].cons?)]")))
+ (splitAt_2_TCC2 0
+  (splitAt_2_TCC2-1 nil 3743179080 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (PRED type-eq-decl nil defined_types nil)
+    (list type-decl nil list_adt nil)
+    (every adt-def-decl "boolean" list_adt nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (cons? adt-recognizer-decl "[list -> boolean]" list_adt nil)
+    (list_equal def-decl "bool" list_extra nil))
+   nil
+   (splitAt_2 subtype
+    "restrict[list[real], (list_adt[real].cons?), [list[real] -> booleans.bool]].restrict(list_extra.list_equal)"
+    "[(list_adt[real].cons?) -> [(list_adt[real].cons?) -> booleans.bool]]")))
+ (splitAt_2 0
+  (splitAt_2-1 nil 3743183592 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitAtAcc def-decl "[list[A], list[A]]" lem_list nil)
+    (splitAt const-decl "[list[A], list[A]]" lem_list nil)
+    (restrict const-decl "R" restrict nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   shostak))
+ (splitAt_3 0
+  (splitAt_3-1 nil 3743183596 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitAtAcc def-decl "[list[A], list[A]]" lem_list nil)
+    (splitAt const-decl "[list[A], list[A]]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   shostak))
+ (take_1 0
+  (take_1-1 nil 3743183601 ("" (grind) nil nil)
+   ((reverse def-decl "list[T]" list_props nil)
+    (splitAtAcc def-decl "[list[A], list[A]]" lem_list nil)
+    (splitAt const-decl "[list[A], list[A]]" lem_list nil)
+    (take const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   shostak))
+ (take_2 0
+  (take_2-1 nil 3743183604 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitAtAcc def-decl "[list[A], list[A]]" lem_list nil)
+    (splitAt const-decl "[list[A], list[A]]" lem_list nil)
+    (take const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   shostak))
+ (take_3 0
+  (take_3-1 nil 3743183606 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitAtAcc def-decl "[list[A], list[A]]" lem_list nil)
+    (splitAt const-decl "[list[A], list[A]]" lem_list nil)
+    (take const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   shostak))
+ (drop_1 0
+  (drop_1-1 nil 3743183609 ("" (grind) nil nil)
+   ((reverse def-decl "list[T]" list_props nil)
+    (splitAtAcc def-decl "[list[A], list[A]]" lem_list nil)
+    (splitAt const-decl "[list[A], list[A]]" lem_list nil)
+    (drop const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   shostak))
+ (drop_2 0
+  (drop_2-1 nil 3743183614 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitAtAcc def-decl "[list[A], list[A]]" lem_list nil)
+    (splitAt const-decl "[list[A], list[A]]" lem_list nil)
+    (drop const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   shostak))
+ (drop_3 0
+  (drop_3-1 nil 3743183616 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitAtAcc def-decl "[list[A], list[A]]" lem_list nil)
+    (splitAt const-decl "[list[A], list[A]]" lem_list nil)
+    (drop const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   shostak))
+ (splitWhile_1_TCC1 0
+  (splitWhile_1_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (splitWhile const-decl "[list[A], list[A]]" lem_list nil)
+    (splitWhile_tr def-decl "[list[A], list[A]]" lem_list nil)
+    (append def-decl "list[T]" list_props nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (list_cons const-decl "list[T]" list_extra nil))
+   nil
+   (splitWhile_1 subtype
+    "lem_list.splitWhile(LAMBDA (y: naturalnumbers.nat): (reals.>((3), y)))(list_adt[nat].cons((1), list_adt[real].cons((2), list_adt[real].cons((3), list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].cons((6), list_adt[real].null)))))))"
+    "[(list_adt[real].cons?), (list_adt[real].cons?)]")))
+ (splitWhile_1 0
+  (splitWhile_1-1 nil 3743183620 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitWhile_tr def-decl "[list[A], list[A]]" lem_list nil)
+    (splitWhile const-decl "[list[A], list[A]]" lem_list nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (splitWhile_2 0
+  (splitWhile_2-1 nil 3743183622 ("" (grind) nil nil)
+   ((reverse def-decl "list[T]" list_props nil)
+    (splitWhile_tr def-decl "[list[A], list[A]]" lem_list nil)
+    (splitWhile const-decl "[list[A], list[A]]" lem_list nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (dropWhile_0_TCC1 0
+  (dropWhile_0_TCC1-1 nil 3745016018 ("" (subtype-tcc) nil nil) nil nil
+   (dropWhile_0 subtype
+    "list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].cons((6), list_adt[real].null)))"
+    "list[nat]")))
+ (dropWhile_0 0
+  (dropWhile_0-1 nil 3743183625 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitWhile_tr def-decl "[list[A], list[A]]" lem_list nil)
+    (splitWhile const-decl "[list[A], list[A]]" lem_list nil)
+    (dropWhile const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (dropWhile_1 0
+  (dropWhile_1-1 nil 3743183628 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitWhile_tr def-decl "[list[A], list[A]]" lem_list nil)
+    (splitWhile const-decl "[list[A], list[A]]" lem_list nil)
+    (dropWhile const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   shostak))
+ (dropWhile_2 0
+  (dropWhile_2-1 nil 3743183631 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitWhile_tr def-decl "[list[A], list[A]]" lem_list nil)
+    (splitWhile const-decl "[list[A], list[A]]" lem_list nil)
+    (dropWhile const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (dropWhile_3 0
+  (dropWhile_3-1 nil 3743183634 ("" (grind) nil nil)
+   ((reverse def-decl "list[T]" list_props nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (splitWhile_tr def-decl "[list[A], list[A]]" lem_list nil)
+    (splitWhile const-decl "[list[A], list[A]]" lem_list nil)
+    (dropWhile const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (takeWhile_0 0
+  (takeWhile_0-1 nil 3743183636 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitWhile_tr def-decl "[list[A], list[A]]" lem_list nil)
+    (splitWhile const-decl "[list[A], list[A]]" lem_list nil)
+    (takeWhile const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (takeWhile_1 0
+  (takeWhile_1-1 nil 3743183640 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitWhile_tr def-decl "[list[A], list[A]]" lem_list nil)
+    (splitWhile const-decl "[list[A], list[A]]" lem_list nil)
+    (takeWhile const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   shostak))
+ (takeWhile_2 0
+  (takeWhile_2-1 nil 3743183643 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (reverse def-decl "list[T]" list_props nil)
+    (append def-decl "list[T]" list_props nil)
+    (splitWhile_tr def-decl "[list[A], list[A]]" lem_list nil)
+    (splitWhile const-decl "[list[A], list[A]]" lem_list nil)
+    (takeWhile const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (takeWhile_3 0
+  (takeWhile_3-1 nil 3743183646 ("" (grind) nil nil)
+   ((reverse def-decl "list[T]" list_props nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (splitWhile_tr def-decl "[list[A], list[A]]" lem_list nil)
+    (splitWhile const-decl "[list[A], list[A]]" lem_list nil)
+    (takeWhile const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (isPrefixOf_0 0
+  (isPrefixOf_0-1 nil 3743183650 ("" (grind) nil nil)
+   ((isPrefixOf def-decl "bool" list_extra nil)) shostak))
+ (isPrefixOf_1 0
+  (isPrefixOf_1-1 nil 3743183652 ("" (grind) nil nil)
+   ((isPrefixOf def-decl "bool" list_extra nil)) shostak))
+ (isPrefixOf_2 0
+  (isPrefixOf_2-1 nil 3743183656 ("" (grind) nil nil)
+   ((isPrefixOf def-decl "bool" list_extra nil)) shostak))
+ (isPrefixOf_3 0
+  (isPrefixOf_3-1 nil 3743183658 ("" (grind) nil nil)
+   ((isPrefixOf def-decl "bool" list_extra nil)) shostak))
+ (isPrefixOf_4 0
+  (isPrefixOf_4-1 nil 3743183661 ("" (grind) nil nil)
+   ((isPrefixOf def-decl "bool" list_extra nil)) shostak))
+ (list_update_1 0
+  (list_update_1-1 nil 3743183666 ("" (grind) nil nil)
+   ((update def-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (list_update_2 0
+  (list_update_2-1 nil 3743183668 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (update def-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (list_update_3 0
+  (list_update_3-1 nil 3743183672 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (update def-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (list_update_4 0
+  (list_update_4-1 nil 3743183675 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (update def-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (list_update_5 0
+  (list_update_5-1 nil 3743183677 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (update def-decl "list[A]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (elem_1 0
+  (elem_1-1 nil 3743183682 ("" (grind) nil nil)
+   ((member def-decl "bool" list_props nil)
+    (list_member const-decl "bool" list_extra nil))
+   shostak))
+ (elem_2 0
+  (elem_2-1 nil 3743183684 ("" (grind) nil nil)
+   ((member def-decl "bool" list_props nil)
+    (list_member const-decl "bool" list_extra nil))
+   shostak))
+ (elem_3 0
+  (elem_3-1 nil 3743183686 ("" (grind) nil nil)
+   ((member def-decl "bool" list_props nil)
+    (list_member const-decl "bool" list_extra nil))
+   shostak))
+ (elem_4 0
+  (elem_4-1 nil 3743183689 ("" (grind) nil nil)
+   ((member def-decl "bool" list_props nil)
+    (list_member const-decl "bool" list_extra nil))
+   shostak))
+ (find_1 0
+  (find_1-1 nil 3743183692 ("" (grind) nil nil)
+   ((find def-decl "option[A]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (find_2_TCC1 0
+  (find_2_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (find_2 subtype
+    "list_adt[real].cons((1), list_adt[real].cons((3), list_adt[real].null))"
+    "list[nat]")))
+ (find_2 0
+  (find_2-1 nil 3743183700 ("" (grind) nil nil)
+   ((find def-decl "option[A]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (find_3_TCC1 0
+  (find_3_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (find_3 subtype
+    "list_adt[real].cons((1), list_adt[real].cons((5), list_adt[real].cons((4), list_adt[real].null)))"
+    "list[nat]")))
+ (find_3 0
+  (find_3-1 nil 3743183704 ("" (grind) nil nil)
+   ((find def-decl "option[A]" lem_list nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (find_4_TCC1 0
+  (find_4_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (find_4 subtype
+    "list_adt[real].cons((1), list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].cons((4), list_adt[real].null))))"
+    "list[nat]")))
+ (find_4 0
+  (find_4-1 nil 3743183707 ("" (grind) nil nil)
+   ((find def-decl "option[A]" lem_list nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (lookup_1_TCC1 0
+  (lookup_1_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (find def-decl "option[A]" lem_list nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (lookupBy const-decl "option[B]" lem_list nil)
+    (every adt-def-decl "boolean" option_adt nil))
+   nil
+   (lookup_1 subtype
+    "lem_list.lookupBy(lib_extra.eqs)((3))(list_adt[[real, real]].cons(((4), (5)), list_adt[[real, real]].cons(((3), (4)), list_adt[[real, real]].cons(((1), (2)), list_adt[[real, real]].cons(((3), (5)), list_adt[[real, real]].null)))))"
+    "option[real]")))
+ (lookup_1 0
+  (lookup_1-1 nil 3743183710 ("" (grind) nil nil)
+   ((map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (find def-decl "option[A]" lem_list nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (lookupBy const-decl "option[B]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (lookup_2_TCC1 0
+  (lookup_2_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (find def-decl "option[A]" lem_list nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (lookupBy const-decl "option[B]" lem_list nil)
+    (every adt-def-decl "boolean" option_adt nil))
+   nil
+   (lookup_2 subtype
+    "lem_list.lookupBy(lib_extra.eqs)((8))(list_adt[[real, real]].cons(((4), (5)), list_adt[[real, real]].cons(((3), (4)), list_adt[[real, real]].cons(((1), (2)), list_adt[[real, real]].cons(((3), (5)), list_adt[[real, real]].null)))))"
+    "option[nat]")))
+ (lookup_2 0
+  (lookup_2-1 nil 3743183712 ("" (grind) nil nil)
+   ((map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (find def-decl "option[A]" lem_list nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (lookupBy const-decl "option[B]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (lookup_3_TCC1 0
+  (lookup_3_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (find def-decl "option[A]" lem_list nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (lookupBy const-decl "option[B]" lem_list nil)
+    (every adt-def-decl "boolean" option_adt nil))
+   nil
+   (lookup_3 subtype
+    "lem_list.lookupBy(lib_extra.eqs)((1))(list_adt[[real, real]].cons(((4), (5)), list_adt[[real, real]].cons(((3), (4)), list_adt[[real, real]].cons(((1), (2)), list_adt[[real, real]].cons(((3), (5)), list_adt[[real, real]].null)))))"
+    "option[real]")))
+ (lookup_3 0
+  (lookup_3-1 nil 3743183715 ("" (grind) nil nil)
+   ((map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (find def-decl "option[A]" lem_list nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (lookupBy const-decl "option[B]" lem_list nil)
+    (option_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (filter_0 0
+  (filter_0-1 nil 3743183718 ("" (grind) nil nil)
+   ((filter def-decl "list[T]" filters nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (filter_1_TCC1 0
+  (filter_1_TCC1-1 nil 3745016018 ("" (subtype-tcc) nil nil) nil nil
+   (filter_1 subtype
+    "list_adt[real].cons((7), list_adt[real].cons((6), list_adt[real].null))"
+    "list[nat]")))
+ (filter_1_TCC2 0
+  (filter_1_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (filter_1 subtype
+    "list_adt[real].cons((2), list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].cons((2), list_adt[real].cons((7), list_adt[real].cons((6), list_adt[real].null))))))"
+    "list[nat]")))
+ (filter_1 0
+  (filter_1-1 nil 3743183720 ("" (grind) nil nil)
+   ((filter def-decl "list[T]" filters nil)
+    (list_equal def-decl "bool" list_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (partition_0 0
+  (partition_0-1 nil 3743183723 ("" (grind) nil nil)
+   ((filter def-decl "list[T]" filters nil)
+    (partition const-decl "[list[A], list[A]]" lem_list nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (partition_1_TCC1 0
+  (partition_1_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (partition const-decl "[list[A], list[A]]" lem_list nil)
+    (filter def-decl "list[T]" filters nil))
+   nil
+   (partition_1 subtype
+    "lem_list.partition((LAMBDA (x: naturalnumbers.nat): (reals.>(x, (4)))))(list_adt[nat].cons((1), list_adt[real].cons((2), list_adt[real].cons((4), list_adt[real].cons((5), list_adt[real].cons((2), list_adt[real].cons((7), list_adt[real].cons((6), list_adt[real].null))))))))"
+    "[(list_adt[real].cons?), (list_adt[real].cons?)]")))
+ (partition_1 0
+  (partition_1-1 nil 3743183725 ("" (grind) nil nil)
+   ((filter def-decl "list[T]" filters nil)
+    (partition const-decl "[list[A], list[A]]" lem_list nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (deleteFirst_1_TCC1 0
+  (deleteFirst_1_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((every adt-def-decl "boolean" list_adt nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil))
+   nil
+   (deleteFirst_1 subtype
+    "list_adt[real].cons((6), list_adt[real].cons((7), list_adt[real].cons((1), list_adt[real].null)))"
+    "list[nat]")))
+ (deleteFirst_1 0
+  (deleteFirst_1-1 nil 3743183763 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (list_delete_first def-decl "option[list[A]]" lem_list nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (deleteFirst_2 0
+  (deleteFirst_2-1 nil 3743183766 ("" (grind) nil nil)
+   ((list_cons const-decl "list[T]" list_extra nil)
+    (map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (list_delete_first def-decl "option[list[A]]" lem_list nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (deleteFirst_3 0
+  (deleteFirst_3-1 nil 3743183769 ("" (grind) nil nil)
+   ((list_delete_first def-decl "option[list[A]]" lem_list nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (option_equal const-decl "bool" lib_extra nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   shostak))
+ (delete_1 0
+  (delete_1-1 nil 3743183772 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (list_delete_first def-decl "option[list[A]]" lem_list nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (fromMaybe const-decl "A" lem_maybe nil)
+    (list_delete const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (delete_2 0
+  (delete_2-1 nil 3743183774 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (map const-decl "[option[A] -> option[B]]" lem_maybe nil)
+    (list_delete_first def-decl "option[list[A]]" lem_list nil)
+    (maybe const-decl "B" lem_maybe nil)
+    (fromMaybe const-decl "A" lem_maybe nil)
+    (list_delete const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (delete_3 0
+  (delete_3-1 nil 3743183776 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (list_delete_first def-decl "option[list[A]]" lem_list nil)
+    (fromMaybe const-decl "A" lem_maybe nil)
+    (list_delete const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (delete_4 0
+  (delete_4-1 nil 3743183779 ("" (grind) nil nil)
+   ((eqs const-decl "bool" lib_extra nil)
+    (list_delete_first def-decl "option[list[A]]" lem_list nil)
+    (fromMaybe const-decl "A" lem_maybe nil)
+    (list_delete const-decl "list[A]" lem_list nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (zip_1 0
+  (zip_1-1 nil 3743183782 ("" (grind) nil nil)
+   ((list_combine def-decl "list[[A, B]]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (zip_2 0
+  (zip_2-1 nil 3743183784 ("" (grind) nil nil)
+   ((list_combine def-decl "list[[A, B]]" lem_list nil)
+    (list_cons const-decl "list[T]" list_extra nil)
+    (list_equal def-decl "bool" list_extra nil))
+   shostak))
+ (unzip_1 0
+  (unzip_1-1 nil 3743183787 ("" (grind) nil nil)
+   ((split def-decl "[[list[A], list[B]]]" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil))
+   shostak))
+ (unzip_2_TCC1 0
+  (unzip_2_TCC1-1 nil 3743179080 ("" (grind) nil nil)
+   ((real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (every adt-def-decl "boolean" list_adt nil)
+    (split def-decl "[[list[A], list[B]]]" list_extra nil))
+   nil
+   (unzip_2 subtype
+    "list_extra.split(list_adt[[real, real]].cons(((1), (2)), list_adt[[real, real]].cons(((2), (3)), list_adt[[real, real]].cons(((3), (4)), list_adt[[real, real]].null))))"
+    "[list[nat], list[nat]]")))
+ (unzip_2 0
+  (unzip_2-1 nil 3743183789 ("" (grind) nil nil)
+   ((split def-decl "[[list[A], list[B]]]" list_extra nil)
+    (eqs const-decl "bool" lib_extra nil)
+    (pair_equal const-decl "bool" lib_extra nil))
+   shostak)))
+

@@ -1,0 +1,25 @@
+lem_set_helpers: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_maybe
+
+IMPORTING lem_function
+
+IMPORTING lem_num
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+
+
+END lem_set_helpers

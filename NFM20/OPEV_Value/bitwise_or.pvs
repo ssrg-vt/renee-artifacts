@@ -1,0 +1,20 @@
+bitwise_or[N:nat, M:upfrom(N)] : THEORY
+BEGIN
+
+bv1: VAR bvec[N]
+
+bv2: VAR bvec[M]
+
+bitwise_or(bv1, bv2) : MACRO bvec[N] = LAMBDA (i:below(N)): bv1(i) OR bv2(i)
+
+;or(bv1, bv2) : MACRO bvec[N] = LAMBDA (i:below(N)): bv1(i) OR bv2(i)
+
+%=================== Properties of bitwise or operations ===================
+
+or_inv: LEMMA (bv1 or (bvec0[N])) = bv1
+
+or_one: LEMMA (bv1 or (bvec1[N])) = bvec1[N]
+
+or_op_eq: LEMMA (bv1 or bv2) = bitwise_or(bv1, bv2)
+
+END bitwise_or

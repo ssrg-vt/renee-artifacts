@@ -1,0 +1,23 @@
+multiply_vec[N:nat, M:nat] : THEORY
+BEGIN
+
+IMPORTING to_vec_inc
+
+bv1: VAR bvec[N]
+bv2: VAR bvec[M]
+
+multiply_vec(bv1, bv2) : MACRO bvec[2*N] = to_vec_inc(2*N, unsigned[N](bv1) * unsigned[M](bv2));
+
+*(bv1, bv2) : MACRO bvec[2*N] = to_vec_inc(2*N, unsigned[N](bv1) * unsigned[M](bv2));
+
+mult_overflow_vec(bv1, bv2) : MACRO [bvec[2*N], bit, bit] =
+    LET mult_result = unsigned[N](bv1) * unsigned[M](bv2) IN
+    LET overflow = mult_result > exp2(N),
+        c_out = (mod(floor(mult_result/exp2(2*N)), 2) /= 0) IN
+    (to_vec_inc(2*N, mult_result), overflow , c_out)
+
+%=================== Properties of multiply operations ===================
+
+multiply_vec_op_eq: LEMMA (bv1 * bv2) = multiply_vec(bv1, bv2)
+
+END multiply_vec

@@ -1,0 +1,128 @@
+lem_show_extra: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_string
+
+IMPORTING lem_maybe
+
+IMPORTING lem_num
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_set
+
+IMPORTING lem_relation
+
+IMPORTING lem_show
+
+IMPORTING lem_set_extra
+
+IMPORTING lem_string_extra
+
+%
+% 
+% 
+
+%
+
+instance_Show_Show_nat_dict : show_class[nat] = (#  
+
+  show_method :=  lem_string_extra.stringFromNat
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Show_Show_Num_natural_dict : show_class[nat] = (#  
+
+  show_method :=  lem_string_extra.stringFromNatural
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Show_Show_Num_int_dict : show_class[int] = (#  
+
+  show_method :=  lem_string_extra.stringFromInt
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Show_Show_Num_integer_dict : show_class[int] = (#  
+
+  show_method :=  lem_string_extra.stringFromInteger
+
+#)
+
+
+
+%
+% 
+% 
+
+% 
+
+stringFromSet[A : TYPE](dict_Basic_classes_SetType_a : setType_class[A])( showX : [A -> string])( xs : set[A]) : string = str_concat("{")(str_concat(lem_show.stringFromListAux(showX)(set2list(xs)))("}"))
+
+
+%
+% 
+% (* Abbreviates the representation if the relation is transitive. *)
+% 
+
+% 
+
+stringFromRelation[A : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_SetType_a : setType_class[A])( showX : [[A, A] -> string])( rel1 : set[[A, A]]) : string =  
+  IF
+   isTransitive(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(rel1)
+    THEN
+   LET pruned_rel = withoutTransitiveEdges(dict_Basic_classes_SetType_a)(dict_Basic_classes_Eq_a)(rel1) IN
+     IF
+      FORALL (e : [A, A]) : member(e)( rel1) IMPLIES (member(e)(pruned_rel))
+       THEN
+      stringFromSet(instance_Basic_classes_SetType_tup2_dict(dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_a))(showX)(rel1)
+       ELSE
+      str_concat("trancl of ")(stringFromSet(instance_Basic_classes_SetType_tup2_dict(dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_a))(showX)(pruned_rel))
+       ENDIF ELSE
+   stringFromSet(instance_Basic_classes_SetType_tup2_dict(dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_a))(showX)(rel1)
+    ENDIF
+
+
+%
+% 
+% 
+
+%
+
+instance_Show_Show_set_dict[A : TYPE](dict_Show_Show_a : show_class[A])(dict_Basic_classes_SetType_a : setType_class[A]) : show_class[set[A]] = (#  
+
+  show_method := (LAMBDA ( xs : set[A]) : stringFromSet(dict_Basic_classes_SetType_a)(dict_Show_Show_a`show_method)(xs))
+
+#)
+
+
+
+
+END lem_show_extra

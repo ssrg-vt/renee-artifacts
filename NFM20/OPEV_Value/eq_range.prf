@@ -1,0 +1,6 @@
+(eq_range
+ (eq_range_op_eq 0
+  (eq_range_op_eq-1 nil 3728415547 ("" (grind) nil nil) nil shostak))
+ (eq_bit_op_eq 0
+  (eq_bit_op_eq-1 nil 3728415553 ("" (grind) nil nil) nil shostak)))
+

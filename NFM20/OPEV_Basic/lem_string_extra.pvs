@@ -1,0 +1,216 @@
+lem_string_extra: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_num
+
+IMPORTING lem_list
+
+IMPORTING lem_string
+
+IMPORTING lem_list_extra
+
+IMPORTING list_extra
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+stringFromNatHelper(n : nat)(acc : list[char]) : RECURSIVE list[char] =  
+  IF eqs(n)((0)) THEN acc ELSE
+   stringFromNatHelper(nat_div(n)((10)))(list_cons(char(nat_add(nat_mod(n)((10)))((48))))(acc))
+    ENDIF
+MEASURE n
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+stringFromNat( n : nat) : string =  
+  IF eqs(n)((0)) THEN "0" ELSE list2finseq(stringFromNatHelper(n)(null)) ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+stringFromNaturalHelper(n : nat)(acc : list[char]) : RECURSIVE list[char] =  
+  IF eqs(n)((0)) THEN acc ELSE
+   stringFromNaturalHelper(nat_div(n)((10)))(list_cons(char((nat_add(nat_mod(n)((10)))((48)))))(acc))
+    ENDIF
+MEASURE n
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+stringFromNatural( n : nat) : string =  
+  IF eqs(n)((0)) THEN "0" ELSE list2finseq(stringFromNaturalHelper(n)(null))
+    ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+stringFromInt( i : int) : string =  
+  IF int_lt(i)((0)) THEN str_concat("-")(stringFromNat(int_abs(i))) ELSE
+   stringFromNat(int_abs(i)) ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+stringFromInteger( i : int) : string =  
+  IF int_lt(i)((0)) THEN str_concat("-")(stringFromNatural(int_abs(i))) ELSE
+   stringFromNatural(int_abs(i)) ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+nth(s : string)(n : below(s`length)) : char = nth(finseq2list(s))(n)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+stringConcat( s : list[string]) : string = foldr(str_concat)("")(s)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+% 
+
+stringLess( x : string)( y : string) : bool = orderingIsLess(0)
+
+
+%
+% 
+
+% 
+
+stringLessEq( x : string)( y : string) : bool = NOT(orderingIsGreater(0))
+
+
+%
+% 
+
+% 
+
+stringGreater( x : string)( y : string) : bool = stringLess(y)(x)
+
+
+%
+% 
+
+% 
+
+stringGreaterEq( x : string)( y : string) : bool = stringLessEq(y)(x)
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_string_dict : ord_class[string] = (#  
+
+  compare_method := (LAMBDA ( x : string)( y : string) : 0),  
+
+  isLess_method :=  stringLess,  
+
+  isLessEqual_method :=  stringLessEq,  
+
+  isGreater_method :=  stringGreater,  
+
+  isGreaterEqual_method :=  stringGreaterEq
+
+#)
+
+
+
+
+ 
+END lem_string_extra

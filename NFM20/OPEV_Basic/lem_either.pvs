@@ -1,0 +1,187 @@
+lem_either: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_list
+
+IMPORTING lem_tuple
+
+
+% %%
+% % 
+% % 
+% 
+%  either [A : TYPE, B : TYPE] : DATATYPE
+% BEGIN
+%  Left(x0: A):  Left?
+%   
+%  Right(x1: B):  Right?
+% END  either
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+% 
+
+eitherEqualBy[A, B : TYPE](eql : [A -> [A -> bool]])(eqr : [B -> [B -> bool]])(left :  union[A, B])(right :  union[A, B]) : bool =
+CASES left OF
+      inl(l): CASES right OF
+                    inl(l'): eql(l)(l'),
+                    inr(r): FALSE
+              ENDCASES,
+      inr(r): CASES right OF
+                    inr(r'): eqr(r)(r'),
+                    inl(l): FALSE
+              ENDCASES
+ENDCASES
+
+
+%
+% 
+
+% 
+
+eitherEqual[A, B : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B]) : [union[A, B] -> [union[A, B] -> bool]] = eitherEqualBy(dict_Basic_classes_Eq_a`isEqual_method)(dict_Basic_classes_Eq_b`isEqual_method)
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_Either_either_dict[A, B : TYPE](dict_Basic_classes_Eq_a : eq_class[A])(dict_Basic_classes_Eq_b : eq_class[B]) : eq_class[union[A, B]] = (#  
+
+  isEqual_method := 
+  eitherEqual(dict_Basic_classes_Eq_a)(dict_Basic_classes_Eq_b),  
+
+  isInequal_method := (LAMBDA ( x : union[A, B])( y : union[A, B]) : NOT(eitherEqual(dict_Basic_classes_Eq_a)(dict_Basic_classes_Eq_b)(x)(y)))
+
+#)
+
+
+
+%
+% 
+% 
+
+% 
+
+either_setElemCompare[A, B, C, D : TYPE](cmpa : [D -> [B -> ordering]])(cmpb : [C -> [A -> ordering]])(x : union[D, C])(y : union[B, A]) : ordering =
+CASES x OF
+      inl(x'): CASES y OF
+                     inl(y'): cmpa(x')(y'),
+                     inr(y'): -1
+               ENDCASES,
+      inr(x'): CASES y OF
+                     inl(y'): 1,
+                     inr(y'): cmpb(x')(y')
+               ENDCASES
+ENDCASES
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_Either_either_dict[A, B : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B]) : setType_class[union[A, B]] = (#  
+  setElemCompare_method := (LAMBDA ( x : union[A, B])( y : union[A, B]) : either_setElemCompare[B, A, B, A](dict_Basic_classes_SetType_a`setElemCompare_method)(dict_Basic_classes_SetType_b`setElemCompare_method)(x)(y))
+#)
+
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+either[A, B, C : TYPE]( fa : [A -> C])( fb : [B -> C])( x : union[A, B]) : C = 
+CASES  x OF
+  inl( a): fa(a),
+  inr( b): fb(b) 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+partitionEither[A, B : TYPE](ls : list[union[A, B]]) : RECURSIVE [list[A], list[B]] = 
+CASES ls OF
+       null: (null[A], null[B]),
+       cons(x, xs): LET (ll,  rl) = partitionEither(xs) IN 
+                    CASES x OF
+                          inl(l): (list_cons(l)(ll), rl),
+                          inr(r): (ll, list_cons(r)(rl)) 
+                    ENDCASES
+ENDCASES
+MEASURE length(ls)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+
+
+END lem_either

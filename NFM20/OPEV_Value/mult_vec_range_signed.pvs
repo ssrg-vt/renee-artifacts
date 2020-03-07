@@ -1,0 +1,19 @@
+mult_vec_range_signed[N:posnat] : THEORY
+BEGIN
+
+IMPORTING signed
+IMPORTING to_vec_inc
+
+bv: VAR bvec[N]
+
+m: VAR int
+
+mult_vec_range_signed(bv, m) : MACRO bvec[2*N] = to_vec_inc(2*N, signed(bv) * mod_signed(m, N))
+
+mult_range_vec_signed(m, bv) : MACRO bvec[2*N] = mult_vec_range_signed(bv, m)
+
+%=================== Properties of multiply(_signed) operations ===================
+
+mult_range_vec_range_signed_rel: LEMMA mult_range_vec_signed(m, bv) = mult_vec_range_signed(bv, m)
+
+END mult_vec_range_signed

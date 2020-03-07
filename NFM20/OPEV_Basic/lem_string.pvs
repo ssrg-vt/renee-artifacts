@@ -1,0 +1,106 @@
+lem_string: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_list
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% makeString( len : nat)( c : char) : string = list2finseq(replicate(len)(c))
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+% 
+
+string_case[A : TYPE]( s : string)( c_empty : A)( c_cons : [char -> [string -> A]]) : A = 
+CASES finseq2list(s) OF
+  null:  c_empty,
+  cons( c,  cs): c_cons(c)(list2finseq(cs)) 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+concat(sep : string)(ss : list[string]) : RECURSIVE string = 
+CASES ss OF
+      null: "",
+      cons(s, ss'): CASES ss' OF
+                          null: s
+                          ELSE str_concat(s)(str_concat(sep)(concat(sep)(ss')))
+                    ENDCASES
+ENDCASES
+MEASURE length(ss)
+
+
+
+
+END lem_string

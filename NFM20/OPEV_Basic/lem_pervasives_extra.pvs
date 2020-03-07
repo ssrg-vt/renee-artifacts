@@ -1,0 +1,32 @@
+lem_pervasives_extra: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_pervasives
+
+IMPORTING lem_function_extra
+
+IMPORTING lem_maybe_extra
+
+IMPORTING lem_map_extra
+
+IMPORTING lem_num_extra
+
+IMPORTING lem_set_extra
+
+IMPORTING lem_set_helpers
+
+IMPORTING lem_list_extra
+
+IMPORTING lem_string_extra
+
+IMPORTING lem_assert_extra
+
+IMPORTING lem_show_extra
+
+IMPORTING lem_machine_word
+
+
+END lem_pervasives_extra

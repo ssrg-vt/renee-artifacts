@@ -1,0 +1,2124 @@
+lem_word: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_maybe
+
+IMPORTING lem_num
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_list
+
+IMPORTING word
+
+%
+% 
+% 
+% (* ========================================================================== *)
+% (* Define general purpose word, i.e. sequences of bits of arbitrary length    *)
+% (* ========================================================================== *)
+% 
+% 
+
+ bitSequence : DATATYPE
+BEGIN
+ BitSeq(x1:  
+   option[ nat], x0:  
+   bool, x2:        
+   list[ bool]):  BitSeq?
+END  bitSequence
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Basic_classes_Eq_Word_bitSequence_dict : eq_class[bitSequence] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( n1 : bitSequence)( n2 : bitSequence) : NOT(eqs(n1)(n2)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+% 
+
+boolListFrombitSeqAux[A : TYPE](n : nat)(s : A)(bl : list[A]) : RECURSIVE list[A] =  
+  IF eqs(n)((0)) THEN null ELSE
+   CASES bl OF
+         null: replicate(n)(s),
+         cons(b, bl'): list_cons(b)(boolListFrombitSeqAux(nat_minus(n)((1)))(s)(bl'))
+   ENDCASES ENDIF
+MEASURE n
+
+
+
+%
+% 
+% 
+
+% 
+
+boolListFrombitSeq(n : nat)(b : bitSequence) : list[bool] = 
+CASES b OF
+      BitSeq(x0, s, bl): boolListFrombitSeqAux(n)(s)(bl) 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqFromBoolList(bl : list[bool]) : option[bitSequence] = 
+CASES dest_init(bl) OF
+      None: None,
+      Some(bs): LET (bl', s) = bs IN Some(BitSeq(Some(length(bl)),s,bl')) 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+cleanBitSeq(b : bitSequence) : bitSequence = 
+CASES b OF
+      BitSeq(len, s, bl): CASES len OF
+                                None: BitSeq(len,s,rev(dropWhile(eqs(s))(rev(bl)))),
+                                Some(n): BitSeq(len,s,rev(dropWhile(eqs(s))(rev(lem_list.take(nat_minus(n)((1)))(bl))))) 
+                          ENDCASES
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqTestBit(b : bitSequence)(pos : nat) : option[bool] = 
+CASES b OF
+      BitSeq(len, s, bl): CASES len OF
+                                None: IF nat_lt(pos)(length(bl)) THEN index(bl)(pos) ELSE Some(s) ENDIF,
+                                Some(l): IF nat_ge(pos)(l) THEN None
+                                         ELSE IF bool_or(eqs(pos)(nat_minus(l)((1))))(nat_ge(pos)(length(bl))) THEN Some(s)
+                                              ELSE index(bl)(pos) ENDIF ENDIF 
+                          ENDCASES
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqSetBit(b : bitSequence)(pos : nat)(v : bool) : bitSequence = 
+CASES b OF
+      BitSeq(len, s, bl): LET bl' = IF nat_lt(pos)(length(bl)) THEN bl ELSE list_append(bl)(replicate(pos)(s)) ENDIF IN
+                          LET bl'' = lem_list.update(bl')(pos)(v) IN
+                          LET bs' = BitSeq(len,s,bl'') IN
+                          cleanBitSeq(bs') 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+resizeBitSeq(new_len : option[nat])(bs : bitSequence) : bitSequence =
+CASES cleanBitSeq(bs) OF
+      BitSeq(len, s, bl): LET shorten_opt = CASES new_len OF
+                                                  None: None,
+                                                  Some(l1): CASES len OF
+                                                                  None: Some(l1),
+                                                                  Some(l2): IF nat_lt(l1)(l2) THEN Some(l1) ELSE None ENDIF
+                                                            ENDCASES
+                                            ENDCASES
+                          IN
+                          CASES shorten_opt OF
+                                None: BitSeq(new_len, s, bl),
+                                Some(l1): LET bl' = lem_list.take[bool](l1)(list_append(bl)(cons(s, null))) IN
+                                          CASES dest_init(bl') OF
+                                                None: BitSeq(len, s, bl),
+                                                Some(bs'): LET (bl'', s') = bs' IN cleanBitSeq(BitSeq(new_len, s', bl''))
+                                          ENDCASES
+                         ENDCASES
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqNot(b : bitSequence) : bitSequence = 
+CASES b OF
+      BitSeq( len, s, bl): BitSeq(len, NOT(s), map(NOT)(bl)) 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqBinopAux(binop : [bool -> [bool -> bool]])(s1 : bool)(bl1 : list[bool])(s2 : bool)(bl2 : list[bool]) : RECURSIVE list[bool] =
+CASES bl1 OF
+      null: CASES bl2 OF
+                  null: null,
+                  cons(b2, bl2'): list_cons(binop(s1)(b2))(bitSeqBinopAux(binop)(s1)(null)(s2)(bl2'))
+            ENDCASES,
+      cons(b1, bl1'): CASES bl2 OF
+                            null: list_cons(binop(b1)(s2))(bitSeqBinopAux(binop)(s1)(bl1')(s2)(null)),
+                            cons(b2, bl2'): list_cons(binop(b1)(b2))(bitSeqBinopAux(binop)(s1)(bl1')(s2)(bl2'))
+                      ENDCASES
+ENDCASES
+MEASURE length(bl1)
+
+
+
+%
+% 
+% 
+
+% 
+
+bitSeqBinop(binop : [bool -> [bool -> bool]])(bs1 : bitSequence)(bs2 : bitSequence) : bitSequence =
+CASES cleanBitSeq(bs1) OF
+      BitSeq(len1, s1, bl1): CASES cleanBitSeq(bs2) OF
+                              BitSeq(len2, s2, bl2): LET len = CASES len1 OF
+                                                                      None: None,
+                                                                      Some(l1): CASES len2 OF
+                                                                                      None: None,
+                                                                                      Some(l2): Some(nat_max(l1)(l2))
+                                                                                ENDCASES
+                                                                ENDCASES IN
+                                                      LET s = binop(s1)(s2) IN
+                                                      LET bl = bitSeqBinopAux(binop)(s1)(bl1)(s2)(bl2) IN
+                                                      cleanBitSeq(BitSeq(len, s, bl))
+                              ENDCASES
+ENDCASES
+
+
+%
+% 
+% 
+
+% 
+
+bitSeqAnd : [bitSequence -> [bitSequence -> bitSequence]] = bitSeqBinop(bool_and)
+
+
+%
+% 
+
+% 
+
+bitSeqOr : [bitSequence -> [bitSequence -> bitSequence]] = bitSeqBinop(bool_or)
+
+
+%
+% 
+
+% 
+
+bitSeqXor : [bitSequence -> [bitSequence -> bitSequence]] = bitSeqBinop((LAMBDA ( b1 : bool)( b2 : bool) : NOT(eqs(b1)(b2))))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqShiftLeft(b : bitSequence)(n : nat) : bitSequence = 
+CASES b OF
+      BitSeq(len, s, bl): cleanBitSeq(BitSeq(len,s,list_append(replicate(n)(FALSE))(bl))) 
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqArithmeticShiftRight(bs : bitSequence)(n : nat) : bitSequence =
+CASES cleanBitSeq(bs) OF
+      BitSeq(len, s, bl): cleanBitSeq(BitSeq(len,s,drop(n)(bl)))
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqLogicalShiftRight( bs : bitSequence)( n : nat) : bitSequence =  
+  IF eqs(n)((0)) THEN cleanBitSeq(bs) ELSE
+  CASES cleanBitSeq(bs) OF
+        BitSeq(len, s, bl): CASES len OF
+                                  None: cleanBitSeq(BitSeq(len, s, drop(n)(bl))),
+                                  Some(l): cleanBitSeq(BitSeq(len, FALSE, list_append(drop(n)(bl))(replicate(l)(s))))
+                            ENDCASES
+  ENDCASES ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+% 
+
+integerFromBoolListAux(acc : int)(bl : list[bool]) : RECURSIVE int = 
+CASES bl OF
+      null: acc,
+      cons(b, bl'): IF b THEN integerFromBoolListAux(int_add(int_mult(acc)((2)))((1)))(bl') ELSE integerFromBoolListAux(int_mult(acc)((2)))(bl') ENDIF
+ENDCASES
+MEASURE length(bl)
+
+
+
+%
+% 
+% 
+
+% 
+
+integerFromBoolList((sign : bool), ( bl : list[bool])) : int =  
+  IF sign THEN
+   -(int_add(integerFromBoolListAux((0))(rev(map(NOT)(bl))))((1))) ELSE
+   integerFromBoolListAux((0))(rev(bl)) ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+% 
+
+boolListFromNatural( acc : list[bool])(remainder : nat) : RECURSIVE list[bool] =  
+  IF nat_gt(remainder)((0)) THEN
+   boolListFromNatural(list_cons(eqs(nat_mod(remainder)((2)))((1)))(acc))(nat_div(remainder)((2)))
+    ELSE rev(acc) ENDIF
+MEASURE remainder
+
+
+
+%
+% 
+% 
+
+% 
+
+boolListFromInteger(i :  int) : [bool, list[bool]] =  
+  IF int_lt(i)((0)) THEN
+   (TRUE, map(NOT)(boolListFromNatural(null)(int_abs(-(int_add(i)((1)))))))
+    ELSE (FALSE, boolListFromNatural(null)(int_abs(i))) ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqFromInteger( len_opt : option[nat])( i : int) : bitSequence = LET (s,  bl) = boolListFromInteger(i) IN resizeBitSeq(len_opt)(BitSeq(None,s,bl))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+integerFromBitSeq(bs : bitSequence) : int = CASES cleanBitSeq(bs) OF BitSeq(len, s, bl): integerFromBoolList((s,  bl)) ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqArithUnaryOp(uop : [int -> int])(bs : bitSequence) : bitSequence = CASES bs OF BitSeq(len, x0, x1): bitSeqFromInteger(len)(uop(integerFromBitSeq(bs))) ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqArithBinOp( binop : [int -> [int -> int]])( bs1 : bitSequence)( bs2 : bitSequence) : bitSequence =
+CASES bs1 OF
+      BitSeq(len1, x0, x1): CASES bs2 OF
+                                  BitSeq(len2, x2, x3): LET len = CASES len1 OF
+                                                                        None: None,
+                                                                        Some(l1): CASES len2 OF
+                                                                                        None: None,
+                                                                                        Some(l2): Some(nat_max(l1)(l2))
+                                                                                  ENDCASES
+                                                                  ENDCASES IN
+                                                        bitSeqFromInteger(len)(binop(integerFromBitSeq(bs1))(integerFromBitSeq(bs2)))
+                            ENDCASES
+ENDCASES
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqArithBinTest[A : TYPE]( binop : [int -> [int -> A]])( bs1 : bitSequence)( bs2 : bitSequence) : A = binop(integerFromBitSeq(bs1))(integerFromBitSeq(bs2))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqLess( bs1 : bitSequence)( bs2 : bitSequence) : bool = bitSeqArithBinTest(int_lt)(bs1)(bs2)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqLessEqual( bs1 : bitSequence)( bs2 : bitSequence) : bool = bitSeqArithBinTest(int_le)(bs1)(bs2)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqGreater( bs1 : bitSequence)( bs2 : bitSequence) : bool = bitSeqArithBinTest(int_gt)(bs1)(bs2)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqGreaterEqual( bs1 : bitSequence)( bs2 : bitSequence) : bool = bitSeqArithBinTest(int_ge)(bs1)(bs2)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqCompare( bs1 : bitSequence)( bs2 : bitSequence) : ordering = bitSeqArithBinTest(genericCompare(int_lt)(eqs))(bs1)(bs2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_Word_bitSequence_dict : ord_class[bitSequence] = (#  
+
+  compare_method :=  bitSeqCompare,  
+
+  isLess_method :=  bitSeqLess,  
+
+  isLessEqual_method :=  bitSeqLessEqual,  
+
+  isGreater_method :=  bitSeqGreater,  
+
+  isGreaterEqual_method :=  bitSeqGreaterEqual
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_Word_bitSequence_dict : setType_class[bitSequence] = (#  
+
+  setElemCompare_method :=  bitSeqCompare
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+% 
+% 
+
+% 
+
+bitSeqNegate( bs : bitSequence) : bitSequence = bitSeqArithUnaryOp((LAMBDA ( i : int) : -(i)))(bs)
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumNegate_Word_bitSequence_dict : numNegate_class[bitSequence] = (#  
+
+  numNegate_method :=  bitSeqNegate
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqAdd( bs1 : bitSequence)( bs2 : bitSequence) : bitSequence = bitSeqArithBinOp(int_add)(bs1)(bs2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumAdd_Word_bitSequence_dict : numAdd_class[bitSequence] = (#  
+
+  numAdd_method :=  bitSeqAdd
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqMinus( bs1 : bitSequence)( bs2 : bitSequence) : bitSequence = bitSeqArithBinOp(int_minus)(bs1)(bs2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumMinus_Word_bitSequence_dict : numMinus_class[bitSequence] = (#  
+
+  numMinus_method :=  bitSeqMinus
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqSucc( bs : bitSequence) : bitSequence = bitSeqArithUnaryOp((LAMBDA ( n : int) : int_add(n)((1))))(bs)
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumSucc_Word_bitSequence_dict : numSucc_class[bitSequence] = (#  
+
+  succ_method :=  bitSeqSucc
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqPred( bs : bitSequence) : bitSequence = bitSeqArithUnaryOp((LAMBDA ( n : int) : int_minus(n)((1))))(bs)
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumPred_Word_bitSequence_dict : numPred_class[bitSequence] = (#  
+
+  pred_method :=  bitSeqPred
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqMult( bs1 : bitSequence)( bs2 : bitSequence) : bitSequence = bitSeqArithBinOp(int_mult)(bs1)(bs2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumMult_Word_bitSequence_dict : numMult_class[bitSequence] = (#  
+
+  numMult_method :=  bitSeqMult
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqPow( bs : bitSequence)( n : nat) : bitSequence = bitSeqArithUnaryOp((LAMBDA ( i : int) : int_pow(i)(n)))(bs)
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumPow_Word_bitSequence_dict : numPow_class[bitSequence] = (#  
+
+  numPow_method :=  bitSeqPow
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqDiv( bs1 : bitSequence)( bs2 : bitSequence) : bitSequence = bitSeqArithBinOp(int_div)(bs1)(bs2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumIntegerDivision_Word_bitSequence_dict : numIntegerDivision_class[bitSequence] = (#  
+
+  div_method :=  bitSeqDiv
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumDivision_Word_bitSequence_dict : numDivision_class[bitSequence] = (#  
+
+  numDivision_method :=  bitSeqDiv
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqMod( bs1 : bitSequence)( bs2 : bitSequence) : bitSequence = bitSeqArithBinOp(int_mod)(bs1)(bs2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumRemainder_Word_bitSequence_dict : numRemainder_class[bitSequence] = (#  
+
+  mod_method :=  bitSeqMod
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqMin( bs1 : bitSequence)( bs2 : bitSequence) : bitSequence = bitSeqArithBinOp(int_min)(bs1)(bs2)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqMax( bs1 : bitSequence)( bs2 : bitSequence) : bitSequence = bitSeqArithBinOp(int_max)(bs1)(bs2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_OrdMaxMin_Word_bitSequence_dict : ordMaxMin_class[bitSequence] = (#  
+
+  max_method :=  bitSeqMax,  
+
+  min_method :=  bitSeqMin
+
+#)
+
+
+
+%
+% 
+% 
+% 
+% 
+% (* ========================================================================== *)
+% (* Interface for bitoperations                                                *)
+% (* ========================================================================== *)
+% 
+% 
+
+ wordNot_class[A: TYPE] : TYPE = [# 
+  lnot_method: [A -> A]
+ #]
+
+
+%
+% 
+% 
+
+ wordAnd_class[A: TYPE] : TYPE = [# 
+  land_method: [A -> [A -> A]]
+ #]
+
+
+%
+% 
+% 
+
+ wordOr_class[A: TYPE] : TYPE = [# 
+  lor_method: [A -> [A -> A]]
+ #]
+
+
+%
+% 
+% 
+% 
+
+ wordXor_class[A: TYPE] : TYPE = [# 
+  lxor_method: [A -> [A -> A]]
+ #]
+
+
+%
+% 
+% 
+
+ wordLsl_class[A: TYPE] : TYPE = [# 
+  lsl_method: [A -> [ nat -> A]]
+ #]
+
+
+%
+% 
+% 
+
+ wordLsr_class[A: TYPE] : TYPE = [# 
+  lsr_method: [A -> [ nat -> A]]
+ #]
+
+
+%
+% 
+% 
+
+ wordAsr_class[A: TYPE] : TYPE = [# 
+  asr_method: [A -> [ nat -> A]]
+ #]
+
+
+%
+% 
+% (* ----------------------- *)
+% (* bitSequence             *)
+% (* ----------------------- *)
+% 
+% 
+
+%
+
+instance_Word_WordNot_Word_bitSequence_dict : wordNot_class[bitSequence] = (#  
+
+  lnot_method :=  bitSeqNot
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAnd_Word_bitSequence_dict : wordAnd_class[bitSequence] = (#  
+
+  land_method :=  bitSeqAnd
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordOr_Word_bitSequence_dict : wordOr_class[bitSequence] = (#  
+
+  lor_method :=  bitSeqOr
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordXor_Word_bitSequence_dict : wordXor_class[bitSequence] = (#  
+
+  lxor_method :=  bitSeqXor
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordLsl_Word_bitSequence_dict : wordLsl_class[bitSequence] = (#  
+
+  lsl_method :=  bitSeqShiftLeft
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordLsr_Word_bitSequence_dict : wordLsr_class[bitSequence] = (#  
+
+  lsr_method :=  bitSeqLogicalShiftRight
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAsr_Word_bitSequence_dict : wordAsr_class[bitSequence] = (#  
+
+  asr_method :=  bitSeqArithmeticShiftRight
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordNot_Num_int32_dict : wordNot_class[word[32]] = (#  
+
+  lnot_method := word_not
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordOr_Num_int32_dict : wordOr_class[word[32]] = (#  
+
+  lor_method := word_or
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordXor_Num_int32_dict : wordXor_class[word[32]] = (#  
+
+  lxor_method := word_xor
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAnd_Num_int32_dict : wordAnd_class[word[32]] = (#  
+
+  land_method := word_and
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordLsl_Num_int32_dict : wordLsl_class[word[32]] = (#  
+
+  lsl_method := word_lsl
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordLsr_Num_int32_dict : wordLsr_class[word[32]] = (#  
+
+  lsr_method := word_lsr
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAsr_Num_int32_dict : wordAsr_class[word[32]] = (#  
+
+  asr_method := word_asr
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordNot_Num_int64_dict : wordNot_class[word[64]] = (#  
+
+  lnot_method := word_not
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordOr_Num_int64_dict : wordOr_class[word[64]] = (#  
+
+  lor_method := word_or
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordXor_Num_int64_dict : wordXor_class[word[64]] = (#  
+
+  lxor_method := word_xor
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAnd_Num_int64_dict : wordAnd_class[word[64]] = (#  
+
+  land_method := word_and
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordLsl_Num_int64_dict : wordLsl_class[word[64]] = (#  
+
+  lsl_method := word_lsl
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordLsr_Num_int64_dict : wordLsr_class[word[64]] = (#  
+
+  lsr_method := word_lsr
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAsr_Num_int64_dict : wordAsr_class[word[64]] = (#  
+
+  asr_method := word_asr
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+% 
+% 
+
+% 
+
+defaultLnot[A : TYPE]( fromBitSeq : [bitSequence -> A])( toBitSeq : [A -> bitSequence])( x : A) : A = fromBitSeq(bitSeqNegate(toBitSeq(x)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+defaultLand[A : TYPE]( fromBitSeq : [bitSequence -> A])( toBitSeq : [A -> bitSequence])( x1 : A)( x2 : A) : A = fromBitSeq(bitSeqAnd(toBitSeq(x1))(toBitSeq(x2)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+defaultLor[A : TYPE]( fromBitSeq : [bitSequence -> A])( toBitSeq : [A -> bitSequence])( x1 : A)( x2 : A) : A = fromBitSeq(bitSeqOr(toBitSeq(x1))(toBitSeq(x2)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+defaultLxor[A : TYPE]( fromBitSeq : [bitSequence -> A])( toBitSeq : [A -> bitSequence])( x1 : A)( x2 : A) : A = fromBitSeq(bitSeqXor(toBitSeq(x1))(toBitSeq(x2)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+defaultLsl[A : TYPE]( fromBitSeq : [bitSequence -> A])( toBitSeq : [A -> bitSequence])( x : A)( n : nat) : A = fromBitSeq(bitSeqShiftLeft(toBitSeq(x))(n))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+defaultLsr[A : TYPE]( fromBitSeq : [bitSequence -> A])( toBitSeq : [A -> bitSequence])( x : A)( n : nat) : A = fromBitSeq(bitSeqLogicalShiftRight(toBitSeq(x))(n))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+defaultAsr[A : TYPE]( fromBitSeq : [bitSequence -> A])( toBitSeq : [A -> bitSequence])( x : A)( n : nat) : A = fromBitSeq(bitSeqArithmeticShiftRight(toBitSeq(x))(n))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+integerLnot( i : int) : int = -(int_add(i)((1)))
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordNot_Num_integer_dict : wordNot_class[int] = (#  
+
+  lnot_method :=  integerLnot
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+integerLor( i1 : int)( i2 : int) : int = defaultLor(integerFromBitSeq)(bitSeqFromInteger(None))(i1)(i2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordOr_Num_integer_dict : wordOr_class[int] = (#  
+
+  lor_method :=  integerLor
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+integerLxor( i1 : int)( i2 : int) : int = defaultLxor(integerFromBitSeq)(bitSeqFromInteger(None))(i1)(i2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordXor_Num_integer_dict : wordXor_class[int] = (#  
+
+  lxor_method :=  integerLxor
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+integerLand( i1 : int)( i2 : int) : int = defaultLand(integerFromBitSeq)(bitSeqFromInteger(None))(i1)(i2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAnd_Num_integer_dict : wordAnd_class[int] = (#  
+
+  land_method :=  integerLand
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+integerLsl( i : int)( n : nat) : int = defaultLsl(integerFromBitSeq)(bitSeqFromInteger(None))(i)(n)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordLsl_Num_integer_dict : wordLsl_class[int] = (#  
+
+  lsl_method :=  integerLsl
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+integerAsr( i : int)( n : nat) : int = defaultAsr(integerFromBitSeq)(bitSeqFromInteger(None))(i)(n)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordLsr_Num_integer_dict : wordLsr_class[int] = (#  
+
+  lsr_method :=  integerAsr
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAsr_Num_integer_dict : wordAsr_class[int] = (#  
+
+  asr_method :=  integerAsr
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+intFromBitSeq( bs : bitSequence) : int = (integerFromBitSeq(resizeBitSeq(Some((31)))(bs)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+% 
+% 
+
+% 
+
+bitSeqFromInt( i : int) : bitSequence = bitSeqFromInteger(Some((31)))((i))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+intLnot( i : int) : int = -(int_add(i)((1)))
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordNot_Num_int_dict : wordNot_class[int] = (#  
+
+  lnot_method :=  intLnot
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+intLor( i1 : int)( i2 : int) : int = defaultLor(intFromBitSeq)(bitSeqFromInt)(i1)(i2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordOr_Num_int_dict : wordOr_class[int] = (#  
+
+  lor_method :=  intLor
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+intLxor( i1 : int)( i2 : int) : int = defaultLxor(intFromBitSeq)(bitSeqFromInt)(i1)(i2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordXor_Num_int_dict : wordXor_class[int] = (#  
+
+  lxor_method :=  intLxor
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+intLand( i1 : int)( i2 : int) : int = defaultLand(intFromBitSeq)(bitSeqFromInt)(i1)(i2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAnd_Num_int_dict : wordAnd_class[int] = (#  
+
+  land_method :=  intLand
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+intLsl( i : int)( n : nat) : int = defaultLsl(intFromBitSeq)(bitSeqFromInt)(i)(n)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordLsl_Num_int_dict : wordLsl_class[int] = (#  
+
+  lsl_method :=  intLsl
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+intAsr( i : int)( n : nat) : int = defaultAsr(intFromBitSeq)(bitSeqFromInt)(i)(n)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAsr_Num_int_dict : wordAsr_class[int] = (#  
+
+  asr_method :=  intAsr
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+naturalFromBitSeq( bs : bitSequence) : nat = int_abs(integerFromBitSeq(bs))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+bitSeqFromNatural( len : option[nat])( n : nat) : bitSequence = bitSeqFromInteger(len)((n))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+naturalLor( i1 : nat)( i2 : nat) : nat = defaultLor(naturalFromBitSeq)(bitSeqFromNatural(None))(i1)(i2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordOr_Num_natural_dict : wordOr_class[nat] = (#  
+
+  lor_method :=  naturalLor
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+naturalLxor( i1 : nat)( i2 : nat) : nat = defaultLxor(naturalFromBitSeq)(bitSeqFromNatural(None))(i1)(i2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordXor_Num_natural_dict : wordXor_class[nat] = (#  
+
+  lxor_method :=  naturalLxor
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+naturalLand( i1 : nat)( i2 : nat) : nat = defaultLand(naturalFromBitSeq)(bitSeqFromNatural(None))(i1)(i2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAnd_Num_natural_dict : wordAnd_class[nat] = (#  
+
+  land_method :=  naturalLand
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+naturalLsl( i : nat)( n : nat) : nat = defaultLsl(naturalFromBitSeq)(bitSeqFromNatural(None))(i)(n)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordLsl_Num_natural_dict : wordLsl_class[nat] = (#  
+
+  lsl_method :=  naturalLsl
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+naturalAsr( i : nat)( n : nat) : nat = defaultAsr(naturalFromBitSeq)(bitSeqFromNatural(None))(i)(n)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordLsr_Num_natural_dict : wordLsr_class[nat] = (#  
+
+  lsr_method :=  naturalAsr
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAsr_Num_natural_dict : wordAsr_class[nat] = (#  
+
+  asr_method :=  naturalAsr
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+natFromBitSeq( bs : bitSequence) : nat = (naturalFromBitSeq(resizeBitSeq(Some((31)))(bs)))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+% 
+% 
+
+% 
+
+bitSeqFromNat( i : nat) : bitSequence = bitSeqFromNatural(Some((31)))((i))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+natLor( i1 : nat)( i2 : nat) : nat = defaultLor(natFromBitSeq)(bitSeqFromNat)(i1)(i2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordOr_nat_dict : wordOr_class[nat] = (#  
+
+  lor_method :=  natLor
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+natLxor( i1 : nat)( i2 : nat) : nat = defaultLxor(natFromBitSeq)(bitSeqFromNat)(i1)(i2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordXor_nat_dict : wordXor_class[nat] = (#  
+
+  lxor_method :=  natLxor
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+natLand( i1 : nat)( i2 : nat) : nat = defaultLand(natFromBitSeq)(bitSeqFromNat)(i1)(i2)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAnd_nat_dict : wordAnd_class[nat] = (#  
+
+  land_method :=  natLand
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+natLsl( i : nat)( n : nat) : nat = defaultLsl(natFromBitSeq)(bitSeqFromNat)(i)(n)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordLsl_nat_dict : wordLsl_class[nat] = (#  
+
+  lsl_method :=  natLsl
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+natAsr( i : nat)( n : nat) : nat = defaultAsr(natFromBitSeq)(bitSeqFromNat)(i)(n)
+
+
+%
+% 
+% 
+
+%
+
+instance_Word_WordAsr_nat_dict : wordAsr_class[nat] = (#  
+
+  asr_method :=  natAsr
+
+#)
+
+
+
+
+
+END lem_word

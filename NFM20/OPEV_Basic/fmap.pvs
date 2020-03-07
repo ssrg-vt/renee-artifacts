@@ -1,0 +1,79 @@
+fmap[K, V: TYPE]: THEORY
+BEGIN
+
+IMPORTING option
+
+IMPORTING lib_extra
+
+IMPORTING set_extra
+
+fmap : TYPE = [K -> option[V]]
+
+k, l : VAR K
+
+v, w : VAR V
+
+m, n : VAR fmap
+
+fmember(k, m) : bool = IF m(k) = None THEN FALSE ELSE TRUE ENDIF
+
+is_empty(m): bool = (FORALL k: m(k) = None)
+
+fempty: fmap = (LAMBDA k: None)
+
+fadd(k)(v)(m): fmap = LAMBDA l: IF k = l
+                                 THEN Some(v)
+                                 ELSE m(l)
+                                 ENDIF
+
+flookup(k)(m): option[V] = m(k)
+
+fapply(k)(m): V = LET v_opt = flookup(k)(m) IN
+CASES v_opt OF
+      None: failwith("Map_extra.find"),
+      Some(v): v
+ENDCASES
+
+fmap_to_set(m): set[[K, V]] = {(k, v) | m(k) = Some(v)}
+
+fdom(m): set[K] = {k | m(k) /= None}
+
+frange(m): set[V] = {v | EXISTS k: m(k) = Some(v)}
+
+fequal_by(eq_k: [K -> [K -> bool]])(eq_v: [V -> [V -> bool]])(m)(n) : bool =
+  LET m_dom = fdom(m), n_dom = fdom(n) IN
+  LET u_dom = union(m_dom, n_dom) IN
+  (FORALL (k: {s: K | member[K](s, u_dom)}): (member(k, m_dom) IFF member(k, n_dom)) AND option_equal(eq_v)(m(k))(n(k)))
+
+fevery(p:[K -> [V -> bool]])(m): bool = (FORALL (k, v): m(k) = Some(v) AND p(k)(v))
+
+fsome(p:[K -> [V -> bool]])(m): bool = NOT fevery(LAMBDA k: (LAMBDA v: NOT p(k)(v)))(m)
+
+fremove(k)(m): fmap = LAMBDA l: IF k = l
+                                THEN None
+                                ELSE m(l)
+                                ENDIF
+
+funion(m)(n): fmap = LAMBDA k: IF m(k) /= None
+                               THEN m(k)
+                               ELSE
+                                 IF n(k) /= None
+                                 THEN n(k)
+                                 ELSE None
+                                 ENDIF
+                               ENDIF
+
+
+fmap_from_set(f: [K -> V])(s: finite_set[K]) : fmap =
+  fold(LAMBDA (k: K)(m: fmap): fadd(k)(f(k))(m))(s)(fempty)
+
+
+ffold[R: TYPE](f: [K -> [V -> [R -> R]]])(m: fmap)(v: R) : R =
+  fold(LAMBDA ((k: K), (v: V))(r: R): f(k)(v)(r))(fmap_to_set(m))(v)
+
+
+fmap_to_list(m: fmap) : list[[K, V]] =
+  set2list(fmap_to_set(m))
+
+
+END fmap

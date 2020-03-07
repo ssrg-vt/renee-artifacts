@@ -1,0 +1,13 @@
+(slice_raw
+ (slice_raw_TCC1 0
+  (slice_raw_TCC1-1 nil 3722628087 ("" (subtype-tcc) nil nil)
+   ((posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil))
+   nil))
+ (slice_raw_TCC2 0
+  (slice_raw_TCC2-1 nil 3722628087 ("" (subtype-tcc) nil nil)
+   ((posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (int_minus_int_is_int application-judgement "int" integers nil))
+   nil)))
+

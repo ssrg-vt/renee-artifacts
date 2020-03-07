@@ -1,0 +1,33 @@
+unsigned[N:nat] : THEORY
+BEGIN
+
+bv: VAR bvec[N]
+
+reverse(bv) : MACRO bvec[N] = LAMBDA (i: below(N)): bv(N-i-1)
+
+unsigned(bv) : nat = bv2nat[N](reverse(bv))
+
+%=================== Properties of reverse and unsigned operations ===================
+
+reverse_inj: LEMMA (FORALL (x, y: bvec[N]): (reverse(x) = reverse(y) IMPLIES (x = y)))
+
+reverse_surj: LEMMA (FORALL (y: bvec[N]): (EXISTS (x: bvec[N]): reverse(x) = y))
+
+reverse_bij: LEMMA bijective?(reverse)
+
+reverse_reverse: LEMMA (reverse(reverse(bv)) = bv)
+
+unsigned_inj: LEMMA (FORALL (x, y: bvec[N]): (unsigned(x) = unsigned(y) IMPLIES (x = y)))
+
+unsigned_surj: LEMMA (FORALL (y: below(exp2(N))): (EXISTS (x: bvec[N]): unsigned(x) = y))
+
+unsigned_lowerbound: LEMMA unsigned(bv) >= 0
+unsigned_upperbound: LEMMA unsigned(bv) < exp2(N)
+
+unsigned_fill_F: LEMMA bv = bvec0[N] IMPLIES unsigned(bv) = 0
+unsigned_fill_T: LEMMA bv = bvec1[N] IMPLIES unsigned(bv) = exp2(N) - 1
+
+unsigned_eq0: LEMMA unsigned(bv) = 0 IMPLIES bv = bvec0[N]
+unsigned_eq_max: LEMMA unsigned(bv) = exp2(N) - 1 IMPLIES bv = bvec1[N]
+
+END unsigned

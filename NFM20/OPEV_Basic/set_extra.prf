@@ -1,0 +1,185 @@
+(set_extra
+ (fold_TCC1 0
+  (fold_TCC1-1 nil 3743355244
+   ("" (skeep)
+    (("" (skeep)
+      (("" (use "card_remove" ("x" "a" "S" "sa"))
+        (("" (grind) nil nil)) nil))
+      nil))
+    nil)
+   ((int_minus_int_is_int application-judgement "int" integers nil)
+    (finite_remove application-judgement "finite_set[T]" set_as_list
+     "structures/")
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (finite_emptyset name-judgement "finite_set[T]" set_as_list
+     "structures/")
+    (finite_emptyset name-judgement "finite_set" finite_sets nil)
+    (A decl-formal-type nil set_extra nil)
+    (finite_set type-eq-decl nil finite_sets nil)
+    (is_finite const-decl "bool" finite_sets nil)
+    (set type-eq-decl nil sets nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (card_remove formula-decl nil finite_sets nil))
+   nil
+   (fold termination
+    "set_extra.fold(set_extra.f)(sets[set_extra.A].remove(set_extra.a, set_extra.sa))"
+    "nil")))
+ (fold_TCC2 0
+  (fold_TCC2-1 nil 3743355244
+   ("" (grind)
+    (("" (expand "emptyset")
+      (("" (decompose-equality) (("" (grind) nil nil)) nil)) nil))
+    nil)
+   ((emptyset const-decl "set" sets nil)
+    (FALSE const-decl "bool" booleans nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (>= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (finite_emptyset name-judgement "finite_set[T]" set_as_list
+     "structures/")
+    (finite_emptyset name-judgement "finite_set" finite_sets nil)
+    (injective? const-decl "bool" functions nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (A decl-formal-type nil set_extra nil)
+    (set type-eq-decl nil sets nil)
+    (is_finite const-decl "bool" finite_sets nil)
+    (finite_set type-eq-decl nil finite_sets nil)
+    (nonempty? const-decl "bool" sets nil)
+    (empty? const-decl "bool" sets nil)
+    (member const-decl "bool" sets nil))
+   nil (fold subtype "set_extra.sa" "(sets[set_extra.A].nonempty?)")))
+ (set_case_TCC1 0
+  (set_case_TCC1-1 nil 3743349010
+   ("" (grind)
+    (("" (expand "emptyset")
+      (("" (decompose-equality) (("" (grind) nil nil)) nil)) nil))
+    nil)
+   ((emptyset const-decl "set" sets nil)
+    (FALSE const-decl "bool" booleans nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (>= const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (finite_emptyset name-judgement "finite_set[T]" set_as_list
+     "structures/")
+    (finite_emptyset name-judgement "finite_set" finite_sets nil)
+    (injective? const-decl "bool" functions nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (B decl-formal-type nil set_extra nil)
+    (set type-eq-decl nil sets nil)
+    (is_finite const-decl "bool" finite_sets nil)
+    (finite_set type-eq-decl nil finite_sets nil)
+    (nonempty? const-decl "bool" sets nil)
+    (empty? const-decl "bool" sets nil)
+    (member const-decl "bool" sets nil))
+   nil
+   (set_case subtype "set_extra.s" "(sets[set_extra.B].nonempty?)")))
+ (from_list_TCC1 0
+  (from_list_TCC1-1 nil 3743349010 ("" (subtype-tcc) nil nil) nil nil
+   (from_list subtype "set_extra.l" "(list_adt[set_extra.A].cons?)")))
+ (from_list_TCC2 0
+  (from_list_TCC2-1 nil 3743349010 ("" (subtype-tcc) nil nil) nil nil
+   (from_list subtype "set_extra.l" "(list_adt[set_extra.A].cons?)")))
+ (from_list_TCC3 0
+  (from_list_TCC3-1 nil 3743349010 ("" (termination-tcc) nil nil)
+   ((<< adt-def-decl "(strict_well_founded?[list])" list_adt nil)) nil
+   (from_list termination
+    "set_extra.from_list(list_adt[set_extra.A].cdr(set_extra.l))"
+    "nil")))
+ (set2list_emptyset 0
+  (set2list_emptyset-1 nil 3743353836
+   ("" (grind)
+    (("" (expand "set2list")
+      (("" (grind)
+        (("1" (expand "emptyset")
+          (("1" (decompose-equality) (("1" (grind) nil nil)) nil)) nil)
+         ("2" (expand "emptyset")
+          (("2" (decompose-equality) (("2" (grind) nil nil)) nil)) nil)
+         ("3" (expand "emptyset")
+          (("3" (decompose-equality) (("3" (grind) nil nil)) nil))
+          nil))
+        nil))
+      nil))
+    nil)
+   ((member const-decl "bool" sets nil)
+    (empty? const-decl "bool" sets nil)
+    (finite_set type-eq-decl nil finite_sets nil)
+    (is_finite const-decl "bool" finite_sets nil)
+    (set type-eq-decl nil sets nil)
+    (T decl-formal-type nil set_extra nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (injective? const-decl "bool" functions nil)
+    (finite_emptyset name-judgement "finite_set" finite_sets nil)
+    (finite_emptyset name-judgement "finite_set[T]" set_as_list
+     "structures/")
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (>= const-decl "bool" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number nonempty-type-decl nil numbers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nonempty? const-decl "bool" sets nil)
+    (remove const-decl "set" sets nil)
+    (/= const-decl "boolean" notequal nil)
+    (rest const-decl "set" sets nil)
+    (finite_remove application-judgement "finite_set[T]" set_as_list
+     "structures/")
+    (choose const-decl "(p)" sets nil)
+    (s!1 skolem-const-decl "finite_set[T]" set_extra nil)
+    (FALSE const-decl "bool" booleans nil)
+    (emptyset const-decl "set" sets nil)
+    (set2list def-decl
+     "{l: list[T] | length(l) = card(s) AND FORALL (x: T): s(x) IFF member(x, l)}"
+     set_as_list "structures/"))
+   shostak))
+ (set2list_eq_card 0
+  (set2list_eq_card-1 nil 3743353922 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (T decl-formal-type nil set_extra nil)
+    (set type-eq-decl nil sets nil)
+    (is_finite const-decl "bool" finite_sets nil)
+    (finite_set type-eq-decl nil finite_sets nil)
+    (injective? const-decl "bool" functions nil)
+    (member const-decl "bool" sets nil)
+    (empty? const-decl "bool" sets nil))
+   shostak)))
+

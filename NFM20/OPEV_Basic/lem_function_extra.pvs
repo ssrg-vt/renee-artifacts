@@ -1,0 +1,24 @@
+lem_function_extra: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_maybe
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_num
+
+IMPORTING lem_function
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+
+END lem_function_extra

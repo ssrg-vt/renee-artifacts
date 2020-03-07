@@ -1,0 +1,3204 @@
+lem_num: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING word
+
+
+% %
+% % [?]: inline class declaration is commented out.
+% 
+
+%
+% 
+% (* ========================================================================== *)
+% (* Syntactic type-classes for common operations                               *)
+% (* ========================================================================== *)
+% 
+% (* Typeclasses can be used as a mean to overload constants like "+", "-", etc *)
+% 
+% 
+
+ numNegate_class[A: TYPE] : TYPE = [#  
+  numNegate_method: [A -> A]
+ #]
+
+
+%
+% 
+% 
+
+ numAbs_class[A: TYPE] : TYPE = [#  
+  abs_method: [A -> A]
+ #]
+
+
+%
+% 
+% 
+
+ numAdd_class[A: TYPE] : TYPE = [#  
+  numAdd_method: [A -> [A -> A]]
+ #]
+
+
+%
+% 
+% 
+
+ numMinus_class[A: TYPE] : TYPE = [#  
+  numMinus_method: [A -> [A -> A]]
+ #]
+
+
+%
+% 
+% 
+
+ numMult_class[A: TYPE] : TYPE = [#  
+  numMult_method: [A -> [A -> A]]
+ #]
+
+
+%
+% 
+% 
+
+ numPow_class[A: TYPE] : TYPE = [#  
+  numPow_method: [A -> [ nat -> A]]
+ #]
+
+
+%
+% 
+% 
+
+ numDivision_class[A: TYPE] : TYPE = [#  
+  numDivision_method: [A -> [A -> A]]
+ #]
+
+
+%
+% 
+% 
+
+ numIntegerDivision_class[A: TYPE] : TYPE = [#  
+  div_method: [A -> [A -> A]]
+ #]
+
+
+%
+% 
+% 
+% 
+
+ numRemainder_class[A: TYPE] : TYPE = [#  
+  mod_method: [A -> [A -> A]]
+ #]
+
+
+%
+% 
+% 
+
+ numSucc_class[A: TYPE] : TYPE = [#  
+  succ_method: [A -> A]
+ #]
+
+
+%
+% 
+% 
+
+ numPred_class[A: TYPE] : TYPE = [#  
+  pred_method: [A -> A]
+ #]
+
+
+
+% %% 
+% % 
+% % 
+% % (* ----------------------- *)
+% % (* natural                 *)
+% % (* ----------------------- *)
+% % 
+% % (* unbounded size natural numbers *)
+% % 
+% 
+%  natural: TYPE
+% 
+% 
+% 
+
+
+% %%
+% % 
+% % 
+% % (* ----------------------- *)
+% % (* int                     *)
+% % (* ----------------------- *)
+% % 
+% % (* bounded size integers with uncertain length *)
+% % 
+% % 
+% 
+%  int: TYPE
+% 
+% 
+% 
+
+
+% %%
+% % 
+% % 
+% % (* ----------------------- *)
+% % (* integer                 *)
+% % (* ----------------------- *)
+% % 
+% % (* unbounded size integers *)
+% % 
+% % 
+% 
+%  integer: TYPE
+% 
+% 
+% 
+
+
+% %%
+% % 
+% % (* ----------------------- *)
+% % (* bint                    *)
+% % (* ----------------------- *)
+% % 
+% % (* TODO the bounded ints are only partially implemented, use with care. *)
+% % 
+% % (* 32 bit integers *)
+% % 
+% 
+%  int32: TYPE
+% 
+% 
+% 
+
+
+% %%
+% % 
+% % (* 64 bit integers *)
+% % 
+% 
+%  int64: TYPE
+% 
+% 
+% 
+
+
+% %%
+% % 
+% % 
+% % (* ----------------------- *)
+% % (* rational                *)
+% % (* ----------------------- *)
+% % 
+% % (* unbounded size and precision rational numbers *)
+% % 
+% % 
+% 
+%  rational: TYPE
+% 
+% 
+% 
+
+
+% %%
+% % 
+% % (* ----------------------- *)
+% % (* real                    *)
+% % (* ----------------------- *)
+% % 
+% % (* real numbers *)
+% % (* Note that for OCaml, this is mapped to floats with 64 bits. *)
+% % 
+% % 
+% 
+%  real: TYPE
+% 
+% 
+% 
+
+
+% %%
+% % 
+% % (* ----------------------- *)
+% % (* double                  *)
+% % (* ----------------------- *)
+% % 
+% % (* double precision floating point (64 bits) *)
+% % 
+% % 
+% 
+%  float64: TYPE
+% 
+% 
+% 
+
+%
+% 
+% 
+
+ float32: TYPE
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Basic_classes_Eq_nat_dict : eq_class[nat] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( n1 : nat)( n2 : nat) : NOT(eqs(n1)(n2)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_nat_dict : ord_class[nat] = (#  
+
+  compare_method := genericCompare(nat_lt)(eqs),  
+
+  isLess_method := nat_lt,  
+
+  isLessEqual_method := nat_le,  
+
+  isGreater_method := nat_gt,  
+
+  isGreaterEqual_method := nat_ge
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_nat_dict : setType_class[nat] = (#  
+
+  setElemCompare_method := genericCompare(nat_lt)(eqs)
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumAdd_nat_dict : numAdd_class[nat] = (#  
+
+  numAdd_method := nat_add
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumMinus_nat_dict : numMinus_class[nat] = (#  
+
+  numMinus_method := nat_minus
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% natSucc( n : nat) : nat =  instance_Num_NumAdd_nat.+  n 1
+% 
+% 
+% 
+
+%
+% 
+
+%
+
+instance_Num_NumSucc_nat_dict : numSucc_class[nat] = (#  
+
+  succ_method := succ
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Num_NumPred_nat_dict : numPred_class[nat] = (#  
+
+  pred_method := pred
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumMult_nat_dict : numMult_class[nat] = (#  
+
+  numMult_method := nat_mult
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumIntegerDivision_nat_dict : numIntegerDivision_class[nat] = (#  
+
+  div_method := nat_div
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumDivision_nat_dict : numDivision_class[nat] = (#  
+
+  numDivision_method := nat_div
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumRemainder_nat_dict : numRemainder_class[nat] = (#  
+
+  mod_method := nat_mod
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+gen_pow_aux[A : TYPE](mul : [A -> [A -> A]])(a : A)(b : A)(e :  nat) : RECURSIVE A =  
+  IF eqs(e)((0)) THEN a ELSE
+     IF eqs(e)((1)) THEN mul(a)(b) ELSE
+     LET e'' = nat_div(e)((2)) IN LET a' =
+        IF eqs(nat_mod(e)((2)))((0)) THEN a ELSE mul(a)(b) ENDIF IN gen_pow_aux(mul)(a')(mul(b)(b))(e'')
+     ENDIF ENDIF
+MEASURE e
+
+
+
+%
+%        
+% 
+
+% 
+
+gen_pow[A : TYPE](one : A)(mul : [A -> [A -> A]])(b : A)(e :  nat) : A =  
+  IF nat_lt(e)((0)) THEN one ELSE
+     IF eqs(e)((0)) THEN one ELSE gen_pow_aux(mul)(one)(b)(e) ENDIF ENDIF
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumPow_nat_dict : numPow_class[nat] = (#  
+
+  numPow_method := nat_pow
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_OrdMaxMin_nat_dict : ordMaxMin_class[nat] = (#  
+
+  max_method := nat_max,  
+
+  min_method := nat_min
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Basic_classes_Eq_Num_natural_dict : eq_class[nat] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( n1 : nat)( n2 : nat) : NOT(eqs(n1)(n2)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_Num_natural_dict : ord_class[nat] = (#  
+
+  compare_method := genericCompare(nat_lt)(eqs),  
+
+  isLess_method := nat_lt,  
+
+  isLessEqual_method := nat_le,  
+
+  isGreater_method := nat_gt,  
+
+  isGreaterEqual_method := nat_ge
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_Num_natural_dict : setType_class[nat] = (#  
+
+  setElemCompare_method := genericCompare(nat_lt)(eqs)
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumAdd_Num_natural_dict : numAdd_class[nat] = (#  
+
+  numAdd_method := nat_add
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumMinus_Num_natural_dict : numMinus_class[nat] = (#  
+
+  numMinus_method := nat_minus
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% naturalSucc( n : nat) : nat =  instance_Num_NumAdd_Num_natural.+  n 1
+% 
+% 
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumSucc_Num_natural_dict : numSucc_class[nat] = (#  
+
+  succ_method := succ
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Num_NumPred_Num_natural_dict : numPred_class[nat] = (#  
+
+  pred_method := pred
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumMult_Num_natural_dict : numMult_class[nat] = (#  
+
+  numMult_method := nat_mult
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumPow_Num_natural_dict : numPow_class[nat] = (#  
+
+  numPow_method := nat_pow
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumIntegerDivision_Num_natural_dict : numIntegerDivision_class[nat] = (#  
+
+  div_method := nat_div
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumDivision_Num_natural_dict : numDivision_class[nat] = (#  
+
+  numDivision_method := nat_div
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumRemainder_Num_natural_dict : numRemainder_class[nat] = (#  
+
+  mod_method := nat_mod
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_OrdMaxMin_Num_natural_dict : ordMaxMin_class[nat] = (#  
+
+  max_method := nat_max,  
+
+  min_method := nat_min
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Basic_classes_Eq_Num_int_dict : eq_class[int] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( n1 : int)( n2 : int) : NOT(eqs(n1)(n2)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_Num_int_dict : ord_class[int] = (#  
+
+  compare_method := genericCompare(int_lt)(eqs),  
+
+  isLess_method := int_lt,  
+
+  isLessEqual_method := int_le,  
+
+  isGreater_method := int_gt,  
+
+  isGreaterEqual_method := int_ge
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_Num_int_dict : setType_class[int] = (#  
+
+  setElemCompare_method := genericCompare(int_lt)(eqs)
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumNegate_Num_int_dict : numNegate_class[int] = (#  
+
+  numNegate_method := (LAMBDA ( i : int) : -(i))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumAbs_Num_int_dict : numAbs_class[int] = (#  
+
+  abs_method := int_abs
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumAdd_Num_int_dict : numAdd_class[int] = (#  
+
+  numAdd_method := int_add
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumMinus_Num_int_dict : numMinus_class[int] = (#  
+
+  numMinus_method := int_minus
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Num_NumSucc_Num_int_dict : numSucc_class[int] = (#  
+
+  succ_method := (LAMBDA ( n : int) : int_add(n)((1)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Num_NumPred_Num_int_dict : numPred_class[int] = (#  
+
+  pred_method := (LAMBDA ( n : int) : int_minus(n)((1)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumMult_Num_int_dict : numMult_class[int] = (#  
+
+  numMult_method := int_mult
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumPow_Num_int_dict : numPow_class[int] = (#  
+
+  numPow_method := int_pow
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumIntegerDivision_Num_int_dict : numIntegerDivision_class[int] = (#  
+
+  div_method := int_div
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumDivision_Num_int_dict : numDivision_class[int] = (#  
+
+  numDivision_method := int_div
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumRemainder_Num_int_dict : numRemainder_class[int] = (#  
+
+  mod_method := int_mod
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_OrdMaxMin_Num_int_dict : ordMaxMin_class[int] = (#  
+
+  max_method := int_max,  
+
+  min_method := int_min
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_Num_int32_dict : eq_class[word[32]] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( n1 : word[32])( n2 : word[32]) : NOT(eqs(n1)(n2)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_Num_int32_dict : ord_class[word[32]] = (#  
+
+  compare_method := genericCompare(word_slt[32])(eqs),  
+
+  isLess_method := word_slt[32],  
+
+  isLessEqual_method := word_sle[32],  
+
+  isGreater_method := word_sgt[32],  
+
+  isGreaterEqual_method := word_sge[32]
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_Num_int32_dict : setType_class[word[32]] = (#  
+
+  setElemCompare_method := genericCompare(word_slt[32])(eqs)
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumNegate_Num_int32_dict : numNegate_class[word[32]] = (#  
+
+  numNegate_method := word_neg[32]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+int32Abs( i : word[32]) : word[32] =  
+  IF word_sle[32](of_nat[32](0))(i) THEN i ELSE word_neg[32](i) ENDIF
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumAbs_Num_int32_dict : numAbs_class[word[32]] = (#  
+
+  abs_method :=  int32Abs
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumAdd_Num_int32_dict : numAdd_class[word[32]] = (#  
+
+  numAdd_method := word_add[32]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumMinus_Num_int32_dict : numMinus_class[word[32]] = (#  
+
+  numMinus_method := word_minus[32]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Num_NumSucc_Num_int32_dict : numSucc_class[word[32]] = (#  
+
+  succ_method := (LAMBDA ( n : word[32]) : word_add[32](n)(of_nat[32](1)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Num_NumPred_Num_int32_dict : numPred_class[word[32]] = (#  
+
+  pred_method := (LAMBDA ( n : word[32]) : word_minus[32](n)(of_nat[32](1)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumMult_Num_int32_dict : numMult_class[word[32]] = (#  
+
+  numMult_method := word_mult[32]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumPow_Num_int32_dict : numPow_class[word[32]] = (#  
+
+  numPow_method := word_pow[32]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumIntegerDivision_Num_int32_dict : numIntegerDivision_class[word[32]] = (#  
+
+  div_method := word_div[32]
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumDivision_Num_int32_dict : numDivision_class[word[32]] = (#  
+
+  numDivision_method := word_div[32]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumRemainder_Num_int32_dict : numRemainder_class[word[32]] = (#  
+
+  mod_method := word_mod[32]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_OrdMaxMin_Num_int32_dict : ordMaxMin_class[word[32]] = (#  
+
+  max_method := word_smax[32],  
+
+  min_method := word_smin[32]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_Num_int64_dict : eq_class[word[64]] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( n1 : word[64])( n2 : word[64]) : NOT(eqs(n1)(n2)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_Num_int64_dict : ord_class[word[64]] = (#  
+
+  compare_method := genericCompare(word_slt[64])(eqs),  
+
+  isLess_method := word_slt[64],  
+
+  isLessEqual_method := word_sle[64],  
+
+  isGreater_method := word_sgt[64],  
+
+  isGreaterEqual_method := word_sge[64]
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_Num_int64_dict : setType_class[word[64]] = (#  
+
+  setElemCompare_method := genericCompare(word_slt[64])(eqs)
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumNegate_Num_int64_dict : numNegate_class[word[64]] = (#  
+
+  numNegate_method := word_neg[64]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+int64Abs( i : word[64]) : word[64] =  
+  IF word_sle[64](of_nat[64](0))(i) THEN i ELSE word_neg[64](i) ENDIF
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumAbs_Num_int64_dict : numAbs_class[word[64]] = (#  
+
+  abs_method :=  int64Abs
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumAdd_Num_int64_dict : numAdd_class[word[64]] = (#  
+
+  numAdd_method := word_add[64]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumMinus_Num_int64_dict : numMinus_class[word[64]] = (#  
+
+  numMinus_method := word_minus[64]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Num_NumSucc_Num_int64_dict : numSucc_class[word[64]] = (#  
+
+  succ_method := (LAMBDA ( n : word[64]) : word_add[64](n)(of_nat[64](1)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Num_NumPred_Num_int64_dict : numPred_class[word[64]] = (#  
+
+  pred_method := (LAMBDA ( n : word[64]) : word_minus[64](n)(of_nat[64](1)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumMult_Num_int64_dict : numMult_class[word[64]] = (#  
+
+  numMult_method := word_mult[64]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumPow_Num_int64_dict : numPow_class[word[64]] = (#  
+
+  numPow_method := word_pow[64]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumIntegerDivision_Num_int64_dict : numIntegerDivision_class[word[64]] = (#  
+
+  div_method := word_div[64]
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumDivision_Num_int64_dict : numDivision_class[word[64]] = (#  
+
+  numDivision_method := word_div[64]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumRemainder_Num_int64_dict : numRemainder_class[word[64]] = (#  
+
+  mod_method := word_mod[64]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_OrdMaxMin_Num_int64_dict : ordMaxMin_class[word[64]] = (#  
+
+  max_method := word_smax[64],  
+
+  min_method := word_smin[64]
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Basic_classes_Eq_Num_integer_dict : eq_class[int] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( n1 : int)( n2 : int) : NOT(eqs(n1)(n2)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_Num_integer_dict : ord_class[int] = (#  
+
+  compare_method := genericCompare(int_lt)(eqs),  
+
+  isLess_method := int_lt,  
+
+  isLessEqual_method := int_le,  
+
+  isGreater_method := int_gt,  
+
+  isGreaterEqual_method := int_ge
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_Num_integer_dict : setType_class[int] = (#  
+
+  setElemCompare_method := genericCompare(int_lt)(eqs)
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumNegate_Num_integer_dict : numNegate_class[int] = (#  
+
+  numNegate_method := (LAMBDA ( i : int) : -(i))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumAbs_Num_integer_dict : numAbs_class[int] = (#  
+
+  abs_method := int_abs
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumAdd_Num_integer_dict : numAdd_class[int] = (#  
+
+  numAdd_method := int_add
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumMinus_Num_integer_dict : numMinus_class[int] = (#  
+
+  numMinus_method := int_minus
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Num_NumSucc_Num_integer_dict : numSucc_class[int] = (#  
+
+  succ_method := (LAMBDA ( n : int) : int_add(n)((1)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Num_NumPred_Num_integer_dict : numPred_class[int] = (#  
+
+  pred_method := (LAMBDA ( n : int) : int_minus(n)((1)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumMult_Num_integer_dict : numMult_class[int] = (#  
+
+  numMult_method := int_mult
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumPow_Num_integer_dict : numPow_class[int] = (#  
+
+  numPow_method := int_pow
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumIntegerDivision_Num_integer_dict : numIntegerDivision_class[int] = (#  
+
+  div_method := int_div
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumDivision_Num_integer_dict : numDivision_class[int] = (#  
+
+  numDivision_method := int_div
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumRemainder_Num_integer_dict : numRemainder_class[int] = (#  
+
+  mod_method := int_mod
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_OrdMaxMin_Num_integer_dict : ordMaxMin_class[int] = (#  
+
+  max_method := int_max,  
+
+  min_method := int_min
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Basic_classes_Eq_Num_rational_dict : eq_class[rat] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( n1 : rat)( n2 : rat) : NOT(eqs(n1)(n2)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_Num_rational_dict : ord_class[rat] = (#  
+
+  compare_method := genericCompare(rat_lt)(eqs),  
+
+  isLess_method := rat_lt,  
+
+  isLessEqual_method := rat_le,  
+
+  isGreater_method := rat_gt,  
+
+  isGreaterEqual_method := rat_ge
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_Num_rational_dict : setType_class[rat] = (#  
+
+  setElemCompare_method := genericCompare(rat_lt)(eqs)
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumAdd_Num_rational_dict : numAdd_class[rat] = (#  
+
+  numAdd_method := rat_add
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumMinus_Num_rational_dict : numMinus_class[rat] = (#  
+
+  numMinus_method := rat_minus
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Num_NumNegate_Num_rational_dict : numNegate_class[rat] = (#  
+
+  numNegate_method := (LAMBDA ( n : rat) : rat_minus((0))(n))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Num_NumAbs_Num_rational_dict : numAbs_class[rat] = (#  
+
+  abs_method := (LAMBDA ( n : rat) :  
+  IF rat_gt(n)((0)) THEN n ELSE rat_minus((0))(n) ENDIF)
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Num_NumSucc_Num_rational_dict : numSucc_class[rat] = (#  
+
+  succ_method := (LAMBDA ( n : rat) : rat_add(n)((1)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Num_NumPred_Num_rational_dict : numPred_class[rat] = (#  
+
+  pred_method := (LAMBDA ( n : rat) : rat_minus(n)((1)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumMult_Num_rational_dict : numMult_class[rat] = (#  
+
+  numMult_method := rat_mult
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumDivision_Num_rational_dict : numDivision_class[rat] = (#  
+
+  numDivision_method := rat_div
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+rationalFromFrac( n : int)( d : int) : rat = rat_div((n))((d))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+rationalPowInteger( b : rat)( e : int) : RECURSIVE rat =  
+  IF eqs(e)((0)) THEN (1) ELSE
+     IF int_gt(e)((0)) THEN
+      rat_mult(rationalPowInteger(b)(int_minus(e)((1))))(b) ELSE
+      rat_div(rationalPowInteger(b)(int_add(e)((1))))(b) ENDIF ENDIF
+MEASURE abs(e)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% rationalPowNat( r : rat)( e : nat) : rat = rationalPowInteger(r)((e))
+% 
+% 
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumPow_Num_rational_dict : numPow_class[rat] = (#  
+
+  numPow_method := rat_pow
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_OrdMaxMin_Num_rational_dict : ordMaxMin_class[rat] = (#  
+
+  max_method := rat_max,  
+
+  min_method := rat_min
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Basic_classes_Eq_Num_real_dict : eq_class[real] = (#  
+
+  isEqual_method := eqs,  
+
+  isInequal_method := (LAMBDA ( n1 : real)( n2 : real) : NOT(eqs(n1)(n2)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Ord_Num_real_dict : ord_class[real] = (#  
+
+  compare_method := genericCompare(lt)(eqs),  
+
+  isLess_method := lt,  
+
+  isLessEqual_method := le,  
+
+  isGreater_method := gt,  
+
+  isGreaterEqual_method := ge
+
+#)
+
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_Num_real_dict : setType_class[real] = (#  
+
+  setElemCompare_method := genericCompare(lt)(eqs)
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumAdd_Num_real_dict : numAdd_class[real] = (#  
+
+  numAdd_method := add
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumMinus_Num_real_dict : numMinus_class[real] = (#  
+
+  numMinus_method := minus
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Num_NumNegate_Num_real_dict : numNegate_class[real] = (#  
+
+  numNegate_method := (LAMBDA ( i : real) : -(i))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Num_NumAbs_Num_real_dict : numAbs_class[real] = (#  
+
+  abs_method := abs
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Num_NumSucc_Num_real_dict : numSucc_class[real] = (#  
+
+  succ_method := (LAMBDA ( n : real) : add(n)((1)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+
+%
+
+instance_Num_NumPred_Num_real_dict : numPred_class[real] = (#  
+
+  pred_method := (LAMBDA ( n : real) : minus(n)((1)))
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumMult_Num_real_dict : numMult_class[real] = (#  
+
+  numMult_method := mult
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+% 
+
+%
+
+instance_Num_NumDivision_Num_real_dict : numDivision_class[real] = (#  
+
+  numDivision_method := div
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+realFromFrac( n : int)( d : int) : real = div((n))((d))
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+realPowInteger( b : real)( e : int) : RECURSIVE real =  
+  IF eqs(e)((0)) THEN (1) ELSE
+     IF int_gt(e)((0)) THEN mult(realPowInteger(b)(int_minus(e)((1))))(b)
+       ELSE div(realPowInteger(b)(int_add(e)((1))))(b) ENDIF ENDIF
+MEASURE abs(e)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% realPowNat( r : real)( e : nat) : real = realPowInteger(r)((e))
+% 
+% 
+% 
+
+%
+% 
+% 
+% 
+
+%
+
+instance_Num_NumPow_Num_real_dict : numPow_class[real] = (#  
+
+  numPow_method := pow
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_OrdMaxMin_Num_real_dict : ordMaxMin_class[real] = (#  
+
+  max_method := max,  
+
+  min_method := min
+
+#)
+
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% int32FromInteger( i : int) : word[32] = LET  abs_int32 = of_nat[32](int_abs(i)) IN  
+%   IF instance_Basic_classes_Ord_Num_integer.< i 0 THEN
+%    instance_Num_NumNegate_Num_int32.~(abs_int32) ELSE abs_int32 ENDIF
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% int32FromInt( i : int) : word[32] = of_int[32]((i))
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% int32FromInt64( i : word[64]) : word[32] = of_int[32](to_int(i))
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% int64FromInteger( i : int) : word[64] = LET  abs_int64 = of_nat[64](int_abs(i)) IN  
+%   IF instance_Basic_classes_Ord_Num_integer.< i 0 THEN
+%    instance_Num_NumNegate_Num_int64.~(abs_int64) ELSE abs_int64 ENDIF
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% int64FromInt( i : int) : word[64] = of_int[64]((i))
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %%
+% % 
+% 
+% % 
+% 
+% int64FromInt32( i : word[32]) : word[64] = of_int[64](to_int(i))
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+END lem_num

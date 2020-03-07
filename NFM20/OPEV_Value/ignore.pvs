@@ -1,0 +1,8 @@
+ignore[T: TYPE] : THEORY
+BEGIN
+
+IMPORTING structures@Unit
+
+ignore(t: T) : Unit = unit
+
+END ignore

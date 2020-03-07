@@ -1,0 +1,24 @@
+lteq_vec_range[N:posnat] : THEORY
+BEGIN
+
+IMPORTING signed
+
+bv: VAR bvec[N]
+
+m: VAR int
+
+lteq_vec_range(bv, m) : MACRO bit = signed(bv) <= m
+
+;<=(bv, m) : MACRO bit = signed(bv) <= m
+
+lteq_range_vec(m, bv) : MACRO bit = m <= signed(bv)
+
+;<=(m, bv) : MACRO bit = m <= signed(bv)
+
+%=================== Properties of lteq_vec and signed operations ===================
+
+lteq_vec_range_op_eq: LEMMA (bv <= m) = lteq_vec_range(bv, m)
+
+lteq_range_vec_op_eq: LEMMA (m <= bv) = lteq_range_vec(m, bv)
+
+END lteq_vec_range

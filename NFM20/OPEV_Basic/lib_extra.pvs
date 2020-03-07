@@ -1,0 +1,191 @@
+lib_extra: THEORY
+BEGIN
+
+IMPORTING option
+
+IMPORTING ints@div
+
+
+eqs[A: TYPE](a: A)(b: A) : bool = (a = b)
+
+% ;=[A: TYPE](x: A)(y: A) : bool = (x = y)
+
+pair_equal[A, B: TYPE](eq1: [A -> [A -> bool]])(eq2: [B -> [B -> bool]])(a: [A, B])(b: [A, B]) : bool =
+  eq1(a`1)(b`1) AND eq2(a`2)(b`2)
+
+% ;=[A, B: TYPE](a: [A, B])(b: [A, B]) : bool = (a`1 = b`1 AND a`2 = b`2)
+
+% ;=[A: TYPE](xs: list[A])(ys: list[A]) : bool = xs = ys
+
+option_equal[A: TYPE](eq: [A -> [A -> bool]])(x: option[A])(y: option[A]) : bool =
+  CASES x OF
+        None: CASES y OF
+                    None: TRUE,
+                    Some(y'): FALSE
+              ENDCASES,
+        Some(x'): CASES y OF
+                        None: FALSE,
+                        Some(y'): eq(x')(y')
+                  ENDCASES
+  ENDCASES
+
+
+% ========================================================================== *)
+% bool                                                                  *)
+% ========================================================================== *)
+
+bool_and(x: bool)(y: bool) : bool = x AND y
+
+bool_or(x: bool)(y: bool) : bool = x OR y
+
+bool_not(x: bool) : bool = NOT x
+
+
+% ========================================================================== *)
+% Orderings                                                                  *)
+% ========================================================================== *)
+
+ordering : TYPE = {i : int | -1 <= i <= 1}
+
+ordering_equal(l: ordering)(r: ordering) : bool = l = r
+
+
+% ========================================================================== *)
+% String                                                                  *)
+% ========================================================================== *)
+
+make_string(n: nat)(c: char) : string =
+  (# length := n, seq := (LAMBDA (x: below(n)): c) #)
+
+str_concat(s1: string)(s2: string) : string = s1 o s2
+
+string_of_bool(b: bool) : string = IF b THEN "TRUE" ELSE "FALSE" ENDIF
+
+
+% ========================================================================== *)
+% Others                                                                  *)
+% ========================================================================== *)
+
+
+failwith[T: TYPE+](msg: string) : T = throw[T](msg)
+
+the_opt[T: TYPE](p: [T -> bool]) : option[T] =
+           (IF (singleton?(p)) THEN Some(the(p)) ELSE None ENDIF)
+
+% ========================================================================== *)
+% numerical operations                                                       *)
+% ========================================================================== *)
+
+
+nat_lt(x: nat)(y: nat) : MACRO bool = (x < y)
+
+nat_le(x: nat)(y: nat) : MACRO bool = (x <= y)
+
+nat_gt(x: nat)(y: nat) : MACRO bool = (x > y)
+
+nat_ge(x: nat)(y: nat) : MACRO bool = (x >= y)
+
+
+nat_add(x: nat)(y: nat) : MACRO nat = (x + y)
+
+nat_minus(x: nat)(y: nat) : MACRO nat = LET r = (x - y) IN IF r < 0 THEN 0 ELSE r ENDIF
+
+nat_mult(x: nat)(y: nat) : MACRO nat = (x * y)
+
+nat_div(x: nat)(y: nat) : MACRO nat = IF y = 0 THEN failwith("nat_div: div by 0") ELSE floor(x / y) ENDIF
+
+nat_mod(x: nat)(y: nat) : MACRO nat = IF y = 0 THEN failwith("nat_mod: mod by 0") ELSE mod(x, y) ENDIF
+
+nat_pow(x: nat)(y: nat) : MACRO nat = x ^ y
+
+
+nat_min(x: nat)(y: nat) : MACRO nat = min(x, y)
+
+nat_max(x: nat)(y: nat) : MACRO nat = max(x, y)
+
+nat_succ(x: nat) : MACRO nat = succ(x)
+
+
+
+int_lt(x: int)(y: int) : MACRO bool = (x < y)
+
+int_le(x: int)(y: int) : MACRO bool = (x <= y)
+
+int_gt(x: int)(y: int) : MACRO bool = (x > y)
+
+int_ge(x: int)(y: int) : MACRO bool = (x >= y)
+
+
+int_add(x: int)(y: int) : MACRO int = (x + y)
+
+int_minus(x: int)(y: int) : MACRO int = (x - y)
+
+int_mult(x: int)(y: int) : MACRO int = (x * y)
+
+int_div(x: int)(y: int) : MACRO int = IF y = 0 THEN failwith("int_div: div by 0") ELSE floor(x / y) ENDIF
+
+int_mod(x: int)(y: int) : MACRO int = IF y = 0 THEN failwith("int_mod: mod by 0") ELSE mod(x, y) ENDIF
+
+int_pow(x: int)(y: nat) : MACRO int = x ^ y
+
+
+int_min(x: int)(y: int) : MACRO int = min(x, y)
+
+int_max(x: int)(y: int) : MACRO int = max(x, y)
+
+int_abs(x: int) : MACRO nat = abs(x)
+
+
+
+rat_lt(x: rat)(y: rat) : MACRO bool = (x < y)
+
+rat_le(x: rat)(y: rat) : MACRO bool = (x <= y)
+
+rat_gt(x: rat)(y: rat) : MACRO bool = (x > y)
+
+rat_ge(x: rat)(y: rat) : MACRO bool = (x >= y)
+
+
+rat_add(x: rat)(y: rat) : MACRO rat = (x + y)
+
+rat_minus(x: rat)(y: rat) : MACRO rat = (x - y)
+
+rat_mult(x: rat)(y: rat) : MACRO rat = (x * y)
+
+rat_div(x: rat)(y: rat) : MACRO rat = IF y = 0 THEN failwith("rat_div: div by 0") ELSE (x / y) ENDIF
+
+rat_pow(x: rat)(y: nat) : MACRO rat = x ^ y
+
+
+rat_min(x: rat)(y: rat) : MACRO rat = min(x, y)
+
+rat_max(x: rat)(y: rat) : MACRO rat = max(x, y)
+
+
+
+lt(x: real)(y: real) : MACRO bool = (x < y)
+
+le(x: real)(y: real) : MACRO bool = (x <= y)
+
+gt(x: real)(y: real) : MACRO bool = (x > y)
+
+ge(x: real)(y: real) : MACRO bool = (x >= y)
+
+
+add(x: real)(y: real) : MACRO real = (x + y)
+
+minus(x: real)(y: real) : MACRO real = (x - y)
+
+mult(x: real)(y: real) : MACRO real = (x * y)
+
+div(x: real)(y: real) : MACRO real = IF y = 0 THEN failwith("div: div by 0") ELSE (x / y) ENDIF
+
+pow(x: real)(y: nat) : MACRO real = x ^ y
+
+
+min(x: real)(y: real) : MACRO real = min(x, y)
+
+max(x: real)(y: real) : MACRO real = max(x, y)
+
+
+END lib_extra

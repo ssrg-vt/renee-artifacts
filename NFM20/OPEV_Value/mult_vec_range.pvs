@@ -1,0 +1,26 @@
+mult_vec_range[N:nat] : THEORY
+BEGIN
+
+IMPORTING to_vec_inc
+
+bv: VAR bvec[N]
+
+m: VAR int
+
+mult_vec_range(bv, m) : MACRO bvec[2*N] = to_vec_inc(2*N, unsigned[N](bv) * mod(m, exp2(N)));
+
+*(bv, m) : MACRO bvec[2*N] = mult_vec_range(bv, m)
+
+mult_range_vec(m, bv) : MACRO bvec[2*N] = mult_vec_range(bv, m);
+
+*(m, bv) : MACRO bvec[2*N] = mult_vec_range(bv, m)
+
+%=================== Properties of multiply operations ===================
+
+mult_vec_range_op_eq: LEMMA (bv * m) = mult_vec_range(bv, m)
+
+mult_range_vec_op_eq: LEMMA (m * bv) = mult_range_vec(m, bv)
+
+mult_range_vec_range_rel: LEMMA (m * bv) = (bv * m)
+
+END mult_vec_range

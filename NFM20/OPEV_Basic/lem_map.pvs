@@ -1,0 +1,285 @@
+lem_map: THEORY
+
+BEGIN
+
+IMPORTING lib_extra
+
+IMPORTING lem_bool
+
+IMPORTING lem_basic_classes
+
+IMPORTING lem_function
+
+IMPORTING lem_maybe
+
+IMPORTING lem_list
+
+IMPORTING lem_tuple
+
+IMPORTING lem_set
+
+IMPORTING lem_num
+
+IMPORTING set_extra
+
+IMPORTING fmap
+
+IMPORTING fmap_extra
+
+
+% %%
+% % 
+% % 
+% 
+%  map [K : TYPE, V : TYPE]: TYPE
+% 
+% 
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_Eq_Map_map_dict[K, V : TYPE](dict_Basic_classes_Eq_k : eq_class[K])(dict_Basic_classes_Eq_v : eq_class[V]) : eq_class[fmap[K, V]] = (#  
+
+  isEqual_method := fequal_by(dict_Basic_classes_Eq_k`isEqual_method)(dict_Basic_classes_Eq_v`isEqual_method),  
+
+  isInequal_method := (LAMBDA ( m1 : fmap[K, V])( m2 : fmap[K, V]) : NOT(fequal_by(dict_Basic_classes_Eq_k`isEqual_method)(dict_Basic_classes_Eq_v`isEqual_method)(m1)(m2)))
+
+#)
+
+
+
+
+% %
+% % [?]: class type is transformed to record type.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+%
+% 
+
+% 
+
+fromList[K, V: TYPE](l : list[[K, V]]) : fmap[K, V] = foldl((LAMBDA (m : fmap[K, V]) : (LAMBDA ((k : K), (v : V)) : fadd(k)(v)(m))))(fempty)(l)
+
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %% 
+% % 
+% % 
+% 
+% % 
+% 
+% all[K, V : TYPE]( P : [K -> [V -> bool]])( m : fmap[K, V]) : bool = FORALL (k : K), (v : V) : (bool_and(P(k)(v))(instance_Basic_classes_Eq_Maybe_maybe.= flookup(k)(m) Some(v)))
+% 
+% 
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% %
+% % [?]: removed value specification.
+% 
+
+
+% [?]: removed top-level value definition.
+%
+% 
+% (* instance of SetType *)
+% 
+
+% 
+
+map_setElemCompare[A, B, C, D, E : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B])(dict_Basic_classes_SetType_c : setType_class[C])(dict_Basic_classes_SetType_d : setType_class[D])( cmp : [set[[D, C]] -> [set[[B, A]] -> E]])( x : fmap[D, C])( y : fmap[B, A]) : E = cmp(fmap_to_set(x))(fmap_to_set(y))
+
+
+%
+% 
+% 
+
+%
+
+instance_Basic_classes_SetType_Map_map_dict[A, B : TYPE](dict_Basic_classes_SetType_a : setType_class[A])(dict_Basic_classes_SetType_b : setType_class[B]) : setType_class[fmap[A, B]] = (#  
+  setElemCompare_method := (LAMBDA (x : fmap[A, B])(y : fmap[A, B]) : map_setElemCompare[B, A, B, A, ordering](dict_Basic_classes_SetType_b)(dict_Basic_classes_SetType_a)(dict_Basic_classes_SetType_b)(dict_Basic_classes_SetType_a)(set_compare_by(pairCompare(dict_Basic_classes_SetType_a`setElemCompare_method)(dict_Basic_classes_SetType_b`setElemCompare_method)))(x)(y))
+#)
+
+
+
+
+
+END lem_map

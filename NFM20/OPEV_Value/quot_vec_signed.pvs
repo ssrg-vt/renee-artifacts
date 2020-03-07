@@ -1,0 +1,21 @@
+quot_vec_signed[N:posnat, M:posnat] : THEORY
+BEGIN
+
+IMPORTING to_vec_inc
+IMPORTING signed
+IMPORTING quot
+    
+quot_vec_signed(bv1:bvec[N], bv2:{bv:bvec[M]| signed[M](bv) /= 0}) : MACRO bvec[N] =
+    to_vec_inc(N, quot(signed[N](bv1), signed[M](bv2)))
+    
+quot_overflow_vec_signed(bv1:bvec[N], bv2:bvec[M]) : [bvec[N], bit, bit] =
+    IF signed[M](bv2) = 0
+    THEN (bvec0[N], FALSE, FALSE)
+    ELSE
+        LET quot_result = quot(signed[N](bv1), signed[M](bv2)) IN
+        LET overflow = quot_result > maxint[M] OR quot_result < minint[M],
+            c_out = (mod(floor(floor(unsigned[N](bv1)/unsigned[M](bv2))/exp2(N)), 2) /= 0) IN
+        (to_vec_inc(N, quot_result), overflow , c_out)
+    ENDIF
+
+END quot_vec_signed

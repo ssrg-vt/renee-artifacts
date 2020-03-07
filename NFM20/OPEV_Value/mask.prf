@@ -1,0 +1,7 @@
+(mask
+ (mask_TCC1 0
+  (mask_TCC1-1 nil 3722016889 ("" (subtype-tcc) nil nil)
+   ((nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil))
+   nil)))
+
