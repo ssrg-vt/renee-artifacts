@@ -1,9 +1,0 @@
-AuthAI  % [ parameters ]
-		: THEORY
-
-  BEGIN
-
-AuthAI( X:bvec[64] , Y:bvec[64] ): bvec[64]
-  
-
-  END AuthAI

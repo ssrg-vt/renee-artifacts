@@ -1,6 +1,0 @@
-Error: File subs_subadd_shift/top.pvs not found
-
-PVS_LIBRARY_PATH=/home/ssrgv/Desktop/pvs-alegro/pvs-7.0.639/nasalib
-subs_subadd_shift        [FAIL: Proving]
-
-*** Grand Total: 0 proofs / 0 formulas. Missed: 0 formulas.

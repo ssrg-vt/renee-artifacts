@@ -1,7 +1,0 @@
-Ones  : THEORY
-
-  BEGIN
-
-  Ones(n: nat): bvec[n] = lambda(i: below(n)): True
-
-  END Ones

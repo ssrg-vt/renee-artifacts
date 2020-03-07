@@ -1,6 +1,0 @@
-(TARGET_INIT_FFFFFFFF0007EF40
- (ret_0_TCC1 0
-  (ret_0_TCC1-1 nil 3765754789 ("" (eval-formula) nil) nil nil
-   (ret_0 subtype "0b11010110010111110000001111000000"
-    "naturalnumbers.below(exp2.exp2(32))"))))
-

@@ -1,6 +1,0 @@
-(MMINIT_VALIDATE_MEMMODEL_LIMITS_FFFFFF80081C0008
- (str_imm_gen_0_TCC1 0
-  (str_imm_gen_0_TCC1-1 nil 3765644039 ("" (eval-formula) nil) nil nil
-   (str_imm_gen_0 subtype "0b11111001000000000000000000100010"
-    "naturalnumbers.below(exp2.exp2(32))"))))
-

@@ -1,8 +1,0 @@
-DecodeBitmask  % [ parameters ]
-		: THEORY
-
-  BEGIN
-
-  
-
-  END DecodeBitmask

@@ -1,9 +1,0 @@
-IsZero%[N : nat]  % [ parameters ]
-		: THEORY
-
-  BEGIN
-  
-  IsZero(n: nat, x : bvec[n]): bool = (forall (i:below(n)): x(i) = bv[1](0b0)(0))
-  
-
-  END IsZero
