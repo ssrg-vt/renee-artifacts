@@ -1,0 +1,28 @@
+; While compiling #'bv_adder__oba_sum at top level:
+Warning: Variable N is never used.
+; While compiling #'bv_adder!oba_sum at top level:
+Warning: Variable N is never used.
+; While compiling #'bv_adder_oba_sum at top level:
+Warning: Variable N is never used.
+; While compiling #'bv_adder__oba_cout at top level:
+Warning: Variable N is never used.
+; While compiling #'bv_adder!oba_cout at top level:
+Warning: Variable N is never used.
+; While compiling #'bv_adder_oba_cout at top level:
+Warning: Variable N is never used.
+; While compiling #'bv_concat_def__o at top level:
+Warning: Variable n is never used.
+; While compiling #'bv_concat_def!o at top level:
+Warning: Variable n is never used.
+; While compiling #'bv_concat_def_o at top level:
+Warning: Variable n is never used.
+; While compiling #'_Zeros at top level:
+Warning: Variable i is never used.
+Warning: Variable n is never used.
+; While compiling #'Zeros! at top level:
+Warning: Variable i is never used.
+Warning: Variable n is never used.
+; While compiling #'(:internal Zeros 0) at top level:
+Warning: Variable n is never used.
+; While compiling #'(:internal (:internal Zeros 0) 0) at top level:
+Warning: Variable i is never used.

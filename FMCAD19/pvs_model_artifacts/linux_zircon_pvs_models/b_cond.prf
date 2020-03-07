@@ -1,0 +1,14 @@
+(b_cond
+ (diag_TCC1 0
+  (diag_TCC1-1 nil 3765642104
+   (""
+    (inst 1
+     "(# Fixed1:= lambda(i:below(7)):false, o1:= lambda(i:below(1)):false, imm19:= lambda(i:below(19)):false, o0:= lambda(i:below(1)): false, cond_:= lambda(i:below(4)):false, length:= 32 #)")
+    nil)
+   nil nil
+   (diag existence ""
+    "[# cond_: bv[4].bvec, Fixed1: bv[7].bvec, imm19: bv[19].bvec, length: {n: naturalnumbers.nat | n = 32}, o0: bv[1].bvec, o1: bv[1].bvec #]")))
+ (offset_TCC1 0
+  (offset_TCC1-1 nil 3765642104 ("" (subtype-tcc) nil nil) nil nil
+   (offset subtype "0b0" "naturalnumbers.below(exp2.exp2(2))"))))
+

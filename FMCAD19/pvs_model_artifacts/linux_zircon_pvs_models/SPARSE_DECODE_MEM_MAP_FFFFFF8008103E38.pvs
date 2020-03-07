@@ -1,0 +1,16 @@
+SPARSE_DECODE_MEM_MAP_FFFFFF8008103E38[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    and_log_imm_0       : Theory =    and_log_imm       [ p0                       ]  {{Diag:= bv [32] ( 0b10010010011111011111000000000000 ) , addr:= 0xffffff8008103e38 }}
+    add_addsub_shift_1  : Theory =    add_addsub_shift  [ and_log_imm_0.post       ]  {{Diag:= bv [32] ( 0b10001011000000010110000000000000 ) , addr:= 0xffffff8008103e3c }}
+    ret_2               : Theory =    ret               [ add_addsub_shift_1.post  ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff8008103e40 }}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END SPARSE_DECODE_MEM_MAP_FFFFFF8008103E38

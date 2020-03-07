@@ -1,0 +1,37 @@
+; While compiling #'_field at top level:
+Warning: Variable n2 is never used.
+Warning: Variable n is never used.
+; While compiling #'field! at top level:
+Warning: Variable n2 is never used.
+Warning: Variable n is never used.
+; While compiling #'(:internal field 0) at top level:
+Warning: Variable n2 is never used.
+Warning: Variable n is never used.
+; While compiling #'(:internal _SignExtend_0 3) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal _SignExtend_0 2) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal _SignExtend_0 1) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal _SignExtend_0 0) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal SignExtend!_0 3) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal SignExtend!_0 2) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal SignExtend!_0 1) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal SignExtend!_0 0) at top level:
+Warning: Variable i is never used.
+; While compiling #'(:internal (:internal SignExtend_0 0) 3) at top
+level:
+Warning: Variable i is never used.
+; While compiling #'(:internal (:internal SignExtend_0 0) 2) at top
+level:
+Warning: Variable i is never used.
+; While compiling #'(:internal (:internal SignExtend_0 0) 1) at top
+level:
+Warning: Variable i is never used.
+; While compiling #'(:internal (:internal SignExtend_0 0) 0) at top
+level:
+Warning: Variable i is never used.

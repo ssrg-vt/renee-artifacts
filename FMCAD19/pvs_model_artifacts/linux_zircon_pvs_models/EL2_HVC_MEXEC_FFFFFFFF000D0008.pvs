@@ -1,0 +1,14 @@
+EL2_HVC_MEXEC_FFFFFFFF000D0008[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    br_0                : Theory =    br                [ p0                       ]  {{Diag:= bv [32] ( 0b11010110000111110000000000000000 ) , addr:= 0xffffffff000d0008 }}
+
+    B_post: s = br_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END EL2_HVC_MEXEC_FFFFFFFF000D0008

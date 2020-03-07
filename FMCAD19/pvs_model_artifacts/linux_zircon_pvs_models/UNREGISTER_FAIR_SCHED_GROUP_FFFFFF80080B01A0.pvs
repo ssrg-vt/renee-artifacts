@@ -1,0 +1,14 @@
+UNREGISTER_FAIR_SCHED_GROUP_FFFFFF80080B01A0[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ret_0               : Theory =    ret               [ p0                       ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff80080b01a0 }}
+
+    B_post: s = ret_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END UNREGISTER_FAIR_SCHED_GROUP_FFFFFF80080B01A0

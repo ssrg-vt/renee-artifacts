@@ -1,0 +1,15 @@
+XATTR_GETSECURITY_FFFFFF800812B8F0[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    movn_0              : Theory =    movn              [ p0                       ]  {{Diag:= bv [32] ( 0b10010010100000000000101111000000 ) , addr:= 0xffffff800812b8f0 }}
+    ret_1               : Theory =    ret               [ movn_0.post              ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff800812b8f4 }}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END XATTR_GETSECURITY_FFFFFF800812B8F0

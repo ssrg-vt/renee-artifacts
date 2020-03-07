@@ -1,0 +1,11 @@
+(bics
+ (diag_TCC1 0
+  (diag_TCC1-1 nil 3767439257
+   (""
+    (inst 1
+     "(# sf:= lambda(i:below(1)):false, opc:= lambda(i:below(2)):false, Fixed1:= lambda(i:below(5)):false, shift:= lambda(i:below(2)):false, N:= lambda(i:below(1)):false, Rm:= lambda(i:below(5)):false, imm6:= lambda(i:below(6)):false, Rn:= lambda(i:below(5)):false, Rd:= lambda(i:below(5)):false, length:= 32 #)")
+    nil)
+   nil nil
+   (diag existence ""
+    "[# Fixed1: bv[5].bvec, imm6: bv[6].bvec, length: {n: naturalnumbers.nat | n = 32}, N: bv[1].bvec, opc: bv[2].bvec, Rd: bv[5].bvec, Rm: bv[5].bvec, Rn: bv[5].bvec, sf: bv[1].bvec, shift: bv[2].bvec #]"))))
+

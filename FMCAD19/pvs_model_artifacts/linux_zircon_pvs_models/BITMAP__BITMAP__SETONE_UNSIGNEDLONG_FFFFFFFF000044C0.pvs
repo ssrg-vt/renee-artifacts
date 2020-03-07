@@ -1,0 +1,17 @@
+BITMAP__BITMAP__SETONE_UNSIGNEDLONG_FFFFFFFF000044C0[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv [32] ( 0b11111001010000000000000000000011 ) , addr:= 0xffffffff000044c0 }}
+    add_addsub_imm_1    : Theory =    add_addsub_imm    [ ldr_imm_gen_0.post       ]  {{Diag:= bv [32] ( 0b10010001000000000000010000100010 ) , addr:= 0xffffffff000044c4 }}
+    ldr_imm_gen_2       : Theory =    ldr_imm_gen       [ add_addsub_imm_1.post    ]  {{Diag:= bv [32] ( 0b11111001010000000001100001100011 ) , addr:= 0xffffffff000044c8 }}
+    br_3                : Theory =    br                [ ldr_imm_gen_2.post       ]  {{Diag:= bv [32] ( 0b11010110000111110000000001100000 ) , addr:= 0xffffffff000044cc }}
+
+    B_post: s = br_3.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END BITMAP__BITMAP__SETONE_UNSIGNEDLONG_FFFFFFFF000044C0

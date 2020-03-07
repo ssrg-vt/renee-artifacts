@@ -1,0 +1,39 @@
+ASR  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+
+%// ASR()
+%// =====
+ IMPORTING ASR_C
+
+ ASR( N : subrange[1 , 64] , x : bvec[N], shift : subrange[0, 64] ) : bvec[N] =
+
+    %assert shift >= 0;
+    if shift = 0 then x
+        
+    else
+       proj_1(ASR_C(N ,x, shift))
+   ENDIF
+   
+ END ASR
+
+
+%Library pseudocode for shared/functions/common/ASR_C
+
+ASR_C : THEORY
+%// ASR_C()
+%// =======
+  BEGIN
+
+  IMPORTING SignExtend, field
+
+ASR_C( N : subrange[1, 64], x : bvec[N],  shift : subrange[1, 64]) : [bvec[N], bool] =
+  %   assert shift > 0;
+   let  extended_x = SignExtend(N, shift + N, x) in
+   let  result = field( shift + N, extended_x, shift, shift + N-1) in
+   let  carry_out = extended_x(shift - 1) in
+              (result, carry_out)
+
+END ASR_C

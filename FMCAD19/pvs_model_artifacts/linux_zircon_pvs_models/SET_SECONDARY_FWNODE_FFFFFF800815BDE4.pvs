@@ -1,0 +1,15 @@
+SET_SECONDARY_FWNODE_FFFFFF800815BDE4[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv [32] ( 0b11111001010000001011010000000010 ) , addr:= 0xffffff800815bde4 }}
+    cbz_1               : Theory =    cbz               [ ldr_imm_gen_0.post       ]  {{Diag:= bv [32] ( 0b10110100000000000000000011000010 ) , addr:= 0xffffff800815bde8 ,next:= 0xffffff800815be00 ,fail:= 0xffffff800815bdec }}
+
+    B_post: s = cbz_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END SET_SECONDARY_FWNODE_FFFFFF800815BDE4

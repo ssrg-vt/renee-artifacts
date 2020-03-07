@@ -1,0 +1,15 @@
+OF_GET_FLAT_DT_ROOT_FFFFFF80081BE30C[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    movz_0              : Theory =    movz              [ p0                       ]  {{Diag:= bv [32] ( 0b11010010100000000000000000000000 ) , addr:= 0xffffff80081be30c }}
+    ret_1               : Theory =    ret               [ movz_0.post              ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff80081be310 }}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END OF_GET_FLAT_DT_ROOT_FFFFFF80081BE30C

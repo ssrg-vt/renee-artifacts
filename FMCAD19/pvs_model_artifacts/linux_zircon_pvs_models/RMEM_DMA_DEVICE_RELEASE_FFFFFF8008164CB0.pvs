@@ -1,0 +1,14 @@
+RMEM_DMA_DEVICE_RELEASE_FFFFFF8008164CB0[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    cbz_0               : Theory =    cbz               [ p0                       ]  {{Diag:= bv [32] ( 0b10110100000000000000000001000001 ) , addr:= 0xffffff8008164cb0 ,next:= 0xffffff8008164cb8 ,fail:= 0xffffff8008164cb4 }}
+
+    B_post: s = cbz_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END RMEM_DMA_DEVICE_RELEASE_FFFFFF8008164CB0

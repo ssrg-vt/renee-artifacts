@@ -1,0 +1,12 @@
+(ZeroExtend (ZeroExtend_TCC1 0
+             (ZeroExtend_TCC1-1 nil 3741482097
+              ("" (skeep) (("" (assert) nil nil)) nil)
+              ((int_minus_int_is_int application-judgement "int"
+                integers nil)
+               (real_ge_is_total_order name-judgement
+                "(total_order?[real])" real_props nil))
+              nil
+              (ZeroExtend subtype
+                          "(number_fields.-)(ZeroExtend.N, ZeroExtend.M)"
+                          "nat"))))
+

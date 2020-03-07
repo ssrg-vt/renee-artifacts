@@ -1,0 +1,14 @@
+(CLASS_DIR_CHILD_NS_TYPE_FFFFFF8008159818
+ (ldr_imm_gen_0_TCC1 0
+  (ldr_imm_gen_0_TCC1-1 nil 3765746747 ("" (eval-formula) nil) nil nil
+   (ldr_imm_gen_0 subtype "0b11111001010000000010000000000000"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (ldr_imm_gen_1_TCC1 0
+  (ldr_imm_gen_1_TCC1-1 nil 3765746747 ("" (eval-formula) nil) nil nil
+   (ldr_imm_gen_1 subtype "0b11111001010000000010100000000000"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (ret_2_TCC1 0
+  (ret_2_TCC1-1 nil 3765746747 ("" (eval-formula) nil) nil nil
+   (ret_2 subtype "0b11010110010111110000001111000000"
+    "naturalnumbers.below(exp2.exp2(32))"))))
+

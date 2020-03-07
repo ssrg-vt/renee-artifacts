@@ -1,0 +1,10 @@
+(ARCH_MP_INIT_PERCPU_FFFFFFFF00007100
+ (b_uncond_0_TCC1 0
+  (b_uncond_0_TCC1-1 nil 3765754349 ("" (eval-formula) nil) nil nil
+   (b_uncond_0 subtype "0b10100000000100000001001101100"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (b_uncond_0_TCC2 0
+  (b_uncond_0_TCC2-1 nil 3766922224 ("" (eval-formula) nil) nil nil
+   (b_uncond_0 subtype "0xffffffff00087ab0"
+    "naturalnumbers.below(exp2.exp2(64))"))))
+

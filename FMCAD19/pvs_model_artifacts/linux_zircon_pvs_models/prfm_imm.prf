@@ -1,0 +1,11 @@
+(prfm_imm
+ (diag_TCC1 0
+  (diag_TCC1-1 nil 3767443874
+   (""
+    (inst 1
+     "(# size:= lambda(i:below(2)):false, Fixed1:= lambda(i:below(3)):false, V:= lambda(i:below(1)):false, Fixed2:= lambda(i:below(2)):false, opc:= lambda(i:below(2)):false, imm12:= lambda(i:below(12)):false, Rn:= lambda(i:below(5)):false, Rt:= lambda(i:below(5)):false, length:= 32 #)")
+    nil)
+   nil nil
+   (diag existence ""
+    "[# Fixed1: bv[3].bvec, Fixed2: bv[2].bvec, imm12: bv[12].bvec, length: {n: naturalnumbers.nat | n = 32}, opc: bv[2].bvec, Rn: bv[5].bvec, Rt: bv[5].bvec, size: bv[2].bvec, V: bv[1].bvec #]"))))
+

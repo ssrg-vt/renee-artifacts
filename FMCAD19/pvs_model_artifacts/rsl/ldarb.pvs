@@ -1,0 +1,18 @@
+ldarb[(IMPORTING arm_state) p: s]:THEORY
+
+	BEGIN
+
+	Diag: bvec[32]
+	addr: nat
+	IMPORTING bts[32], bt[32]
+
+	diag: Type+ = [# size: bvec[2], Fixed1: bvec[6], o2: bvec[1], L: bvec[1], o1: bvec[1], Rs: bvec[5], o0: bvec[1], Rt2: bvec[5], Rn: bvec[5], Rt: bvec[5] ,length: {n: nat|n = 32} #]
+	D: diag
+	v: diag = D with [ size:= bts(Diag, 30, 31 ) ,Fixed1:= bts(Diag, 24, 29 ) ,o2:= bt(Diag, 23 ) ,L:= bt(Diag, 22 ) ,o1:= bt(Diag, 21 ) ,Rs:= bts(Diag, 16, 20 ) ,o0:= bt(Diag, 15 ) ,Rt2:= bts(Diag, 10, 14 ) ,Rn:= bts(Diag, 5, 9 ) ,Rt:= bts(Diag, 0, 4 ) , length:= 32 ]
+
+%|- diag_TCC* : PROOF (inst 1 "(# size:= lambda(i:below(2)):false, Fixed1:= lambda(i:below(6)):false, o2:= lambda(i:below(1)):false, L:= lambda(i:below(1)):false, o1:= lambda(i:below(1)):false, Rs:= lambda(i:below(5)):false, o0:= lambda(i:below(1)):false, Rt2:= lambda(i:below(5)):false, Rn:= lambda(i:below(5)):false, Rt:= lambda(i:below(5)):false, length:= 32 #)") QED
+
+	%ASL constants declarations
+
+	  post: s = p
+END ldarb 

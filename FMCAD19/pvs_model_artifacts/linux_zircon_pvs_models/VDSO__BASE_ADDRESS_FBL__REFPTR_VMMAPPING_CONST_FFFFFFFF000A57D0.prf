@@ -1,0 +1,18 @@
+(VDSO__BASE_ADDRESS_FBL__REFPTR_VMMAPPING_CONST_FFFFFFFF000A57D0
+ (ldr_imm_gen_0_TCC1 0
+  (ldr_imm_gen_0_TCC1-1 nil 3765754812 ("" (eval-formula) nil) nil nil
+   (ldr_imm_gen_0 subtype "0b11111001010000000000000000000000"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (cbz_1_TCC1 0
+  (cbz_1_TCC1-1 nil 3765754812 ("" (eval-formula) nil) nil nil
+   (cbz_1 subtype "0b10110100000000000000000010000000"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (cbz_1_TCC2 0
+  (cbz_1_TCC2-1 nil 3766925224 ("" (eval-formula) nil) nil nil
+   (cbz_1 subtype "0xffffffff000a57e4"
+    "naturalnumbers.below(exp2.exp2(64))")))
+ (cbz_1_TCC3 0
+  (cbz_1_TCC3-1 nil 3766925224 ("" (eval-formula) nil) nil nil
+   (cbz_1 subtype "0xffffffff000a57d8"
+    "naturalnumbers.below(exp2.exp2(64))"))))
+

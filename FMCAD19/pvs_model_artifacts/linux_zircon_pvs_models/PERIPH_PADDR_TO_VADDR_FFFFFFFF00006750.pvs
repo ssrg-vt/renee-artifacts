@@ -1,0 +1,16 @@
+PERIPH_PADDR_TO_VADDR_FFFFFFFF00006750[(IMPORTING arm_state) p: s ]:THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv( 0b11110000000000000000100110000001 ) , addr:= 18446744055837015932}}
+    add_addsub_imm_1    : Theory =    add_addsub_imm    [ adrp_0.post              ]  {{Diag:= bv( 0b10010001000000000000000000100001 ) , addr:= 18446744055837015932}}
+    add_addsub_imm_2    : Theory =    add_addsub_imm    [ add_addsub_imm_1.post    ]  {{Diag:= bv( 0b10010001000000011000000000100101 ) , addr:= 18446744055837015932}}
+
+    B_post: s = add_addsub_imm_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END PERIPH_PADDR_TO_VADDR_FFFFFFFF00006750

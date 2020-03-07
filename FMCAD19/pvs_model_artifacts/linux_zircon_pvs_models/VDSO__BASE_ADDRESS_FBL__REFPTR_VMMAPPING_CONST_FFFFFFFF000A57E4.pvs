@@ -1,0 +1,15 @@
+VDSO__BASE_ADDRESS_FBL__REFPTR_VMMAPPING_CONST_FFFFFFFF000A57E4[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    movz_0              : Theory =    movz              [ p0                       ]  {{Diag:= bv [32] ( 0b11010010100000000000000000000000 ) , addr:= 0xffffffff000a57e4 }}
+    ret_1               : Theory =    ret               [ movz_0.post              ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffffff000a57e8 }}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END VDSO__BASE_ADDRESS_FBL__REFPTR_VMMAPPING_CONST_FFFFFFFF000A57E4

@@ -1,0 +1,15 @@
+NO_BLINK_FFFFFF800808EFE8[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    movz_0              : Theory =    movz              [ p0                       ]  {{Diag:= bv [32] ( 0b11010010100000000000000000000000 ) , addr:= 0xffffff800808efe8 }}
+    ret_1               : Theory =    ret               [ movz_0.post              ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff800808efec }}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END NO_BLINK_FFFFFF800808EFE8

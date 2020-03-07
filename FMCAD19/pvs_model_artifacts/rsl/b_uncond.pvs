@@ -1,0 +1,46 @@
+b_uncond[(IMPORTING arm_state) p : s]: THEORY
+
+% B and BL : 
+
+    BEGIN
+
+	Diag: bvec[32]
+	
+	addr:  nat 
+        next : bvec[64]
+	Next: below(exp2(64))
+
+        
+        IMPORTING Basic_ASL_Types, Basic_ASL_Function, BranchTo, bitvectors@bv_adder, bts[32], bt[32]
+
+	diag: Type+ = [# op: bvec[1], Fixed1: bvec[5], imm26: bvec[26] ,length: {n: nat|n = 32} #]
+	D: diag
+	v: diag = D with [ op:= bt(Diag, 31 ) ,Fixed1:= bts(Diag, 26, 30 ) ,imm26:= bts(Diag, 0, 25 ) , length:= 32 ]
+
+%|- diag_TCC* : PROOF (inst 1 "(# op:= lambda(i:below(1)):false, Fixed1:= lambda(i:below(5)):false, imm26:= lambda(i:below(26)):false, length:= 32 #)") QED
+
+%ASL constants declarations
+
+
+branch_type : BranchType  = if v`op = bv[1](0b1) then BranchType_CALL else BranchType_JMP endif
+
+ offset : bvec[64] = SignExtend( 28 , 64 ,  bv[2](0b00) o  v`imm26 ) % check order
+
+
+%operational
+
+ p0   : s = if branch_type = BranchType_CALL then
+                p with [ `X(30) := bv_adder[64]( p`PC`b,  Zeros(60) o bv[4](0b0010), false ) ]% bv[64]( p`PC`i + 4 ) in binary, we may need to add {n: nat| n < exp2(64)} to p`PC`i type. 
+	    else p
+	    endif
+ 
+ post : s =  BranchTo(p0)(bv_adder[64]( p0`PC`b, offset, false ), next, branch_type )`po% ;;  
+ 
+
+END b_uncond 
+
+
+
+
+
+

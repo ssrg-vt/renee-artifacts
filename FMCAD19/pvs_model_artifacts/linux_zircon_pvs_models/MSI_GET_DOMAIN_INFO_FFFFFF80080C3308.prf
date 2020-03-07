@@ -1,0 +1,10 @@
+(MSI_GET_DOMAIN_INFO_FFFFFF80080C3308
+ (ldr_imm_gen_0_TCC1 0
+  (ldr_imm_gen_0_TCC1-1 nil 3765746772 ("" (eval-formula) nil) nil nil
+   (ldr_imm_gen_0 subtype "0b11111001010000000001000000000000"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (ret_1_TCC1 0
+  (ret_1_TCC1-1 nil 3765746772 ("" (eval-formula) nil) nil nil
+   (ret_1 subtype "0b11010110010111110000001111000000"
+    "naturalnumbers.below(exp2.exp2(32))"))))
+

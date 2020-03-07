@@ -1,0 +1,8 @@
+Zeros: THEORY
+
+  BEGIN
+  
+Zeros(n: nat): bvec[n] = lambda(i: below(n)): false
+  
+
+  END Zeros

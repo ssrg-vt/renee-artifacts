@@ -1,0 +1,15 @@
+POWER_SUPPLY_GET_DRVDATA_FFFFFF8008166DF8[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv [32] ( 0b11111001010000000001100000000000 ) , addr:= 0xffffff8008166df8 }}
+    ret_1               : Theory =    ret               [ ldr_imm_gen_0.post       ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff8008166dfc }}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END POWER_SUPPLY_GET_DRVDATA_FFFFFF8008166DF8

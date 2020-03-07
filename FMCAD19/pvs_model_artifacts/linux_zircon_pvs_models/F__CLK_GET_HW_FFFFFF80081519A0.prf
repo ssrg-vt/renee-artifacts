@@ -1,0 +1,14 @@
+(F__CLK_GET_HW_FFFFFF80081519A0
+ (cbz_0_TCC1 0
+  (cbz_0_TCC1-1 nil 3765746754 ("" (eval-formula) nil) nil nil
+   (cbz_0 subtype "0b10110100000000000000000010000000"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (cbz_0_TCC2 0
+  (cbz_0_TCC2-1 nil 3767006154 ("" (eval-formula) nil) nil nil
+   (cbz_0 subtype "0xffffff80081519b0"
+    "naturalnumbers.below(exp2.exp2(64))")))
+ (cbz_0_TCC3 0
+  (cbz_0_TCC3-1 nil 3767006154 ("" (eval-formula) nil) nil nil
+   (cbz_0 subtype "0xffffff80081519a4"
+    "naturalnumbers.below(exp2.exp2(64))"))))
+

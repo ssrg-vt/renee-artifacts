@@ -1,0 +1,74 @@
+and_log_imm[(IMPORTING arm_state) p: s]:THEORY
+
+	BEGIN
+
+	Diag: bvec[32]
+	addr: nat
+	
+	IMPORTING bts[32], bt[32], UInt, Basic_ASL_Types, IsZeroBit
+
+	diag: Type+ = [# sf: bvec[1], opc: bvec[2], Fixed1: bvec[6], N: bvec[1], immr: bvec[6], imms: bvec[6], Rn: bvec[5], Rd: bvec[5] ,length: {n: nat|n = 32} #]
+	D: diag
+	v: diag = D with [ sf:= bt(Diag, 31 ) ,opc:= bts(Diag, 29, 30 ) ,Fixed1:= bts(Diag, 23, 28 ) ,N:= bt(Diag, 22 ) ,immr:= bts(Diag, 16, 21 ) ,imms:= bts(Diag, 10, 15 ) ,Rn:= bts(Diag, 5, 9 ) ,Rd:= bts(Diag, 0, 4 ) , length:= 32 ]
+
+%|- diag_TCC* : PROOF (inst 1 "(# sf:= lambda(i:below(1)):false, opc:= lambda(i:below(2)):false, Fixed1:= lambda(i:below(6)):false, N:= lambda(i:below(1)):false, immr:= lambda(i:below(6)):false, imms:= lambda(i:below(6)):false, Rn:= lambda(i:below(5)):false, Rd:= lambda(i:below(5)):false, length:= 32 #)") QED
+
+	%ASL constants declarations
+
+d : int = UInt(5,v`Rd)
+n : int = UInt(5,v`Rn)
+
+datasize : int = 64 % if sf = '1' then 64 else 32, we only deal with 64 at this version
+
+
+ASL(P0 : s): Type = [#   imm : bvec[64],
+                         setflags : bool,
+                         op       : LogicalOp,
+                         operand1 : bvec[datasize], % = p`X(n)
+                         operand2 : bvec[datasize], % = ShiftReg(m, shift_type, shift_amount)
+		         result   : bvec[64] #] 
+
+ sts0 : ASL(p)
+ 
+ sts1 : ASL(p) = 
+             COND v`opc =  bv[2](0b00) -> sts0 with [  op:= LogicalOp_AND, setflags := FALSE],
+                  v`opc =  bv[2](0b10) -> sts0 with [  op:= LogicalOp_ORR, setflags := FALSE],
+	          v`opc =  bv[2](0b01) -> sts0 with [  op:= LogicalOp_EOR, setflags := FALSE],
+	          else                 -> sts0 with [  op:= LogicalOp_AND, setflags := TRUE ] % The condition can be replaced with else. 
+             ENDCOND
+
+
+
+
+sts2 : ASL(p) = if v`sf = bv[1](0b0) & v`N = bv[1](0b0)
+                   then throw("ReservedValue()_undefinedfault")
+		else sts1
+		endif
+DecodeBitmask( N : bvec[1] , IMM: bvec[6] , IMMR: bvec[6] , B: bool  ): bvec[64]
+
+sts3 : ASL(p) = sts2 with [ imm:= DecodeBitmask( v`N, v`imms, v`immr, TRUE) ]
+
+
+% Operational
+
+sts4 : ASL(p) = sts3 with [ operand1 := p`X(n)]
+
+sts5 : ASL(p) = sts4 with [ operand2 := sts3`imm ]
+ 
+
+sts6 : ASL(p) = Cond  sts5`op = LogicalOp_AND  -> sts5 with [result := AND (sts5`operand1, sts5`operand2)],
+                      sts5`op = LogicalOp_ORR  -> sts5 with [result := OR  (sts5`operand1, sts5`operand2)],
+                      sts5`op = LogicalOp_EOR  -> sts5 with [result := XOR (sts5`operand1, sts5`operand2)]%EOR
+		 EndCond     
+                      
+  
+ p1  : s = if sts6`setflags then p with [ `PSTATE`NZCV :=  let result_63 = lambda(i:below(1)): sts6`result(63) in
+                                                               bv[2](0b00) o IsZeroBit(64,sts6`result) o result_63  ] % check direction
+           else p
+	   endif
+
+ post : s = if d = 31 and NOT(sts6`setflags) then  p1 with [`SP:= sts6`result ]
+            else p1 with [ `X(d) := sts6`result ]
+	    endif
+	    
+END and_log_imm 

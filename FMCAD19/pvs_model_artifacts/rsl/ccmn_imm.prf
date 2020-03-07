@@ -1,0 +1,11 @@
+(ccmn_imm
+ (diag_TCC1 0
+  (diag_TCC1-1 nil 3767715624
+   (""
+    (inst 1
+     "(# sf:= lambda(i:below(1)):false, op:= lambda(i:below(1)):false, S:= lambda(i:below(1)):false, Fixed1:= lambda(i:below(8)):false, imm5:= lambda(i:below(5)):false, cond_:= lambda(i:below(4)):false, Fixed2:= lambda(i:below(1)):false, o2:= lambda(i:below(1)):false, Rn:= lambda(i:below(5)):false, o3:= lambda(i:below(1)):false, nzcv:= lambda(i:below(4)):false, length:= 32 #)")
+    nil)
+   nil nil
+   (diag existence ""
+    "[# cond_: bv[4].bvec, Fixed1: bv[8].bvec, Fixed2: bv[1].bvec, imm5: bv[5].bvec, length: {n: naturalnumbers.nat | n = 32}, nzcv: bv[4].bvec, o2: bv[1].bvec, o3: bv[1].bvec, op: bv[1].bvec, Rn: bv[5].bvec, S: bv[1].bvec, sf: bv[1].bvec #]"))))
+

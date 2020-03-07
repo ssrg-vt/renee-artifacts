@@ -1,0 +1,15 @@
+ShiftReg : THEORY % [ (IMPORTING arm_state) p: s ] : THEORY
+
+  BEGIN
+  
+IMPORTING Basic_ASL_Types, LSL , LSR, ASR, ROR, arm_state %rotate
+
+   ShiftReg( N : subrange[1, 64], Reg : bvec[N] , type_ : ShiftType , amount : subrange[0,N - 1] ) : bvec[N] = %% check int vs below(32) for  reg. 
+             let result =   Reg in %p`X(reg) in 
+	     COND type_ = ShiftType_LSL ->  LSL(N, result, amount),
+	          type_ = ShiftType_LSR ->  LSR(N, result, amount),
+		  type_ = ShiftType_ASR ->  ASR(N, result, amount),
+		  else  -> ROR(N, result, amount) % type_ = ShiftType_ROR
+             ENDCOND		  
+      
+  END ShiftReg

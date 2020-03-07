@@ -1,0 +1,11 @@
+SPARSE_DECODE_MEM_MAP_MAIN [ ( IMPORTING arm_state ) p : s ] : THEORY
+
+    BEGIN
+
+      IMPORTING SPARSE_DECODE_MEM_MAP_FFFFFF8008103E38
+
+       SPARSE_DECODE_MEM_MAP_post0 : s = SPARSE_DECODE_MEM_MAP_FFFFFF8008103E38[ p ].B_post% breaks PVS with [p] but with [ p ] it works. After the fix, tusing [p] again won't break pvs!! 
+				    
+
+
+    END SPARSE_DECODE_MEM_MAP_MAIN

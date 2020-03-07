@@ -1,0 +1,1265 @@
+Processing ./add_addsub_ext.pvs. Writing output to file ./add_addsub_ext.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory add_addsub_ext
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./add_addsub_imm.pvs. Writing output to file ./add_addsub_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory add_addsub_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./add_addsub_shift.pvs. Writing output to file ./add_addsub_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory add_addsub_shift
+    Theory totals: 9 formulas, 9 attempted, 9 succeeded (3.19 s)
+
+Grand Totals: 9 proofs, 9 attempted, 9 succeeded (3.19 s)
+
+Processing ./ADDS_ADDSUB_IMM_B11BB997.pvs. Writing output to file ./ADDS_ADDSUB_IMM_B11BB997.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ADDS_ADDSUB_IMM_B11BB997
+    Theory totals: 7 formulas, 7 attempted, 7 succeeded (0.54 s)
+
+Grand Totals: 7 proofs, 7 attempted, 7 succeeded (0.54 s)
+Processing ./adds_addsub_imm.pvs. Writing output to file ./adds_addsub_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory adds_addsub_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./adds_addsub_shift.pvs. Writing output to file ./adds_addsub_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory adds_addsub_shift
+    Theory totals: 9 formulas, 9 attempted, 9 succeeded (3.97 s)
+
+Grand Totals: 9 proofs, 9 attempted, 9 succeeded (3.97 s)
+Processing ./addsub_imm.pvs. Writing output to file ./addsub_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory addsub_imm
+    Theory totals: 11 formulas, 11 attempted, 11 succeeded (2.26 s)
+
+Grand Totals: 11 proofs, 11 attempted, 11 succeeded (2.26 s)
+
+Processing ./addsub_shift.pvs. Writing output to file ./addsub_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory addsub_shift
+    Theory totals: 8 formulas, 8 attempted, 8 succeeded (3.26 s)
+
+Grand Totals: 8 proofs, 8 attempted, 8 succeeded (3.26 s)
+
+Processing ./AddWithCarry1.pvs. Writing output to file ./AddWithCarry1.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory AddWithCarry1
+    Theory totals: 8 formulas, 8 attempted, 8 succeeded (1.26 s)
+
+Grand Totals: 8 proofs, 8 attempted, 8 succeeded (1.26 s)
+
+Processing ./adr_man_test.pvs. Writing output to file ./adr_man_test.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory adr_man_test
+    Theory totals: 5 formulas, 5 attempted, 5 succeeded (0.32 s)
+
+Grand Totals: 5 proofs, 5 attempted, 5 succeeded (0.32 s)
+Processing ./adrp.pvs. Writing output to file ./adrp.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory adrp
+    Theory totals: 3 formulas, 3 attempted, 3 succeeded (0.63 s)
+
+Grand Totals: 3 proofs, 3 attempted, 3 succeeded (0.63 s)
+Processing ./adr.pvs. Writing output to file ./adr.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory adr
+    Theory totals: 3 formulas, 3 attempted, 3 succeeded (0.80 s)
+
+Grand Totals: 3 proofs, 3 attempted, 3 succeeded (0.80 s)
+Processing ./and_log_imm.pvs. Writing output to file ./and_log_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory and_log_imm
+    Theory totals: 16 formulas, 16 attempted, 16 succeeded (6.36 s)
+
+Grand Totals: 16 proofs, 16 attempted, 16 succeeded (6.36 s)
+
+Processing ./and_log_shift.pvs. Writing output to file ./and_log_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory and_log_shift
+    Theory totals: 19 formulas, 19 attempted, 19 succeeded (4.06 s)
+
+Grand Totals: 19 proofs, 19 attempted, 19 succeeded (4.06 s)
+Processing ./ands_log_imm.pvs. Writing output to file ./ands_log_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ands_log_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ands_log_shift.pvs. Writing output to file ./ands_log_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ands_log_shift
+    Theory totals: 19 formulas, 19 attempted, 19 succeeded (3.98 s)
+
+Grand Totals: 19 proofs, 19 attempted, 19 succeeded (3.98 s)
+Processing ./arm_state.pvs. Writing output to file ./arm_state.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory arm_state
+    Theory totals: 3 formulas, 3 attempted, 3 succeeded (0.03 s)
+
+Grand Totals: 3 proofs, 3 attempted, 3 succeeded (0.03 s)
+
+Processing ./ASR.pvs. Writing output to file ./ASR.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ASR
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+ Proof summary for theory ASR_C
+    Theory totals: 4 formulas, 4 attempted, 4 succeeded (0.11 s)
+
+Grand Totals: 5 proofs, 5 attempted, 5 succeeded (0.14 s)
+
+Processing ./asrv.pvs. Writing output to file ./asrv.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory asrv
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./AuthAI.pvs. Writing output to file ./AuthAI.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory AuthAI
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+Grand Totals: 0 proofs, 0 attempted, 0 succeeded (0.00 s)
+Processing ./AuthIA.pvs. Writing output to file ./AuthIA.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory AuthIA
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+Grand Totals: 0 proofs, 0 attempted, 0 succeeded (0.00 s)
+Processing ./AuthIB.pvs. Writing output to file ./AuthIB.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory AuthIB
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+Grand Totals: 0 proofs, 0 attempted, 0 succeeded (0.00 s)
+Processing ./Basic_ASL_Function.pvs. Writing output to file ./Basic_ASL_Function.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory Basic_ASL_Function
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.03 s)
+
+Processing ./Basic_ASL_Types.pvs. Writing output to file ./Basic_ASL_Types.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory Basic_ASL_Types
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+Grand Totals: 0 proofs, 0 attempted, 0 succeeded (0.00 s)
+Processing ./b_cond.pvs. Writing output to file ./b_cond.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory b_cond
+    Theory totals: 2 formulas, 2 attempted, 2 succeeded (0.03 s)
+
+Grand Totals: 2 proofs, 2 attempted, 2 succeeded (0.03 s)
+Processing ./bfm.pvs. Writing output to file ./bfm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory bfm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./bic_log_shift.pvs. Writing output to file ./bic_log_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory bic_log_shift
+    Theory totals: 19 formulas, 19 attempted, 19 succeeded (4.08 s)
+
+Grand Totals: 19 proofs, 19 attempted, 19 succeeded (4.08 s)
+Processing ./bics_log_shift.pvs. Writing output to file ./bics_log_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory bics_log_shift
+    Theory totals: 19 formulas, 19 attempted, 19 succeeded (4.12 s)
+
+Grand Totals: 19 proofs, 19 attempted, 19 succeeded (4.12 s)
+Processing ./bics.pvs. Writing output to file ./bics.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory bics
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.03 s)
+Processing ./bl.pvs. Writing output to file ./bl.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory bl
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./blr.pvs. Writing output to file ./blr.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory blr
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./BranchTo.pvs. Writing output to file ./BranchTo.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory AArch64_BranchAddr
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+ Proof summary for theory BranchTo
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+ Proof summary for theory reverse
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+
+Processing ./br.pvs. Writing output to file ./br.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory br
+    Theory totals: 14 formulas, 14 attempted, 14 succeeded (1.36 s)
+
+Grand Totals: 14 proofs, 14 attempted, 14 succeeded (1.36 s)
+Processing ./bt.pvs. Writing output to file ./bt.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory bt
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+Grand Totals: 0 proofs, 0 attempted, 0 succeeded (0.00 s)
+Processing ./bts.pvs. Writing output to file ./bts.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory bts
+    Theory totals: 2 formulas, 2 attempted, 2 succeeded (0.09 s)
+
+Grand Totals: 2 proofs, 2 attempted, 2 succeeded (0.09 s)
+
+Processing ./b_uncond.pvs. Writing output to file ./b_uncond.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory b_uncond
+    Theory totals: 5 formulas, 5 attempted, 5 succeeded (0.21 s)
+
+Grand Totals: 5 proofs, 5 attempted, 5 succeeded (0.21 s)
+Processing ./cbnz.pvs. Writing output to file ./cbnz.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory cbnz
+    Theory totals: 5 formulas, 5 attempted, 5 succeeded (0.77 s)
+
+Grand Totals: 5 proofs, 5 attempted, 5 succeeded (0.77 s)
+Processing ./cbz.pvs. Writing output to file ./cbz.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory cbz
+    Theory totals: 5 formulas, 5 attempted, 5 succeeded (0.71 s)
+
+Grand Totals: 5 proofs, 5 attempted, 5 succeeded (0.71 s)
+Processing ./ccmn_imm.pvs. Writing output to file ./ccmn_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ccmn_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ccmp_imm.pvs. Writing output to file ./ccmp_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ccmp_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ccmp_reg.pvs. Writing output to file ./ccmp_reg.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ccmp_reg
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.03 s)
+Processing ./check_carry.pvs. Writing output to file ./check_carry.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory check_carry
+    Theory totals: 5 formulas, 5 attempted, 5 succeeded (0.17 s)
+
+Grand Totals: 5 proofs, 5 attempted, 5 succeeded (0.17 s)
+
+Processing ./clz_int.pvs. Writing output to file ./clz_int.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory clz_int
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ConditionHolds.pvs. Writing output to file ./ConditionHolds.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ConditionHolds
+    Theory totals: 9 formulas, 9 attempted, 9 succeeded (5.26 s)
+
+Grand Totals: 9 proofs, 9 attempted, 9 succeeded (5.26 s)
+Processing ./csel.pvs. Writing output to file ./csel.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory csel
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./csinc.pvs. Writing output to file ./csinc.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory csinc
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+
+Processing ./csinv.pvs. Writing output to file ./csinv.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory csinv
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+
+Processing ./csneg.pvs. Writing output to file ./csneg.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory csneg
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./DecodeBitmask.pvs. Writing output to file ./DecodeBitmask.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory DecodeBitmask
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+Grand Totals: 0 proofs, 0 attempted, 0 succeeded (0.00 s)
+Processing ./DecodeShift.pvs. Writing output to file ./DecodeShift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory DecodeShift
+    Theory totals: 4 formulas, 4 attempted, 4 succeeded (0.24 s)
+
+Grand Totals: 4 proofs, 4 attempted, 4 succeeded (0.24 s)
+
+Processing ./dmb.pvs. Writing output to file ./dmb.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory dmb
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./dsb.pvs. Writing output to file ./dsb.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory dsb
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./eon_log_shift.pvs. Writing output to file ./eon_log_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory eon_log_shift
+    Theory totals: 19 formulas, 19 attempted, 19 succeeded (4.02 s)
+
+Grand Totals: 19 proofs, 19 attempted, 19 succeeded (4.02 s)
+Processing ./eor_log_imm.pvs. Writing output to file ./eor_log_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory eor_log_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./eor_log_shift.pvs. Writing output to file ./eor_log_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory eor_log_shift
+    Theory totals: 19 formulas, 19 attempted, 19 succeeded (4.00 s)
+
+Grand Totals: 19 proofs, 19 attempted, 19 succeeded (4.00 s)
+Processing ./eret.pvs. Writing output to file ./eret.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory eret
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./extr.pvs. Writing output to file ./extr.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory extr
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./field.pvs. Writing output to file ./field.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory field
+    Theory totals: 2 formulas, 2 attempted, 2 succeeded (0.09 s)
+
+Grand Totals: 2 proofs, 2 attempted, 2 succeeded (0.09 s)
+
+Processing ./isb.pvs. Writing output to file ./isb.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory isb
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./IsZeroBit.pvs. Writing output to file ./IsZeroBit.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory IsZeroBit
+    Theory totals: 2 formulas, 2 attempted, 2 succeeded (0.05 s)
+
+Grand Totals: 2 proofs, 2 attempted, 2 succeeded (0.05 s)
+
+Processing ./IsZero.pvs. Writing output to file ./IsZero.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory IsZero
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.03 s)
+
+Processing ./ldarb.pvs. Writing output to file ./ldarb.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldarb
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldar.pvs. Writing output to file ./ldar.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldar
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldaxr.pvs. Writing output to file ./ldaxr.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldaxr
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldp_fpsimd.pvs. Writing output to file ./ldp_fpsimd.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldp_fpsimd
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldp_gen.pvs. Writing output to file ./ldp_gen.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldp_gen
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldpsw.pvs. Writing output to file ./ldpsw.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldpsw
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldrb_imm.pvs. Writing output to file ./ldrb_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldrb_imm
+    Theory totals: 5 formulas, 5 attempted, 5 succeeded (1.33 s)
+
+Grand Totals: 5 proofs, 5 attempted, 5 succeeded (1.33 s)
+
+Processing ./ldrb_reg.pvs. Writing output to file ./ldrb_reg.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldrb_reg
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldrh_imm.pvs. Writing output to file ./ldrh_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldrh_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldrh_reg.pvs. Writing output to file ./ldrh_reg.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldrh_reg
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldr_imm_gen.pvs. Writing output to file ./ldr_imm_gen.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldr_imm_gen
+    Theory totals: 5 formulas, 5 attempted, 5 succeeded (1.34 s)
+
+Grand Totals: 5 proofs, 5 attempted, 5 succeeded (1.34 s)
+Processing ./ldr_man_test.pvs. Writing output to file ./ldr_man_test.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldr_man_test
+    Theory totals: 5 formulas, 5 attempted, 5 succeeded (0.38 s)
+
+Grand Totals: 5 proofs, 5 attempted, 5 succeeded (0.38 s)
+Processing ./ldr_reg_gen.pvs. Writing output to file ./ldr_reg_gen.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldr_reg_gen
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldrsb_imm.pvs. Writing output to file ./ldrsb_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldrsb_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldrsb_reg.pvs. Writing output to file ./ldrsb_reg.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldrsb_reg
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldrsh_imm.pvs. Writing output to file ./ldrsh_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldrsh_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldrsh_reg.pvs. Writing output to file ./ldrsh_reg.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldrsh_reg
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldrsw_imm.pvs. Writing output to file ./ldrsw_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldrsw_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldurb.pvs. Writing output to file ./ldurb.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldurb
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldur_gen.pvs. Writing output to file ./ldur_gen.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldur_gen
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ldxr.pvs. Writing output to file ./ldxr.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ldxr
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./log_shift.pvs. Writing output to file ./log_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory log_shift
+    Theory totals: 19 formulas, 19 attempted, 19 succeeded (3.95 s)
+
+Grand Totals: 19 proofs, 19 attempted, 19 succeeded (3.95 s)
+Processing ./LSL.pvs. Writing output to file ./LSL.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory LSL
+    Theory totals: 4 formulas, 4 attempted, 4 succeeded (0.13 s)
+
+ Proof summary for theory LSL_C
+    Theory totals: 3 formulas, 3 attempted, 3 succeeded (0.05 s)
+
+ Proof summary for theory LSR
+    Theory totals: 4 formulas, 4 attempted, 4 succeeded (0.07 s)
+
+ Proof summary for theory LSR_C
+    Theory totals: 4 formulas, 4 attempted, 4 succeeded (0.10 s)
+
+Grand Totals: 15 proofs, 15 attempted, 15 succeeded (0.35 s)
+
+Processing ./lslv.pvs. Writing output to file ./lslv.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory lslv
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./lsrv.pvs. Writing output to file ./lsrv.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory lsrv
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./madd.pvs. Writing output to file ./madd.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory madd
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./movewide.pvs. Writing output to file ./movewide.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory movewide
+    Theory totals: 11 formulas, 11 attempted, 11 succeeded (9.03 s)
+
+Grand Totals: 11 proofs, 11 attempted, 11 succeeded (9.03 s)
+Processing ./movk.pvs. Writing output to file ./movk.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory movk
+    Theory totals: 11 formulas, 11 attempted, 11 succeeded (8.12 s)
+
+Grand Totals: 11 proofs, 11 attempted, 11 succeeded (8.12 s)
+Processing ./movn.pvs. Writing output to file ./movn.summary
+Saving theory dependencies in directory pvsbin
+
+Proof summary for theory movn
+    Theory totals: 11 formulas, 11 attempted, 11 succeeded (8.12 s)
+
+Grand Totals: 11 proofs, 11 attempted, 10 succeeded (11.74 s)
+Processing ./movz.pvs. Writing output to file ./movz.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory movz
+    Theory totals: 11 formulas, 11 attempted, 11 succeeded (8.44 s)
+
+Grand Totals: 11 proofs, 11 attempted, 11 succeeded (8.44 s)
+Processing ./mrs.pvs. Writing output to file ./mrs.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory mrs
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.04 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.04 s)
+Processing ./msr_imm.pvs. Writing output to file ./msr_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory msr_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.03 s)
+Processing ./msr_reg.pvs. Writing output to file ./msr_reg.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory msr_reg
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.03 s)
+Processing ./msub.pvs. Writing output to file ./msub.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory msub
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.03 s)
+Processing ./nop.pvs. Writing output to file ./nop.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory nop
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.03 s)
+Processing ./not_implemented.pvs. Writing output to file ./not_implemented.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory not_implemented
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+Grand Totals: 0 proofs, 0 attempted, 0 succeeded (0.00 s)
+Processing ./Ones.pvs. Writing output to file ./Ones.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory Ones
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+Grand Totals: 0 proofs, 0 attempted, 0 succeeded (0.00 s)
+Processing ./orn_log_shift.pvs. Writing output to file ./orn_log_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory orn_log_shift
+    Theory totals: 19 formulas, 19 attempted, 19 succeeded (5.71 s)
+
+Grand Totals: 19 proofs, 19 attempted, 19 succeeded (5.71 s)
+Processing ./orr_log_imm.pvs. Writing output to file ./orr_log_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory orr_log_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.03 s)
+Processing ./orr_log_shift.pvs. Writing output to file ./orr_log_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory orr_log_shift
+    Theory totals: 19 formulas, 19 attempted, 19 succeeded (4.61 s)
+
+Grand Totals: 19 proofs, 19 attempted, 19 succeeded (4.61 s)
+Processing ./prfm_imm.pvs. Writing output to file ./prfm_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory prfm_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./rbit_int.pvs. Writing output to file ./rbit_int.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory rbit_int
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./Replicate.pvs. Writing output to file ./Replicate.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory Replicate
+    Theory totals: 5 formulas, 5 attempted, 5 succeeded (0.70 s)
+
+Grand Totals: 5 proofs, 5 attempted, 5 succeeded (0.70 s)
+
+Processing ./ret.pvs. Writing output to file ./ret.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ret
+    Theory totals: 13 formulas, 13 attempted, 13 succeeded (1.48 s)
+
+Grand Totals: 13 proofs, 13 attempted, 13 succeeded (1.48 s)
+Processing ./rev16_int.pvs. Writing output to file ./rev16_int.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory rev16_int
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./rev.pvs. Writing output to file ./rev.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory rev
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ROR.pvs. Writing output to file ./ROR.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ROR
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.05 s)
+
+ Proof summary for theory ROR_C
+    Theory totals: 2 formulas, 2 attempted, 2 succeeded (0.30 s)
+
+Grand Totals: 3 proofs, 3 attempted, 3 succeeded (0.35 s)
+
+Processing ./rorv.pvs. Writing output to file ./rorv.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory rorv
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./sbfm.pvs. Writing output to file ./sbfm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory sbfm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./sdiv.pvs. Writing output to file ./sdiv.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory sdiv
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./sevl.pvs. Writing output to file ./sevl.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory sevl
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./sev.pvs. Writing output to file ./sev.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory sev
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./ShiftReg.pvs. Writing output to file ./ShiftReg.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ShiftReg
+    Theory totals: 5 formulas, 5 attempted, 5 succeeded (0.09 s)
+
+Grand Totals: 5 proofs, 5 attempted, 5 succeeded (0.09 s)
+
+Processing ./SignExtend.pvs. Writing output to file ./SignExtend.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory SignExtend
+    Theory totals: 2 formulas, 2 attempted, 2 succeeded (0.02 s)
+
+Grand Totals: 2 proofs, 2 attempted, 2 succeeded (0.02 s)
+
+Processing ./SInt.pvs. Writing output to file ./SInt.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory SInt
+    Theory totals: 7 formulas, 7 attempted, 7 succeeded (0.16 s)
+
+Grand Totals: 7 proofs, 7 attempted, 7 succeeded (0.16 s)
+
+Processing ./smaddl.pvs. Writing output to file ./smaddl.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory smaddl
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./stlrb.pvs. Writing output to file ./stlrb.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory stlrb
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./stlr.pvs. Writing output to file ./stlr.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory stlr
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./stlxr.pvs. Writing output to file ./stlxr.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory stlxr
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./stp_fpsimd.pvs. Writing output to file ./stp_fpsimd.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory stp_fpsimd
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./stp_gen.pvs. Writing output to file ./stp_gen.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory stp_gen
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./strb_imm.pvs. Writing output to file ./strb_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory strb_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./strb_reg.pvs. Writing output to file ./strb_reg.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory strb_reg
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./strh_imm.pvs. Writing output to file ./strh_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory strh_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./strh_reg.pvs. Writing output to file ./strh_reg.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory strh_reg
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./STR_IMM_GEN_F92241C5.pvs. Writing output to file ./STR_IMM_GEN_F92241C5.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory STR_IMM_GEN_F92241C5
+    Theory totals: 4 formulas, 4 attempted, 4 succeeded (0.17 s)
+
+Grand Totals: 4 proofs, 4 attempted, 4 succeeded (0.17 s)
+Processing ./str_imm_gen.pvs. Writing output to file ./str_imm_gen.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory str_imm_gen
+    Theory totals: 5 formulas, 5 attempted, 5 succeeded (1.36 s)
+
+Grand Totals: 5 proofs, 5 attempted, 5 succeeded (1.36 s)
+Processing ./str_reg_gen.pvs. Writing output to file ./str_reg_gen.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory str_reg_gen
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.03 s)
+Processing ./sturb.pvs. Writing output to file ./sturb.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory sturb
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./stur_gen.pvs. Writing output to file ./stur_gen.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory stur_gen
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./sturh.pvs. Writing output to file ./sturh.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory sturh
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./stxr.pvs. Writing output to file ./stxr.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory stxr
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./sub_addsub_ext.pvs. Writing output to file ./sub_addsub_ext.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory sub_addsub_ext
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./sub_addsub_imm.pvs. Writing output to file ./sub_addsub_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory sub_addsub_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./sub_addsub_shift.pvs. Writing output to file ./sub_addsub_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory sub_addsub_shift
+    Theory totals: 8 formulas, 8 attempted, 8 succeeded (3.25 s)
+
+Grand Totals: 8 proofs, 8 attempted, 8 succeeded (3.25 s)
+Processing ./subs_addsub_ext.pvs. Writing output to file ./subs_addsub_ext.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory subs_addsub_ext
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./subs_addsub_imm.pvs. Writing output to file ./subs_addsub_imm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory subs_addsub_imm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./subs_addsub_shift.pvs. Writing output to file ./subs_addsub_shift.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory subs_addsub_shift
+    Theory totals: 9 formulas, 9 attempted, 9 succeeded (4.03 s)
+
+Grand Totals: 9 proofs, 9 attempted, 9 succeeded (4.03 s)
+Processing ./sys.pvs. Writing output to file ./sys.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory sys
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./tbnz.pvs. Writing output to file ./tbnz.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory tbnz
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./tbz.pvs. Writing output to file ./tbz.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory tbz
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./top.pvs. Writing output to file ./top.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory top
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+Grand Totals: 0 proofs, 0 attempted, 0 succeeded (0.00 s)
+Processing ./ubfm.pvs. Writing output to file ./ubfm.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ubfm
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./udiv.pvs. Writing output to file ./udiv.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory udiv
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./UInt.pvs. Writing output to file ./UInt.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory UInt
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+Grand Totals: 0 proofs, 0 attempted, 0 succeeded (0.00 s)
+Processing ./umaddl.pvs. Writing output to file ./umaddl.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory umaddl
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./umulh.pvs. Writing output to file ./umulh.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory umulh
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./wfe.pvs. Writing output to file ./wfe.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory wfe
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.02 s)
+Processing ./wfi.pvs. Writing output to file ./wfi.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory wfi
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.03 s)
+Processing ./ZeroExtend.pvs. Writing output to file ./ZeroExtend.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory ZeroExtend
+    Theory totals: 1 formulas, 1 attempted, 1 succeeded (0.03 s)
+
+Grand Totals: 1 proofs, 1 attempted, 1 succeeded (0.03 s)
+
+Processing ./Zeros.pvs. Writing output to file ./Zeros.summary
+Saving theory dependencies in directory pvsbin
+
+ Proof summary for theory Zeros
+    Theory totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+Grand Totals: 0 proofs, 0 attempted, 0 succeeded (0.00 s)
+PVS_LIBRARY_PATH=/home/ssrgv/Desktop/pvs-alegro/pvs-7.0.639/nasalib:/home/ssrgv/Desktop/pvs-alegro/pvs-7.0.639/Renee/RSL/presentation/mostimportantfilesforthisweek/rsl:/home/ssrgv/Desktop/pvs-alegro/pvs-7.0.639/Renee/RSL/presentation/mostimportantfilesforthisweek
+add_addsub_ext.pvs       [OK: 1 proofs]
+add_addsub_imm.pvs       [OK: 1 proofs]
+add_addsub_shift.pvs     [OK: 9 proofs]
+ADDS_ADDSUB_IMM_B11BB997.pvs[OK: 7 proofs]
+adds_addsub_imm.pvs      [OK: 1 proofs]
+adds_addsub_shift.pvs    [OK: 9 proofs]
+addsub_imm.pvs           [OK: 11 proofs]
+addsub_shift.pvs         [OK: 8 proofs]
+AddWithCarry1.pvs        [OK: 8 proofs]
+adr_man_test.pvs         [OK: 5 proofs]
+adrp.pvs                 [OK: 3 proofs]
+adr.pvs                  [OK: 3 proofs]
+and_log_imm.pvs          [OK: 16 proofs]
+and_log_shift.pvs        [OK: 19 proofs]
+ands_log_imm.pvs         [OK: 1 proofs]
+ands_log_shift.pvs       [OK: 19 proofs]
+arm_state.pvs            [OK: 3 proofs]
+ASR.pvs                  [OK: 5 proofs]
+asrv.pvs                 [OK: 1 proofs]
+AuthAI.pvs               [OK: 0 proofs]
+AuthIA.pvs               [OK: 0 proofs]
+AuthIB.pvs               [OK: 0 proofs]
+Basic_ASL_Function.pvs   [OK: 1 proofs]
+Basic_ASL_Types.pvs      [OK: 0 proofs]
+b_cond.pvs               [OK: 2 proofs]
+bfm.pvs                  [OK: 1 proofs]
+bic_log_shift.pvs        [OK: 19 proofs]
+bics_log_shift.pvs       [OK: 19 proofs]
+bics.pvs                 [OK: 1 proofs]
+bl.pvs                   [OK: 1 proofs]
+blr.pvs                  [OK: 1 proofs]
+BranchTo.pvs             [OK: 1 proofs]
+br.pvs                   [OK: 14 proofs]
+bt.pvs                   [OK: 0 proofs]
+bts.pvs                  [OK: 2 proofs]
+b_uncond.pvs             [OK: 5 proofs]
+cbnz.pvs                 [OK: 5 proofs]
+cbz.pvs                  [OK: 5 proofs]
+ccmn_imm.pvs             [OK: 1 proofs]
+ccmp_imm.pvs             [OK: 1 proofs]
+ccmp_reg.pvs             [OK: 1 proofs]
+check_carry.pvs          [OK: 5 proofs]
+clz_int.pvs              [OK: 1 proofs]
+ConditionHolds.pvs       [OK: 9 proofs]
+csel.pvs                 [OK: 1 proofs]
+csinc.pvs                [OK: 1 proofs]
+csinv.pvs                [OK: 1 proofs]
+csneg.pvs                [OK: 1 proofs]
+DecodeBitmask.pvs        [OK: 0 proofs]
+DecodeShift.pvs          [OK: 4 proofs]
+dmb.pvs                  [OK: 1 proofs]
+dsb.pvs                  [OK: 1 proofs]
+eon_log_shift.pvs        [OK: 19 proofs]
+eor_log_imm.pvs          [OK: 1 proofs]
+eor_log_shift.pvs        [OK: 19 proofs]
+eret.pvs                 [OK: 1 proofs]
+extr.pvs                 [OK: 1 proofs]
+field.pvs                [OK: 2 proofs]
+isb.pvs                  [OK: 1 proofs]
+IsZeroBit.pvs            [OK: 2 proofs]
+IsZero.pvs               [OK: 1 proofs]
+ldarb.pvs                [OK: 1 proofs]
+ldar.pvs                 [OK: 1 proofs]
+ldaxr.pvs                [OK: 1 proofs]
+ldp_fpsimd.pvs           [OK: 1 proofs]
+ldp_gen.pvs              [OK: 1 proofs]
+ldpsw.pvs                [OK: 1 proofs]
+ldrb_imm.pvs             [OK: 5 proofs]
+ldrb_reg.pvs             [OK: 1 proofs]
+ldrh_imm.pvs             [OK: 1 proofs]
+ldrh_reg.pvs             [OK: 1 proofs]
+ldr_imm_gen.pvs          [OK: 5 proofs]
+ldr_man_test.pvs         [OK: 5 proofs]
+ldr_reg_gen.pvs          [OK: 1 proofs]
+ldrsb_imm.pvs            [OK: 1 proofs]
+ldrsb_reg.pvs            [OK: 1 proofs]
+ldrsh_imm.pvs            [OK: 1 proofs]
+ldrsh_reg.pvs            [OK: 1 proofs]
+ldrsw_imm.pvs            [OK: 1 proofs]
+ldurb.pvs                [OK: 1 proofs]
+ldur_gen.pvs             [OK: 1 proofs]
+ldxr.pvs                 [OK: 1 proofs]
+log_shift.pvs            [OK: 19 proofs]
+LSL.pvs                  [OK: 15 proofs]
+lslv.pvs                 [OK: 1 proofs]
+lsrv.pvs                 [OK: 1 proofs]
+madd.pvs                 [OK: 1 proofs]
+movewide.pvs             [OK: 11 proofs]
+movk.pvs                 [OK: 11 proofs]
+movn.pvs                 [OK: 11 proofs]
+movz.pvs                 [OK: 11 proofs]
+mrs.pvs                  [OK: 1 proofs]
+msr_imm.pvs              [OK: 1 proofs]
+msr_reg.pvs              [OK: 1 proofs]
+msub.pvs                 [OK: 1 proofs]
+nop.pvs                  [OK: 1 proofs]
+not_implemented.pvs      [OK: 0 proofs]
+Ones.pvs                 [OK: 0 proofs]
+orn_log_shift.pvs        [OK: 19 proofs]
+orr_log_imm.pvs          [OK: 1 proofs]
+orr_log_shift.pvs        [OK: 19 proofs]
+prfm_imm.pvs             [OK: 1 proofs]
+rbit_int.pvs             [OK: 1 proofs]
+Replicate.pvs            [OK: 5 proofs]
+ret.pvs                  [OK: 13 proofs]
+rev16_int.pvs            [OK: 1 proofs]
+rev.pvs                  [OK: 1 proofs]
+ROR.pvs                  [OK: 3 proofs]
+rorv.pvs                 [OK: 1 proofs]
+sbfm.pvs                 [OK: 1 proofs]
+sdiv.pvs                 [OK: 1 proofs]
+sevl.pvs                 [OK: 1 proofs]
+sev.pvs                  [OK: 1 proofs]
+ShiftReg.pvs             [OK: 5 proofs]
+SignExtend.pvs           [OK: 2 proofs]
+SInt.pvs                 [OK: 7 proofs]
+smaddl.pvs               [OK: 1 proofs]
+stlrb.pvs                [OK: 1 proofs]
+stlr.pvs                 [OK: 1 proofs]
+stlxr.pvs                [OK: 1 proofs]
+stp_fpsimd.pvs           [OK: 1 proofs]
+stp_gen.pvs              [OK: 1 proofs]
+strb_imm.pvs             [OK: 1 proofs]
+strb_reg.pvs             [OK: 1 proofs]
+strh_imm.pvs             [OK: 1 proofs]
+strh_reg.pvs             [OK: 1 proofs]
+STR_IMM_GEN_F92241C5.pvs [OK: 4 proofs]
+str_imm_gen.pvs          [OK: 5 proofs]
+str_reg_gen.pvs          [OK: 1 proofs]
+sturb.pvs                [OK: 1 proofs]
+stur_gen.pvs             [OK: 1 proofs]
+sturh.pvs                [OK: 1 proofs]
+stxr.pvs                 [OK: 1 proofs]
+sub_addsub_ext.pvs       [OK: 1 proofs]
+sub_addsub_imm.pvs       [OK: 1 proofs]
+sub_addsub_shift.pvs     [OK: 8 proofs]
+subs_addsub_ext.pvs      [OK: 1 proofs]
+subs_addsub_imm.pvs      [OK: 1 proofs]
+subs_addsub_shift.pvs    [OK: 9 proofs]
+sys.pvs                  [OK: 1 proofs]
+tbnz.pvs                 [OK: 1 proofs]
+tbz.pvs                  [OK: 1 proofs]
+top.pvs                  [OK: 0 proofs]
+ubfm.pvs                 [OK: 1 proofs]
+udiv.pvs                 [OK: 1 proofs]
+UInt.pvs                 [OK: 0 proofs]
+umaddl.pvs               [OK: 1 proofs]
+umulh.pvs                [OK: 1 proofs]
+wfe.pvs                  [OK: 1 proofs]
+wfi.pvs                  [OK: 1 proofs]
+ZeroExtend.pvs           [OK: 1 proofs]
+Zeros.pvs                [OK: 0 proofs]
+
+*** Grand Total: 538 proofs / 539 formulas. Missed: 1 formulas.

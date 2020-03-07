@@ -1,0 +1,18 @@
+tbnz[(IMPORTING arm_state) p: s]:THEORY
+
+	BEGIN
+
+	Diag: bvec[32]
+	addr: nat
+	IMPORTING bts[32], bt[32]
+
+	diag: Type+ = [# b5: bvec[1], Fixed1: bvec[6], op: bvec[1], b40: bvec[5], imm14: bvec[14], Rt: bvec[5] ,length: {n: nat|n = 32} #]
+	D: diag
+	v: diag = D with [ b5:= bt(Diag, 31 ) ,Fixed1:= bts(Diag, 25, 30 ) ,op:= bt(Diag, 24 ) ,b40:= bts(Diag, 19, 23 ) ,imm14:= bts(Diag, 5, 18 ) ,Rt:= bts(Diag, 0, 4 ) , length:= 32 ]
+
+%|- diag_TCC* : PROOF (inst 1 "(# b5:= lambda(i:below(1)):false, Fixed1:= lambda(i:below(6)):false, op:= lambda(i:below(1)):false, b40:= lambda(i:below(5)):false, imm14:= lambda(i:below(14)):false, Rt:= lambda(i:below(5)):false, length:= 32 #)") QED
+
+	%ASL constants declarations
+
+	  post: s = p
+END tbnz 

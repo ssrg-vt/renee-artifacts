@@ -1,0 +1,4 @@
+; While compiling #'_IsZero_0 at top level:
+Warning: Variable i is never used.
+; While compiling #'IsZero!_0 at top level:
+Warning: Variable i is never used.

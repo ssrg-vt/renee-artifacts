@@ -1,0 +1,14 @@
+Replicate %[M:posnat, N:{n:posnat| mod(n,M) = 0 } ]
+		: THEORY
+
+  BEGIN
+
+  % this will repeat n times. so use carefully, as in ASL M is a divisor of N( N can be 64). let N = n*M <=> N = mod(M) = 0
+  %  
+  Replicate(n: nat, M: nat, x: bvec[M]): Recursive bvec[ n*M ] = IF n = 0 then lambda(i:below(0)):false
+  		      		       		               ELSE x o Replicate(n-1, M , x )
+						               ENDIF Measure n 
+
+  
+  %Replicate(bvec[M] x):bvec[N] = Replicate(x, N/M)
+  END Replicate

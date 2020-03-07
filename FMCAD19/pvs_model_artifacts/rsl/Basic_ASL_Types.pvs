@@ -1,0 +1,204 @@
+Basic_ASL_Types  % [ parameters ]
+		: THEORY
+
+  BEGIN
+  
+Importing arm_state
+
+ShiftType: Type+  = { ShiftType_LSL, ShiftType_LSR, ShiftType_ASR, ShiftType_ROR }
+
+MoveWideOp: Type+ = { MoveWideOp_N, MoveWideOp_Z, MoveWideOp_K }
+
+ArchVersion: TYPE+ = { ARMv8p0 , ARMv8p1 , ARMv8p2 , ARMv8p3 }
+
+BranchType : TYPE+ = { BranchType_CALL, BranchType_ERET, BranchType_DBGEXIT, BranchType_RET,
+                      BranchType_JMP, BranchType_EXCEPTION, BranchType_UNKNOWN }
+
+
+LogicalOp : TYPE = { LogicalOp_EOR, LogicalOp_ORR, LogicalOp_AND }
+
+
+Fault   : TYPE+ =   { Fault_None, Fault_AccessFlag, Fault_Alignment, Fault_Background, Fault_Domain, Fault_Permission, Fault_Translation, Fault_AddressSize, Fault_SyncExternal, Fault_SyncExternalOnWalk,                       Fault_SyncParity, Fault_SyncParityOnWalk, Fault_AsyncParity, Fault_AsyncExternal, Fault_Debug, Fault_TLBConflict, Fault_Lockdown, Fault_Exclusive, Fault_ICacheMaint}
+
+%AccType : TYPE+ =   { AccType_NORMAL , AccType_VEC      , % Normal loads and stores
+%                      AccType_STREAM , AccType_VECSTREAM, % Streaming loads and stores
+%		      AccType_ATOMIC , AccType_ATOMICRW , % Atomic loads and stores
+%		      AccType_ORDERED, AccType_ORDEREDRW, % Load-Acquire and Store-Release
+%		      AccType_LIMITEDORDERED,             % Load-LOAcquire and Store-LORelease
+%		      AccType_UNPRIV,                     % Load and store unprivileged
+%		      AccType_IFETCH,                     % Instruction fetch
+%		      AccType_PTW,                        % Page table walk
+%                      // Other operations
+%		      AccType_DC,                         % Data cache maintenance
+%		      AccType_IC,                         % Instruction cache maintenance
+%		      AccType_DCZVA,                      % DC ZVA instructions
+%		      AccType_AT                        } %  Address translation
+
+
+FaultRecord : TYPE = 
+[# typ      : Fault   ,  % Fault Status
+   acctype  : AccType ,  %  Type of access that faulted
+   ipaddress: bvec[52],  %  Intermediate physical address
+   s2fs1walk: bool    ,  % Is on a Stage 1 page table walk
+   write    : bool    ,  % TRUE for a write, FALSE for a read
+   level    : int     ,  % For translation, access flag and permission faults
+   extflag  : bvec[1] ,  % it was bit so it can be bool// IMPLEMENTATION DEFINED syndrome for external aborts
+   secondstage: bool  ,  % Is a Stage 2 abort
+   domain   : bvec[4] ,  % Domain number,AArch32 only
+   errortype: bvec[2] ,  % [ARMv8.2 RAS] AArch32 AET or AArch64 SET
+   debugmoe : bvec[4] #] %  Debug method of entry, from AArch32 only
+
+
+MemType      : Type+ = {MemType_Normal, MemType_Device}
+
+MemOp        : Type+ = {MemOp_LOAD, MemOp_STORE, MemOp_PREFETCH}
+
+DeviceType   : Type+ = {DeviceType_GRE, DeviceType_nGRE, DeviceType_nGnRE, DeviceType_nGnRnE}
+
+MemAttrHints : Type+ = [#  attrs     : bvec[2],% // The possible encodings for each attributes field are as below
+	                   hints     : bvec[2],% // The possible encodings for the hints are below
+			   transient : bool #]
+
+MemoryAttributes : TYPE = [# typ      : MemType ,
+                             device   : DeviceType ,   % For Device memory types
+			     inner    : MemAttrHints , % Inner hints and attributes
+			     outer    : MemAttrHints , % Outer hints and attributes
+			     shareable: bool ,
+			     outershareable: bool  #]
+
+FullAddress : TYPE = [# physicaladdress : bvec[52],
+                        NS :bvec[1]  % it was bit so it can be bool, '0' = Secure, '1' = Non-secure
+		     #]
+
+AddressDescriptor : TYPE = [#   fault    : FaultRecord, 
+                                memattrs : MemoryAttributes,
+                                paddress : FullAddress,
+                                vaddress : bvec[64]   #]
+
+
+
+AccessDescriptor : TYPE = [# acctype        : AccType,
+ 		             page_table_walk: bool,
+			     secondstage    : bool,
+			     s2fs1walk      : bool,
+			     level          : int #]
+
+
+DescriptorUpdate : TYPE = [#
+                           AF       : bool,                % AF needs to be set
+                           AP       : bool,                % AP[2] / S2AP[2] will be modified
+                           descaddr : AddressDescriptor    % Descriptor to be updated
+                          #]
+
+Constraint : TYPE+ =
+                { %// General:
+                  Constraint_NONE, %// Instruction executes with no change or side-effect to its described behaviour
+		  Constraint_UNKNOWN, %// Destination register has UNKNOWN value
+		  Constraint_UNDEF, %// Instruction is UNDEFINED
+		  Constraint_UNDEFEL0, %// Instruction is UNDEFINED at EL0 only
+		  Constraint_NOP, %// Instruction executes as NOP
+		  Constraint_TRUE,
+		  Constraint_FALSE,
+		  Constraint_DISABLED,
+		  Constraint_UNCOND, %// Instruction executes unconditionally
+		  Constraint_COND, %// Instruction executes conditionally
+		  Constraint_ADDITIONAL_DECODE, %// Instruction executes with additional decode
+	         %// Load-store:
+		  Constraint_WBSUPPRESS,
+		  Constraint_FAULT, %// IPA too large
+		  Constraint_FORCE,
+		  Constraint_FORCENOSLCHECK
+		}
+
+
+Unpredictable : TYPE+ = {%// Writeback/transfer register overlap (load):
+                        Unpredictable_WBOVERLAPLD,
+			%// Writeback/transfer register overlap (store):
+			Unpredictable_WBOVERLAPST,
+			%// Load Pair transfer register overlap:
+			Unpredictable_LDPOVERLAP, 
+			%// Store-exclusive base/status register overlap
+			Unpredictable_BASEOVERLAP,
+			%// Store-exclusive data/status register overlap
+			Unpredictable_DATAOVERLAP,
+			%// Load-store alignment checks:
+			Unpredictable_DEVPAGE2,
+			%// Instruction fetch from Device memory
+			Unpredictable_INSTRDEVICE,
+			%// Reserved CPACR value
+			Unpredictable_RESCPACR,
+			%// Reserved MAIR value
+			Unpredictable_RESMAIR,
+			%// Reserved TEX:C:B value
+			Unpredictable_RESTEXCB,
+			%// Reserved PRRR value
+			Unpredictable_RESPRRR,
+			%// Reserved DACR field
+			Unpredictable_RESDACR,
+			%// Reserved VTCR.S value
+			Unpredictable_RESVTCRS,
+			%// Reserved TCR.TnSZ value
+			Unpredictable_RESTnSZ,
+			%// Out-of-range TCR.TnSZ value
+			Unpredictable_OORTnSZ,
+			%// IPA size exceeds PA size
+			Unpredictable_LARGEIPA,
+			%// Syndrome for a known-passing conditional A32 instruction
+			Unpredictable_ESRCONDPASS,
+			%// Illegal State exception: zero PSTATE.IT
+			Unpredictable_ILZEROIT,
+			%// Illegal State exception: zero PSTATE.T
+			Unpredictable_ILZEROT,
+			%// Debug: prioritization of Vector Catch
+			Unpredictable_BPVECTORCATCHPRI,
+			%// Debug Vector Catch: match on 2nd halfword 
+			Unpredictable_VCMATCHHALF,
+			%// Debug Vector Catch: match on Data Abort or Prefetch abort
+			Unpredictable_VCMATCHDAPA,
+			%// Debug watchpoints: non-zero MASK and non-ones BAS
+			Unpredictable_WPMASKANDBAS,
+			%// Debug watchpoints: non-contiguous BAS
+			Unpredictable_WPBASCONTIGUOUS,
+			%// Debug watchpoints: reserved MASK
+			Unpredictable_RESWPMASK,
+			%// Debug watchpoints: non-zero MASKed bits of address
+			Unpredictable_WPMASKEDBITS,
+			%// Debug breakpoints and watchpoints: reserved control bits
+			Unpredictable_RESBPWPCTRL,
+			%// Debug breakpoints: not implemented
+			Unpredictable_BPNOTIMPL,
+			%// Debug breakpoints: reserved type
+			Unpredictable_RESBPTYPE,
+			%// Debug breakpoints: not-context-aware breakpoint
+			Unpredictable_BPNOTCTXCMP,
+			%// Debug breakpoints: match on 2nd halfword of instruction
+			Unpredictable_BPMATCHHALF,
+			%// Debug breakpoints: mismatch on 2nd halfword of instruction
+			Unpredictable_BPMISMATCHHALF,
+			%// Debug: restart to a misaligned AArch32 PC value
+			Unpredictable_RESTARTALIGNPC,
+			%// Debug: restart to a not-zero-extended AArch32 PC value
+			Unpredictable_RESTARTZEROUPPERPC,
+			%// Zero top 32 bits of X registers in AArch32 state:
+			Unpredictable_ZEROUPPER,
+			%// Zero top 32 bits of PC on illegal return to AArch32 state
+			Unpredictable_ERETZEROUPPERPC,
+			%// Force address to be aligned when interworking branch to A32 state
+			Unpredictable_A32FORCEALIGNPC,
+			%// SMC disabled
+			Unpredictable_SMD,
+			%// Access Flag Update by HW
+			Unpredictable_AFUPDATE,
+			%// Consider SCTLR[].IESB in Debug state
+			Unpredictable_IESBinDebug,
+			%// No events selected in PMSEVFR_EL1
+			Unpredictable_ZEROPMSEVFR,
+			%// No operation type selected in PMSFCR_EL1
+			Unpredictable_NOOPTYPES,
+			%// Zero latency in PMSLATFR_EL1
+			Unpredictable_ZEROMINLATENCY,
+			%// Clearing DCC/ITR sticky flags when instruction is in flight
+			Unpredictable_CLEARERRITEZERO }
+
+
+  END Basic_ASL_Types

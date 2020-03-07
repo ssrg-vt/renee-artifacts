@@ -1,0 +1,35 @@
+ROR : THEORY
+
+  BEGIN
+  
+IMPORTING  ROR_C
+%  // ROR()
+%// =====
+ROR(N : subrange[1,64], x : bvec[N], shift : subrange[0 , N ] ) : bvec[N] =
+ %   assert shift >= 0;
+    if shift = 0 or shift = N then x 
+    else
+        proj_1(ROR_C(N ,x, shift))
+   endif
+
+  END ROR
+
+%Library pseudocode for shared/functions/common/ROR_C
+
+ROR_C : Theory
+
+ BEGIN
+ 
+%// ROR_C()
+
+IMPORTING LSL, LSR, field, bitvectors@bv_rotate 
+%// =======
+
+ROR_C(N : subrange[1,64], x : bvec[N] , shift : subrange[1, N - 1 ] ) : [ bvec[N], bool ] = %shift nzint 
+%    assert shift != 0;% 0 mod 5.
+       let m         = mod(shift, N) in 
+       let result    = rotate_right[N](shift, x) in    %LSL(N,x,N-m) in  %LSR(N,x,m) in %OR LSL(N,x,N-m) 
+       let carry_out = result(N-1) in 
+               (result, carry_out)
+   
+END ROR_C

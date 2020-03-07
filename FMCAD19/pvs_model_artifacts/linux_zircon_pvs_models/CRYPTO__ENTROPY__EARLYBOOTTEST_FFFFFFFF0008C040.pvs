@@ -1,0 +1,14 @@
+CRYPTO__ENTROPY__EARLYBOOTTEST_FFFFFFFF0008C040[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ret_0               : Theory =    ret               [ p0                       ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffffff0008c040 }}
+
+    B_post: s = ret_0.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END CRYPTO__ENTROPY__EARLYBOOTTEST_FFFFFFFF0008C040

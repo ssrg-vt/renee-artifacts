@@ -1,0 +1,15 @@
+(FIRST_ONLINE_PGDAT_FFFFFF80080E9578
+ (adrp_0_TCC1 0
+  (adrp_0_TCC1-1 nil 3765746755 ("" (eval-formula) nil) nil nil
+   (adrp_0 subtype "0b11110000000000000000011111000000"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (add_addsub_imm_1_TCC1 0
+  (add_addsub_imm_1_TCC1-1 nil 3765746755 ("" (eval-formula) nil) nil
+   nil
+   (add_addsub_imm_1 subtype "0b10010001001010100000000000000000"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (ret_2_TCC1 0
+  (ret_2_TCC1-1 nil 3765746755 ("" (eval-formula) nil) nil nil
+   (ret_2 subtype "0b11010110010111110000001111000000"
+    "naturalnumbers.below(exp2.exp2(32))"))))
+

@@ -1,0 +1,16 @@
+CLOCKSOURCE_DEFAULT_CLOCK_FFFFFF80081B5E28[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv [32] ( 0b10010000000000000000000101100000 ) , addr:= 0xffffff80081b5e28 }}
+    add_addsub_imm_1    : Theory =    add_addsub_imm    [ adrp_0.post              ]  {{Diag:= bv [32] ( 0b10010001000101100100000000000000 ) , addr:= 0xffffff80081b5e2c }}
+    ret_2               : Theory =    ret               [ add_addsub_imm_1.post    ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff80081b5e30 }}
+
+    B_post: s = ret_2.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END CLOCKSOURCE_DEFAULT_CLOCK_FFFFFF80081B5E28

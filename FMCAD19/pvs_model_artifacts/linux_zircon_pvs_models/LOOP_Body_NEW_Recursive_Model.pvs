@@ -1,0 +1,54 @@
+LOOP_Body_NEW_Recursive_Model [( IMPORTING state ) p : s, th2 : THEORY th1[p] ]
+		: THEORY
+
+  BEGIN
+
+
+importing  th1, th3
+
+ postfunc( i : below( p`source ) ): Recursive s =
+
+                      if i = 0 then th2.s1
+		      else  th1[ postfunc(i-1)].s2  
+                      endif
+                     Measure i
+        
+                      
+
+  END LOOP_Body_NEW_Recursive_Model
+
+
+th1 [( IMPORTING state ) p : s  ] : THEORY
+
+BEGIN
+
+s1 : s 
+
+s2 : s
+
+POST1 : TYPE = { p1 : s | p1 = s1 or p1 = s2 }  
+
+
+END th1
+
+
+th3 [( IMPORTING state ) p : s  ] : THEORY
+
+BEGIN
+
+s3 : s 
+
+s4 : s
+
+POST2 : TYPE = { p1 : s | p1 = s3 or p1 = s4 } 
+
+END th3
+
+
+state : THEORY
+
+BEGIN
+
+s : type+ = [# source: nat, dis: nat #]
+
+END state

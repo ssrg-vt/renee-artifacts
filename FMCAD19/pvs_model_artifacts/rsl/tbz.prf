@@ -1,0 +1,11 @@
+(tbz
+ (diag_TCC1 0
+  (diag_TCC1-1 nil 3767444821
+   (""
+    (inst 1
+     "(# b5:= lambda(i:below(1)):false, Fixed1:= lambda(i:below(6)):false, op:= lambda(i:below(1)):false, b40:= lambda(i:below(5)):false, imm14:= lambda(i:below(14)):false, Rt:= lambda(i:below(5)):false, length:= 32 #)")
+    nil)
+   nil nil
+   (diag existence ""
+    "[# b40: bv[5].bvec, b5: bv[1].bvec, Fixed1: bv[6].bvec, imm14: bv[14].bvec, length: {n: naturalnumbers.nat | n = 32}, op: bv[1].bvec, Rt: bv[5].bvec #]"))))
+

@@ -1,0 +1,31 @@
+adr_man_test : THEORY
+
+  BEGIN
+  
+ IMPORTING adr
+
+     X_sts : [ below(32) -> bvec[64] ]  = init`X  with [( 7 ) := bv[64](0b0110111011011101110111100000000000000000000000000000000000000000)]% Rd
+							 
+      p    :  s = init with [`X := X_sts ,`PC:= (# b := bv[64](0b0000000000000000100000000000000000000000000000000000000000000000), i := 65536 #)]% convert to bin and extend to 64 (fill with zero).
+
+      adr_1 : Theory = adr[p]{{ Diag := bv[32]( 0b11100010111010110111001100001100 ) , addr := 65536 }}
+
+      test1 : lemma let X_post =  p`X with [ ( 7 ) := bv[64](0b1001011101011011010111111111111111111111111111111111111111111111)] in
+
+          let p2     =  p with [`X := X_post ] in 
+
+                        adr_1.post`X( 7 ) = p2`X( 7 ) 
+
+                         
+
+%|- X_sts_TCC*      : PROOF
+%|- p_TCC1	    : PROOF
+%|- adr_1_TCC*      : PROOF
+%|- test1_TCC1      : PROOF (eval-formula)
+%|- QED
+
+%|- test1 : PROOF ( pc-related-addr )
+%|- QED
+
+
+  END adr_man_test

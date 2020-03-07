@@ -1,0 +1,15 @@
+MNTNS_OWNER_FFFFFF8008124BD0[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv [32] ( 0b11111001010000000001100000000000 ) , addr:= 0xffffff8008124bd0 }}
+    ret_1               : Theory =    ret               [ ldr_imm_gen_0.post       ]  {{Diag:= bv [32] ( 0b11010110010111110000001111000000 ) , addr:= 0xffffff8008124bd4 }}
+
+    B_post: s = ret_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END MNTNS_OWNER_FFFFFF8008124BD0

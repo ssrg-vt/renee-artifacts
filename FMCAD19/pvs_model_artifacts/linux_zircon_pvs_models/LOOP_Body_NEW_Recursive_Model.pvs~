@@ -1,0 +1,14 @@
+LOOP_Body_NEW_Recursive_Model %[ parameters ]
+		: THEORY
+
+  BEGIN
+
+importing Th1, Th2
+  
+
+  END LOOP_Body_NEW_Recursive_Model
+
+
+th1 [s : set[nat] ] : THEORY
+
+

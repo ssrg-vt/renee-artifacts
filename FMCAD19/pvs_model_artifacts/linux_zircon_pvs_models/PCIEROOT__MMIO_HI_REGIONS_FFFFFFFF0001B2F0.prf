@@ -1,0 +1,15 @@
+(PCIEROOT__MMIO_HI_REGIONS_FFFFFFFF0001B2F0
+ (ldr_imm_gen_0_TCC1 0
+  (ldr_imm_gen_0_TCC1-1 nil 3765754668 ("" (eval-formula) nil) nil nil
+   (ldr_imm_gen_0 subtype "0b11111001010001000010000000000000"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (add_addsub_imm_1_TCC1 0
+  (add_addsub_imm_1_TCC1-1 nil 3765754668 ("" (eval-formula) nil) nil
+   nil
+   (add_addsub_imm_1 subtype "0b10010001000001111000000000000000"
+    "naturalnumbers.below(exp2.exp2(32))")))
+ (ret_2_TCC1 0
+  (ret_2_TCC1-1 nil 3765754668 ("" (eval-formula) nil) nil nil
+   (ret_2 subtype "0b11010110010111110000001111000000"
+    "naturalnumbers.below(exp2.exp2(32))"))))
+

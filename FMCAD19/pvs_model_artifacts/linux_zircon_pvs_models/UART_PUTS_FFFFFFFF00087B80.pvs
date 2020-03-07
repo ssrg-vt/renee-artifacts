@@ -1,0 +1,17 @@
+UART_PUTS_FFFFFFFF00087B80[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    adrp_0              : Theory =    adrp              [ p0                       ]  {{Diag:= bv [32] ( 0b11110000000000000000010010000100 ) , addr:= 0xffffffff00087b80 }}
+    ldr_imm_gen_1       : Theory =    ldr_imm_gen       [ adrp_0.post              ]  {{Diag:= bv [32] ( 0b11111001010000001000010010000100 ) , addr:= 0xffffffff00087b84 }}
+    ldr_imm_gen_2       : Theory =    ldr_imm_gen       [ ldr_imm_gen_1.post       ]  {{Diag:= bv [32] ( 0b11111001010000000001000010000100 ) , addr:= 0xffffffff00087b88 }}
+    br_3                : Theory =    br                [ ldr_imm_gen_2.post       ]  {{Diag:= bv [32] ( 0b11010110000111110000000010000000 ) , addr:= 0xffffffff00087b8c }}
+
+    B_post: s = br_3.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END UART_PUTS_FFFFFFFF00087B80

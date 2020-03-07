@@ -1,0 +1,161 @@
+ Proof summary for theory ARCH_CPU_IDLE_DEAD_FFFFFF80080B65C8
+    ret_0_TCC1............................proved - complete   [shostak](0.01 s)
+    Theory ARCH_CPU_IDLE_DEAD_FFFFFF80080B65C8 totals: 1 formulas, 1 attempted, 1 succeeded (0.01 s)
+
+ Proof summary for theory ret
+    v_TCC1................................proved - complete   [shostak](0.00 s)
+    v_TCC2................................proved - complete   [shostak](0.00 s)
+    v_TCC3................................proved - complete   [shostak](0.00 s)
+    v_TCC4................................proved - complete   [shostak](0.00 s)
+    v_TCC5................................proved - complete   [shostak](0.00 s)
+    v_TCC6................................proved - complete   [shostak](0.00 s)
+    branch_typ_TCC1.......................proved - complete   [shostak](0.01 s)
+    branch_typ_TCC2.......................proved - complete   [shostak](0.01 s)
+    branch_typ_TCC3.......................proved - complete   [shostak](0.05 s)
+    sts1_TCC1.............................proved - complete   [shostak](0.10 s)
+    sts1_TCC2.............................proved - complete   [shostak](0.00 s)
+    sts1_TCC3.............................proved - complete   [shostak](0.54 s)
+    post_TCC1.............................proved - complete   [shostak](0.56 s)
+    Theory ret totals: 13 formulas, 13 attempted, 13 succeeded (1.29 s)
+
+ Proof summary for theory Basic_ASL_Function
+    HavePACExt_TCC1.......................proved - complete   [shostak](0.01 s)
+    Theory Basic_ASL_Function totals: 1 formulas, 1 attempted, 1 succeeded (0.01 s)
+
+ Proof summary for theory DecodeShift
+    DecodeShift_TCC1......................proved - complete   [shostak](0.00 s)
+    DecodeShift_TCC2......................proved - complete   [shostak](0.01 s)
+    DecodeShift_TCC3......................proved - complete   [shostak](0.00 s)
+    DecodeShift_TCC4......................proved - complete   [shostak](0.18 s)
+    Theory DecodeShift totals: 4 formulas, 4 attempted, 4 succeeded (0.20 s)
+
+ Proof summary for theory ShiftReg
+    ShiftReg_TCC1.........................proved - complete   [shostak](0.00 s)
+    ShiftReg_TCC2.........................proved - complete   [shostak](0.00 s)
+    ShiftReg_TCC3.........................proved - complete   [shostak](0.00 s)
+    ShiftReg_TCC4.........................proved - complete   [shostak](0.02 s)
+    ShiftReg_TCC5.........................proved - complete   [shostak](0.01 s)
+    Theory ShiftReg totals: 5 formulas, 5 attempted, 5 succeeded (0.04 s)
+
+ Proof summary for theory ASR
+    ASR_TCC1..............................proved - complete   [shostak](0.01 s)
+    Theory ASR totals: 1 formulas, 1 attempted, 1 succeeded (0.01 s)
+
+ Proof summary for theory ASR_C
+    ASR_C_TCC1............................proved - complete   [shostak](0.00 s)
+    ASR_C_TCC2............................proved - complete   [shostak](0.01 s)
+    ASR_C_TCC3............................proved - complete   [shostak](0.04 s)
+    ASR_C_TCC4............................proved - complete   [shostak](0.04 s)
+    Theory ASR_C totals: 4 formulas, 4 attempted, 4 succeeded (0.10 s)
+
+ Proof summary for theory SignExtend
+    SignExtend_TCC1.......................proved - complete   [shostak](0.00 s)
+    SignExtend_TCC2.......................proved - complete   [shostak](0.00 s)
+    Theory SignExtend totals: 2 formulas, 2 attempted, 2 succeeded (0.00 s)
+
+ Proof summary for theory Replicate
+    Replicate_TCC1........................proved - complete   [shostak](0.01 s)
+    Replicate_TCC2........................proved - complete   [shostak](0.48 s)
+    Replicate_TCC3........................proved - complete   [shostak](0.01 s)
+    Replicate_TCC4........................proved - complete   [shostak](0.00 s)
+    Replicate_TCC5........................proved - complete   [shostak](0.11 s)
+    Theory Replicate totals: 5 formulas, 5 attempted, 5 succeeded (0.61 s)
+
+ Proof summary for theory ROR
+    ROR_TCC1..............................proved - complete   [shostak](0.02 s)
+    Theory ROR totals: 1 formulas, 1 attempted, 1 succeeded (0.02 s)
+
+ Proof summary for theory ROR_C
+    ROR_C_TCC1............................proved - complete   [shostak](0.13 s)
+    ROR_C_TCC2............................proved - complete   [shostak](0.12 s)
+    Theory ROR_C totals: 2 formulas, 2 attempted, 2 succeeded (0.25 s)
+
+ Proof summary for theory LSL
+    LSL_TCC1..............................proved - complete   [shostak](0.02 s)
+    test_TCC1.............................proved - complete   [shostak](0.00 s)
+    test_TCC2.............................proved - complete   [shostak](0.01 s)
+    test..................................proved - complete   [shostak](0.05 s)
+    Theory LSL totals: 4 formulas, 4 attempted, 4 succeeded (0.08 s)
+
+ Proof summary for theory LSL_C
+    LSL_C_TCC1............................proved - complete   [shostak](0.00 s)
+    LSL_C_TCC2............................proved - complete   [shostak](0.04 s)
+    LSL_C_TCC3............................proved - complete   [shostak](0.00 s)
+    Theory LSL_C totals: 3 formulas, 3 attempted, 3 succeeded (0.04 s)
+
+ Proof summary for theory Zeros
+    Theory Zeros totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+ Proof summary for theory LSR
+    LSR_TCC1..............................proved - complete   [shostak](0.02 s)
+    test2_TCC1............................proved - complete   [shostak](0.00 s)
+    test2_TCC2............................proved - complete   [shostak](0.01 s)
+    test2.................................proved - complete   [shostak](0.04 s)
+    Theory LSR totals: 4 formulas, 4 attempted, 4 succeeded (0.06 s)
+
+ Proof summary for theory LSR_C
+    LSR_C_TCC1............................proved - complete   [shostak](0.00 s)
+    LSR_C_TCC2............................proved - complete   [shostak](0.00 s)
+    LSR_C_TCC3............................proved - complete   [shostak](0.04 s)
+    LSR_C_TCC4............................proved - complete   [shostak](0.04 s)
+    Theory LSR_C totals: 4 formulas, 4 attempted, 4 succeeded (0.09 s)
+
+ Proof summary for theory AuthIA
+    Theory AuthIA totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+ Proof summary for theory AuthIB
+    Theory AuthIB totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+ Proof summary for theory BranchTo
+    Theory BranchTo totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+ Proof summary for theory Basic_ASL_Types
+    Theory Basic_ASL_Types totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+ Proof summary for theory arm_state
+    init_PSTATE_TCC1......................proved - complete   [shostak](0.02 s)
+    init_PSTATE_TCC2......................proved - complete   [shostak](0.01 s)
+    init_PSTATE_TCC3......................proved - complete   [shostak](0.00 s)
+    Theory arm_state totals: 3 formulas, 3 attempted, 3 succeeded (0.03 s)
+
+ Proof summary for theory AArch64_BranchAddr
+    Theory AArch64_BranchAddr totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+ Proof summary for theory SInt
+    SInt_TCC1.............................proved - complete   [shostak](0.01 s)
+    Sint_test3_TCC1.......................proved - complete   [shostak](0.02 s)
+    Sint_test3............................proved - complete   [shostak](0.04 s)
+    Sint_test4_TCC1.......................proved - complete   [shostak](0.01 s)
+    Sint_test4............................proved - complete   [shostak](0.01 s)
+    Sint_test5_TCC1.......................proved - complete   [shostak](0.01 s)
+    Sint_test5............................proved - complete   [shostak](0.01 s)
+    Theory SInt totals: 7 formulas, 7 attempted, 7 succeeded (0.09 s)
+
+ Proof summary for theory field
+    field_TCC1............................proved - complete   [shostak](0.04 s)
+    field_TCC2............................proved - complete   [shostak](0.04 s)
+    Theory field totals: 2 formulas, 2 attempted, 2 succeeded (0.08 s)
+
+ Proof summary for theory ZeroExtend
+    ZeroExtend_TCC1.......................proved - complete   [shostak](0.01 s)
+    Theory ZeroExtend totals: 1 formulas, 1 attempted, 1 succeeded (0.01 s)
+
+ Proof summary for theory reverse
+    reverse_TCC1..........................proved - complete   [shostak](0.00 s)
+    Theory reverse totals: 1 formulas, 1 attempted, 1 succeeded (0.00 s)
+
+ Proof summary for theory bts
+    bts_TCC1..............................proved - complete   [shostak](0.03 s)
+    bts_TCC2..............................proved - complete   [shostak](0.03 s)
+    Theory bts totals: 2 formulas, 2 attempted, 2 succeeded (0.06 s)
+
+ Proof summary for theory bt
+    Theory bt totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+ Proof summary for theory UInt
+    Theory UInt totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+ Proof summary for theory ARCH_CPU_IDLE_DEAD_MAIN
+    Theory ARCH_CPU_IDLE_DEAD_MAIN totals: 0 formulas, 0 attempted, 0 succeeded (0.00 s)
+
+Grand Totals: 70 proofs, 70 attempted, 70 succeeded (3.10 s)

@@ -1,0 +1,12 @@
+AuthIB  % [ parameters ]
+		: THEORY
+
+  BEGIN
+
+  % ASSUMING
+   % assuming declarations
+  % ENDASSUMING
+
+  AuthIB(X:bvec[64], Y: bvec[64]) : bvec[64] 
+
+  END AuthIB

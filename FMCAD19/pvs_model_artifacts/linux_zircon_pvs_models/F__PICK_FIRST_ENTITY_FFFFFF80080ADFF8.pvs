@@ -1,0 +1,15 @@
+F__PICK_FIRST_ENTITY_FFFFFF80080ADFF8[( IMPORTING arm_state ) p : s ] : THEORY 
+
+    BEGIN 
+
+
+    p0: s = init %  p
+
+    ldr_imm_gen_0       : Theory =    ldr_imm_gen       [ p0                       ]  {{Diag:= bv [32] ( 0b11111001010000000001110000000000 ) , addr:= 0xffffff80080adff8 }}
+    cbz_1               : Theory =    cbz               [ ldr_imm_gen_0.post       ]  {{Diag:= bv [32] ( 0b10110100000000000000000001100000 ) , addr:= 0xffffff80080adffc ,next:= 0xffffff80080ae008 ,fail:= 0xffffff80080ae000 }}
+
+    B_post: s = cbz_1.post
+
+    %|- *_TCC*: PROOF (eval-formula) QED
+
+END F__PICK_FIRST_ENTITY_FFFFFF80080ADFF8
