@@ -1,6 +1,6 @@
 # Renee
 
-## unicron-test-generation
+## unicorn-test-generation
 Test generation for ARM v8 functions for verification using PVS.
 
 ## Project setup Instructions
